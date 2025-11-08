@@ -6,9 +6,6 @@ import './Exam.css';
 const PrivateExams = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [exams, setExams] = useState([]);
-  const expandableRefs = useRef([]);
-  const cardRefs = useRef([]);
-  const buttonRefs = useRef([]);
 
   const categories = [
     'Core Engineering',

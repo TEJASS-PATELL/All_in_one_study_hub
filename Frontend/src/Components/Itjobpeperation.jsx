@@ -21,7 +21,9 @@ export default function Itjobpeperation() {
 
         <div className="dashboard-grid">
           <div className="dashboard-widget">
-            <FaPuzzlePiece />
+            <div className="preparation-icon">
+              <FaPuzzlePiece />
+            </div>
             <h3 className="widget-title">IT Role Matcher</h3>
             <p className="widget-text">
               Not sure where to start? Explore how your skills fit into today’s top tech careers — and uncover personalized paths for future-ready IT journey.
@@ -30,7 +32,9 @@ export default function Itjobpeperation() {
           </div>
 
           <div className="dashboard-widget">
-            <LuRoute />
+            <div className="preparation-icon">
+              <LuRoute />
+            </div>
             <h3 className="widget-title">
               Jobs Roadmap
             </h3>
@@ -42,7 +46,10 @@ export default function Itjobpeperation() {
           </div>
 
           <div className="dashboard-widget">
-            <FaBriefcase />
+            <div className="preparation-icon">
+              <FaBriefcase />
+            </div>
+
             <h3 className="widget-title">
               Top Hiring Platforms
             </h3>
@@ -53,7 +60,10 @@ export default function Itjobpeperation() {
           </div>
 
           <div className="dashboard-widget">
-            <FaCodeBranch className="widget-icon" />
+             <div className="preparation-icon">
+              <FaCodeBranch />
+            </div>
+            
             <h3 className="widget-title">IT Job Resources</h3>
             <p className="widget-text">
               Explore top platforms for resume building, coding practice, aptitude prep, mock interviews, and open-source contributions.

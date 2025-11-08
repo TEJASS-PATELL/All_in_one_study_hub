@@ -43,8 +43,8 @@ const PrivateTop = () => {
 
       <section className="top-stats">
         <div className="top-stat-card">
-          <p className="top-stat-value">50+</p>
-          <p className="top-stat-label">Job Industries</p>
+          <p className="top-stat-value">40+</p>
+          <p className="top-stat-label">Job Details</p>
         </div>
         <div className="top-stat-card">
           <p className="top-stat-value">10,000+</p>

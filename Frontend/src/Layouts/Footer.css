@@ -4,8 +4,8 @@
 } 
 
 .footer {
-    background: white; /* changed from black to white */
-    color: black;      /* black text on white background */
+    background: white; 
+    color: black;   
     padding: 30px 20px;
     position: relative;
 }
