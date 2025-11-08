@@ -1,12 +1,8 @@
 .career-dashboard {
-  background: #ffffff;
-  color: #000000;
-  padding: 80px 20px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  background-color: #ffffff;
+  padding: 100px 20px;
+  margin: 0 auto;
+  max-width: 1750px;
 }
 
 .float-icon-containerr {
@@ -29,11 +25,6 @@
   margin-bottom: 1rem;
 }
 
-.it-dashboard-container {
-  max-width: 1750px;
-  margin: 0 auto;
-}
-
 .dashboard-title {
   font-size: 3.5rem;
   margin-bottom: 10px;
@@ -47,8 +38,9 @@
 }
 
 .dashboard-grid {
+  margin-top: 120px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -89,6 +81,30 @@
   color: #000000;
   line-height: 1.5;
   margin-bottom: 20px;
+}
+
+.it-section-title {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.it-section-title h2 {
+  margin-top: 10px;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.1;
+}
+
+.it-section-title p {
+  font-size: 1.5rem;
+  color: #000000;
+  opacity: 0.85;
+  margin-top: 8px;
+  max-width: 1000px;
 }
 
 .widget-btn {
