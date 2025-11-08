@@ -1,5 +1,5 @@
 import './ITJobresources.css';
-import { FaBook, FaCalculator, FaClipboardCheck, FaClock, FaCogs, FaComments, FaDatabase, FaGlobe, FaUserTie } from 'react-icons/fa';
+import { FaBook, FaCalculator, FaClipboardCheck, FaClock, FaCodeBranch, FaCogs, FaComments, FaDatabase, FaGlobe, FaUserTie } from 'react-icons/fa';
 import { FaFileAlt, FaCode, FaWrench, FaLaptopCode, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md';
 
@@ -171,6 +171,48 @@ const mockInterviewPlatforms = [
         features: ['FAANG engineers', 'Paid sessions', 'Career advice'],
     },
 ];
+const openSourceContributionPlatforms = [
+    {
+        name: 'GitHub',
+        url: 'https://github.com/trending',
+        description: 'Discover and contribute to open-source projects across various technologies.',
+        features: [
+            'Find projects by language or topic',
+            'Collaborate with other developers',
+            'Track contributions and pull requests',
+        ],
+    },
+    {
+        name: 'OpenSox',
+        url: 'https://www.opensox.in',
+        description: 'Platform to contribute to open-source software and community-driven projects.',
+        features: [
+            'Browse projects by category',
+            'Participate in collaborative coding',
+            'Mentorship opportunities',
+        ],
+    },
+    {
+        name: 'Algora',
+        url: 'https://algora.io',
+        description: 'Open-source community for developers to work on AI and algorithm-based projects.',
+        features: [
+            'AI & algorithm-focused projects',
+            'Community discussions and code reviews',
+            'Learning resources for contributors',
+        ],
+    },
+    {
+        name: 'Discord',
+        url: 'https://discord.com/',
+        description: 'Join developer communities and open-source servers to collaborate.',
+        features: [
+            'Real-time chat with developers',
+            'Open-source project communities',
+            'Event announcements and coding sessions',
+        ],
+    },
+];
 
 const ITJobresources = () => {
     return (
@@ -179,6 +221,7 @@ const ITJobresources = () => {
             <p className="jobresources-subheading">
                 Explore the most effective platforms for resume building, interview prep, upskilling, and job search — all in one place.
             </p>
+
             <section className="resources-section">
                 <h2 className="section-heading"><FaFileAlt /> Top Resume Platforms</h2>
                 <div className="card-jobresources">
@@ -200,7 +243,6 @@ const ITJobresources = () => {
                     <strong>Note:</strong> Always keep your resume simple, clean, and ATS-friendly. Avoid fancy designs unless you're applying for a creative role.
                 </p>
             </section>
-
 
             <section className="resources-section">
                 <h2 className="section-heading"><FaCode /> Top Coding Practice Platforms</h2>
@@ -224,8 +266,6 @@ const ITJobresources = () => {
                     <strong>Note:</strong> Focus on <strong>quality over quantity</strong>. Solve fewer questions but understand the <strong>pattern</strong> deeply. Learn how to approach problems, not just memorize solutions.
                 </p>
             </section>
-
-
 
             <section className="resources-section">
                 <h2 className="section-heading"><FaCalculator /> Aptitude Practice Platforms</h2>
@@ -271,6 +311,29 @@ const ITJobresources = () => {
                     <strong>Note:</strong> Mock interviews help reduce fear and improve communication. Don’t wait to feel “ready” — start practicing early to build real confidence.
                 </p>
             </section>
+
+            <section className="resources-section">
+                <h2 className="section-heading"><FaCodeBranch /> Open Source Contribution Platforms</h2>
+                <div className="card-jobresources">
+                    {openSourceContributionPlatforms.map((item, index) => (
+                        <div className="jobresourcescard" key={index}>
+                            <h3>{item.name}</h3>
+                            <p>{item.description}</p>
+                            <ul className="jobresources-features">
+                                {item.features.map((point, i) => (
+                                    <li key={i}>{point}</li>
+                                ))}
+                            </ul>
+                            <a href={item.url} target="_blank" rel="noopener noreferrer">Visit</a>
+                        </div>
+                    ))}
+                </div>
+
+                <p className="mock-note">
+                    <strong>Note:</strong> Contributing to open-source projects not only improves your coding skills, but also builds your portfolio and strengthens your collaborative experience.
+                </p>
+            </section>
+
             <section className="main-resources-section">
                 <h2 className="section-heading"><MdWork /> Most Important Things</h2>
                 <ul>
@@ -290,6 +353,7 @@ const ITJobresources = () => {
                 </ul>
 
             </section>
+
         </div>
     );
 };
