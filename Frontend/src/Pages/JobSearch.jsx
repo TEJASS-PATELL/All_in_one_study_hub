@@ -65,7 +65,10 @@ function JobSearch() {
               </div>
               <div className="G-card-body">
                 <h3 className="G-card-title">Private Jobs</h3>
-                <p className="G-card-text">Discover opportunities in various private sector fields with competitive salaries and growth potential.</p>
+                <p className="G-card-text">
+                  Discover exciting opportunities in various private sector fields with competitive salaries and strong growth potential.
+                </p>
+
                 <NavLink to="/private-jobs" className="G-btn btn-primary">
                   Explore <i className="fas fa-arrow-right btn-icon"></i>
                 </NavLink>
@@ -78,7 +81,10 @@ function JobSearch() {
               </div>
               <div className="G-card-body">
                 <h3 className="G-card-title">Remote Jobs</h3>
-                <p className="G-card-text">Work from anywhere with flexible schedules and global opportunities from leading and top companies.</p>
+                <p className="G-card-text">
+                  Work comfortably from anywhere with flexible schedules and global opportunities from leading top-tier companies.
+                </p>
+
                 <NavLink to="/it-jobs" className="G-btn btn-primary">
                   Explore <i className="fas fa-arrow-right btn-icon"></i>
                 </NavLink>
@@ -91,7 +97,10 @@ function JobSearch() {
               </div>
               <div className="G-card-body">
                 <h3 className="G-card-title">Foreign Jobs</h3>
-                <p className="G-card-text">Apply for international roles in tech, healthcare, finance, and more. Open doors to a global career today.</p>
+                <p className="G-card-text">
+                  Apply confidently for international roles in tech, healthcare, finance, and more. Open doors to an exciting global career today.
+                </p>
+
                 <NavLink to="/foreign-jobs" className="G-btn btn-primary">
                   Explore <i className="fas fa-arrow-right btn-icon"></i>
                 </NavLink>
@@ -112,7 +121,7 @@ function JobSearch() {
               </div>
               <h3 className="feature-title">Multiple Job Platforms</h3>
               <p className="feature-text">
-                Explore opportunities from various platforms — whether IT, private, or government sectors — all in one place.
+                Explore exciting career opportunities from various platforms whether IT, private, or government sectors — all in one convenient place.
               </p>
             </div>
 
@@ -132,7 +141,7 @@ function JobSearch() {
               </div>
               <h3 className="feature-title">Practice Platforms</h3>
               <p className="feature-text">
-                Improve your readiness with mock tests, quizzes, and practice sections designed for government exams.
+                Boost your exam readiness with comprehensive mock tests, quizzes, and practice sections designed for government and competitive exams.
               </p>
             </div>
 
