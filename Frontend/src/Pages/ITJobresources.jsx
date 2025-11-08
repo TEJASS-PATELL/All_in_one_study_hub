@@ -47,7 +47,7 @@ const resumePlatforms = [
     {
         name: 'Enhancv',
         url: 'https://enhancv.com/',
-        description: 'Creative and personalized resume builder.',
+        description: 'Creative and highly personalized resume builder.',
         features: [
             'Visual & unique layout options',
             'Soft skills section',
@@ -149,21 +149,22 @@ const mockInterviewPlatforms = [
     {
         name: 'Pramp',
         url: 'https://www.pramp.com/',
-        description: 'Free live peer-to-peer interviews.',
+        description: 'Free live peer-to-peer coding practice interviews.',
         features: ['Live sessions', 'Data structures & system design', 'Free'],
     },
     {
         name: 'Exercism',
         url: 'https://exercism.org/',
-        description: 'Coding practice with mentoring.',
+        description: 'Coding practice with personalized mentoring.',
         features: ['Mentor feedback', 'Real code reviews', 'Structured tracks'],
     },
     {
         name: 'Gainlo',
         url: 'https://blog.gainlo.co/',
-        description: 'Interview tips and mock interview advice.',
+        description: 'Interview tips and practical mock interview advice.',
         features: ['Interview insights', 'Strategy tips', 'Free resources'],
     },
+
     {
         name: 'TechMockInterview',
         url: 'https://www.techmockinterview.com/',
@@ -209,9 +210,20 @@ const openSourceContributionPlatforms = [
         features: [
             'Real-time chat with developers',
             'Open-source project communities',
-            'Event announcements and coding sessions',
+            'Coding events & sessions',
         ],
     },
+    {
+        name: 'Twitter(X)',
+        url: 'https://twitter.com/',
+        description: 'Follow open-source developers and communities to stay updated.',
+        features: [
+            'Discover projects & developers',
+            'Join open-source discussions',
+            'Share your contributions and updates',
+        ],
+    }
+
 ];
 
 const ITJobresources = () => {
@@ -239,7 +251,7 @@ const ITJobresources = () => {
                     ))}
                 </div>
 
-                <p className="resume-note">
+                <p className="note resume-note">
                     <strong>Note:</strong> Always keep your resume simple, clean, and ATS-friendly. Avoid fancy designs unless you're applying for a creative role.
                 </p>
             </section>
@@ -261,8 +273,7 @@ const ITJobresources = () => {
                     ))}
                 </div>
 
-                {/* ✅ Note: Learning tip */}
-                <p className="coding-note">
+                <p className="note coding-note">
                     <strong>Note:</strong> Focus on <strong>quality over quantity</strong>. Solve fewer questions but understand the <strong>pattern</strong> deeply. Learn how to approach problems, not just memorize solutions.
                 </p>
             </section>
@@ -284,8 +295,7 @@ const ITJobresources = () => {
                     ))}
                 </div>
 
-                {/* ✅ Aptitude Learning Tip */}
-                <p className="aptitude-note">
+                <p className="note aptitude-note">
                     <strong>Note:</strong> Don't just memorize formulas — understand the logic behind each topic like percentages, ratios, or time & work. Practice with a timer and focus on improving speed + accuracy.
                 </p>
             </section>
@@ -307,7 +317,7 @@ const ITJobresources = () => {
                     ))}
                 </div>
 
-                <p className="mock-note">
+                <p className="note mock-note">
                     <strong>Note:</strong> Mock interviews help reduce fear and improve communication. Don’t wait to feel “ready” — start practicing early to build real confidence.
                 </p>
             </section>
@@ -329,7 +339,7 @@ const ITJobresources = () => {
                     ))}
                 </div>
 
-                <p className="mock-note">
+                <p className="note open-source">
                     <strong>Note:</strong> Contributing to open-source projects not only improves your coding skills, but also builds your portfolio and strengthens your collaborative experience.
                 </p>
             </section>
