@@ -1,8 +1,7 @@
-/* Base styles */
 .ittop-main {
   background-color: #ffffff;
   color: #000000;
-  padding: 6rem 1rem 0 0;
+  padding: 6rem 1rem;
   max-width: 1800px;
   margin: 0 auto;
 }
