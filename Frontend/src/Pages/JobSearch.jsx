@@ -1,7 +1,5 @@
-import React from 'react';
 import './JobSearch.css';
 import { Link, NavLink } from 'react-router-dom';
-import LoginPage from './Login';
 
 function JobSearch() {
   return (
