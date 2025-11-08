@@ -1,0 +1,58 @@
+import React, { useEffect, useState } from 'react'
+import { Camera, Loader2 } from "lucide-react";
+import "./ImageUpload.css"
+import { useAuthStore } from '../Store/useAuthStore';
+
+export default function ImageUpload() {
+    const { updateImage, isUploadingImage, isLoading, authUser: user } = useAuthStore();
+    const [selectedImg, setSelectedImg] = useState(null);
+
+    useEffect(() => {
+        if (user) {
+            setSelectedImg(user?.profilepic || null);
+        }
+    }, []);
+
+    const handleImageUpload = async (e) => {
+        const image = e.target.files[0];
+        if (!image) return;
+
+        const reader = new FileReader();
+        reader.readAsDataURL(image);
+
+        reader.onload = async () => {
+            const base64Image = reader.result;
+            const updateUserImage = await updateImage({ image: base64Image });
+            console.log("ff")
+            if (updateUserImage?.image) setSelectedImg(updateUserImage.image);
+            console.log(selectedImg)
+        }
+    }
+
+    return (
+        <div className="avatar-upload">
+            <div className="avatar-wrapper">
+                <img
+                    src={selectedImg || "/user.png"}
+                    alt="Profile"
+                    className="avatar-img"
+                />
+                <label htmlFor="avatar-upload" className="avatar-upload-btn">
+                    {isLoading ? (
+                        <Loader2 className="icon animate-spin" />
+                    ) : (
+                        <Camera className="icon" />
+                    )}
+                    <input
+                        type="file"
+                        id="avatar-upload"
+                        className="hidden"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        disabled={isUploadingImage}
+                    />
+                </label>
+            </div>
+        </div>
+    )
+}

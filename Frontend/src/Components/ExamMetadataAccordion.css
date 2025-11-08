@@ -1,0 +1,250 @@
+.exam-meta-accordion-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #ffffff; /* White container background */
+  border-radius: 8px 8px;
+  overflow: hidden; /* Ensures shadows and borders are neat */
+}
+
+.accordion-main-title {
+  font-size: 2em; /* Slightly larger than h5 */
+  color: #000000; /* Darker, more neutral title color */
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.accordion-section {
+  background-color: #FFFFFF;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0; /* Soft border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.accordion-section:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-section:hover {
+  box-shadow: 0 6px 20px rgba(76, 109, 175, 0.05); /* Subtle green shadow on hover */
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #ffffff; /* White header */
+  border: none;
+  border-bottom: 1px solid #e0e0e0; /* Separator only if content is closed */
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
+  border-radius: 8px; /* Rounded top corners */
+}
+
+.accordion-section.open .accordion-header {
+  background-color: #f9f9f9; /* Slightly different bg when open */
+  border-bottom-color: transparent; /* No border when content is visible */
+  border-radius: 8px 8px 0 0;
+}
+
+.accordion-header:hover {
+  background-color: #1616160e; /* Very light green on hover */
+}
+
+.accordion-title {
+  font-size: 1.25em;
+  font-weight: 500;
+  color: #000000; /* Dark gray for title */
+  display: flex;
+  align-items: center;
+}
+
+.accordion-icon {
+  margin-right: 12px;
+  font-size: 1.25em;
+  color: #000000; /* Soft green icon */
+}
+
+.accordion-toggle-icon {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #0130ff; /* Soft green for toggle icon */
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion-section.open .accordion-toggle-icon {
+  transform: rotate(45deg); 
+}
+
+.accordion-content-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), /* Smooth timing function */
+  padding 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  background-color: #ffffff;
+  border-top: none; /* Ensure no double border */
+  border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+}
+
+.accordion-section.open .accordion-content-wrapper {
+  max-height: 1000px; 
+  padding: 0px 0px; 
+  border-top: 1px solid #e0e0e0;
+}
+
+.accordion-content {
+  padding: 15px 15px;
+  border-top: 1px dashed #e7e7e7; /* A subtle separator for content */
+}
+
+.fee-list, .pattern-list, .salary-list, .cutoff-categories {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.fee-item, .pattern-item, .salary-item, .cutoff-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  font-size: 1.12em;
+  color: #000000;
+}
+
+.fee-item:last-child, .pattern-item:last-child,
+.salary-item:last-child, .cutoff-item:last-child {
+  border-bottom: none;
+}
+
+.fee-category, .salary-item strong, .cutoff-item strong {
+  color: #000000;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.fee-amount {
+  float: right; 
+  font-weight: 500;
+  color: #0044ff; 
+}
+
+.pattern-text, .mode-text, .attempt-text {
+  font-size: 1.15em;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  margin-top: 0;
+}
+
+.cutoff-year-block {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #fdfdfd;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+
+.cutoff-year-block:last-child {
+  margin-bottom: 0;
+}
+
+.cutoff-year-title {
+  font-size: 1.5em;
+  color: #004dff; /* Green for year title */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.eligibility-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.eligibility-list li {
+  font-size: 1.2em;
+  color: #000000;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .exam-meta-accordion-container {
+    margin: 20px 10px;
+    padding: 15px;
+  }
+
+  .accordion-main-title {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+  }
+
+  .accordion-header {
+    padding: 15px 20px;
+  }
+
+  .accordion-title {
+    font-size: 1.1em;
+  }
+
+  .accordion-icon {
+    margin-right: 10px;
+    font-size: 1.1em;
+  }
+
+  .accordion-toggle-icon {
+    font-size: 1.3em;
+  }
+
+  .accordion-content {
+    padding: 15px 20px;
+  }
+
+  .fee-amount {
+    float: none;
+    display: block;
+    margin-top: 4px;
+    margin-left: 10px; /* Indent it slightly */
+  }
+}
+
+@media (max-width: 480px) {
+  .accordion-main-title {
+    font-size: 1.5em;
+  }
+
+  .accordion-header {
+    padding: 12px 15px;
+  }
+
+  .accordion-title {
+    font-size: 1em; /* Smaller title on very small screens */
+  }
+   .accordion-icon {
+    font-size: 1em;
+    margin-right: 8px;
+  }
+
+  .exam-meta-accordion-container {
+    border-radius: 8px; /* Slightly less rounding on smaller screens */
+  }
+
+  .accordion-section {
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+}
+
+.accordion-icon {
+  margin-top: 2px;
+  margin-right: 10px;
+  font-size: 15px;
+  color: #007bff;
+}

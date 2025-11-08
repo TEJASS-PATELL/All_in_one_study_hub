@@ -1,0 +1,72 @@
+.foreign-jobs-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.foreign-jobs-box {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.foreign-jobs-image {
+  width: 300px;
+  height: auto;
+  margin-bottom: 25px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.foreign-jobs-title {
+  font-size: 2.8rem;
+  color: #000;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.foreign-jobs-subtitle {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.foreign-jobs-text {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Go Back Button */
+.go-back-button {
+  background-color: #000;
+  color: #fff;
+  padding: 8px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+

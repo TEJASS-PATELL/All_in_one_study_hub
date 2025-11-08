@@ -1,0 +1,134 @@
+.strategy-page {
+  padding: 100px 20px;
+  background: linear-gradient(to bottom right, #ffffff, #ffffff);
+  color: #000000;
+  max-width: 1800px;
+  margin: 0 auto; 
+}
+
+.strategy-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.strategy-header h1 {
+  font-size: 3.5rem;
+  color: #000000;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.strategy-header p {
+  font-size: 1.32rem;
+  color: #000000;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.strategy-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.strategy-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #d9d9d9;
+  position: relative;
+  overflow: hidden;
+}
+
+.strategy-card strong {
+  font-weight: 600;
+  color: #0137fb;
+}
+
+.strategy-icon {
+  font-size: 2.4rem;
+  color: #1a73e8;
+  margin-bottom: 18px;
+  z-index: 1;
+  position: relative;
+}
+
+.strategy-card h2 {
+  margin-bottom: 14px;
+  font-size: 1.6rem;
+  color: #000000;
+  z-index: 1;
+  position: relative;
+  font-weight: 600;
+}
+
+.strategy-card p {
+  margin-bottom: 14px;
+  line-height: 1.5;
+  font-size: 1.06rem;
+  color: #000000;
+  z-index: 1;
+  position: relative;
+}
+
+.strategy-card ul {
+  padding-left: 20px;
+  margin: 0;
+  z-index: 1;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.strategy-card ul li {
+  list-style: disc;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .strategy-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .strategy-header p {
+    font-size: 1.1rem;
+  }
+
+  .strategy-card {
+    padding: 24px;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 480px) {
+  .strategy-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .strategy-card {
+    padding: 20px;
+    min-height: 320px;
+  }
+
+  .strategy-header h1 {
+    font-size: 2rem;
+  }
+
+  .strategy-header p {
+    font-size: 1rem;
+  }
+
+  .strategy-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .strategy-card p,
+  .strategy-card ul li {
+    font-size: 0.9rem;
+  }
+}

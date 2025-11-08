@@ -1,0 +1,305 @@
+/* --- Global Styles & Variables --- */
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --card-bg-color: #ffffff;
+  --page-bg-color: #f8f9fa;
+  --text-color: #333;
+  --heading-color: #000000;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* --- Main Page Container --- */
+.itplatform-job-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.itplatform-job-page h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: black;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 1.5rem;
+}
+.itplatform-p {
+  max-width: 1200px; /* max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.35rem; /* text-lg */
+  line-height: 1.85rem; /* leading-7 */
+  margin-bottom: 2.5rem;
+  color: #171717; /* text-gray-600 */
+  text-align: center; /* 👈 Add this to center the text */
+}
+
+
+/* --- Cards Container --- */
+.itplatform-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* --- Individual Job Card --- */
+.itplatform-job-card {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.itplatform-job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px var(--shadow-color);
+}
+
+.platform-logo {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.platform-img {
+  object-fit: contain;
+  border-radius: 12px;
+  padding: 5px;
+  transition: transform 0.3s ease;
+}
+
+.platform-img:hover {
+  transform: scale(1.1);
+}
+
+.wellfound-img {
+  width: 200px;
+  height: 200px;
+}
+
+.naukri-img {
+  width: 170px;
+  height: 120px;
+}
+
+.linkedin-img {
+  width: 170px;
+  height: 120px;
+}
+
+.indeed-img {
+  width: 170px;
+  height: 120px;
+}
+
+.glassdoor-img {
+  width: 170px;
+  height: 120px;
+}
+
+.hirist-img {
+  width: 80px;
+  height: 80px;
+}
+
+.shine-img {
+  width: 120px;
+  height: 120px;
+}
+
+.foundit-img {
+  width: 160px;
+  height: 180px;
+}
+
+.cutshort-img {
+  width: 180px;
+  height: 140px;
+}
+
+.studentscircles-img{
+  width: 100px;
+  height: 100px;
+}
+
+.prosple-img{
+  width: 150px;
+  height: 150px;
+}
+
+.idealist-img{
+   width: 200px;
+  height: 200px;
+}
+
+.flexjobs-img{
+   width: 160px;
+  height: 160px;
+}
+
+.wwr-img{
+   width: 120px;
+  height: 120px;
+}
+.justremote-img{
+   width: 220px;
+  height: 240px;
+}
+.ziprecruiter-img{
+   width: 220px;
+  height: 240px;
+}
+.adzuna-img{
+   width: 220px;
+  height: 240px;
+}
+.handshake-img{
+   width: 100px;
+  height: 100px;
+}
+.crossover-img{
+   width: 90px;
+  height: 90px;
+}
+.timesjobs-img{
+   width: 190px;
+  height: 80px;
+}
+.freshersworld-img{
+   width: 250px;
+  height: 180px;
+}
+.internshala-img{
+   width: 200px;
+  height: 140px;
+}
+.remoteok-img{
+   width: 200px;
+  height: 140px;
+}
+.remotive-img{
+   width: 250px;
+  height: 180px;
+}
+.hirexl-img{
+   width: 180px;
+  height: 180px;
+}
+.instahyre-img{
+   width: 200px;
+  height: 250px;
+}
+.aicte-img{
+   width: 200px;
+  height: 200px;
+}
+.unstop-img{
+   width: 180px;
+  height: 180px;
+}
+.mycareernet-img{
+   width: 220px;
+  height: 180px;
+}
+.eventbeep-img{
+    width: 100px;
+  height: 160px;
+}
+.cuvette-img{
+  width: 150px;
+  height: 160px;
+}
+
+.itplatform-job-card h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.itplatform-job-card p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.itplatform-job-card p strong {
+  font-weight: 600;
+  color: #0022ff;
+}
+
+.platform-rating{
+  color: rgb(255, 0, 0);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.platform-stars {
+  color: gold;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+/* --- Key Features List --- */
+.itplatform-job-card ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.itplatform-job-card li {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.itplatform-job-card li::before {
+  content: '●';
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+}
+
+/* --- Visit Link (CTA) --- */
+.itplatform-job-card a {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  margin-top: auto;
+  /* Pushes the button to the bottom */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.itplatform-job-card a:hover {
+  background-color: var(--primary-hover-color);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .itplatform-job-page h1 {
+    font-size: 2rem;
+  }
+
+  .itplatform-cards-container {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client { 
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Exam {
+  id           Int    @id @default(autoincrement())
+  title        String
+  desc         String @db.Text
+  link         String
+  name         String
+  category     String
+  eligibility  Json
+  examDate     String @db.VarChar(600)
+  examPattern  Json
+  fees         String  @db.VarChar(500)
+  attemptLimit String   @db.VarChar(500)
+  salary       String @db.VarChar(600)
+  examMode     String @db.VarChar(600)
+}
+
+model PrivateJob {
+  id             Int    @id @default(autoincrement())
+  title          String @db.VarChar(600)
+  desc           String @db.Text
+  category       String @db.VarChar(600)
+  syllabus       String @db.VarChar(600)
+  selectionStage String @db.VarChar(600)
+  tips           String @db.VarChar(600)
+  skills         String @db.VarChar(600)
+}
+
+model User {
+  id          Int          @id @default(autoincrement())
+  name        String
+  email       String       @unique
+  password    String
+  discussions Discussion[]
+  profilepic  String?      @db.VarChar(500)
+  likes       Like[]
+  lastLogin   DateTime?
+  lastLogout  DateTime?
+  isLogin     Boolean      @default(false)
+  createdAt   DateTime     @default(now())
+  roadmap     Roadmap?
+}
+
+model Roadmap {
+  id        Int      @id @default(autoincrement())
+  title     String
+  steps     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Discussion {
+  id            Int      @id @default(autoincrement())
+  userId        Int?
+  user          User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  name          String
+  location      String
+  category      String
+  qualification String
+  examGiven     String
+  examCracked   String
+  jobRole       String?
+  company       String?
+  department    String?
+  salaryPackage String?
+  advice        String
+  description   String
+  email         String?
+  likesCount    Int      @default(0)
+  likes         Like[]
+  createdAt     DateTime @default(now())
+}
+
+model Like {
+  id           Int        @id @default(autoincrement())
+  userId       Int
+  discussionId Int
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  discussion   Discussion @relation(fields: [discussionId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+
+  @@unique([userId, discussionId])
+}

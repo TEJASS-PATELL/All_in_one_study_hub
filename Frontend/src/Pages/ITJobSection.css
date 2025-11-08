@@ -1,0 +1,334 @@
+.IT-container {
+  max-width: 1400px; /* Equivalent to mx-auto px-4 py-12 sm:px-6 lg:px-8 */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 6rem 1rem; /* py-12 px-4 */
+}
+
+@media (min-width: 640px) { /* sm */
+  .IT-container {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem; /* sm:px-6 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .IT-container {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem; /* lg:px-8 */
+  }
+}
+
+.IT-header-section {
+  text-align: center; /* text-center */
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+.IT-main-title {
+  font-size: 2.25rem; /* text-3xl */
+  line-height: 2.5rem; /* leading-9 */
+  font-weight: 800; /* font-extrabold */
+  color: #000000; /* text-gray-900 */
+  letter-spacing: -0.05em; /* tracking-tight */
+}
+
+@media (min-width: 768px) { /* md */
+  .IT-main-title {
+    font-size: 2.5rem; /* md:text-4xl */
+    line-height: 2.75rem; /* md:leading-10 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .IT-main-title {
+    font-size: 3rem; /* lg:text-5xl */
+    line-height: 1; /* lg:leading-none */
+  }
+}
+
+.IT-subtitle {
+  margin-top: 1rem; /* mt-4 */
+  max-width: 48rem; /* max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75rem; /* leading-7 */
+  color: #242629; /* text-gray-600 */
+}
+
+@media (min-width: 768px) { /* md */
+  .IT-subtitle {
+    font-size: 1.25rem; /* md:text-xl */
+    line-height: 1.75rem; /* md:leading-8 */
+  }
+}
+
+.IT-category-section {
+  margin-bottom: 4rem; /* mb-16 */
+}
+
+.IT-category-title {
+  font-size: 1.5rem; /* text-2xl */
+  line-height: 2rem; /* leading-8 */
+  font-weight: 700; /* font-bold */
+  color: #000000; /* text-gray-800 */
+  border-radius: 5px;
+  margin-bottom: 2rem; /* mb-8 */
+  border-left: 4px solid #6b46c1; /* border-l-4 border-indigo-500 */
+  padding-left: 1rem; /* pl-4 */
+}
+
+@media (min-width: 768px) { /* md */
+  .IT-category-title {
+    font-size: 1.875rem; /* md:text-3xl */
+    line-height: 2.25rem; /* md:leading-9 */
+  }
+}
+
+/* Specific category title borders */
+.IT-web-dev-border {
+  border-color: #6b46c1; /* indigo-500 */
+}
+
+.IT-cloud-devops-border {
+  border-color: #0ea5e9; /* sky-500 */
+}
+
+.IT-data-ai-border {
+  border-color: #9333ea; /* purple-500 */
+}
+
+.IT-security-border {
+  border-color: #ff1414; /* red-500 */
+}
+
+.IT-emerging-tech-border {
+  border-color: #7bff00; /* gray-500 */
+}
+
+
+/* Grid layout for skill cards */
+.IT-grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* grid-cols-1 */
+  gap: 2rem; /* gap-8 */
+}
+
+@media (min-width: 768px) { /* md */
+  .IT-grid-container {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg */
+  .IT-grid-container {
+    grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+  }
+}
+
+/* Skill Card Styles */
+.IT-skill-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 1rem; /* more rounded */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0; /* soft border */
+  overflow: hidden;
+  gap: 1rem; /* spacing between items */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.IT-skill-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); /* hover:shadow-2xl */
+  transform: translateY(-0.25rem); /* hover:-translate-y-1 */
+}
+
+.IT-card-content {
+  padding: 1.5rem; /* p-6 */
+  display: flex; /* flex */
+  flex-grow: 1; /* flex-grow */
+  flex-direction: column; /* flex-col */
+}
+
+.IT-card-header {
+  display: flex; /* flex */
+  align-items: flex-start; /* items-start */
+  justify-content: start; /* justify-between */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.IT-card-header .IT-icon {
+  height: 2rem; /* h-8 */
+  width: 2rem; /* w-8 */
+}
+
+/* Icon colors */
+.IT-indigo-icon { color: #6b46c1; } /* text-indigo-500 */
+.IT-teal-icon { color: #319795; } /* text-teal-500 */
+.IT-sky-icon { color: #0ea5e9; } /* text-sky-500 */
+.IT-blue-icon { color: #3b82f6; } /* text-blue-500 */
+.IT-orange-icon { color: #f97316; } /* text-orange-500 */
+.IT-purple-icon { color: #8707ff; } /* text-purple-500 */
+.IT-pink-icon { color: #ec4899; } /* text-pink-500 */
+.IT-red-icon { color: #ff0d0d; } /* text-red-500 */
+.IT-gray-icon { color: #4b5563; } /* text-gray-600 */
+.IT-vr-icon {color: #f97316;}
+.IT-gold-icon{color: gold;
+height: 35px;
+width: 35px;
+}
+.IT-blue-icon{
+  color: blue;
+}
+.IT-black-icon{color: rgb(220, 120, 20);}
+.IT-darkgreen-icon{color: #ff00f7;}
+.IT-purpleglow-icon{ color: chartreuse;}
+.IT-green-icon{
+  color: rgb(43, 255, 0);
+}
+
+.IT-skill-title {
+  margin-left: 1rem;
+  font-size: 1.35rem; /* text-xl */
+  font-weight: 700; /* font-bold */
+  color: #0b0b0b; /* text-gray-800 */
+}
+
+.IT-tech-section {
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.IT-tech-label {
+  font-weight: 600; /* font-semibold */
+  color: #718096; /* text-gray-500 */
+  font-size: 0.95rem; /* text-sm */
+  margin-bottom: 0.65rem; /* mb-2 */
+}
+
+.IT-tech-tags {
+  display: flex; /* flex */
+  flex-wrap: wrap; /* flex-wrap */
+  gap: 0.5rem; /* gap-2 */
+}
+
+.IT-tech-tag {
+  background-color: #f7fafc; /* bg-gray-100 */
+  color: #2f3238; /* text-gray-700 */
+  font-size: 0.85rem; /* text-xs */
+  font-weight: 500; /* font-medium */
+  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  border-radius: 9999px; /* rounded-full */
+}
+
+.IT-salary-section {
+  margin-top: 0.5rem; /* my-2 */
+  margin-bottom: 0.5rem; /* my-2 */
+}
+
+.IT-salary-label {
+  font-weight: 600; /* font-semibold */
+  color: #718096; /* text-gray-500 */
+  font-size: 0.95rem; /* text-sm */
+  margin-bottom: 0.25rem; /* mb-1 */
+}
+
+.IT-salary-value {
+  font-size: 1.15rem; /* text-lg */
+  font-weight: 700; /* font-bold */
+  color: #6b46c1; /* text-indigo-600 */
+}
+
+.IT-card-footer-stats {
+  display: flex; /* flex */
+  justify-content: space-between; /* justify-between */
+  align-items: center; /* items-center */
+  margin-top: 1rem; /* my-4 */
+  margin-bottom: 1rem; /* my-4 */
+  font-size: 0.95rem; /* text-sm */
+}
+
+.IT-stat-label {
+  margin-left: 6px;
+  font-weight: 600; /* font-semibold */
+  color: #718096; /* text-gray-500 */
+  font-size: 0.95rem; /* text-sm */
+  margin-bottom: 0.5rem; /* mb-1 */
+}
+
+.IT-stat-value {
+  padding: 0.25rem 0.75rem; /* px-3 py-1 */
+  border-radius: 9999px; /* rounded-full */
+  font-weight: 600; /* font-semibold */
+  font-size: 0.85rem; /* text-xs */
+}
+
+.IT-demand-very-high {
+  background-color: #d1fae5; /* bg-green-100 */
+  color: #10b981; /* text-green-800 */
+}
+
+.IT-demand-high {
+  background-color: #e0f2fe; /* bg-sky-100 */
+  color: #0284c7; /* text-sky-800 */
+}
+
+.IT-demand-moderate {
+  background-color: #fef9c3; /* bg-yellow-100 */
+  color: #a16207; /* text-yellow-800 */
+}
+
+
+.IT-future-proof {
+  align-items: center; /* items-center */
+  gap: 0.25rem; /* gap-1 */
+  background-color: antiquewhite;
+  padding: 0.25rem 0.65rem;
+  font-weight: 600; /* font-semibold */
+  color: #ff7802; /* text-green-600 */
+}
+
+.IT-future-growing {
+  display: flex; /* flex */
+  align-items: center; /* items-center */
+  gap: 0.25rem; /* gap-1 */
+  font-weight: 600; /* font-semibold */
+  color: #2563eb; /* text-blue-600 */
+}
+
+
+.IT-why-learn-section {
+  margin-top: auto; /* mt-auto */
+  padding-top: 1rem; /* pt-4 */
+  border-top: 1px solid #f7fafc; /* border-t border-gray-100 */
+}
+
+.IT-why-learn-label {
+  font-weight: 600; /* font-semibold */
+  color: #2d2e31; /* text-gray-500 */
+  font-size: 1.15rem; /* text-sm */
+  margin-bottom: 0.5rem; /* mb-2 */
+}
+
+.IT-why-learn-text {
+  font-size: 1rem; /* text-sm */
+  color: #252729; /* text-gray-600 */
+  line-height: 1.5; /* leading-relaxed */
+}
+
+.IT-search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 16px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-size: 17px;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease;
+}
+.IT-search-input:focus {
+  border-color: #000000; /* Indigo border */
+}

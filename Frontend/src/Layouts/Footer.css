@@ -1,0 +1,122 @@
+.footer-container {
+    width: 1700px;
+    margin: auto;
+} 
+
+.footer {
+    background: white; /* changed from black to white */
+    color: black;      /* black text on white background */
+    padding: 30px 20px;
+    position: relative;
+}
+
+.footer-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: black;  /* black text */
+    margin-bottom: 10px;
+}
+
+.footer-subtitle {
+    font-size: 1.2rem;
+    color: black; /* dark gray for subtitle */
+    margin-bottom: 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-heading {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: black; /* black heading */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: black; /* dark gray links */
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    display: inline-block;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.contact-icon {
+    margin-right: 15px;
+    color: black; /* black icon */
+    font-size: 1.25rem;
+}
+
+.contact-text {
+    font-size: 1.2rem;
+    color: black; /* dark gray text */
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* light black border */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright {
+    font-size: 1.2rem;
+    color: rgba(0, 0, 0, 0.6); /* gray text */
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: black; /* black background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* white icon/text */
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-link:hover {
+    color: black;
+    background: white; /* white background on hover */
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+

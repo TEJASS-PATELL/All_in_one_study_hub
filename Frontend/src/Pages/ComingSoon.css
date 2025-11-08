@@ -1,0 +1,91 @@
+.coming-soon-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #000000;
+}
+
+.coming-soon-content {
+  padding: 40px 60px;
+  border-radius: 15px;
+}
+
+.coming-soon-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+}
+
+.coming-soon-content p {
+  font-size: 1.35rem;
+  margin-bottom: 30px;
+}
+
+.subscribe {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.subscribe input {
+  padding: 10px 15px;
+  border-radius: 5px 0 0 5px;
+  border: none;
+  outline: none;
+  width: 250px;
+}
+
+.subscribe button {
+  padding: 10px 20px;
+  border-radius: 0 5px 5px 0;
+  border: none;
+  background-color: #ff6f61;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.subscribe button:hover {
+  background-color: #ff3b2f;
+}
+
+.buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+
+@media (max-width: 500px) {
+  .coming-soon-content {
+    padding: 30px 20px;
+  }
+
+  .subscribe {
+    flex-direction: column;
+  }
+
+  .subscribe input, .subscribe button {
+    width: 100%;
+    border-radius: 5px;
+    margin: 5px 0;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    margin: 10px 0;
+  }
+}

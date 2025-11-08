@@ -1,0 +1,228 @@
+.profile-page-main {
+  padding: 60px;
+  font-family: 'Montserrat';
+  background-color: #ffffff;
+  min-height: 90vh;
+}
+
+.profile-page-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.profile-page-title {
+  font-size: 2.5rem;
+  color: #000000;
+}
+
+.profile-page-content {
+  display: flex;
+  justify-content: center;
+}
+
+.profile-page-card {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px; 
+  border-radius: 12px;
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.profile-page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.profile-form-group input,
+.profile-form-group select,
+.profile-form-group textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  background-color: #fefefe;
+}
+
+.profile-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.profile-submit-button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #000000;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.step-title {
+  font-size: 1.25rem;
+  margin: 12px 0 6px 0;
+}
+
+.step-description {
+  margin-bottom: 10px;
+  font-size: 1.04rem;
+  line-height: 1.4;
+}
+
+.step-extra p {
+  font-size: 1.04rem;
+  margin: 4px 0;
+}
+
+.roadmap-view {
+  width: 100%;
+  max-width: 1500px;
+}
+
+.roadmap-header {
+  display: flex;
+  justify-content: space-between;  
+  align-items: center;
+  gap: 15px;          
+  margin-bottom: 10px;       
+  padding: 10px 0;
+}
+
+.roadmap-header-icon{
+  display: flex;
+  justify-content: flex-end;  
+  align-items: center;
+  gap: 15px; 
+}
+
+.roadmap-header h1{
+  font-size: 2rem;
+}
+
+.edit-icon,
+.delete-icon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.roadmap-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1500px;
+  border-top: 1px solid #ddd; 
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #000000;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+.timeline-step {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-step.left {
+  left: 0;
+}
+
+.timeline-step.right {
+  left: 50%;
+}
+
+.timeline-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content .step-number {
+  position: absolute;
+  background: #000000;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.timeline-content.left .step-number{
+  top: -15px;
+  left: -15px;
+}
+
+.timeline-content.right .step-number{
+  top: -15px;
+  right: -15px;
+}
+
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: -14px;
+  background-color: #fff;
+  border: 4px solid #000000;
+  top: 25px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-step.right::before {
+  left: -14px;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
+
+  .timeline-step {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 25px;
+  }
+
+  .timeline-step.right {
+    left: 0;
+  }
+
+  .timeline-step::before {
+    left: 0;
+  }
+}

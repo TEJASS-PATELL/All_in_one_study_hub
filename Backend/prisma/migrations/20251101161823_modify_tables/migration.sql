@@ -1,0 +1,15 @@
+-- AlterTable
+ALTER TABLE `exam` MODIFY `fees` VARCHAR(500) NOT NULL,
+    MODIFY `attemptLimit` VARCHAR(500) NOT NULL,
+    MODIFY `examMode` VARCHAR(600) NOT NULL,
+    MODIFY `salary` VARCHAR(600) NOT NULL,
+    MODIFY `examDate` VARCHAR(600) NOT NULL;
+
+-- AlterTable
+ALTER TABLE `privatejob` MODIFY `title` VARCHAR(600) NOT NULL,
+    MODIFY `desc` TEXT NOT NULL,
+    MODIFY `category` VARCHAR(600) NOT NULL,
+    MODIFY `selectionStage` VARCHAR(600) NOT NULL,
+    MODIFY `skills` VARCHAR(600) NOT NULL,
+    MODIFY `syllabus` VARCHAR(600) NOT NULL,
+    MODIFY `tips` VARCHAR(600) NOT NULL;
