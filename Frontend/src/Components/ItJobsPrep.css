@@ -59,10 +59,9 @@
   min-height: 250px;
 }
 
-.preparation-icon {
+.it-preparation-icon {
   font-size: 42px;
   color: #000000;
-  margin-bottom: 20px;
   transition: color 0.3s ease;
 }
 
