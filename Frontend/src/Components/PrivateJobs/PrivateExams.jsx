@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import './PrivateJobs.css';
-import './Exam.css';
+// import '../GovernmentJobs/Exams.css';
 
 const PrivateExams = () => {
   const [activeCategory, setActiveCategory] = useState(null);

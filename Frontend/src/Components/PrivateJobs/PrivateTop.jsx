@@ -1,6 +1,6 @@
-import './Top.css';
+import '../GovernmentJobs/Top.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Motivation from './Motivation';
+import Motivation from '../Motivation';
 
 const PrivateTop = () => {
   return (

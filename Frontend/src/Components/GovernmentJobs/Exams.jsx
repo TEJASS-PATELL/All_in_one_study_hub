@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import './Exam.css';
 import axios from 'axios';
 import ExamMetadataAccordion from './ExamMetadataAccordion';
-import Loading from '../Layouts/Loading';
+import Loading from '../../Layouts/Loading';
 
 const Exams = () => {
   const [activeCategory, setActiveCategory] = useState(null);

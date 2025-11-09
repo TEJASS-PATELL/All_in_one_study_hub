@@ -1,6 +1,6 @@
 import './ITJobs.css';
-import Motivation from './Motivation';
-import './Top.css'
+import Motivation from '../Motivation';
+import '../GovernmentJobs/Top.css'
 
 const ITJobList = () => {
   const companies = [

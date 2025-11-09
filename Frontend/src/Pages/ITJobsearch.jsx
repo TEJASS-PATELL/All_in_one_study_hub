@@ -1,13 +1,11 @@
-import React from 'react'
-import CompanyScroller from '../Components/CompanyScroller'
-import ITJobsList from '../Components/ITJobs'
+import ITJobsList from '../Components/ITJobs/ITJobs'
 import Itjobpeperation from '../Components/ITJobs/Itjobpeperation'
-import ITchannels from '../Components/ITchannels'
+import ITchannels from '../Components/ITJobs/ITchannels'
 
 export default function ITJobsearch() {
   return (
     <>
-    <ITJobsList/>
+    <ITJobsList />
     <ITchannels />
     <Itjobpeperation />
     </>

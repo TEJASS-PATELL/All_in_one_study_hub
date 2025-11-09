@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './ITchannels.css';
-import data from '../data/ITResourceData';
+import data from '../../data/ITResourceData'
 
 export default function ITchannels() {
   const [selectedCategory, setSelectedCategory] = useState("Web Development");

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Top.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Motivation from './Motivation';
+import Motivation from '../Motivation';
 
 const Top = () => {
   return (

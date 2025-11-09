@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './Preperation.css';
+import '../GovernmentJobs/Preperation.css';
 
 const PrivatePreparation = () => {
   return (
