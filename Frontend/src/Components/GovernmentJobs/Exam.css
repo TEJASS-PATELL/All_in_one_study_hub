@@ -1,4 +1,3 @@
-/* === Base Container === */
 .G-category-section {
   max-width: 1450px;
   margin: 0 auto;
@@ -28,8 +27,6 @@
   margin-top: 2px;
 }
 
-/* === Filter Buttons === */
-
 .G-category-filter {
   display: flex;
   flex-wrap: wrap; 
@@ -48,11 +45,11 @@
   padding: 10px 20px; 
   background-color: #000000; 
   color: #ffffff; 
-  font-size: 1.1rem; /* Standard font size */
+  font-size: 1.1rem; 
   margin-bottom: 30px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out; /* Smooth transitions for hover and active states */
-  outline: none; /* Removes default browser outline, ensure focus states are clear */
+  transition: all 0.3s ease-in-out; 
+  outline: none; 
 }
 
 .G-filter-button.active {
@@ -61,7 +58,6 @@
   border-color: #000000; 
 }
 
-/* === Exam Category Card === */
 .exam-category-card {
   background-color: #ffffff;
   border-radius: 20px;
@@ -129,7 +125,7 @@
 }
 
 .exam-title::before {
-  content: "\f19d"; /* fa-graduation-cap */
+  content: "\f19d"; 
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 10px;
@@ -152,7 +148,7 @@
 }
 
 .exam-link::before {
-  content: "\f0c1"; /* fa-link */
+  content: "\f0c1";
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 8px;
@@ -170,7 +166,6 @@
   text-decoration: underline;
 }
 
-/* === Meta Section === */
 .exam-meta-section {
   display: flex;
   flex-wrap: wrap;
@@ -183,18 +178,18 @@
   background-color: #ffffff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.567); /* Uniform shadow on all sides */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.567); 
 }
 
 .fees-block {
-  width: 400px; /* or use 25% if using flexbox and want responsiveness */
+  width: 400px; 
   min-width: 300px;
   max-width: 400px;
   flex-shrink: 0;
 }
 
 .meta-title::before {
-  content: "\f05a"; /* fa-info-circle */
+  content: "\f05a"; 
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 10px;
@@ -210,7 +205,6 @@
   letter-spacing: 1px;
 }
 
-/* === Fee Section === */
 .fee-list {
   list-style: none;
   padding: 0;
@@ -225,7 +219,7 @@
 }
 
 .fee-category::before {
-  content: "\f155"; /* fa-rupee-sign */
+  content: "\f155"; 
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 6px;
@@ -244,7 +238,7 @@
 }
 
 .pattern-text::before {
-  content: "\f022"; /* fa-list-ol */
+  content: "\f022"; 
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   margin-right: 8px;
@@ -263,7 +257,6 @@
     text-align: center;
   }
 
-/* === Expandable Content === */
  .G-expandable-content {
     max-height: 0;
     overflow: hidden;
@@ -293,7 +286,6 @@
     color: #000000;
   }
   
-  /* Resource section styles */
   .G-resources-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -307,7 +299,7 @@
     background-color: #f8f9ff;
     border-left: 4px solid #0004ff;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.075);
   }
   
   .G-resource-card:hover {
@@ -344,8 +336,7 @@
   .G-resource-link:hover i {
     transform: translateX(3px);
   }
-  
-  /* Stats section */
+
   .G-stats-container {
     display: flex;
     justify-content: space-between;
@@ -376,7 +367,6 @@
     font-size: 15px;
   }
   
-  /* G-Timeline section */
   .G-timeline {
     position: relative;
     margin: 30px 0;
@@ -488,9 +478,9 @@
   padding: 15px 25px;
   border-radius: 6px;
   font-size: 14px;
-  opacity: 0;  /* Start with invisible */
-  transform: translateY(20px);  /* Start with a slight downward shift */
-  animation: fadeInUp 0.6s forwards;  /* Add animation */
+  opacity: 0;  
+  transform: translateY(20px); 
+  animation: fadeInUp 0.6s forwards; 
 }
 
 @keyframes fadeInUp {
@@ -504,11 +494,10 @@
   }
 }
 
-/* === Eligibility List === */
 .eligibilityy-list {
   list-style-type: none;
   padding-left: 0;
-  animation: fadeInList 0.8s forwards;  /* Animation for list */
+  animation: fadeInList 0.8s forwards; 
 }
 
 @keyframes fadeInList {
@@ -524,20 +513,20 @@
   font-size: 1rem;
   color: #000000;
   margin-bottom: 0.5rem;
-  opacity: 0;  /* Start invisible */
-  transform: translateX(-20px);  /* Start slightly from the left */
-  animation: slideInLeft 0.6s forwards;  /* Add slide-in animation */
-  animation-delay: 0.2s;  /* Delay each list item */
+  opacity: 0;
+  transform: translateX(-20px); 
+  animation: slideInLeft 0.6s forwards;  
+  animation-delay: 0.2s; 
 }
 
 .eligibilityy-list li:nth-child(1) {
-  animation-delay: 0.2s;  /* First item delays for 0.2s */
+  animation-delay: 0.2s; 
 }
 .eligibilityy-list li:nth-child(2) {
-  animation-delay: 0.4s;  /* Second item delays for 0.4s */
+  animation-delay: 0.4s;  
 }
 .eligibilityy-list li:nth-child(3) {
-  animation-delay: 0.6s;  /* Third item delays for 0.6s */
+  animation-delay: 0.6s;  
 }
 
 @keyframes slideInLeft {

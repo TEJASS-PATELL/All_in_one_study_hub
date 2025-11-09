@@ -109,21 +109,13 @@ const ChatBot = () => {
       
       <aside className={`chat-panel ${chatOpen ? 'open' : ''}`} aria-hidden={!chatOpen}>
         <header className="chat-header">
-          <h2 className="chat-title">AI Chatbot</h2>
           <button aria-label="Close AI Chatbot" className="chat-close-btn" onClick={closeChat}>
             <i className="fas fa-times fa-lg"></i>
           </button>
         </header>
 
         <main className="chat-content">
-          {!chatStarted ? (
-            <section className="welcome-screen">
-              <img src="robot (1).png" alt="AI Robot Icon" className="welcome-image" draggable={false} />
-              <h3 className="welcome-title">Welcome to AI Chatbot</h3>
-              <p className="welcome-text">Start chatting with our AI assistant...</p>
-              <button className="start-chat-btn" onClick={startChat}>OK</button>
-            </section>
-          ) : (
+          
             <section className="chat-container">
               <div
                 className="chat-messages"
@@ -179,7 +171,6 @@ const ChatBot = () => {
                 </button>
               </form>
             </section>
-          )}
         </main>
       </aside>
     </>

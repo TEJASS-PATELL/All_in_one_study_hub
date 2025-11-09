@@ -41,7 +41,7 @@ const Members = () => {
           users.map((user) => {
             return (
               <div key={user.id} className="user-card">
-                <img src={user.profilepic} alt="User Avatar" className="avatar" />
+                <img src={user.profilepic ? user.profilepic : "./user.png"} alt="User Avatar" className="avatar" />
                 <div className="user-info">
                   <span className="user-name">{user.name}</span>
                   <span className="user-date">
