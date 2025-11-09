@@ -25,9 +25,10 @@
   color: #000000;
   max-width: 850px;
   margin: 0 auto;
+  margin-bottom: 40px;
   opacity: 0.9;
 }
-/* Grid for Test Cards */
+
 .test-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -36,7 +37,6 @@
   padding: 0 1rem;
 }
 
-/* Test Card Styling */
 .test-card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -49,11 +49,9 @@
 }
 
 .test-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  transform: translateY(-10px);
 }
 
-/* Title Styling */
 .test-title {
   font-size: 1.5rem;
   font-weight: 700;
@@ -63,7 +61,6 @@
   margin-bottom: 0.75rem;
 }
 
-/* Info (exam names etc.) */
 .test-infoo {
   font-size: 1.1rem;
   color: #000000;
@@ -77,17 +74,14 @@
   line-height: 1.6;
 }
 
-/* Attempts */
 .test-attempts {
   font-size: 1rem;
   color: #0435f6;
   display: flex;
   align-items: center;
   font-weight: 600;
-  margin-top: 0.75rem;
 }
 
-/* Button Styling */
 .take-test-btn {
   margin-top: 1.25rem;
   display: inline-block;
@@ -100,15 +94,8 @@
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
 }
 
-.take-test-btn:hover {
-  transform: scale(1.01);
-}
-
-/* Stats Section */
 .stats-section {
   display: flex;
   justify-content: space-around;
@@ -120,7 +107,6 @@
   border-radius: 16px;
 }
 
-/* Individual Stat Card */
 .stat-card {
   flex: 1;
   min-width: 220px;
@@ -136,68 +122,10 @@
   transform: translateY(-4px);
 }
 
-/* Stat Number */
-.stat-number {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: #4338ca;
-}
-
-/* Stat Label */
-.stat-label {
-  font-size: 1.25rem;
-  color: #000000;
-  margin-top: 0.5rem;
-  font-weight: 600;
-}
-
-/* Description Below Stat */
-.stat-desc {
-  font-size: 0.95rem;
-  color: #000000;
-  margin-top: 1rem;
-  line-height: 1.5;
-}
-
-
-/* CTA Section */
-.cta-section {
-  background-color: #1d4ed8;
-  color: white;
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.cta-heading {
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.cta-subtext {
-  font-size: 1rem;
-  margin-bottom: 1.25rem;
-}
-
-.cta-btn {
-  background-color: white;
-  color: #1d4ed8;
-  font-weight: 600;
-  padding: 0.6rem 1.5rem;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.cta-btn:hover {
-  background-color: #e0e7ff;
-  color: #1e3a8a;
-}
 
 .search-section {
   max-width: 650px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 40px;
   text-align: center;
 }
 
@@ -220,10 +148,4 @@
   color: #000000;
   font-size: 1.1rem;
   margin-top: 1.5rem;
-}
-
-.internet{
-    height: 80px;
-    width: 80px;
-    margin-top: 20px;
 }
