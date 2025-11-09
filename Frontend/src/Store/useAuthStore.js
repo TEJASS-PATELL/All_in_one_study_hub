@@ -11,7 +11,7 @@ export const useAuthStore = create((set) => ({
   isUpdatingProfile: false,
 
   setAuthUser: (userData) => set({ authUser: userData, isLoading: false }),
-  
+
   logout: async () => {
     try {
       set({ isLoading: true });
@@ -85,20 +85,30 @@ export const useAuthStore = create((set) => ({
       set({ isLoading: false });
     }
   },
-  
+
   updateImage: async (UserImage) => {
-        try {
-            set({ isUpdatingImage: true, isLoading: true });
-            const res = await axios.put("/api/auth/upload-profile", UserImage);
-            toast.success("Profile updated successfully");
-            return res.data;
-        } catch (error) {
-            console.log(error)
-            toast.error(error.response?.data?.message || "Profile update failed");
-            return false;
-        } finally {
-            set({ isUpdatingImage: false, isLoading: false });
-        }
+    try {
+      set({ isUpdatingImage: true, isLoading: true });
+      const res = await axios.put("/api/auth/upload-profile", UserImage);
+      toast.success("Profile updated successfully");
+      return res.data;
+    } catch (error) {
+      console.log(error)
+      toast.error(error.response?.data?.message || "Profile update failed");
+      return false;
+    } finally {
+      set({ isUpdatingImage: false, isLoading: false });
+    }
   },
+
+  deleteAccount: async () => {
+    try {
+      await axios.delete("/api/auth/delete-account");
+      toast.success("Account deleted successfully");
+    } catch (err) {
+      toast.error("Error while deleting the account");
+      console.error(err);
+    }
+  }
 
 }));

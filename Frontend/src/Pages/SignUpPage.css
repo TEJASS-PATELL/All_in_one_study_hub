@@ -13,13 +13,7 @@
   max-width: 440px;
   padding: 35px 28px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.signup-container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgb(198, 198, 198);
 }
 
 .signup-form {
@@ -31,7 +25,7 @@
 .signup-form h2 {
   text-align: center;
   color: #000000;
-  font-size: 1.85rem;
+  font-size: 2rem;
   font-weight: 700;
 }
 
@@ -156,3 +150,16 @@ footer {
   font-size: 14px;
   color: #999;
 }
+
+.verify-btn {
+  margin-left: 8px;
+  background-color: #000000;
+  color: white;
+  font-size: 0.9rem;
+  border: none;
+  padding: 11px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+

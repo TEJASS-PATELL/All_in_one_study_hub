@@ -37,6 +37,14 @@ const SignUpPage = () => {
     return true;
   };
 
+  const handleVerifyEmail = () => {
+
+  }
+
+  const handleVerifyOtp = () => {
+
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
@@ -67,6 +75,7 @@ const SignUpPage = () => {
           <form className="signup-form" onSubmit={handleSubmit}>
             <h2>Create an Account</h2>
             <p className="subtitle">It only takes a minute to get started</p>
+
             <div className="input-group">
               <label>Email</label>
               <div className="input-wrapper">
@@ -78,6 +87,13 @@ const SignUpPage = () => {
                   onChange={handleChange}
                   required
                 />
+                <button
+                  type="button"
+                  className="verify-btn"
+                  onClick={handleVerifyEmail}
+                >
+                  Verify
+                </button>
               </div>
             </div>
 
@@ -130,16 +146,26 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            <div className="robot-check">
+            <div className="input-group">
+            <label>Enter OTP</label>
+            <div className="input-wrapper">
               <input
-                type="checkbox"
-                id="robot"
-                checked={form.isHuman}
-                onChange={(e) => setForm({ ...form, isHuman: e.target.checked })}
+                type="text"
+                name="otp"
+                placeholder="Enter 6-digit code"
+                value={form.otp}
+                onChange={handleChange}
                 required
               />
-              <label htmlFor="robot">I am not a robot</label>
+              <button
+                type="button"
+                className="verify-btn"
+                onClick={handleVerifyOtp}
+              >
+                Verify
+              </button>
             </div>
+          </div>
 
             <button
               type="submit"
@@ -162,10 +188,11 @@ const SignUpPage = () => {
           </form>
         </main>
         <footer>
-          <p>&copy; 2025 Chat App. All rights reserved.</p>
+          <p>&copy; 2025 All rights reserved.</p>
         </footer>
       </div>
     </div>
+
   );
 };
 

@@ -15,11 +15,11 @@ const Top = () => {
           Discover comprehensive guides for government job exams across various sectors. Your career journey starts here.
         </p>
         <Motivation />
-        
+
         <form className="top-form">
           <label htmlFor="search" className="top-sr-only">Search Exams</label>
           <div className="top-search-wrapper">
-            <FontAwesomeIcon  className="top-search-icon" />
+            <FontAwesomeIcon className="top-search-icon" />
             <input
               id="search"
               type="search"
@@ -44,20 +44,20 @@ const Top = () => {
 
       <section className="top-stats">
         <div className="top-stat-card">
-          <p className="top-stat-value">100+</p>
+          <p className="top-stat-value">60+</p>
           <p className="top-stat-label">Exam Categories</p>
         </div>
         <div className="top-stat-card">
-          <p className="top-stat-value">5000+</p>
-          <p className="top-stat-label">Aspirants Guided</p>
+          <p className="top-stat-value">90%</p>
+          <p className="top-stat-label">Student Satisfaction</p>
         </div>
         <div className="top-stat-card">
-          <p className="top-stat-value">95%</p>
+          <p className="top-stat-value">--</p>
           <p className="top-stat-label">Success Rate</p>
         </div>
         <div className="top-stat-card">
           <p className="top-stat-value">24/7</p>
-          <p className="top-stat-label">Expert Support</p>
+          <p className="top-stat-label">Learning Support</p>
         </div>
       </section>
     </main>

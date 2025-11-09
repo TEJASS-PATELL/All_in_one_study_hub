@@ -39,18 +39,13 @@ const StudyMaterial = () => {
             <p className="a-hero-description">
               Curated resources and recommended books for each exam preparation path.
             </p>
-          </div>
-        </div>
-
-        <div className="a-category-section">
-          <div className="a-category-header">
-            <input type="text" className="a-search-bar" placeholder="Search for exams..." />
             <p className="a-category-description">
               Browse through our comprehensive collection of study materials categorized by different government examinations.
             </p>
           </div>
         </div>
       </div>
+      
       {cardsData.map((card, index) => (
         <div
           key={index}

@@ -22,7 +22,7 @@ const Dashboard = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
-  const { authUser: user, isLoading, fetchUser, logout } = useAuthStore();
+  const { authUser: user, isLoading, fetchUser, logout, deleteAccount } = useAuthStore();
 
   useEffect(() => {
     if (!user && !isLoading) fetchUser();
@@ -35,6 +35,12 @@ const Dashboard = () => {
   const handleLogout = () => {
     logout();
     navigate("/login");
+  };
+
+  const handleDelete = () => {
+    if (!window.confirm("Are you sure you want to delete your account? This action cannot be undone.")) return;
+    deleteAccount();
+    navigate("/");
   };
 
   const handleAddTodo = (e) => {
@@ -59,7 +65,7 @@ const Dashboard = () => {
     <div className="dashboard-container">
       <aside className="dashboard-sidebar">
         <div className="dashboard-user-info">
-          <ImageUpload/>
+          <ImageUpload />
           <p className="username">{user?.name}</p>
           <p className="user-email">{user?.email}</p>
           <p className="user-joined">
@@ -79,6 +85,9 @@ const Dashboard = () => {
           <button className="dashboard-nav-item logout-btn" onClick={handleLogout}>
             <FaSignOutAlt /> Logout
           </button>
+          <button className="dashboard-nav-item delete-btn" onClick={handleDelete}>
+            <FaTrash /> Delete Account
+          </button>
         </nav>
       </aside>
 
@@ -96,6 +105,7 @@ const Dashboard = () => {
               onChange={(e) => setTodoText(e.target.value)}
               className="todo-input"
               maxLength={200}
+              required
             />
             <button type="submit" className="todo-add-btn">Add</button>
           </form>

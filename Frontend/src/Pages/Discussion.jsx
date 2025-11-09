@@ -4,6 +4,7 @@ import { AiFillHeart } from "react-icons/ai";
 import { useAuthStore } from "../Store/useAuthStore";
 import { useDiscussionStore } from "../Store/useDiscussion";
 import "./Discussion.css";
+import Loading from "../Layouts/Loading";
 
 const categories = ["Government Job", "Private Job", "IT Job"];
 
@@ -52,18 +53,6 @@ const Discussion = () => {
   };
 
   const handleSubmit = () => {
-    const requiredFields = [
-      "name", "location", "qualification", "examGiven",
-      "examCracked", "advice", "description", "category"
-    ];
-
-    for (let field of requiredFields) {
-      if (!formData[field]) {
-        alert(`Please fill the ${field} field.`);
-        return;
-      }
-    }
-
     submitExperience(formData, user, () => {
       setOpen(false);
       resetForm();
@@ -73,13 +62,12 @@ const Discussion = () => {
   const filteredExperiences = experiences.filter((exp) => {
     const query = searchQuery.toLowerCase();
     return [
-      exp.name, exp.location, exp.examGiven, exp.examCracked,
-      exp.company, exp.jobRole, exp.category, exp.qualification,
-      exp.description, exp.advice
+      exp.location, exp.examGiven, exp.examCracked,
+      exp.company, exp.jobRole, exp.category
     ].some((field) => field?.toLowerCase().includes(query));
   });
 
-  if (isFetching) return <p>Loading discussions...</p>;
+  if (isFetching) return <Loading/>;
 
   return (
     <div className="discussion-container">
@@ -127,6 +115,7 @@ const Discussion = () => {
                   placeholder={field.replace(/([A-Z])/g, " $1").trim()}
                   value={formData[field]}
                   onChange={handleChange}
+                  required
                   className="discussion-input"
                 />
               ))}
@@ -147,6 +136,7 @@ const Discussion = () => {
             <textarea
               name="description"
               placeholder="Your Experience Description"
+              required
               value={formData.description}
               onChange={handleChange}
               className="discussion-textarea"
@@ -164,7 +154,7 @@ const Discussion = () => {
           <div key={exp.id} className="discussion-card">
             <div className="discussion-card-header">
               <h2>{exp.name}</h2>
-              <span>{exp.location}</span>
+              <span><strong>Current Location - </strong>{exp.location}</span>
             </div>
 
             <div className="discussion-details-grid">

@@ -1,9 +1,8 @@
-import React from 'react'
 import './ItJobsPrep.css';
 import { FaPuzzlePiece, FaBriefcase, FaRobot, FaCodeBranch } from "react-icons/fa";
 import { LuRoute } from "react-icons/lu";
 
-import { Navigate, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Itjobpeperation() {
   return (
@@ -43,7 +42,6 @@ export default function Itjobpeperation() {
           <p className="widget-text">
             Follow a clear roadmap with key skills and tools to grow your IT career step by step.
           </p>
-
 
           <NavLink to="/it-jobs/practical-roadmap" className="widget-btn">Explore</NavLink>
         </div>
