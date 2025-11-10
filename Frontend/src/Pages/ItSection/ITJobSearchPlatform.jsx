@@ -1,5 +1,5 @@
 import './JobPlatformsPage.css';
-import { platforms } from '../data/ITJobSearchPlatform';
+import { platforms } from '../../data/ITJobSearchPlatform';
 
 function JobPlatformsPage() {
   return (
