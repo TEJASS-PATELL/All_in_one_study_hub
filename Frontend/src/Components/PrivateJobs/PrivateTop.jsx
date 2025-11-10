@@ -21,12 +21,12 @@ const PrivateTop = () => {
         </div>
         <p className="top-popular-searches">
           Popular Searches:
-          <a href="#">Banking</a>
-          <a href="#">Consulting</a>
-          <a href="#">Finance</a>
-          <a href="#">Manufacturing</a>
-          <a href="#">Hospitality</a>
-          <a href="#">Telecom</a>
+          <strong>Banking</strong>
+          <strong>Consulting</strong>
+          <strong>Finance</strong>
+          <strong>Manufacturing</strong>
+          <strong>Hospitality</strong>
+          <strong>Telecom</strong>
         </p>
       </section>
 

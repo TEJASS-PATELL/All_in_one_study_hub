@@ -5,6 +5,7 @@ import Calender from "./Calender";
 import ChatBot from "./ChatBot";
 import Footer from "./Footer"; 
 import Loading from "./Loading"; 
+import ScrollToTop from "../Components/ScrollToTop";
 
 const Layout = () => {
   const navigation = useNavigation();
@@ -14,6 +15,7 @@ const Layout = () => {
 
   return (
     <>
+     <ScrollToTop />
       <Calender />
       <NavBar />
       <main>

@@ -51,25 +51,23 @@
   clip: rect(0, 0, 0, 0);
 }
 
-/* Popular Searches */
 .top-popular-searches {
   margin-top: 2.5rem;
   color: #666;
   font-size: 1.15rem;
 }
 
-.top-popular-searches a {
+.top-popular-searches strong {
   margin: 0 0.5rem;
   color: #111;
   text-decoration: none;
   font-weight: 600;
 }
 
-.top-popular-searches a:hover {
+.top-popular-searches strong:hover {
   text-decoration: underline;
 }
 
-/* Stats Section */
 .top-stats {
   margin-top: 5rem;
   display: grid;

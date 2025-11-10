@@ -8,23 +8,23 @@ function JobSearch() {
         <div className="ltop-container">
           <div className="lhero-content">
             <h1>
-              Your All-In-One Career & <span className="litalic-style">Study Platform</span>
+              Empower Your <span className="litalic-style">Career Journey</span>, Academic Growth
             </h1>
 
             <p>
-              From Sarkari Naukri, Private sector to MNC Jobs — Find your dream job with our advanced search platform. Roadmaps to AI Tools, Interview Prep to Syllabus Guides — everything you need in one single platform.
+              Discover everything you need to build your future — from <strong>Government Exams</strong> and <strong>Private Job Openings</strong> to <strong>AI-Powered Tools</strong>, <strong>Interview Preparation</strong>, and <strong>Career Roadmaps</strong>.
+              Learn, plan, and apply — all in one platform designed for <em>students and professionals alike</em>.
             </p>
 
             <div className="lbutton-group">
-              <Link to="/government-jobs" className="lbtn lbtn-dark">Explore Now</Link>
+              <Link to="/government-jobs" className="lbtn lbtn-dark">Start Exploring</Link>
               <a href="#features" className="lbtn lbtn-light">Why Choose Us?</a>
             </div>
           </div>
 
           <div className="luser-badge">
-            <strong>STUDY SMART • GET HIRED</strong>
+            <strong>STUDY SMART • GROW CONFIDENT • GET HIRED</strong>
           </div>
-
 
           <button
             className="scroll-down"

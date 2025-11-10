@@ -16,18 +16,17 @@ const Top = () => {
         </p>
         <Motivation />
 
-        <form className="top-form">
-          <label htmlFor="search" className="top-sr-only">Search Exams</label>
+        <div className="top-form">
           <GoogleSearch/>
-        </form>
+        </div>
         <p className="top-popular-searches">
           Popular Searches:
-          <a href="#">GATE</a>
-          <a href="#">UPSC</a>
-          <a href="#">SSC</a>
-          <a href="#">Banking</a>
-          <a href="#">Medical</a>
-          <a href="#">Defense</a>
+          <strong>GATE</strong>
+          <strong>UPSC</strong>
+          <strong>SSC</strong>
+          <strong>Banking</strong>
+          <strong>Medical</strong>
+          <strong>Defense</strong>
         </p>
       </section>
 
