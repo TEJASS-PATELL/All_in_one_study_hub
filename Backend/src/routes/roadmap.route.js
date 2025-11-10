@@ -4,7 +4,7 @@ const { getRoadmap, createorupdateRoadmap, removeroadmap } = require("../control
 const authentication = require("../middlewares/auth.middleware");
 
 router.get("/", authentication, getRoadmap);
-router.post("/", authentication, createorupdateRoadmap);
+router.post("/modify", authentication, createorupdateRoadmap);
 router.delete("/remove", authentication, removeroadmap);
 
 module.exports = router;

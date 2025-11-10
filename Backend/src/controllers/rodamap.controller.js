@@ -72,7 +72,6 @@ exports.removeroadmap = async (req, res) => {
       message: "Roadmap deleted successfully"
     });
   } catch (err) {
-    console.error("Delete roadmap error:", err);
     res.status(500).json({
       success: false,
       message: "Error deleting roadmap"
