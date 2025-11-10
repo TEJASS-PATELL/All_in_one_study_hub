@@ -38,7 +38,9 @@ const SignUpPage = () => {
   };
 
   const handleVerifyEmail = () => {
-
+    const {email} = form;
+    if (!email.trim()) return toast.error("Email is required for verification");
+    
   }
 
   const handleVerifyOtp = () => {
@@ -88,7 +90,7 @@ const SignUpPage = () => {
                   className="verify-btn"
                   onClick={handleVerifyEmail}
                 >
-                  Verify
+                  OTP
                 </button>
               </div>
             </div>

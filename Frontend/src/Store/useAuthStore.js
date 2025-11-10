@@ -113,6 +113,18 @@ export const useAuthStore = create((set) => ({
     }
   },
 
-  
+  // sendOtp: async () => {
+  //       try {
+  //           set({ isLoading: true });
+  //           const res = await axios.post("/auth/send-verify-otp", {});
+  //           toast.success(res.data?.message || "OTP sent to your email!");
+  //           return true;
+  //       } catch (err) {
+  //           toast.error(err.response?.data?.message || "OTP not send");
+  //           return false;
+  //       } finally {
+  //           set({ isLoading: false });
+  //       }
+  // },
 
 }));

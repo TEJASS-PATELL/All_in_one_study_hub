@@ -34,7 +34,7 @@ export default function ChatBot() {
   };
 
   return (
-    <div style={{ position: "fixed", bottom: "10px", right: "25px" }}>
+    <div style={{ position: "fixed", bottom: "10px", right: "20px" }}>
       {!isOpen ? (
         <button aria-label="Open AI Chatbot" className="ai-button" onClick={() => setIsOpen(true)}>
           <Bot className="chat-user-icon" draggable={false} />

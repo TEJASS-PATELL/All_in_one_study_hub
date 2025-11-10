@@ -3,11 +3,14 @@ import PreparationSection from '../../Components/GovernmentJobs/Preperation'
 import Top from '../../Components/GovernmentJobs/Top'
 
 function GovJobSearch() {
-  return (           
+  return (
     <>
-    <Top />
-    <Exams/>
-    <PreparationSection/>
+      <Top />
+      <Exams />
+      <PreparationSection />
+      <h1 style={{ textAlign: "center", marginBottom: "25px", fontSize: "2rem", color: "black"}}>
+        Stay connected! Exciting updates are coming soon....
+      </h1>
     </>
   )
 }
