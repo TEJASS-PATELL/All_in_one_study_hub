@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../GovernmentJobs/Preperation.css';
+import { FaCodeBranch } from 'react-icons/fa';
 
 const PrivatePreparation = () => {
   return (
@@ -46,25 +47,28 @@ const PrivatePreparation = () => {
 
         <div className="G-preparation-card">
           <div className="preparation-icon">
-            <i className="fas fa-microphone"></i>
+            <FaCodeBranch />
           </div>
-          <h3 className="G-preparation-title">Interview Preparation</h3>
+
+          <h3 className="G-preparation-title">Various Tool's</h3>
           <p className="G-preparation-description">
-            Prepare for both technical and HR rounds with real-world questions and tips.
+            Access the best tools for resumes, coding, aptitude, interviews, and open-source work.
           </p>
-          <NavLink to="/government-jobs/practice-paper" className="cards-button">
+
+          <NavLink to="/it-jobs/ITJobresources-platform" className="cards-button">
             Explore
           </NavLink>
         </div>
 
         <div className="G-preparation-card">
           <div className="preparation-icon">
-            <i className="fas fa-lightbulb"></i>
+            <i className="fas fa-file-alt"></i>
           </div>
-          <h3 className="G-preparation-title">Aptitude & Soft Skills</h3>
+          <h3 className="G-preparation-title">Top Platform for Practice</h3>
           <p className="G-preparation-description">
-            Improve your logical thinking, communication, and problem-solving skills.
+            India’s top platform to practice real papers and crack your exam.
           </p>
+
           <NavLink to="/government-jobs/practice-paper" className="cards-button">
             Explore
           </NavLink>

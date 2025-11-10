@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ITJobSection.css';
-import itJobData from '../data/ITJobData';
+import itJobData from '../../data/ITJobData';
 
 function ITJobSection() {
   const [searchQuery, setSearchQuery] = useState("");
