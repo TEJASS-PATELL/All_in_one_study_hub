@@ -3,12 +3,13 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const passport = require("../config/passport")
 const authMiddleware = require("../middlewares/auth.middleware");
-const { signup, login, logout, getuser, alluser, updateprofile } = require("../controllers/auth.controller");
+const { signup, login, logout, getuser, alluser, updateprofile, deleteAccount } = require("../controllers/auth.controller");
 
 router.post("/signup", signup);           
 router.post("/login", login);             
 router.get("/logout", authMiddleware, logout);    
-router.put("/upload-profile", authMiddleware, updateprofile);    
+router.put("/upload-profile", authMiddleware, updateprofile); 
+router.delete("/delete-account", authMiddleware, deleteAccount); 
 router.get("/getuser", authMiddleware, getuser); 
 router.get("/allusers", alluser);    
 

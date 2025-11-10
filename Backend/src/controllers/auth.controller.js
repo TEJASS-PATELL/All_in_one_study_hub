@@ -169,3 +169,37 @@ exports.updateprofile = async (req, res) => {
     res.status(500).json({ success: false, message: "Error while uploading profile" });
   }
 }
+
+exports.deleteAccount = async (req, res) => {
+  try {
+    const userId = req.user.userid;
+
+    if (!userId) {
+      return res.status(401).json({ msg: "Unauthorized – user ID not found" });
+    }
+
+    const user = await prisma.user.findUnique({ where: { id: userId } });
+    if (!user) return res.status(404).json({ msg: "User not found" });
+
+    if (user.profilepic) {
+      try {
+        const publicId = user.profilepic.split("/").pop().split(".")[0];
+        await cloudinary.uploader.destroy(`users_profile/${publicId}`);
+      } catch (err) {
+        console.warn("Cloudinary image delete failed:", err.message);
+      }
+    }
+    await prisma.roadmap.deleteMany({ where: { userId } });
+    await prisma.discussion.deleteMany({ where: { userId } });
+    await prisma.like.deleteMany({ where: { userId } });
+
+    await prisma.user.delete({ where: { id: userId } });
+
+    res.clearCookie("token", { ...cookieOptions, maxAge: 0 });
+
+    return res.status(200).json({ msg: "Account deleted successfully" });
+  } catch (err) {
+    console.error("Delete Account Error:", err);
+    return res.status(500).json({ msg: "Error while deleting account" });
+  }
+};
