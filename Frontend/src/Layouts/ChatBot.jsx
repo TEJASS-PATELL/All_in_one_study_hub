@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { X } from "lucide-react";
+import { Bot, MessageSquare, X } from "lucide-react";
+import { RiRobot2Fill, RiRobot3Fill, RiChatSmile3Fill } from "react-icons/ri";
 import { useAiChatBot } from "../Store/useAiReply";
 import ReactMarkdown from "react-markdown";
 import "./ChatBot.css";
@@ -35,15 +36,8 @@ export default function ChatBot() {
   return (
     <div style={{ position: "fixed", bottom: "25px", right: "25px" }}>
       {!isOpen ? (
-        <button aria-label="Open AI Chatbot" className="ai-button" onClick={() => setIsOpen(true)}
-        >
-          <img
-            src="chatbot.png"
-            alt="User Icon"
-            title="Chat Bot"
-            draggable={false}
-            className="chat-user-icon"
-          />
+        <button aria-label="Open AI Chatbot" className="ai-button" onClick={() => setIsOpen(true)}>
+          <Bot className="chat-user-icon" draggable={false} />
         </button>
       ) : (
         <div className="chatbot-container">

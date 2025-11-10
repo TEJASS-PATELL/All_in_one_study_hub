@@ -6,10 +6,6 @@ const Footer = () => {
     <footer className='footer' id='footer'>
       <div className="footer-container">
         <div className="footer-bottom">
-          <p className="copyright">
-            © 2025 Career Hub by Tejas PateL | All rights reserved
-          </p>
-
           <div className="social-links">
             <a
               href="https://yourportfolio.com"
@@ -45,6 +41,9 @@ const Footer = () => {
               <FaGithub size={30}/>
             </a>
           </div>
+          <p className="copyright">
+            © 2025 Career Hub by Tejas PateL | All rights reserved
+          </p>
         </div>
       </div>
     </footer>
