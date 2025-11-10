@@ -59,12 +59,8 @@ const SignUpPage = () => {
         },
         navigate
       );
-      toast.success("Account created successfully!");
     } catch (err) {
       console.error("Signup error:", err);
-      toast.error("Signup failed. Try again.");
-    } finally {
-      setIsSigningUp(false);
     }
   };
 

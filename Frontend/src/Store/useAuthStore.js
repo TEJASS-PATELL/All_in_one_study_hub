@@ -111,6 +111,8 @@ export const useAuthStore = create((set) => ({
       toast.error("Error while deleting the account");
       console.error(err);
     }
-  }
+  },
+
+  
 
 }));

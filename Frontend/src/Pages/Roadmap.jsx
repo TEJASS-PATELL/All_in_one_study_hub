@@ -1,9 +1,19 @@
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { useRoadmapStore } from "../Store/useRoadmap";
 import Loading from "../Layouts/Loading";
 
 export default function Profile() {
+    const {
+    roadmapData,
+    roadmapTitle,
+    showForm,
+    loading,
+    fetchRoadmap,
+    saveRoadmap,
+    deleteRoadmap,
+  } = useRoadmapStore();
   const [formData, setFormData] = useState({
     jobType: "",
     jobRoles: "",
@@ -13,92 +23,23 @@ export default function Profile() {
     notes: "",
     roadmapDuration: "",
   });
-  const [roadmapData, setRoadmapData] = useState(null);
-  const [showForm, setShowForm] = useState(true);
-  const [loading, setLoading] = useState(false);
-  const [roadmapTitle, setRoadmapTitle] = useState("");
 
   useEffect(() => {
     fetchRoadmap();
   }, []);
-
-  const fetchRoadmap = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch("http://localhost:4001/api/roadmap", {
-        credentials: "include",
-      });
-      const data = await res.json();
-      console.log("Backend response:", data);
-
-      if (data.success && data.roadmap) {
-        if (Array.isArray(data.roadmap.steps) && data.roadmap.steps.length > 0) {
-          setRoadmapData(data.roadmap.steps);
-          setRoadmapTitle(data.roadmap.title || "");
-          setShowForm(false);
-        } else {
-          setShowForm(true);
-        }
-      } else {
-        setShowForm(true);
-      }
-    } catch (err) {
-      console.error("Error fetching roadmap:", err);
-      setShowForm(true);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-
-    try {
-      const res = await fetch("http://localhost:4001/api/roadmap", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (data.success && data.roadmap && Array.isArray(data.roadmap.steps)) {
-        setRoadmapData(data.roadmap.steps);
-        setShowForm(false);
-      }
-    } catch (err) {
-      console.error("Error saving roadmap:", err);
-    } finally {
-      setLoading(false);
-    }
+    saveRoadmap(formData);
   };
 
   const handleDeleteRoadmap = async () => {
-    if (!window.confirm("Are you sure you want to delete this roadmap?")) return;
-    try {
-      setLoading(true);
-      const res = await fetch("http://localhost:4001/api/roadmap/remove", {
-        method: "DELETE",
-        credentials: "include",
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        setRoadmapData(null);
-        setShowForm(true);
-      }
-    } catch (err) {
-      console.error("Error deleting roadmap:", err);
-    } finally {
-      setLoading(false);
-    }
+    deleteRoadmap();
   };
 
   if (loading) {
@@ -203,20 +144,20 @@ export default function Profile() {
         ) : (
           <div className="roadmap-view">
             <div className="roadmap-header">
-            <h1>{roadmapTitle}</h1>
-            <div className="roadmap-header-icon">
-              <FaEdit
-                className="edit-icon"
-                onClick={() => setShowForm(true)}
-                title="Edit Roadmap"
-                style={{ cursor: "pointer", color: "black" }}
-              />
-              <FaTrash
-                className="delete-icon"
-                onClick={handleDeleteRoadmap}
-                title="Delete Roadmap"
-                style={{ cursor: "pointer", color: "red", marginLeft: "10px" }}
-              />
+              <h1>{roadmapTitle}</h1>
+              <div className="roadmap-header-icon">
+                <FaEdit
+                  className="edit-icon"
+                  onClick={() => setShowForm(true)}
+                  title="Edit Roadmap"
+                  style={{ cursor: "pointer", color: "black" }}
+                />
+                <FaTrash
+                  className="delete-icon"
+                  onClick={handleDeleteRoadmap}
+                  title="Delete Roadmap"
+                  style={{ cursor: "pointer", color: "red", marginLeft: "10px" }}
+                />
               </div>
             </div>
 
