@@ -1,6 +1,6 @@
 .lg-container {
   width: 520px;
-  min-height: 620px; /* Flexible: grows with content */
+  min-height: 620px; 
   margin: 140px auto;
   background: #fff;
   border-radius: 20px;

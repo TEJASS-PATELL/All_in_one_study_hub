@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './PracticeTests.css';
-import {platforms} from "../data/GovernmentResources";
+import {platforms} from "../../data/GovernmentResources";
 import { FaFileAlt, FaGlobe, FaUsers } from 'react-icons/fa';
 
 const PracticeExam = () => {

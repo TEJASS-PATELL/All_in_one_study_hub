@@ -17,7 +17,7 @@ import {
   FaCheckCircle,
 } from 'react-icons/fa';
 
-import { cardsData } from "../data/GovJobData";
+import { cardsData } from "../../data/GovJobData";
 
 const StudyMaterial = () => {
 
