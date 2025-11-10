@@ -1,6 +1,7 @@
 import '../GovernmentJobs/Top.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Motivation from '../Motivation';
+import GoogleSearch from '../GoogleSearch';
 
 const PrivateTop = () => {
   return (
@@ -15,21 +16,9 @@ const PrivateTop = () => {
           Build your future with the right career direction.
         </p>
         <Motivation />
-        <form className="top-form">
-          <label htmlFor="search" className="top-sr-only">Search Jobs</label>
-          <div className="top-search-wrapper">
-            <FontAwesomeIcon className="top-search-icon" />
-            <input
-              id="search"
-              type="search"
-              placeholder="Search for jobs, industries, or qualifications..."
-              className="top-search-input"
-            />
-          </div>
-          <button type="submit" className="top-search-button">
-            Search Jobs
-          </button>
-        </form>
+        <div className="top-form">
+          <GoogleSearch />
+        </div>
         <p className="top-popular-searches">
           Popular Searches:
           <a href="#">Banking</a>

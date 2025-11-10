@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
@@ -42,7 +42,20 @@ export default function NavBar() {
             <Link to="/login" className="Llogin-btn">Login</Link>
           ) : (
             <button className="Lprofile-btn" onClick={handleProfileClick}>
-              <FaUserCircle style={{ fontSize: "34px" }} />
+              {authUser.profilepic ? (
+                <img
+                  src={authUser.profilepic}
+                  alt="Profile"
+                  style={{
+                    width: "38px",
+                    height: "38px",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                  }}
+                />
+              ) : (
+                <FaUserCircle size={38} color="#333" />
+              )}
             </button>
           )}
         </div>

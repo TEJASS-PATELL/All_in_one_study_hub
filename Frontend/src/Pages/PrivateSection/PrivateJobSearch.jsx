@@ -9,7 +9,7 @@ export default function PrivateJobSearch() {
     <PrivateExams />
     <PrivatePreparation />
     <h1 style={{ textAlign: "center", marginBottom: "25px", fontSize: "2rem", color: "black"}}>
-        Stay connected! Exciting updates are coming soon....
+        Stay connected! More resources are coming soon....
     </h1>
     </>
   )

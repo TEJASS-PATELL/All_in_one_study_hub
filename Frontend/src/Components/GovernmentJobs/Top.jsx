@@ -1,7 +1,7 @@
 import React from 'react';
 import './Top.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Motivation from '../Motivation';
+import GoogleSearch from '../GoogleSearch';
 
 const Top = () => {
   return (
@@ -18,18 +18,7 @@ const Top = () => {
 
         <form className="top-form">
           <label htmlFor="search" className="top-sr-only">Search Exams</label>
-          <div className="top-search-wrapper">
-            <FontAwesomeIcon className="top-search-icon" />
-            <input
-              id="search"
-              type="search"
-              placeholder="Search for exams, categories, or qualifications..."
-              className="top-search-input"
-            />
-          </div>
-          <button type="submit" className="top-search-button">
-            Search Exams
-          </button>
+          <GoogleSearch/>
         </form>
         <p className="top-popular-searches">
           Popular Searches:

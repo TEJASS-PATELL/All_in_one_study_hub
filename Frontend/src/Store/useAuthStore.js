@@ -37,6 +37,7 @@ export const useAuthStore = create((set) => ({
       } else {
         set({ authUser: null, isLoading: false });
       }
+      return;
     } catch (err) {
       console.error("Fetch user error:", err?.response?.data || err.message);
       set({ authUser: null, isLoading: false });
