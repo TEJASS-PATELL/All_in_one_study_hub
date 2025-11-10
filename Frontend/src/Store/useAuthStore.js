@@ -8,6 +8,7 @@ axios.defaults.withCredentials = true;
 export const useAuthStore = create((set) => ({
   authUser: null,
   isLoading: true,
+  isisAuthenticated: false,
   isUpdatingProfile: false,
 
   setAuthUser: (userData) => set({ authUser: userData, isLoading: false }),
@@ -16,7 +17,7 @@ export const useAuthStore = create((set) => ({
     try {
       set({ isLoading: true });
       await axios.get("/api/auth/logout");
-      set({ authUser: null, isLoading: false });
+      set({ authUser: null, isLoading: false, isAuthenticated: false });
       toast.success("Logged out successfully");
     } catch (err) {
       console.error("Logout error:", err);
@@ -32,7 +33,7 @@ export const useAuthStore = create((set) => ({
 
       const user = res.data;
       if (user?.id || user?.email) {
-        set({ authUser: user, isLoading: false });
+        set({ authUser: user, isLoading: false, isAuthenticated: true });
       } else {
         set({ authUser: null, isLoading: false });
       }
@@ -53,7 +54,7 @@ export const useAuthStore = create((set) => ({
 
       const user = res.data?.user || res.data;
       if (user?.id || user?.email) {
-        set({ authUser: user, isLoading: false });
+        set({ authUser: user, isLoading: false, isAuthenticated: true });
         toast.success("Login successful");
         navigate("/chatbot", { replace: true });
       } else {
@@ -73,7 +74,7 @@ export const useAuthStore = create((set) => ({
 
       const user = res.data?.user || res.data;
       if (user?.id || user?.email) {
-        set({ authUser: user, isLoading: false });
+        set({ authUser: user, isLoading: false, isAuthenticated: true });
         toast.success("Signup successful");
         navigate("/");
       } else {
@@ -103,6 +104,7 @@ export const useAuthStore = create((set) => ({
 
   deleteAccount: async () => {
     try {
+      set({isAuthenticated: false});
       await axios.delete("/api/auth/delete-account");
       toast.success("Account deleted successfully");
     } catch (err) {
