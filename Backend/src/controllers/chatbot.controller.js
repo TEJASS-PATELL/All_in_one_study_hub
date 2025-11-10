@@ -1,4 +1,5 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const assistantAI = require("../Prompt/assistantAI")
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -10,7 +11,7 @@ if (!GEMINI_API_KEY) {
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-export const chatbot = async (req, res) => {
+const chatbot = async (req, res) => {
     try {
         const { history = [], message } = req.body;
 
@@ -32,7 +33,7 @@ export const chatbot = async (req, res) => {
 
         const chat = model.startChat({
             history: safeHistory,
-            systemInstruction: {parts: [{ text: "You are a best" }]},
+            systemInstruction: {parts: [{ text: assistantAI }]},
         });
 
         const result = await chat.sendMessage(message);
@@ -44,3 +45,5 @@ export const chatbot = async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 };
+
+module.exports = chatbot

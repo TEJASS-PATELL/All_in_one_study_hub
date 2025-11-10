@@ -20,10 +20,12 @@ const authRoutes = require("./routes/auth.route");
 const discussionRoutes = require("./routes/discussion.route");
 const examRoutes = require("./routes/exam.route");
 const roadmapRoutes = require("./routes/roadmap.route");
+const chatbotRoutes = require("./routes/chatbot.route");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/discussion", discussionRoutes);
 app.use("/api/exam", examRoutes);
+app.use("/api/chat", chatbotRoutes);
 app.use("/api/roadmap", roadmapRoutes);
 
 app.use((req, res) => {
