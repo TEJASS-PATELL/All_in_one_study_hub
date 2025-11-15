@@ -203,3 +203,62 @@ exports.deleteAccount = async (req, res) => {
     return res.status(500).json({ msg: "Error while deleting account" });
   }
 };
+
+// export const sendVerifyOtp = async (req, res) => {
+//   try {
+//     const { userId } = req.user;
+
+//     const user = await prisma.user.findUnique({ where: { id: userId } });
+
+//     if (user.isAccountVerified) {
+//       res.json({ success: false, message: "Account already verified" });
+//     }
+
+//     const otp = String(Math.floor(100000 + Math.random() * 900000));
+
+//     await prisma.user.update({
+//       where: { id: userId },
+//       data: {
+//         verifyOtp: otp,
+//         verifyOtpExpireAt: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
+//       }
+//     })
+
+//     const mailOption = {
+//       from: process.env.GMAIL_USER,
+//       to: user.email,
+//       subject: " Verify Your Account – OTP Code Inside",
+//       html: `
+//     <div style="font-family: Arial, sans-serif; padding: 20px; background: #f9fafb; border-radius: 8px;">
+//       <h2 style="color: #2563eb;">Verify Your Account</h2>
+//       <p style="font-size: 16px; color: #333;">
+//         Hi <strong>${user.email}</strong>,
+//       </p>
+//       <p style="font-size: 15px; color: #555;">
+//         Please use the following One-Time Password (OTP) to verify your account:
+//       </p>
+//       <div style="text-align: center; margin: 25px 0;">
+//         <span style="display: inline-block; font-size: 22px; letter-spacing: 4px; color: #111; font-weight: bold; background: #e0e7ff; padding: 10px 20px; border-radius: 6px;">
+//           ${otp}
+//         </span>
+//       </div>
+//       <p style="font-size: 14px; color: #777;">
+//         This OTP will expire in <strong>10 minutes</strong>. Please do not share it with anyone.
+//       </p>
+//       <hr style="margin: 20px 0;" />
+//       <p style="font-size: 13px; color: #777;">
+//         If you didn’t request this, please ignore this message.
+//       </p>
+//       <p style="font-weight: bold; color: #2563eb;">– The Demo App Security Team</p>
+//     </div>
+//   `,
+//     };
+
+//     await transporter.sendMail(mailOption);
+
+//     return res.status(200).json({ success: true, message: "OTP sent successfully" })
+//   } catch (err) {
+//     console.log("Otp Send Error: ", err);
+//     res.status(500).json({ success: false, message: "Server error while sending OTP." });
+//   }
+// }

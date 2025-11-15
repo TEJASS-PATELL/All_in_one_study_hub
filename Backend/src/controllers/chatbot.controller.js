@@ -1,5 +1,5 @@
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const assistantAI = require("../Prompt/assistantAI")
+const assistantAI = require("../Prompt/assistantAI");
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 

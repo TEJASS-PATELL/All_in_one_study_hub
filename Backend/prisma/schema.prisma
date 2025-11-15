@@ -53,6 +53,11 @@ model User {
   isLogin     Boolean      @default(false)
   createdAt   DateTime     @default(now())
   roadmap     Roadmap?
+  verifyOtp         String           @default("")
+  verifyOtpExpireAt Int              @default(0)
+  isAccountVerified Boolean          @default(false)
+  resetOtp          String           @default("")
+  resetOtpExpireAt  Int              @default(0)
 }
 
 model Roadmap {

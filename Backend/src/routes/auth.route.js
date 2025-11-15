@@ -11,7 +11,8 @@ router.get("/logout", authMiddleware, logout);
 router.put("/upload-profile", authMiddleware, updateprofile); 
 router.delete("/delete-account", authMiddleware, deleteAccount); 
 router.get("/getuser", authMiddleware, getuser); 
-router.get("/allusers", alluser);    
+router.get("/allusers", alluser);  
+// router.post("/send-verify-otp", authMiddleware, sendVerifyOtp);  
 
 router.get(
   "/google",
