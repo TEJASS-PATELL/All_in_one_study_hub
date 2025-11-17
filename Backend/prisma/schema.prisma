@@ -56,8 +56,8 @@ model User {
   verifyOtp         String           @default("")
   verifyOtpExpireAt Int              @default(0)
   isAccountVerified Boolean          @default(false)
-  resetOtp          String           @default("")
-  resetOtpExpireAt  Int              @default(0)
+  resetLink          String           @default("")
+  resetLinkExpireAt  Int              @default(0)
 }
 
 model Roadmap {

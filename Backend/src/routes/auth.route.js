@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const passport = require("../config/passport")
 const authMiddleware = require("../middlewares/auth.middleware");
-const { signup, login, logout, getuser, alluser, updateprofile, deleteAccount } = require("../controllers/auth.controller");
+const { signup, login, logout, getuser, alluser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, sendVerifyLink, verifyEmail, verifyOtp, sendVerifyOtp } = require("../controllers/auth.controller");
 
 router.post("/signup", signup);           
 router.post("/login", login);             
@@ -12,7 +12,10 @@ router.put("/upload-profile", authMiddleware, updateprofile);
 router.delete("/delete-account", authMiddleware, deleteAccount); 
 router.get("/getuser", authMiddleware, getuser); 
 router.get("/allusers", alluser);  
-// router.post("/send-verify-otp", authMiddleware, sendVerifyOtp);  
+router.post("/send-reset-link", sendPasswordResetLink);
+router.patch("/reset-password/:token", resetPassword);
+router.post("/send-verify-otp", sendVerifyOtp);
+router.post("/verify-account", verifyOtp);
 
 router.get(
   "/google",

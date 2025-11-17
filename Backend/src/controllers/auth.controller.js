@@ -2,6 +2,8 @@ const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../config/cloudinary");
+const sendOtp = require("../lib/helper.js");
+const transporter = require("../config/nodemailer");
 
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -14,45 +16,6 @@ const cookieOptions = {
   secure: false,
   sameSite: "Lax",
   maxAge: 7 * 24 * 60 * 60 * 1000,
-};
-
-exports.signup = async (req, res) => {
-  const { name, email, password } = req.body;
-  if (!name || !email || !password)
-    return res.status(400).json({ msg: "All fields are required" });
-
-  try {
-    const existingUser = await prisma.user.findUnique({
-      where: { email: email.trim().toLowerCase() }
-    });
-    if (existingUser)
-      return res.status(400).json({ msg: "User already exists" });
-
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    const newUser = await prisma.user.create({
-      data: {
-        name,
-        email: email.trim().toLowerCase(),
-        password: hashedPassword,
-        lastLogin: new Date(),
-        isLogin: true,
-        lastLogout: null,
-      },
-    });
-
-    const token = generateToken(newUser.id);
-
-    res
-      .status(201)
-      .cookie("token", token, { ...cookieOptions, secure: false })
-      .json({
-        msg: "Signup successful",
-        user: { id: newUser.id, name: newUser.name, email: newUser.email },
-      });
-  } catch (err) {
-    res.status(500).json({ msg: "Signup failed", error: err.message });
-  }
 };
 
 exports.login = async (req, res) => {
@@ -84,6 +47,59 @@ exports.login = async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ msg: "Login failed", error: err.message });
+  }
+};
+
+exports.signup = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+
+    if (!name || !email || !password)
+      return res.status(400).json({ success: false, message: "All fields required" });
+
+    const cleanEmail = email.trim().toLowerCase();
+
+    const exist = await prisma.user.findUnique({ where: { email: cleanEmail } });
+
+    if (exist) {
+      if (exist.isAccountVerified) {
+        return res.status(400).json({ success: false, message: "User already exists" });
+      }
+
+      await sendOtp(exist.id, exist.email);
+
+      return res.json({
+        success: true,
+        redirectToVerify: true,
+        message: "Account exists but not verified. Link resent.",
+      });
+    }
+
+    const hashed = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.create({
+      data: {
+        name,
+        email: cleanEmail,
+        password: hashed,
+        isAccountVerified: false,
+        lastLogin: new Date(),
+        isLogin: true,
+        lastLogout: null,
+      },
+    });
+
+    await sendOtp(user.id, user.email);
+
+    return res.status(201).json({
+      success: true,
+      redirectToVerify: true,
+      message: "Verification link sent!",
+    });
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ success: false, message: "Server error" });
   }
 };
 
@@ -204,61 +220,156 @@ exports.deleteAccount = async (req, res) => {
   }
 };
 
-// export const sendVerifyOtp = async (req, res) => {
-//   try {
-//     const { userId } = req.user;
+exports.sendPasswordResetLink = async (req, res) => {
+  const { email } = req.body;
 
-//     const user = await prisma.user.findUnique({ where: { id: userId } });
+  if (!email) {
+    return res.status(400).json({ message: "Email is required", success: false });
+  }
 
-//     if (user.isAccountVerified) {
-//       res.json({ success: false, message: "Account already verified" });
-//     }
+  try {
+    const user = await prisma.user.findUnique({ where: { email: email } });
+    if (!user) {
+      return res.json({ success: false, message: "User not found with this Email" });
+    }
 
-//     const otp = String(Math.floor(100000 + Math.random() * 900000));
+    const token = crypto.randomBytes(32).toString("hex");
+    const resetTokenExpireAt = Math.floor(Date.now() / 1000) + 60 * 60;
 
-//     await prisma.user.update({
-//       where: { id: userId },
-//       data: {
-//         verifyOtp: otp,
-//         verifyOtpExpireAt: Math.floor(Date.now() / 1000) + 24 * 60 * 60,
-//       }
-//     })
+    await prisma.user.update({
+      where: { email: email },
+      data: {
+        resetOtp: token,
+        resetOtpExpireAt: resetTokenExpireAt,
+      }
+    })
 
-//     const mailOption = {
-//       from: process.env.GMAIL_USER,
-//       to: user.email,
-//       subject: " Verify Your Account – OTP Code Inside",
-//       html: `
-//     <div style="font-family: Arial, sans-serif; padding: 20px; background: #f9fafb; border-radius: 8px;">
-//       <h2 style="color: #2563eb;">Verify Your Account</h2>
-//       <p style="font-size: 16px; color: #333;">
-//         Hi <strong>${user.email}</strong>,
-//       </p>
-//       <p style="font-size: 15px; color: #555;">
-//         Please use the following One-Time Password (OTP) to verify your account:
-//       </p>
-//       <div style="text-align: center; margin: 25px 0;">
-//         <span style="display: inline-block; font-size: 22px; letter-spacing: 4px; color: #111; font-weight: bold; background: #e0e7ff; padding: 10px 20px; border-radius: 6px;">
-//           ${otp}
-//         </span>
-//       </div>
-//       <p style="font-size: 14px; color: #777;">
-//         This OTP will expire in <strong>10 minutes</strong>. Please do not share it with anyone.
-//       </p>
-//       <hr style="margin: 20px 0;" />
-//       <p style="font-size: 13px; color: #777;">
-//         If you didn’t request this, please ignore this message.
-//       </p>
-//       <p style="font-weight: bold; color: #2563eb;">– The Demo App Security Team</p>
-//     </div>
-//   `,
-//     };
+    const resetLink = `${process.env.CLIENT_URL}/reset-password/${token}`;
 
-//     await transporter.sendMail(mailOption);
+    const mailOption = {
+      from: process.env.GMAIL_USER,
+      to: user.email,
+      subject: "Password Reset Link",
+      html: `<div style="font-family: Comic Relief; line-height: 1.5;">
+                  <h2>Password Reset Request</h2>
+                  <p>Hello ${user.name || "User"},</p>
+                  <p>You requested to reset your password. Click the link below to reset it:</p>
+                  <a href="${resetLink}" style="background:#4CAF50;color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;">Reset Password</a>
+                  <p>This link will expire in <b>1 hour</b>.</p>
+                  <p>If you didn’t request this, you can safely ignore this email.</p>
+                </div>`,
+    }
 
-//     return res.status(200).json({ success: true, message: "OTP sent successfully" })
-//   } catch (err) {
-//     console.log("Otp Send Error: ", err);
-//     res.status(500).json({ success: false, message: "Server error while sending OTP." });
-//   }
-// }
+    await transporter.sendMail(mailOption);
+
+    return res.status(200).json({ success: true, message: "Password reset link sent to your email." });
+
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error while sending reset link" });
+  }
+}
+
+exports.resetPassword = async (req, res) => {
+  const { newPassword } = req.body;
+  const { token } = req.params;
+
+  if (!token || !newPassword) {
+    return res.status(400).json({ success: false, message: "Token and new password are required" });
+  }
+
+  try {
+    const user = await prisma.user.findFirst({ where: { resetOtp: token } });
+
+    if (!user) {
+      return res.json({ success: false, message: "Invalid or expired reset link" });
+    }
+
+    if (user.resetOtpExpireAt < Math.floor(Date.now() / 1000)) {
+      return res.status(400).json({ success: false, message: "Reset link expired" });
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        password: hashedPassword,
+        resetOtp: "",
+        resetOtpExpireAt: 0,
+      }
+    })
+
+    return res.status(200).json({ message: "Password has been reset succesfully", success: true });
+  }
+  catch (err) {
+    console.log(err)
+    return res.status(500).json({ success: false, message: err.message });
+  }
+}
+
+exports.sendVerifyOtp = async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ success: false, message: "Email required" });
+    }
+
+    const user = await prisma.user.findUnique({ where: { email } });
+
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
+
+    if (user.isAccountVerified) {
+      return res.status(400).json({ success: false, message: "Account already verified" });
+    }
+
+    await sendOtp(user.id, user.email);
+
+    return res.json({ success: true, message: "OTP sent to your email" });
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ success: false, message: "Server error" });
+  }
+};
+
+exports.verifyOtp = async (req, res) => {
+  try {
+    const { otp, email } = req.body;
+
+    if (!otp || !email) {
+      return res.status(400).json({ success: false, message: "OTP and email required" });
+    }
+
+    const user = await prisma.user.findUnique({ where: { email } });
+
+    if (!user) return res.status(404).json({ success: false, message: "User not found" });
+
+    if (user.verifyOtp !== otp || user.verifyOtpExpireAt < Math.floor(Date.now() / 1000)) {
+      return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
+    }
+
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        isAccountVerified: true,
+        verifyOtp: "",
+        verifyOtpExpireAt: 0,
+      },
+    });
+
+    const token = generateToken(user.id);
+
+    res.cookie("token", token, cookieOptions);
+
+    return res.json({ success: true, message: "Email verified" });
+
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ success: false, message: "Server error" });
+  }
+};
+
+
