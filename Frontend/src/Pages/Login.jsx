@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaLock, FaLockOpen } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../Store/useAuthStore";
 import "./LoginPage.css";
 
 const LoginPage = () => {

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../Store/useAuthStore";
 
 export default function NavBar() {
   const navigate = useNavigate();

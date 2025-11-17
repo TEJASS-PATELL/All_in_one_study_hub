@@ -2,7 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:4001";
+axios.defaults.baseURL = import.meta.env.SERVER_URL;
 
 export const useDiscussionStore = create((set, get) => ({
   experiences: [],
