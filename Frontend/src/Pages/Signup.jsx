@@ -10,7 +10,7 @@ const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const { signup, sendVerifyOtp, isLoading } = useAuthStore();
+  const { signup, isLoading } = useAuthStore();
 
   const [form, setForm] = useState({
     name: "",
