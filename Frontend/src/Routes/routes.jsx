@@ -1,4 +1,4 @@
-import { lazy } from "react";
+import React, { lazy } from "react";
 import Layout from "../Layouts/Layout";
 import LoginPage from "../Pages/Login";
 import SignUpPage from "../Pages/Signup";

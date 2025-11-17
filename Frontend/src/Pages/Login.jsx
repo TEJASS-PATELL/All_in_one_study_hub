@@ -4,6 +4,8 @@ import { FaLock, FaLockOpen } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthStore } from "../Store/useAuthStore";
 import "./LoginPage.css";
+import React from "react";
+
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);

@@ -2,6 +2,8 @@ import './ITJobresources.css';
 import { FaBook, FaCalculator, FaClipboardCheck, FaClock, FaCodeBranch, FaCogs, FaComments, FaDatabase, FaGlobe, FaUserTie } from 'react-icons/fa';
 import { FaFileAlt, FaCode, FaWrench, FaLaptopCode, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md';
+import React from "react";
+
 
 const resumePlatforms = [
     {

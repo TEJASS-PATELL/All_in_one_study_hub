@@ -1,5 +1,7 @@
 import './JobPlatformsPage.css';
 import { platforms } from '../../data/ITJobSearchPlatform';
+import React from "react";
+
 
 function JobPlatformsPage() {
   return (

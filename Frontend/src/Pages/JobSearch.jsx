@@ -1,5 +1,6 @@
 import './JobSearch.css';
 import { Link, NavLink } from 'react-router-dom';
+import React from "react";
 
 function JobSearch() {
   return (

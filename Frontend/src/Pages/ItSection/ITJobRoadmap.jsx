@@ -1,4 +1,6 @@
 import './roadmap.css';
+import React from "react";
+
 
 const roadmapData = [
   {

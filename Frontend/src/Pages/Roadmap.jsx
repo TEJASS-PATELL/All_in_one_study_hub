@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { FaEdit, FaTrash } from "react-icons/fa";

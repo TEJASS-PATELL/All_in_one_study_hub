@@ -1,5 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import './Dashboard.css';
+import React from "react";
+
 import {
   FaChartBar, FaSignOutAlt, FaHome,
   FaUsers, FaComments,
