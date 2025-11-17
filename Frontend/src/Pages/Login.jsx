@@ -18,7 +18,7 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:4001/api/auth/google";
+    window.location.href = "https://all-in-one-study-hub.onrender.com/api/auth/google";
   };
 
   return (

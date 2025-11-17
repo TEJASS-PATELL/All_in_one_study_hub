@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 
 axios.defaults.baseURL = import.meta.env.SERVER_URL;
+axios.defaults.withCredentials = true;
 
 export const useAiChatBot = create((set) => ({
     isLoading: false,
