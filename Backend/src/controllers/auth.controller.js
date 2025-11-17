@@ -9,13 +9,14 @@ const crypto = require("crypto");
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
 
+const isProduction = process.env.NODE_ENV === "production";
 const generateToken = (userid) =>
   jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
 
 const cookieOptions = {
   httpOnly: true,
-  secure: false,
-  sameSite: "Lax",
+  secure: isProduction,
+  sameSite: isProduction ? "None" : "Lax",
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
