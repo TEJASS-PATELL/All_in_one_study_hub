@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const cloudinary = require("../config/cloudinary");
 const sendOtp = require("../lib/helper.js");
 const transporter = require("../config/nodemailer");
+const crypto = require("crypto");
 
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -239,8 +240,8 @@ exports.sendPasswordResetLink = async (req, res) => {
     await prisma.user.update({
       where: { email: email },
       data: {
-        resetOtp: token,
-        resetOtpExpireAt: resetTokenExpireAt,
+        resetLink: token,
+        resetLinkExpireAt: resetTokenExpireAt,
       }
     })
 
@@ -265,6 +266,7 @@ exports.sendPasswordResetLink = async (req, res) => {
     return res.status(200).json({ success: true, message: "Password reset link sent to your email." });
 
   } catch (err) {
+    console.log("SEND RESET ERROR:", err);
     res.status(500).json({ success: false, message: "Server error while sending reset link" });
   }
 }
@@ -278,13 +280,13 @@ exports.resetPassword = async (req, res) => {
   }
 
   try {
-    const user = await prisma.user.findFirst({ where: { resetOtp: token } });
+    const user = await prisma.user.findFirst({ where: { resetLink: token } });
 
     if (!user) {
       return res.json({ success: false, message: "Invalid or expired reset link" });
     }
 
-    if (user.resetOtpExpireAt < Math.floor(Date.now() / 1000)) {
+    if (user.resetLinkExpireAt < Math.floor(Date.now() / 1000)) {
       return res.status(400).json({ success: false, message: "Reset link expired" });
     }
 
@@ -294,8 +296,8 @@ exports.resetPassword = async (req, res) => {
       where: { id: user.id },
       data: {
         password: hashedPassword,
-        resetOtp: "",
-        resetOtpExpireAt: 0,
+        resetLink: "",
+        resetLinkExpireAt: 0,
       }
     })
 

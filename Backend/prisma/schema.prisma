@@ -9,35 +9,35 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
 model Exam {
   id           Int    @id @default(autoincrement())
-  title        String
+  title        String @db.Text
   desc         String @db.Text
-  link         String
-  name         String
+  link         String @db.Text
+  name         String @db.Text
   category     String
   eligibility  Json
-  examDate     String @db.VarChar(600)
+  examDate     String @db.Text
   examPattern  Json
-  fees         String  @db.VarChar(500)
-  attemptLimit String   @db.VarChar(500)
-  salary       String @db.VarChar(600)
-  examMode     String @db.VarChar(600)
+  fees         String  @db.Text
+  attemptLimit String  @db.Text
+  salary       String @db.Text
+  examMode     String @db.Text
 }
 
 model PrivateJob {
   id             Int    @id @default(autoincrement())
-  title          String @db.VarChar(600)
+  title          String @db.Text
   desc           String @db.Text
-  category       String @db.VarChar(600)
-  syllabus       String @db.VarChar(600)
-  selectionStage String @db.VarChar(600)
-  tips           String @db.VarChar(600)
-  skills         String @db.VarChar(600)
+  category       String @db.Text
+  syllabus       String @db.Text
+  selectionStage String @db.Text
+  tips           String @db.Text
+  skills         String @db.Text
 }
 
 model User {
