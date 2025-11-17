@@ -2,7 +2,6 @@ import { lazy } from "react";
 import Layout from "../Layouts/Layout";
 import LoginPage from "../Pages/Login";
 import SignUpPage from "../Pages/Signup";
-import Dashboard from "../Pages/Dashboard";
 import Profile from "../Pages/Roadmap";
 import Members from "../Pages/Members";
 const Discussion = lazy(() => import("../Pages/Discussion"));
@@ -15,6 +14,7 @@ const PracticeExam = lazy(() => import("../Pages/GovernmentSection/PracticeExam"
 const ExamDay = lazy(() => import("../Pages/GovernmentSection/ExamDay"));
 const AITools = lazy(() => import("../Pages/AITools"));
 const ItRoadmapPage = lazy(() => import("../Pages/ItSection/ITJobRoadmap"));
+const Dashboard = lazy(() => import("../Pages/Dashboard"));
 const JobPlatformsPage = lazy(() => import("../Pages/ItSection/ITJobSearchPlatform"));
 const ITJobSection = lazy(() => import("../Pages/ItSection/ITJobSection"));
 const ITJobresources = lazy(() => import("../Pages/ItSection/ITJobresources"));
@@ -24,7 +24,6 @@ import ProtectedRoute from "../Components/ProtectedRoute";
 import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
-import VerifyEmail from "../Components/VerifyEmail";
 import VerifyAccount from "../Components/VerifyEmail";
 
 export const routers = [
