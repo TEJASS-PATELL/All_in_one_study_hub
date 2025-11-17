@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useRoadmapStore } from "../store/useRoadmap";
+import { useRoadmapStore } from "../Store/useRoadmap";
 import Loading from "../Layouts/Loading";
 
 export default function Profile() {

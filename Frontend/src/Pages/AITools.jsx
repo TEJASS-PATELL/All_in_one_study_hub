@@ -1,4 +1,3 @@
-import React from "react";
 import { FiExternalLink } from 'react-icons/fi';
 import "./AITools.css";
 import { FaRobot, FaImage, FaBook, FaFlask, FaCode, FaTasks, FaBriefcase, FaGraduationCap } from "react-icons/fa";

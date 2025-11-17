@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaLockOpen } from "react-icons/fa";
 import { Loader2 } from "lucide-react";
-import { useAuthStore } from "../store/useAuthStore";
+import { useAuthStore } from "../Store/useAuthStore";
 import toast from "react-hot-toast";
 import "./SignUpPage.css";
 
