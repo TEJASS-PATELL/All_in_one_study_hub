@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../style/ForgotPassword.css";
+import "./ForgotPassword.css";
 import toast from "react-hot-toast";
-import { useAuthStore } from "../stores/useAuth";
+import { useAuthStore } from "../store/useAuthStore";
 
 export default function EnterEmail() {
   const [email, setemail] = useState("");
@@ -17,9 +17,7 @@ export default function EnterEmail() {
     if(result){
       navigate("/login");
     }
-    else{
-      return toast.error("Error occurs! Please retry");
-    }
+    else return false;
   };
 
   return (

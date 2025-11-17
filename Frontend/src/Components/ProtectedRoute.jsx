@@ -1,20 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { useAuthStore } from "../Store/useAuthStore";
-import Loading from "../Layouts/Loading";
+import { useAuthStore } from "../store/useAuthStore";
 
 const ProtectedRoute = () => {
-  const { authUser, isLoading, fetchUser } = useAuthStore();
-  const hasFetched = useRef(false);
+  const { authUser, isLoading } = useAuthStore();
 
-  useEffect(() => {
-    if (!hasFetched.current) {
-      fetchUser();
-      hasFetched.current = true;
-    }
-  }, [fetchUser]);
-
-  if (isLoading) return <Loading />;
+  if (isLoading) return <div>Loading...</div>;
 
   return authUser ? <Outlet /> : <Navigate to="/login" replace />;
 };

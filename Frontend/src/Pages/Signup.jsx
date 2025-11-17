@@ -2,23 +2,21 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaLock, FaLockOpen } from "react-icons/fa";
 import { Loader2 } from "lucide-react";
-import { useAuthStore } from "../Store/useAuthStore";
+import { useAuthStore } from "../store/useAuthStore";
 import toast from "react-hot-toast";
 import "./SignUpPage.css";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [isSigningUp, setIsSigningUp] = useState(false);
   const navigate = useNavigate();
 
-  const { signup } = useAuthStore();
+  const { signup, sendVerifyOtp, isLoading } = useAuthStore();
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
     confirmPassword: "",
-    isHuman: false,
   });
 
   const handleChange = (e) => {
@@ -26,43 +24,30 @@ const SignUpPage = () => {
   };
 
   const validateForm = () => {
-    const { name, email, password, confirmPassword, isHuman } = form;
+    const { name, email, password, confirmPassword } = form;
+
     if (!name.trim()) return toast.error("Full Name is required");
     if (!email.trim()) return toast.error("Email is required");
     if (!/\S+@\S+\.\S+/.test(email)) return toast.error("Invalid email format");
     if (!password) return toast.error("Password is required");
-    if (password.length < 6) return toast.error("Password must be at least 6 characters");
-    if (password !== confirmPassword) return toast.error("Passwords do not match");
-    if (!isHuman) return toast.error("Please confirm you are not a robot");
+    if (password.length < 6)
+      return toast.error("Password must be at least 6 characters");
+    if (password !== confirmPassword)
+      return toast.error("Passwords do not match");
+
     return true;
   };
-
-  const handleVerifyEmail = () => {
-    const {email} = form;
-    if (!email.trim()) return toast.error("Email is required for verification");
-    
-  }
-
-  const handleVerifyOtp = () => {
-
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    try {
-      setIsSigningUp(true);
-      await signup(
-        {
-          name: form.name.trim(),
-          email: form.email.trim(),
-          password: form.password,
-        },
-        navigate
-      );
-    } catch (err) {
-      console.error("Signup error:", err);
+    const result = await signup(form);
+
+    if (result?.success) {
+      localStorage.setItem("verifyEmail", form.email);
+      navigate("/verify-account");
+      toast.success(result.message);
     }
   };
 
@@ -85,13 +70,6 @@ const SignUpPage = () => {
                   onChange={handleChange}
                   required
                 />
-                <button
-                  type="button"
-                  className="verify-btn"
-                  onClick={handleVerifyEmail}
-                >
-                  OTP
-                </button>
               </div>
             </div>
 
@@ -144,33 +122,8 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            <div className="input-group">
-            <label>Enter OTP</label>
-            <div className="input-wrapper">
-              <input
-                type="text"
-                name="otp"
-                placeholder="Enter 6-digit code"
-                value={form.otp}
-                onChange={handleChange}
-                required
-              />
-              <button
-                type="button"
-                className="verify-btn"
-                onClick={handleVerifyOtp}
-              >
-                Verify
-              </button>
-            </div>
-          </div>
-
-            <button
-              type="submit"
-              className={`submit-btn ${isSigningUp ? "disabled" : ""}`}
-              disabled={isSigningUp}
-            >
-              {isSigningUp ? (
+            <button type="submit" className="submit-btn" disabled={isLoading}>
+              {isLoading ? (
                 <>
                   <Loader2 className="loader animate-spin mr-2" size={18} />
                   Creating Account...
@@ -190,7 +143,6 @@ const SignUpPage = () => {
         </footer>
       </div>
     </div>
-
   );
 };
 

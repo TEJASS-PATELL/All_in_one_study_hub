@@ -1,5 +1,5 @@
 import { Suspense, useEffect } from "react";
-import { useAuthStore } from "./Store/useAuthStore";
+import { useAuthStore } from "./store/useAuthStore";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { routers } from "./Routes/routes";
 import Loading from "./Layouts/Loading";

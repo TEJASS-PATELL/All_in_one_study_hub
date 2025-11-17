@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Camera, Loader2 } from "lucide-react";
 import "./ImageUpload.css"
-import { useAuthStore } from '../Store/useAuthStore';
+import { useAuthStore } from '../store/useAuthStore';
 
 export default function ImageUpload() {
     const { updateImage, isUploadingImage, isLoading, authUser: user } = useAuthStore();

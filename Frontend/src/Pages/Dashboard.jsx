@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import Loading from "../Layouts/Loading";
-import { useAuthStore } from "../Store/useAuthStore";
+import { useAuthStore } from "../store/useAuthStore";
 import ImageUpload from "../Components/ImageUpload";
 
 const Dashboard = () => {

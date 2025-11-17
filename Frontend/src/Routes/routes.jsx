@@ -20,13 +20,22 @@ const ITJobSection = lazy(() => import("../Pages/ItSection/ITJobSection"));
 const ITJobresources = lazy(() => import("../Pages/ItSection/ITJobresources"));
 const ForeignJobsPage = lazy(() => import("../Pages/ForeignJobsPage"));
 const JobSearch = lazy(() => import("../Pages/JobSearch"));
-import ProtectedRoute from "../Components/ProtectedRoute"; 
+import ProtectedRoute from "../Components/ProtectedRoute";
 import ComingSoon from "../Pages/Coming";
+import EnterEmail from "../Components/EnterEmail";
+import ResetPassword from "../Components/ResetPassword";
+import VerifyEmail from "../Components/VerifyEmail";
+import VerifyAccount from "../Components/VerifyEmail";
 
 export const routers = [
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignUpPage /> },
-
+  {
+    path: "/verify-account/",
+    element: <VerifyAccount />,
+  },
+  { path: "/forgot-password", element: <EnterEmail /> },
+  { path: "/reset-password/:token", element: <ResetPassword /> },
   {
     path: "/dashboard",
     element: <ProtectedRoute />,

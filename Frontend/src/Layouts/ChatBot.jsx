@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Bot, MessageSquare, X } from "lucide-react";
 import { RiRobot2Fill, RiRobot3Fill, RiChatSmile3Fill } from "react-icons/ri";
-import { useAiChatBot } from "../Store/useAiReply";
+import { useAiChatBot } from "../store/useAiReply";
 import ReactMarkdown from "react-markdown";
 import "./ChatBot.css";
-import { useAuthStore } from "../Store/useAuthStore";
+import { useAuthStore } from "../store/useAuthStore";
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);

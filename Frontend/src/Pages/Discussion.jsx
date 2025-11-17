@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { IoClose, IoTrashBin } from "react-icons/io5";
 import { AiFillHeart } from "react-icons/ai";
-import { useAuthStore } from "../Store/useAuthStore";
-import { useDiscussionStore } from "../Store/useDiscussion";
+import { useAuthStore } from "../store/useAuthStore";
+import { useDiscussionStore } from "../store/useDiscussion";
 import "./Discussion.css";
 import Loading from "../Layouts/Loading";
 

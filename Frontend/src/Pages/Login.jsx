@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaLock, FaLockOpen } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useAuthStore } from "../Store/useAuthStore";
+import { useAuthStore } from "../store/useAuthStore";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -79,9 +79,7 @@ const LoginPage = () => {
                 )}
               </button>
 
-              <Link to="/forgot-password" className="forgot-password">
-                Forgot Password?
-              </Link>
+              <Link to="/forgot-password" className='forgot-password'>Forgot password?</Link>
             </form>
 
             <div className="or-divider">
