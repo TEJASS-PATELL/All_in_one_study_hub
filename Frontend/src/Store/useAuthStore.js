@@ -2,7 +2,7 @@ import { create } from "zustand";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-axios.defaults.baseURL = import.meta.env.VITE_SERVER_URL;
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set) => ({
@@ -68,8 +68,8 @@ export const useAuthStore = create((set) => ({
 
       if (res.data.success) {
         return {
-          success: true,
-          redirectToVerify: res.data.redirectToVerify,
+          success: res.data.success === true,
+          redirectToVerify: !!res.data.redirectToVerify,
           message: res.data.message,
         };
       }

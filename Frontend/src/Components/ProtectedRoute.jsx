@@ -1,5 +1,6 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthStore } from "../Store/useAuthStore";
+import React from "react";
 
 const ProtectedRoute = () => {
   const { authUser, isLoading } = useAuthStore();

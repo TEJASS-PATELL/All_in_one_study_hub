@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../Store/useAuthStore";
 import toast from "react-hot-toast";
 import "./ForgotPassword.css";
+import { useEffect } from "react";
 
 export default function VerifyAccount() {
   const navigate = useNavigate();
@@ -12,10 +13,12 @@ export default function VerifyAccount() {
 
   const email = localStorage.getItem("verifyEmail");
 
-  if (!email) {
-    toast.error("No email found. Please signup again.");
-    navigate("/signup");
-  }
+  useEffect(() => {
+    if (!email) {
+      toast.error("No email found. Please signup again.");
+      navigate("/signup");
+    }
+  }, []);
 
   const handleVerify = async () => {
     if (otp.length !== 6) return toast.error("Enter valid 6-digit OTP");
@@ -44,7 +47,14 @@ export default function VerifyAccount() {
           />
 
           <button disabled={isLoading} onClick={handleVerify} className="forgot-btn">
-            Verify
+            {isLoading ? (
+                <>
+                  <Loader2 className="loader animate-spin mr-2" size={18} />
+                  Verify Account...
+                </>
+              ) : (
+                "Verify"
+              )}
           </button>
         </div>
       </div>

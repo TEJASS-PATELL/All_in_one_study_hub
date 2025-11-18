@@ -6,7 +6,7 @@ import { useAuthStore } from "../Store/useAuthStore"
 
 export default function EnterEmail() {
   const [email, setemail] = useState("");
-  const { sendPasswordResetLink } = useAuthStore();
+  const { sendPasswordResetLink, isLoading } = useAuthStore();
   const navigate = useNavigate();
   
   const handleSubmit = async (e) => {
@@ -37,7 +37,14 @@ export default function EnterEmail() {
           required
         />
         <button onClick={handleSubmit} type="submit" className="forgot-btn">
-          Send Reset Code
+          {isLoading ? (
+                <>
+                  <Loader2 className="loader animate-spin mr-2" size={18} />
+                  Sending OTP...
+                </>
+              ) : (
+                "Send Reset Code"
+              )}
         </button>
       </div>
     </div>

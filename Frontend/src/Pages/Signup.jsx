@@ -12,6 +12,7 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const { signup, isLoading } = useAuthStore();
+  const [loading, setIsLoading] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -43,14 +44,36 @@ const SignUpPage = () => {
     e.preventDefault();
     if (!validateForm()) return;
 
-    const result = await signup(form);
+    try {
+      setIsLoading(true);
 
-    if (result?.success) {
-      localStorage.setItem("verifyEmail", form.email);
-      navigate("/verify-account");
-      toast.success(result.message);
+      const result = await signup({
+        name: form.name,
+        email: form.email,
+        password: form.password
+      });
+
+      console.log("Signup Response:", result);
+
+      if (result?.success && result?.redirectToVerify) {
+        localStorage.setItem("verifyEmail", form.email);
+        toast.success(result.message);
+        navigate("/verify-account");
+      } else if (result?.success) {
+        toast.success(result.message);
+        navigate("/login");
+      } else {
+        toast.error(result.message || "Signup failed");
+      }
+
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong!");
+    } finally {
+      setIsLoading(false);
     }
   };
+
 
   return (
     <div className="loginnn">
@@ -123,8 +146,8 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="submit-btn" disabled={isLoading}>
-              {isLoading ? (
+            <button type="submit" className="submit-btn" disabled={loading}>
+              {loading ? (
                 <>
                   <Loader2 className="loader animate-spin mr-2" size={18} />
                   Creating Account...

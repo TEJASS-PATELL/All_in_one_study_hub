@@ -9,7 +9,7 @@ export default function ResetPassword() {
   const { token } = useParams();
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  const { resetPassword } = useAuthStore();
+  const { resetPassword, isLoading } = useAuthStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -52,8 +52,15 @@ export default function ResetPassword() {
             required
           />
 
-          <button type="submit" className="forgot-btn" onClick={handleSubmit}>
-            Reset Password
+          <button type="submit" className="forgot-btn" disabled={isLoading} onClick={handleSubmit}>
+            {isLoading ? (
+                <>
+                  <Loader2 className="loader animate-spin mr-2" size={18} />
+                  Reset Password...
+                </>
+              ) : (
+                "Reset Password"
+              )}
           </button>
         </div>
       </div>
