@@ -318,7 +318,8 @@ exports.sendVerifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Email required" });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    const cleanEmail = email.trim().toLowerCase();
+    const user = await prisma.user.findUnique({ where: { email: cleanEmail } });
 
     if (!user) {
       return res.status(404).json({ success: false, message: "User not found" });
@@ -346,7 +347,8 @@ exports.verifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "OTP and email required" });
     }
 
-    const user = await prisma.user.findUnique({ where: { email } });
+    const cleanEmail = email.trim().toLowerCase();
+    const user = await prisma.user.findUnique({ where: { email: cleanEmail } });
 
     if (!user) return res.status(404).json({ success: false, message: "User not found" });
 
