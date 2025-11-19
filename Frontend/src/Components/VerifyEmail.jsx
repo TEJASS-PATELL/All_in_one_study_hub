@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../Store/useAuthStore";
 import toast from "react-hot-toast";
+import { Loader2 } from "lucide-react";
 import "./ForgotPassword.css";
 import { useEffect } from "react";
 

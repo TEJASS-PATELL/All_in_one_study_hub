@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useAuthStore } from "../Store/useAuthStore";
 import "./ForgotPassword.css";
+import { Loader2 } from "lucide-react";
 import toast from "react-hot-toast";
 
 export default function ResetPassword() {
