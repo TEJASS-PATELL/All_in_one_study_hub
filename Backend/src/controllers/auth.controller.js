@@ -68,6 +68,7 @@ exports.signup = async (req, res) => {
         return res.status(400).json({ success: false, message: "User already exists" });
       }
 
+      console.log("LOG 1: User created in DB.");
       await sendOtp(exist.id, exist.email);
 
       return res.json({
@@ -329,6 +330,7 @@ exports.sendVerifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Account already verified" });
     }
 
+    console.log("otp func run.");
     await sendOtp(user.id, user.email);
 
     return res.json({ success: true, message: "OTP sent to your email" });

@@ -1,21 +1,20 @@
-const nodemailer = require("nodemailer");
+const Nodemailer = require("nodemailer");
 
-const transporter = nodemailer.createTransport({
-    host: "sandbox.smtp.mailtrap.io",
-    port: 2525,
-    auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
-    },
+const transporter = Nodemailer.createTransport({
+  host: 'smtp-relay.brevo.com',
+  port: 587,
+  auth: {
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  }
 });
 
 transporter.verify(function (error, success) {
-    if (error) {
-        console.log("❌ SMTP Connection Error:", error);
-    } else {
-        console.log("✅ Server is ready to take our messages!");
-    }
+  if (error) {
+    console.log("❌ SMTP Connection Error:", error);
+  } else {
+    console.log("✅ Server is ready to take our messages!");
+  }
 });
-
 
 module.exports = transporter;
