@@ -100,7 +100,14 @@
   color: #fff;
 }
 
-/* === Exam List === */
+.no-exams-found {
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
 .exam-list {
   list-style: none;
   padding: 20px;
