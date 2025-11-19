@@ -27,16 +27,12 @@ const SignUpPage = () => {
 
   const validateForm = () => {
     const { name, email, password, confirmPassword } = form;
-
     if (!name.trim()) return toast.error("Full Name is required");
     if (!email.trim()) return toast.error("Email is required");
     if (!/\S+@\S+\.\S+/.test(email)) return toast.error("Invalid email format");
     if (!password) return toast.error("Password is required");
-    if (password.length < 6)
-      return toast.error("Password must be at least 6 characters");
-    if (password !== confirmPassword)
-      return toast.error("Passwords do not match");
-
+    if (password.length < 6) return toast.error("Password must be at least 6 characters");
+    if (password !== confirmPassword) return toast.error("Passwords do not match");
     return true;
   };
 
