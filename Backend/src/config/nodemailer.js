@@ -1,19 +1,11 @@
-const SibApiV3Sdk = require('sib-api-v3-sdk');
+// 🛑 /opt/render/project/src/Backend/src/config/nodemailer.js ko poora replace karein
 
-const dotenv = require("dotenv");
-dotenv.config();
-// 🔑 Client aur API Key setup (Yeh code ek baar run hona chahiye)
-const defaultClient = SibApiV3Sdk.ApiClient.instance;
-const apiKey = defaultClient.authentications['api-key'];
+const { MailerSend, EmailParams, Sender, Recipient } = require("mailersend");
 
-// Agar BREVO_API_KEY set nahi hai to error denge
-if (!process.env.BREVO_API_KEY) {
-  console.error("❌ FATAL: BREVO_API_KEY is not set.");
-}
-
-apiKey.apiKey = process.env.BREVO_API_KEY;
-
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+// 🔑 Mailersend Client Initialize karna
+const mailersend = new MailerSend({
+  apiKey: process.env.MAILERSEND_API_KEY,
+});
 
 /**
  * ✅ Main Function: Email bhejane ka kaam karta hai.
@@ -21,37 +13,39 @@ const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
  * @param {string} subject - Email subject line
  * @param {string} htmlContent - HTML content for the email body
  */
-const sendBrevoEmail = async (toEmail, subject, htmlContent) => {
-
-  const senderAddress = process.env.MAIL_FROM_ADDRESS;
-    if (!senderAddress || senderAddress.trim() === "") { // Agar load nahi hua
+const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
+  try {
+    const senderAddress = process.env.MAIL_FROM_ADDRESS;
+    const senderName = process.env.MAIL_SENDER_NAME || "Your Study Hub";
+    
+    if (!senderAddress || senderAddress.trim() === "") {
         console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
         throw new Error("Configuration Error: Sender email is missing.");
     }
-  console.log("RENDER LOAD CHECK: MAIL_FROM_ADDRESS is:", process.env.MAIL_FROM_ADDRESS);
-  const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
+    
+    // Sender aur Recipient objects banana
+    const sentFrom = new Sender(senderAddress, senderName);
+    const recipients = [new Recipient(toEmail)];
 
-  sendSmtpEmail.subject = subject;
-  sendSmtpEmail.htmlContent = htmlContent;
+    // Email content params
+    const emailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo(recipients)
+      .setSubject(subject)
+      .setHtml(htmlContent)
+      .setText("Please view this email in HTML mode."); // Text fallback
 
-  // 🛑 SENDER Details: Ensure MAIL_FROM_ADDRESS verified hai
-  sendSmtpEmail.sender = {
-    name: process.env.MAIL_SENDER_NAME || "Your Study Hub",
-    address: senderAddress
-  };
+    // 🚀 API call to send the email
+    const response = await mailersend.email.send(emailParams);
 
-  sendSmtpEmail.to = [{ email: toEmail }];
-
-  try {
-    const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
-    console.log('✅ Brevo API Email Sent Successfully. Message ID:', data.messageId);
-    return { success: true, messageId: data.messageId };
+    console.log('✅ Mailersend API Email Sent Successfully. Response:', response);
+    return { success: true, message: "Email sent via Mailersend." };
 
   } catch (error) {
-    // Yeh error Render logs mein bahut helpful hoga
-    console.error('❌ Brevo API Email Error:', error.response ? error.response.text : error.message);
-    throw new Error("Failed to send email via Brevo API.");
+    // Error object ko dhang se log karna
+    console.error('❌ Mailersend API Email Error:', error);
+    throw new Error("Failed to send email via Mailersend API.");
   }
 };
 
-module.exports = sendBrevoEmail; // ✅ Function ko export kiya
+module.exports = sendMailersendEmail; // ✅ Function ko export kiya

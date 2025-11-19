@@ -1,7 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
-const sendBrevoEmail = require("../config/nodemailer"); 
+const sendMailersendEmail = require("../config/nodemailer"); 
 
 const sendOtp = async (userId, userEmail) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -23,7 +23,7 @@ const sendOtp = async (userId, userEmail) => {
     `;
 
     try {
-        await sendBrevoEmail(userEmail, subject, htmlContent);
+        await sendMailersendEmail(userEmail, subject, htmlContent);
         console.log(`OTP sent successfully to ${userEmail}`);
     } catch (error) {
         console.error(`Error sending OTP to ${userEmail}:`, error.message);

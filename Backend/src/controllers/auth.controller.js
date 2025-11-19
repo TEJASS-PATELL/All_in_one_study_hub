@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../config/cloudinary");
 const sendOtp = require("../lib/helper");
-const sendBrevoEmail = require("../config/nodemailer");
+const sendMailersendEmail = require("../config/nodemailer");
 const crypto = require("crypto");
 
 const prisma = new PrismaClient();
@@ -272,7 +272,7 @@ exports.sendPasswordResetLink = async (req, res) => {
                   <p>If you didn’t request this, you can safely ignore this email.</p>
                 </div>`;
 
-    await sendBrevoEmail(user.email, subject, htmlContent);
+    await sendMailersendEmail(user.email, subject, htmlContent);
 
     return res.status(200).json({ success: true, message: "Password reset link sent to your email." });
 
