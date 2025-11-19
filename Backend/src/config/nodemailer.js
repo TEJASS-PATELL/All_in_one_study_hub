@@ -1,20 +1,49 @@
-const Nodemailer = require("nodemailer");
+const SibApiV3Sdk = require('sib-api-v3-sdk');
 
-const transporter = Nodemailer.createTransport({
-  host: 'smtp-relay.brevo.com',
-  port: 587,
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  }
-});
+// 🔑 Client aur API Key setup (Yeh code ek baar run hona chahiye)
+const defaultClient = SibApiV3Sdk.ApiClient.instance;
+const apiKey = defaultClient.authentications['api-key'];
 
-transporter.verify(function (error, success) {
-  if (error) {
-    console.log("❌ SMTP Connection Error:", error);
-  } else {
-    console.log("✅ Server is ready to take our messages!");
-  }
-});
+// Agar BREVO_API_KEY set nahi hai to error denge
+if (!process.env.BREVO_API_KEY) {
+    console.error("❌ FATAL: BREVO_API_KEY is not set.");
+}
 
-module.exports = transporter;
+apiKey.apiKey = process.env.BREVO_API_KEY; 
+
+const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+
+/**
+ * ✅ Main Function: Email bhejane ka kaam karta hai.
+ * @param {string} toEmail - Recipient email address
+ * @param {string} subject - Email subject line
+ * @param {string} htmlContent - HTML content for the email body
+ */
+const sendBrevoEmail = async (toEmail, subject, htmlContent) => {
+    
+    const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail(); 
+
+    sendSmtpEmail.subject = subject;
+    sendSmtpEmail.htmlContent = htmlContent;
+    
+    // 🛑 SENDER Details: Ensure MAIL_FROM_ADDRESS verified hai
+    sendSmtpEmail.sender = { 
+        name: process.env.MAIL_SENDER_NAME || "Your Study Hub", 
+        address: process.env.MAIL_FROM_ADDRESS 
+    };
+    
+    sendSmtpEmail.to = [{ email: toEmail }];
+    
+    try {
+        const data = await apiInstance.sendTransacEmail(sendSmtpEmail);
+        console.log('✅ Brevo API Email Sent Successfully. Message ID:', data.messageId);
+        return { success: true, messageId: data.messageId };
+
+    } catch (error) {
+        // Yeh error Render logs mein bahut helpful hoga
+        console.error('❌ Brevo API Email Error:', error.response ? error.response.text : error.message);
+        throw new Error("Failed to send email via Brevo API.");
+    }
+};
+
+module.exports = sendBrevoEmail; // ✅ Function ko export kiya

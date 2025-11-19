@@ -68,14 +68,17 @@ exports.signup = async (req, res) => {
         return res.status(400).json({ success: false, message: "User already exists" });
       }
 
-      console.log("LOG 1: User created in DB.");
-      await sendOtp(exist.id, exist.email);
-
-      return res.json({
-        success: true,
-        redirectToVerify: true,
-        message: "Account exists but not verified. Link resent.",
-      });
+      try {
+        await sendOtp(exist.id, exist.email);
+        return res.json({
+          success: true,
+          redirectToVerify: true,
+          message: "Account exists but not verified. OTP resent.",
+        });
+      } catch (otpError) {
+        console.error("❌ Resend OTP failed for existing user:", otpError.message);
+        return res.status(500).json({ success: false, message: "User exists, but failed to send verification OTP. Try again later." });
+      }
     }
 
     const hashed = await bcrypt.hash(password, 10);
@@ -92,13 +95,23 @@ exports.signup = async (req, res) => {
       },
     });
 
-    await sendOtp(user.id, user.email);
+    try {
+      await sendOtp(user.id, user.email);
 
-    return res.status(201).json({
-      success: true,
-      redirectToVerify: true,
-      message: "Verification link sent!",
-    });
+      return res.status(201).json({
+        success: true,
+        redirectToVerify: true,
+        message: "Verification OTP sent!",
+      });
+
+    } catch (otpError) {
+      console.error("❌ Initial OTP send failed for new user:", otpError.message);
+      await prisma.user.delete({ where: { id: user.id } });
+      return res.status(500).json({
+        success: false,
+        message: "Signup successful, but failed to send verification email. Please register again later."
+      });
+    }
 
   } catch (err) {
     console.log(err);
@@ -330,10 +343,13 @@ exports.sendVerifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Account already verified" });
     }
 
-    console.log("otp func run.");
-    await sendOtp(user.id, user.email);
-
-    return res.json({ success: true, message: "OTP sent to your email" });
+    try {
+      await sendOtp(user.id, user.email);
+      return res.json({ success: true, message: "OTP sent to your email" });
+    } catch (otpError) {
+      console.error("❌ Send Verify OTP failed:", otpError.message);
+      return res.status(500).json({ success: false, message: "Failed to send OTP. Try again later." });
+    }
 
   } catch (err) {
     console.log(err);
