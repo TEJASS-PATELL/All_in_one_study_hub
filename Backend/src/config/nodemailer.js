@@ -10,7 +10,7 @@ const apiKey = defaultClient.authentications['api-key'];
 if (!process.env.BREVO_API_KEY) {
   console.error("❌ FATAL: BREVO_API_KEY is not set.");
 }
-
+console.log("RENDER LOAD CHECK: MAIL_FROM_ADDRESS is:", process.env.MAIL_FROM_ADDRESS);
 apiKey.apiKey = process.env.BREVO_API_KEY;
 
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
