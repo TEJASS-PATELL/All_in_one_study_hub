@@ -10,7 +10,7 @@ const apiKey = defaultClient.authentications['api-key'];
 if (!process.env.BREVO_API_KEY) {
   console.error("❌ FATAL: BREVO_API_KEY is not set.");
 }
-console.log("RENDER LOAD CHECK: MAIL_FROM_ADDRESS is:", process.env.MAIL_FROM_ADDRESS);
+
 apiKey.apiKey = process.env.BREVO_API_KEY;
 
 const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
@@ -24,10 +24,11 @@ const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 const sendBrevoEmail = async (toEmail, subject, htmlContent) => {
 
   const senderAddress = process.env.MAIL_FROM_ADDRESS;
-  if (!senderAddress) {
-    console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
-    throw new Error("Configuration Error: Sender email is missing.");
-  }
+    if (!senderAddress || senderAddress.trim() === "") { // Agar load nahi hua
+        console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
+        throw new Error("Configuration Error: Sender email is missing.");
+    }
+  console.log("RENDER LOAD CHECK: MAIL_FROM_ADDRESS is:", process.env.MAIL_FROM_ADDRESS);
   const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
   sendSmtpEmail.subject = subject;
@@ -36,7 +37,7 @@ const sendBrevoEmail = async (toEmail, subject, htmlContent) => {
   // 🛑 SENDER Details: Ensure MAIL_FROM_ADDRESS verified hai
   sendSmtpEmail.sender = {
     name: process.env.MAIL_SENDER_NAME || "Your Study Hub",
-    address: process.env.MAIL_FROM_ADDRESS || "tejasspatell2@gmail.com"
+    address: senderAddress
   };
 
   sendSmtpEmail.to = [{ email: toEmail }];
