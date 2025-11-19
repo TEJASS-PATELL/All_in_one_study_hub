@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../config/cloudinary");
 const sendOtp = require("../lib/helper.js");
-const transporter = require("../config/nodemailer");
+const sendBrevoEmail = require("../config/nodemailer");
 const crypto = require("crypto");
 
 const prisma = new PrismaClient();
@@ -262,21 +262,17 @@ exports.sendPasswordResetLink = async (req, res) => {
 
     const resetLink = `${process.env.CLIENT_URL}/reset-password/${token}`;
 
-    const mailOption = {
-      from: process.env.GMAIL_USER,
-      to: user.email,
-      subject: "Password Reset Link",
-      html: `<div style="font-family: Comic Relief; line-height: 1.5;">
+    const subject = "Password Reset Link";
+    const htmlContent = `<div style="font-family: Arial, sans-serif; line-height: 1.5; color: #333;">
                   <h2>Password Reset Request</h2>
                   <p>Hello ${user.name || "User"},</p>
-                  <p>You requested to reset your password. Click the link below to reset it:</p>
-                  <a href="${resetLink}" style="background:#4CAF50;color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;">Reset Password</a>
+                  <p>You requested to reset your password. Click the button below to reset it:</p>
+                  <a href="${resetLink}" style="background:#007bff;color:#fff;padding:10px 20px;text-decoration:none;border-radius:5px;display: inline-block;">Reset Password</a>
                   <p>This link will expire in <b>1 hour</b>.</p>
                   <p>If you didn’t request this, you can safely ignore this email.</p>
-                </div>`,
-    }
+                </div>`;
 
-    await transporter.sendMail(mailOption);
+    await sendBrevoEmail(user.email, subject, htmlContent);
 
     return res.status(200).json({ success: true, message: "Password reset link sent to your email." });
 
