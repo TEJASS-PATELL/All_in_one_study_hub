@@ -1,5 +1,7 @@
 const SibApiV3Sdk = require('sib-api-v3-sdk');
 
+const dotenv = require("dotenv");
+dotenv.config();
 // 🔑 Client aur API Key setup (Yeh code ek baar run hona chahiye)
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications['api-key'];
@@ -34,7 +36,7 @@ const sendBrevoEmail = async (toEmail, subject, htmlContent) => {
   // 🛑 SENDER Details: Ensure MAIL_FROM_ADDRESS verified hai
   sendSmtpEmail.sender = {
     name: process.env.MAIL_SENDER_NAME || "Your Study Hub",
-    address: "tejasspatell2@gmail.com"
+    address: process.env.MAIL_FROM_ADDRESS || "tejasspatell2@gmail.com"
   };
 
   sendSmtpEmail.to = [{ email: toEmail }];
