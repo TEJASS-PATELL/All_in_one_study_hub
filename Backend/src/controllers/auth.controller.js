@@ -2,7 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const cloudinary = require("../config/cloudinary");
-const sendOtp = require("../lib/helper.js");
+const sendOtp = require("../lib/helper");
 const sendBrevoEmail = require("../config/nodemailer");
 const crypto = require("crypto");
 
