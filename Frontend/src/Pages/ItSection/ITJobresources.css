@@ -156,6 +156,11 @@
   border-left: 4px solid #ff0000;
 }
 
+.freelance-note{
+  background-color: #fffad6;
+  border-left: 4px solid #f2ff00;
+}
+
 
 @media (max-width: 1200px) {
   .jobresourcescard {
