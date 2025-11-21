@@ -100,7 +100,7 @@ export const useAuthStore = create((set) => ({
       return false;
     }
   },
-  
+
   verifyOtp: async (otp, email) => {
     try {
       set({ isLoading: true });
@@ -132,7 +132,7 @@ export const useAuthStore = create((set) => ({
       set({ isLoading: false });
     }
   },
-  
+
   logout: async () => {
     try {
       set({ isLoading: true });
@@ -220,14 +220,15 @@ export const useAuthStore = create((set) => ({
   },
 
   allUsers: async () => {
-    try{
+    try {
       set({ isLoading: true });
       const res = await axios.get("/api/auth/allusers");
       return res;
-    }catch(error){
-      toast.error(error);
-      console.log(error);
-    }finally{
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      toast.error(error?.response?.data?.message || "Failed to fetch users");
+      return null;
+    } finally {
       set({ isLoading: false });
     }
   }

@@ -3,21 +3,34 @@ import './Members.css';
 import { useAuthStore } from "../Store/useAuthStore";
 
 const Members = () => {
-  const {allUsers} = useAuthStore();
+  const { allUsers } = useAuthStore();
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    const res = allUsers();
-    setUsers(res.data);
+    const fetchUsers = async () => {
+      try {
+        const res = await allUsers(); 
+        if (res?.data) {
+          setUsers(res.data);
+        } else {
+          setUsers([]);
+        }
+      } catch (err) {
+        console.error("Error fetching users:", err);
+      }
+    };
+    fetchUsers();
   }, []);
 
   const getStatus = (user) => {
     if (user.isLogin) return "Active now";
-    if (user.lastLogout) return `Last seen: ${new Date(user.lastLogout).toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "long",
-      year: "numeric"
-    })}`;
+    if (user.lastLogout)
+      return `Last seen: ${new Date(user.lastLogout).toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })}`;
+    return "Status unavailable";
   };
 
   return (
@@ -29,16 +42,25 @@ const Members = () => {
       <div className="user-list">
         {users.length > 0 ? (
           users.map((user) => {
+            const status = getStatus(user); 
             return (
               <div key={user.id} className="user-card">
-                <img src={user.profilepic ? user.profilepic : "./user.png"} alt="User Avatar" className="avatar" />
+                <img
+                  src={user.profilepic ? user.profilepic : "./user.png"}
+                  alt="User Avatar"
+                  className="avatar"
+                />
                 <div className="user-info">
                   <span className="user-name">{user.name}</span>
                   <span className="user-date">
                     Joined: {new Date(user.createdAt).toLocaleDateString("en-IN")}
                   </span>
-                  <span className={`user-status ${getStatus(user) === "Active now" ? "active" : "inactive"}`}>
-                    {getStatus(user)}
+                  <span
+                    className={`user-status ${
+                      status === "Active now" ? "active" : "inactive"
+                    }`}
+                  >
+                    {status}
                   </span>
                 </div>
               </div>
