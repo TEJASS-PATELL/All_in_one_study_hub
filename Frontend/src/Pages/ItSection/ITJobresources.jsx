@@ -130,26 +130,7 @@ const ITJobresources = () => {
                 </p>
             </section>
 
-            <section className="main-resources-section">
-                <h2 className="section-heading"><MdWork /> Most Important Things</h2>
-                <ul>
-                    <li><FaLinkedin className="icon" /> Build a professional <strong>LinkedIn Profile</strong></li>
-                    <li><FaGithub className="icon" /> Push projects to <strong>GitHub</strong> regularly</li>
-                    <li><FaCode className="icon" /> Make 2-3 strong <strong>Projects</strong></li>
-                    <li><FaFileAlt className="icon" /> Customize <strong>Resume for each job</strong></li>
-                    <li><FaBook className="icon" /> Master <strong>Data Structures & Algorithms (DSA)</strong></li>
-                    <li><FaWrench className="icon" /> Be <strong>strong in your core field</strong> like Web Dev, ML, etc.</li>
-                    <li><FaCogs className="icon" /> Learn basic <strong>System Design</strong> concepts</li>
-                    <li><FaDatabase className="icon" /> Understand <strong>Databases</strong> & SQL queries</li>
-                    <li><FaGlobe className="icon" /> Learn about <strong>Networking basics</strong></li>
-                    <li><FaComments className="icon" /> Practice <strong>Behavioral Interview Questions</strong></li>
-                    <li><FaLaptopCode className="icon" /> Consistently solve <strong>LeetCode / GFG</strong> problems</li>
-                    <li><FaClipboardCheck className="icon" /> Give <strong>Mock Interviews</strong> to improve confidence</li>
-                    <li><FaClock className="icon" /> Make a consistent <strong>Preparation Routine</strong></li>
-                </ul>
-
-            </section>
-
+            
             <section className="resources-section">
                 <h2 className="section-heading"><FaLaptopCode /> Top Freelancing Platforms</h2>
                 <div className="card-jobresources">
@@ -170,6 +151,26 @@ const ITJobresources = () => {
                 <p className="note freelance-note">
                     <strong>Note:</strong> Start with small freelance projects to build confidence and portfolio. Even 1–2 successful client projects can make your resume stand out.
                 </p>
+            </section>
+
+            <section className="main-resources-section">
+                <h2 className="section-heading"><MdWork /> Most Important Things</h2>
+                <ul>
+                    <li><FaLinkedin className="icon" /> Build a professional <strong>LinkedIn Profile</strong></li>
+                    <li><FaGithub className="icon" /> Push projects to <strong>GitHub</strong> regularly</li>
+                    <li><FaCode className="icon" /> Make 2-3 strong <strong>Projects</strong></li>
+                    <li><FaFileAlt className="icon" /> Customize <strong>Resume for each job</strong></li>
+                    <li><FaBook className="icon" /> Master <strong>Data Structures & Algorithms (DSA)</strong></li>
+                    <li><FaWrench className="icon" /> Be <strong>strong in your core field</strong> like Web Dev, ML, etc.</li>
+                    <li><FaCogs className="icon" /> Learn basic <strong>System Design</strong> concepts</li>
+                    <li><FaDatabase className="icon" /> Understand <strong>Databases</strong> & SQL queries</li>
+                    <li><FaGlobe className="icon" /> Learn about <strong>Networking basics</strong></li>
+                    <li><FaComments className="icon" /> Practice <strong>Behavioral Interview Questions</strong></li>
+                    <li><FaLaptopCode className="icon" /> Consistently solve <strong>LeetCode / GFG</strong> problems</li>
+                    <li><FaClipboardCheck className="icon" /> Give <strong>Mock Interviews</strong> to improve confidence</li>
+                    <li><FaClock className="icon" /> Make a consistent <strong>Preparation Routine</strong></li>
+                </ul>
+
             </section>
         </div>
     );
