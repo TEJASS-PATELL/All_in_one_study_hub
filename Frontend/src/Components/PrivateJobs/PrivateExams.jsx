@@ -2,26 +2,18 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import './PrivateJobs.css';
 import '../GovernmentJobs/Exam.css';
+import Loading from '../../Layouts/Loading';
 
 const PrivateExams = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [exams, setExams] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const categories = [
-    'Core Engineering',
-    'Sales & Marketing',
-    'Finance & Accounting',
-    'Customer Support',
-    'Human Resources',
-    'Design & Multimedia'
-  ];
+  const categories = ['Core Engineering', 'Sales & Marketing', 'Finance & Accounting', 'Customer Support', 'Human Resources', 'Design & Multimedia'];
 
   useEffect(() => {
-    if (!activeCategory) {
-      setExams([]);
-      return;
-    }
-
+    if (!activeCategory) { setExams([]); return; }
+    setLoading(true);
     axios.get(`${import.meta.env.VITE_API_URL}/api/exam/private-jobs`, { params: { category: activeCategory } })
       .then((res) => {
         setExams(Array.isArray(res.data) ? res.data : []);
@@ -29,6 +21,8 @@ const PrivateExams = () => {
       .catch((err) => {
         console.error('Error fetching private jobs:', err);
         setExams([]);
+      }).finally(() => {
+        setLoading(false);
       });
   }, [activeCategory]);
 
@@ -67,11 +61,13 @@ const PrivateExams = () => {
               </h3>
             </div>
 
-            {!exams.length && (
+            {loading && <Loading />}
+
+            {!loading && !exams.length && (
               <p className="no-exams-found">No jobs found for {activeCategory}.</p>
             )}
 
-            {exams.length > 0 && (
+            {!loading && exams.length > 0 && (
               <div className="exam-card-body">
                 <ul className="exam-list">
                   {exams.map((exam, index) => (
@@ -98,8 +94,10 @@ const PrivateExams = () => {
                 </ul>
               </div>
             )}
+
           </div>
         )}
+
       </div>
     </div>
   );
