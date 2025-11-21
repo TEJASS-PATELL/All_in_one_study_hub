@@ -6,7 +6,7 @@ import { useRoadmapStore } from "../Store/useRoadmap";
 import Loading from "../Layouts/Loading";
 
 export default function Profile() {
-  const { roadmapData, roadmapTitle, showForm, loading, fetchRoadmap, saveRoadmap, deleteRoadmap } = useRoadmapStore();
+  const { roadmapData, roadmapTitle, showForm, loading, fetchRoadmap, saveRoadmap, deleteRoadmap,   setShowForm } = useRoadmapStore();
   const [formData, setFormData] = useState({
     jobType: "",
     jobRoles: "",
@@ -141,7 +141,7 @@ export default function Profile() {
               <div className="roadmap-header-icon">
                 <FaEdit
                   className="edit-icon"
-                  onClick={() => showForm(true)}
+                  onClick={() => setShowForm(true)} 
                   title="Edit Roadmap"
                   style={{ cursor: "pointer", color: "black" }}
                 />
