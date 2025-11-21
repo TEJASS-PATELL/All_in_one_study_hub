@@ -11,8 +11,10 @@ const Members = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        setLoading(true);
+        setLoading(true); 
+        console.log("hweeee")
         const res = await allUsers(); 
+        console.log(res)
         if (res?.data) {
           setUsers(res.data);
         } else {

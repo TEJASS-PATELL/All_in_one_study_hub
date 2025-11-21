@@ -222,7 +222,7 @@ export const useAuthStore = create((set) => ({
   allUsers: async () => {
     try {
       set({ isLoading: true });
-      const res = await axios.get("/api/auth/allusers");
+      const res = await axios.get("/api/auth/allusers", {withCredentials : true});
       return res;
     } catch (error) {
       console.error("Error fetching users:", error);
