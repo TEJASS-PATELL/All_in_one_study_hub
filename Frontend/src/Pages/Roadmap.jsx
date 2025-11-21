@@ -1,5 +1,4 @@
 import React from "react";
-
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -7,15 +6,7 @@ import { useRoadmapStore } from "../Store/useRoadmap";
 import Loading from "../Layouts/Loading";
 
 export default function Profile() {
-    const {
-    roadmapData,
-    roadmapTitle,
-    showForm,
-    loading,
-    fetchRoadmap,
-    saveRoadmap,
-    deleteRoadmap,
-  } = useRoadmapStore();
+  const { roadmapData, roadmapTitle, showForm, loading, fetchRoadmap, saveRoadmap, deleteRoadmap } = useRoadmapStore();
   const [formData, setFormData] = useState({
     jobType: "",
     jobRoles: "",
@@ -150,7 +141,7 @@ export default function Profile() {
               <div className="roadmap-header-icon">
                 <FaEdit
                   className="edit-icon"
-                  onClick={() => setShowForm(true)}
+                  onClick={() => showForm(true)}
                   title="Edit Roadmap"
                   style={{ cursor: "pointer", color: "black" }}
                 />

@@ -51,7 +51,9 @@ function JobSearch() {
               </div>
               <div className="G-card-body">
                 <h3 className="G-card-title">Government Jobs</h3>
-                <p className="G-card-text">Explore various government examinations and job opportunities with stable career growth and benefits.</p>
+                <p className="G-card-text">
+                  Explore various government examinations and job opportunities with stable career growth, long-term benefits, and strong job security.
+                </p>
                 <NavLink to="/government-jobs" className="G-btn btn-primary">
                   Explore <i className="fas fa-arrow-right btn-icon"></i>
                 </NavLink>
@@ -65,9 +67,8 @@ function JobSearch() {
               <div className="G-card-body">
                 <h3 className="G-card-title">Private Jobs</h3>
                 <p className="G-card-text">
-                  Discover exciting opportunities in various private sector fields with competitive salaries and strong growth potential.
+                  Discover exciting opportunities in multiple private sector fields with competitive salaries, fast growth potential, diverse career paths, and industry recognition.
                 </p>
-
                 <NavLink to="/private-jobs" className="G-btn btn-primary">
                   Explore <i className="fas fa-arrow-right btn-icon"></i>
                 </NavLink>
@@ -79,9 +80,9 @@ function JobSearch() {
                 <i className="fas fa-laptop-house icon"></i>
               </div>
               <div className="G-card-body">
-                <h3 className="G-card-title">Remote Jobs</h3>
+                <h3 className="G-card-title">IT Jobs</h3>
                 <p className="G-card-text">
-                  Work comfortably from anywhere with flexible schedules and global opportunities from leading top-tier companies.
+                  Build a successful tech career with remote-friendly IT roles, flexible schedules, global exposure, and strong growth in leading innovative companies.
                 </p>
 
                 <NavLink to="/it-jobs" className="G-btn btn-primary">
@@ -97,9 +98,8 @@ function JobSearch() {
               <div className="G-card-body">
                 <h3 className="G-card-title">Foreign Jobs</h3>
                 <p className="G-card-text">
-                  Apply confidently for international roles in tech, healthcare, finance, and more. Open doors to an exciting global career today.
+                  Discover international roles across tech, healthcare, finance, and more, and unlock a rewarding global career with long-term growth and exposure.
                 </p>
-
                 <NavLink to="/foreign-jobs" className="G-btn btn-primary">
                   Explore <i className="fas fa-arrow-right btn-icon"></i>
                 </NavLink>

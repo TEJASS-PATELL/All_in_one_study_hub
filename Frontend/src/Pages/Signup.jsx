@@ -12,7 +12,6 @@ const SignUpPage = () => {
   const navigate = useNavigate();
 
   const { signup, isLoading } = useAuthStore();
-  const [loading, setIsLoading] = useState(false);
 
   const [form, setForm] = useState({
     name: "",
@@ -41,7 +40,6 @@ const SignUpPage = () => {
     if (!validateForm()) return;
 
     try {
-      setIsLoading(true);
 
       const result = await signup({
         name: form.name,
@@ -65,8 +63,6 @@ const SignUpPage = () => {
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong!");
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -142,8 +138,8 @@ const SignUpPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? (
+            <button type="submit" className="submit-btn" disabled={isLoading}>
+              {isLoading ? (
                 <>
                   <Loader2 className="loader animate-spin mr-2" size={18} />
                   Creating Account...

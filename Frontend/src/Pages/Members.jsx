@@ -1,25 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './Members.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from "../Store/useAuthStore";
 
 const Members = () => {
-  const navigate = useNavigate();
+  const {allUsers} = useAuthStore();
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetchUsers();
+    const res = allUsers();
+    setUsers(res.data);
   }, []);
-
-  const fetchUsers = async () => {
-    try {
-      const res = await axios.get("http://localhost:4001/api/auth/allusers");
-      setUsers(res.data);
-    } catch (err) {
-      console.error("Error fetching users:", err);
-      navigate('/');
-    }
-  };
 
   const getStatus = (user) => {
     if (user.isLogin) return "Active now";

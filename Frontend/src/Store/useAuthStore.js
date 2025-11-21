@@ -217,6 +217,19 @@ export const useAuthStore = create((set) => ({
     } finally {
       set({ isLoading: false });
     }
+  },
+
+  allUsers: async () => {
+    try{
+      set({ isLoading: true });
+      const res = await axios.get("/api/auth/allusers");
+      return res;
+    }catch(error){
+      toast.error(error);
+      console.log(error);
+    }finally{
+      set({ isLoading: false });
+    }
   }
 
 }));
