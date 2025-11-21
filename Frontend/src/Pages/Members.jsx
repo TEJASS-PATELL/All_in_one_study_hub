@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Members.css';
 import { useAuthStore } from "../Store/useAuthStore";
+import Loading from '../Layouts/Loading';
 
 const Members = () => {
   const { allUsers } = useAuthStore();
+  const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
+        setLoading(true);
         const res = await allUsers(); 
         if (res?.data) {
           setUsers(res.data);
@@ -17,6 +20,8 @@ const Members = () => {
         }
       } catch (err) {
         console.error("Error fetching users:", err);
+      } finally {
+        setLoading(false);
       }
     };
     fetchUsers();
@@ -32,6 +37,10 @@ const Members = () => {
       })}`;
     return "Status unavailable";
   };
+
+  if(loading){
+    return <Loading />
+  }
 
   return (
     <div className="active-users-container">

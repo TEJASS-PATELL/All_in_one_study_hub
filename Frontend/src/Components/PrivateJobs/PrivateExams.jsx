@@ -16,17 +16,13 @@ const PrivateExams = () => {
     'Design & Multimedia'
   ];
 
-  // 🔹 Fetch jobs whenever category changes
   useEffect(() => {
     if (!activeCategory) {
       setExams([]);
       return;
     }
 
-    axios
-      .get('http://localhost:4001/api/exam/private-jobs', {
-        params: { category: activeCategory },
-      })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/exam/private-jobs`, { params: { category: activeCategory } })
       .then((res) => {
         setExams(Array.isArray(res.data) ? res.data : []);
       })
@@ -51,7 +47,6 @@ const PrivateExams = () => {
       </div>
 
       <div className="exam-categories">
-        {/* 🔹 Category Buttons */}
         <div className="G-category-filter">
           {categories.map((cat) => (
             <button

@@ -31,7 +31,6 @@ const ExamDay = () => {
           </p>
         </div>
 
-
         <div className="strategy-card">
           <FaClock className="strategy-icon" />
           <h2>2. Time Management Plan</h2>
@@ -113,8 +112,6 @@ const ExamDay = () => {
           </p>
         </div>
 
-
-
         <div className="strategy-card">
           <FaLightbulb className="strategy-icon" />
           <h2>7. Use Elimination Tactics</h2>
@@ -148,7 +145,6 @@ const ExamDay = () => {
         </div>
       </section>
     </div>
-
   );
 };
 

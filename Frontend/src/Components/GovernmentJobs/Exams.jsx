@@ -16,7 +16,7 @@ const Exams = () => {
   useEffect(() => {
     if (activeCategory) {
       setLoadingExams(true);
-      axios.get('http://localhost:4001/api/exam/government-jobs', { params: { category: activeCategory } })
+      axios.get(`${import.meta.env.VITE_API_URL}/api/exam/government-jobs`, { params: { category: activeCategory } })
         .then((res) => {
           setExams(res.data);
         })
