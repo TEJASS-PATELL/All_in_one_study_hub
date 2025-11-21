@@ -70,4 +70,4 @@ function Calender() {
     )
 }
 
-export default Calender
+export default Calender;
