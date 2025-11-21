@@ -23,9 +23,7 @@ export default function ImageUpload() {
         reader.onload = async () => {
             const base64Image = reader.result;
             const updateUserImage = await updateImage({ image: base64Image });
-            console.log("ff")
             if (updateUserImage?.image) setSelectedImg(updateUserImage.image);
-            console.log(selectedImg)
         }
     }
 

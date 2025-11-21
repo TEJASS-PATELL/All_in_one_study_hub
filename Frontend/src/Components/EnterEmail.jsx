@@ -41,7 +41,7 @@ export default function EnterEmail() {
           {isLoading ? (
                 <>
                   <Loader2 className="loader animate-spin mr-2" size={18} />
-                  Sending OTP...
+                  Sending Link...
                 </>
               ) : (
                 "Send Reset Code"
