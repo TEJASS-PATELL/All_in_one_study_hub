@@ -11,7 +11,6 @@ export const platforms = [
       "Company Pages",
       "Skill Endorsements"
     ],
-    founded: "2003",
     headquarters: "Sunnyvale, California, USA",
     idealFor: "Professionals, Graduates, Corporate Networking",
     activeUsers: "930+ million users (2023)",
@@ -30,7 +29,6 @@ export const platforms = [
       "Quizzes & Skill Tests",
       "Resume Building & Skill Showcase"
     ],
-    founded: "2017 (formerly Dare2Compete)",
     headquarters: "New Delhi, India",
     idealFor: "Students, Freshers, Working Professionals",
     activeUsers: "5 million+ users",
@@ -49,12 +47,29 @@ export const platforms = [
       "Salary Insights",
       "Interview Tips"
     ],
-    founded: "2004",
     headquarters: "Austin, Texas, USA",
     idealFor: "All job seekers including freshers and experienced professionals",
     activeUsers: "350+ million monthly visitors",
     rating: 4.7,
     starDisplay: "★★★★★"
+  },
+  {
+    logo: "	https://staticlogo.hirist.com/webp/hirist-tech-logo.webp",
+    customClass: "hirist-img",
+    description: "India-based niche job portal focused on IT & tech professionals.",
+    url: "https://www.hirist.tech/",
+    type: "Tech Job Platform",
+    features: [
+      "Curated Tech Roles",
+      "Early Applicant Alerts",
+      "One-click Apply",
+      "Real-time Application Tracking"
+    ], 
+    headquarters: "New Delhi, India",   
+    idealFor: "IT Professionals, Freshers, Software Engineers",
+    activeUsers: "1,300,000+ jobseekers",  
+    rating: 4.7,  
+    starDisplay: "★★★★☆"
   },
     {
     logo: "../ITjobplatform/Naukri.png",
@@ -68,7 +83,6 @@ export const platforms = [
       "Recruiter Contact",
       "Profile Insights"
     ],
-    founded: "1997",
     headquarters: "Noida, India",
     idealFor: "Indian Job Seekers across all industries",
     activeUsers: "75+ million users",
@@ -87,7 +101,6 @@ export const platforms = [
       "Student-Focused Opportunities",
       "Direct Company Listings"
     ],
-    founded: "2018",
     headquarters: "New Delhi, India",
     idealFor: "Indian Students seeking internships",
     activeUsers: "10+ million students",
@@ -95,7 +108,7 @@ export const platforms = [
     starDisplay: "★★★★☆"
   },
   {
-    logo: "../ITjobplatform/MyCareerNet.png", 
+    logo: "../ITjobplatform/MyCareerNet.png",
     customClass: "mycareernet-img",
     description: "Platform for contests, challenges, events, and job listings for fresh graduates and jobseekers.",
     url: "https://mycareernet.in/mycareernet",
@@ -123,7 +136,6 @@ export const platforms = [
       "Remote Jobs",
       "Skill Tags"
     ],
-    founded: "2015",
     headquarters: "India",
     idealFor: "Startup-focused job seekers and techies",
     activeUsers: "3+ million users",
@@ -131,22 +143,22 @@ export const platforms = [
     starDisplay: "★★★★✩"
   },
   {
-  logo: "../ITjobplatform/cuvette.svg",
-  customClass: "cuvette-img",
-  description: "A platform connecting college students and recent graduates in India with internships and early‑career jobs.",
-  url: "https://cuvette.tech/",
-  type: "Student Career Platform",
-  features: [
-    "Internship & Job Listings",
-    "Placement‑Guarantee Courses",
-    "Skill & Interview Prep",
-    "Campus Community Events"
-  ],
-  idealFor: "College Students, Early Graduates, Entry‑Level Tech Roles",
-  activeUsers: "2.5M+ users, 7500+ companies",
-  rating: 4.5,
-  starDisplay: "★★★★☆"
-},
+    logo: "../ITjobplatform/cuvette.svg",
+    customClass: "cuvette-img",
+    description: "A platform connecting college students and recent graduates in India with internships and early‑career jobs.",
+    url: "https://cuvette.tech/",
+    type: "Student Career Platform",
+    features: [
+      "Internship & Job Listings",
+      "Placement‑Guarantee Courses",
+      "Skill & Interview Prep",
+      "Campus Community Events"
+    ],
+    idealFor: "College Students, Early Graduates, Entry‑Level Tech Roles",
+    activeUsers: "2.5M+ users, 7500+ companies",
+    rating: 4.5,
+    starDisplay: "★★★★☆"
+  },
   {
     logo: "../ITjobplatform/StudentsCircles.png",
     customClass: "studentscircles-img",
@@ -165,21 +177,21 @@ export const platforms = [
     starDisplay: "★★★★✩"
   },
   {
-  logo: "../ITjobplatform/beepLogo.svg",
-  customClass: "eventbeep-img",
-  description: "A student-centric networking platform offering campus updates, opportunities, and events.",
-  url: "https://www.eventbeep.com/",
-  type: "Student Networking Platform",
-  features: [
-    "Campus Events",
-    "Student Communities",
-    "Internship & Job Alerts",
-    "Event Registration"
-  ],
-  idealFor: "Students, Campus Communities, Event Organizers",
-  activeUsers: "2+ million users",
-  rating: 4.5,
-  starDisplay: "★★★★☆"
+    logo: "../ITjobplatform/beepLogo.svg",
+    customClass: "eventbeep-img",
+    description: "A student-centric networking platform offering campus updates, opportunities, and events.",
+    url: "https://www.eventbeep.com/",
+    type: "Student Networking Platform",
+    features: [
+      "Campus Events",
+      "Student Communities",
+      "Internship & Job Alerts",
+      "Event Registration"
+    ],
+    idealFor: "Students, Campus Communities, Event Organizers",
+    activeUsers: "2+ million users",
+    rating: 4.5,
+    starDisplay: "★★★★☆"
   },
   {
     logo: "../ITjobplatform/Glassdoor.png",
@@ -201,7 +213,7 @@ export const platforms = [
   {
     logo: "../ITjobplatform/Internshala.png",
     customClass: "internshala-img",
-   description: "India’s top platform for internships, jobs, and online training, trusted by students and freshers.",
+    description: "India’s top platform for internships, jobs, and online training, trusted by students and freshers.",
     url: "https://internshala.com/",
     type: "Internship & Job Portal",
     features: [

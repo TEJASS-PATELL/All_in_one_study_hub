@@ -34,13 +34,13 @@ const PrivatePreparation = () => {
 
         <div className="G-preparation-card">
           <div className="preparation-icon">
-            <i className="fas fa-id-card"></i>
+            <i className="fas fa-book-open"></i>
           </div>
-          <h3 className="G-preparation-title">Resume & LinkedIn</h3>
+          <h3 className="G-preparation-title">Best Free Study Resources</h3>
           <p className="G-preparation-description">
-            Create an impressive resume and build a strong LinkedIn profile to attract recruiters.
+            Access top-quality free learning materials to prepare for private sector jobs effectively.
           </p>
-          <NavLink to="/government-jobs/practice-paper" className="cards-button">
+          <NavLink to="/private-jobs/free-study-resources" className="cards-button">
             Explore
           </NavLink>
         </div>

@@ -1,0 +1,86 @@
+.navbar {
+  width: 35%;
+  height: 60px;
+  position: absolute; 
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%); 
+  display: flex;
+  justify-content: center;
+  border: 1px solid rgb(201, 201, 201);
+  background-color: #ebebeb7e;
+  padding: 10px 0;
+  border-radius: 15px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.footer {
+  width: 100%;
+  padding: 10px 25px;
+  background: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  color: #555;
+}
+
+.footer-left {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-center {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.footer-right {
+  width: 40px; 
+}
+
+.footer-icon {
+  color: #000000;
+  transition: 0.2s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.15);
+  color: #000000;
+}
+
+.author {
+  font-weight: 600;
+  color: black;
+}
+
+.brain-icon {
+  color: #cb4df5;
+  margin-left: 4px;
+  transition: 0.25s ease;
+}
+
+.brain-icon:hover {
+  transform: rotate(10deg) scale(1.15);
+}

@@ -30,10 +30,7 @@ import VerifyAccount from "../Components/VerifyEmail";
 export const routers = [
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignUpPage /> },
-  {
-    path: "/verify-account/",
-    element: <VerifyAccount />,
-  },
+  { path: "/verify-account/", element: <VerifyAccount /> },
   { path: "/forgot-password", element: <EnterEmail /> },
   { path: "/reset-password/:token", element: <ResetPassword /> },
   {
