@@ -90,7 +90,7 @@ export const platforms = [
     starDisplay: "★★★★★"
   },
   {
-    logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEA…XAwc0AAAAAME2+ncWxOXNAI6Cs14i3Db7AAAAAElFTkSuQmCC",
+    logo: "../ITjobplatform/YCombinator.png",
     customClass: "ycombinator-img",
     description: "Startup-focused job platform where early and growth-stage YC-backed companies hire talent across engineering, product, design, and business roles.",
     url: "https://www.workatastartup.com/",   
@@ -160,7 +160,7 @@ export const platforms = [
     starDisplay: "★★★★✩"
   },
   {
-    logo: "data:image/svg+xml;charset=utf-8,%3Csvg width='263… 252.269 12.3967Z' fill='%23008561'/%3E%3C/svg%3E",
+    logo: "../ITjobplatform/GREENHOUSE.jpg",
     customClass: "greenhouse-img",
     description: "AI-powered, end-to-end recruiting platform that helps companies source, interview, and hire top talent efficiently.",
     url: "https://www.greenhouse.com",
