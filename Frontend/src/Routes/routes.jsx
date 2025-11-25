@@ -82,6 +82,8 @@ export const routers = [
           { path: "/government-jobs/exam-day", element: <ExamDay /> },
           { path: "/it-jobs/practical-roadmap", element: <ItRoadmapPage /> },
           { path: "/it-jobs/ITjobsearch-platform", element: <JobPlatformsPage /> },
+          { path: "/private-jobs/free-study-resources", element: <ComingSoon /> },
+          { path: "/private-jobs/searching", element: <ComingSoon /> },
           { path: "/it-jobs/ITJobSection-platform", element: <ITJobSection /> },
           { path: "/it-jobs/ITJobresources-platform", element: <ITJobresources /> },
           { path: "/foreign-jobs", element: <ForeignJobsPage /> },

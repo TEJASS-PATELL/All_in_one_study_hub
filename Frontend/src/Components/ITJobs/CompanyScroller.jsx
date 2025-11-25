@@ -26,24 +26,26 @@ const CompanyScroller = () => {
   ];
 
   return (
-    <div className="logo-container"> 
-    <div className="heading-section"> 
-      <h1 className="main-heading">Global Tech Industry Leaders</h1> 
-      <p className="sub-heading">Partnering with <span className="highlight">Fortune 500</span> companies around the world</p> 
-      <p>Trusted by industry giants that shape the future of technology</p> 
-    </div>
-    <div className="infinite-slider-wrapper">
-      <div className="infinite-slider reverse">
-        {[...companies, ...companies].map((logo, index) => (
-          <img
-            key={index}
-            src={`/companies/${logo}`}
-            alt={`Company ${index}`}
-            className="slider-logo"
-          />
-        ))}
+    <div className="logo-container">
+      <div className="heading-section">
+        <h1 className="main-heading">Global Tech Industry Leaders</h1>
+        <p className="sub-heading">
+          Kickstart your journey to top <span className="highlight">IT jobs</span> — the best resources are waiting for you.
+        </p>
+        <p>Trusted by industry giants that shape the future of technology</p>
       </div>
-    </div>
+      <div className="infinite-slider-wrapper">
+        <div className="infinite-slider reverse">
+          {[...companies, ...companies].map((logo, index) => (
+            <img loading='lazy'
+              key={index}
+              src={`/companies/${logo}`}
+              alt={`Company ${index}`}
+              className="slider-logo"
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

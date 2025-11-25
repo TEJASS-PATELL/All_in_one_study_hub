@@ -21,13 +21,13 @@ const PrivatePreparation = () => {
       <div className="G-preparation-grid">
         <div className="G-preparation-card">
           <div className="preparation-icon">
-            <i className="fas fa-tools"></i>
+            <i className="fas fa-briefcase"></i>
           </div>
-          <h3 className="G-preparation-title">Domain-Specific Skills</h3>
+          <h3 className="G-preparation-title">Post & Apply for Jobs</h3>
           <p className="G-preparation-description">
-            Master the key tools, software, and concepts required in your chosen field.
+            Find private job opportunities or post openings to hire qualified candidates effortlessly.
           </p>
-          <NavLink to="/government-jobs/practice-paper" className="cards-button">
+          <NavLink to="/private-jobs/searching" className="cards-button">
             Explore
           </NavLink>
         </div>

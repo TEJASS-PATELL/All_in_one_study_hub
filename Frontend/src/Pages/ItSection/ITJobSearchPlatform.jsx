@@ -2,7 +2,6 @@ import './JobPlatformsPage.css';
 import { platforms } from '../../data/ITJobSearchPlatform';
 import React from "react";
 
-
 function JobPlatformsPage() {
   return (
     <div className="itplatform-job-page">
@@ -14,7 +13,7 @@ function JobPlatformsPage() {
         {platforms.map((platform, index) => (
           <div className="itplatform-job-card" key={index}>
             <div className="platform-logo">
-              <img
+              <img loading='lazy'
                 className={`platform-img ${platform.customClass}`}
                 src={platform.logo}
                 alt="Platform Logo"

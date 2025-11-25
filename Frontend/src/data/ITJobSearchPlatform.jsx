@@ -64,14 +64,14 @@ export const platforms = [
       "Early Applicant Alerts",
       "One-click Apply",
       "Real-time Application Tracking"
-    ], 
-    headquarters: "New Delhi, India",   
+    ],
+    headquarters: "New Delhi, India",
     idealFor: "IT Professionals, Freshers, Software Engineers",
-    activeUsers: "1,300,000+ jobseekers",  
-    rating: 4.7,  
+    activeUsers: "1,300,000+ jobseekers",
+    rating: 4.7,
     starDisplay: "★★★★☆"
   },
-    {
+  {
     logo: "../ITjobplatform/Naukri.png",
     customClass: "naukri-img",
     description: "One of India’s largest job search platforms.",
@@ -88,6 +88,23 @@ export const platforms = [
     activeUsers: "75+ million users",
     rating: 4.6,
     starDisplay: "★★★★★"
+  },
+  {
+    logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQEA…XAwc0AAAAAME2+ncWxOXNAI6Cs14i3Db7AAAAAElFTkSuQmCC",
+    customClass: "ycombinator-img",
+    description: "Startup-focused job platform where early and growth-stage YC-backed companies hire talent across engineering, product, design, and business roles.",
+    url: "https://www.workatastartup.com/",   
+    type: "Startup Job Search Platform",
+    features: [
+      "Direct Hiring from YC-funded startups",
+      "Filter by Role, Location, and Funding Stage",
+      "Startup Matches Based on Skills",
+      "One-Click Apply to Multiple Companies"
+    ],
+    idealFor: "Software Engineers, Product Managers, Designers, Startup Enthusiasts",
+    activeUsers: "3,000+ YC startups actively hiring",
+    rating: 4.6,
+    starDisplay: "★★★★☆"
   },
   {
     logo: "../ITjobplatform/AICTE.jpg",
@@ -141,6 +158,23 @@ export const platforms = [
     activeUsers: "3+ million users",
     rating: 4.6,
     starDisplay: "★★★★✩"
+  },
+  {
+    logo: "data:image/svg+xml;charset=utf-8,%3Csvg width='263… 252.269 12.3967Z' fill='%23008561'/%3E%3C/svg%3E",
+    customClass: "greenhouse-img",
+    description: "AI-powered, end-to-end recruiting platform that helps companies source, interview, and hire top talent efficiently.",
+    url: "https://www.greenhouse.com",
+    type: "Recruiting / Applicant Tracking Software (ATS)",
+    features: [
+      "Structured Interview Kits",
+      "AI-Powered Candidate Scorecards",
+      "Custom Hiring Workflows",
+      "Rich Integrations with HR & Productivity Tools"
+    ],
+    idealFor: "HR Teams, Recruiting Departments, Enterprises Hiring at Scale",
+    activeUsers: "7,000+ customers",
+    rating: 4.5,
+    starDisplay: "★★★★☆"
   },
   {
     logo: "../ITjobplatform/cuvette.svg",
