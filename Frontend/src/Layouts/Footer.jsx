@@ -8,38 +8,34 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-bottom">
           <div className="social-links">
-            <a
-              href="https://yourportfolio.com"
+            <a href="https://portfolio-sooty-six-82.vercel.app"
               className="social-link"
               target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaBriefcase size={30}/>
+              rel="noopener noreferrer">
+              <FaBriefcase size={30} />
             </a>
 
             <a
-              href="mailto:yourmail@example.com"
-              className="social-link"
-            >
-              <FaEnvelope size={30}/>
-            </a>
-
-            <a
-              href="https://linkedin.com/in/yourprofile"
-              className="social-link"
+              href="https://mail.google.com/mail/?view=cm&to=tejasspatell2@gmail.com"
               target="_blank"
               rel="noopener noreferrer"
+              className="social-link"
             >
-              <FaLinkedinIn size={30}/>
+              <FaEnvelope size={30} />
             </a>
 
-            <a
-              href="https://github.com/yourusername"
+            <a href="https://linkedin.com/in/tejasspatell"
               className="social-link"
               target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub size={30}/>
+              rel="noopener noreferrer">
+              <FaLinkedinIn size={30} />
+            </a>
+
+            <a href="https://github.com/TEJASS-PATELL"
+              className="social-link"
+              target="_blank"
+              rel="noopener noreferrer">
+              <FaGithub size={30} />
             </a>
           </div>
           <p className="copyright">
