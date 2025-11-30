@@ -4,11 +4,10 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "bun --watch src/index.js",
-    "start": "bun src/index.js",
-    "prisma": "bunx prisma"
+    "start": "bun --smol run src/index.js", 
+    "prisma": "npx prisma"
   },
   "dependencies": {
-    "type": "module",
     "@google/genai": "^1.13.0",
     "@google/generative-ai": "^0.24.1",
     "@prisma/client": "^7.0.1",
