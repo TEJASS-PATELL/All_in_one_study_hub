@@ -14,7 +14,7 @@ export const useRoadmapStore = create((set) => ({
     fetchRoadmap: async () => {
         try {
             set({ loading: true });
-            const res = await axios.get("/api/roadmap/");
+            const res = await axios.get("/api/roadmap/getroadmap");
             const data = res.data;
 
             if (data.success && data.roadmap) {
@@ -48,7 +48,7 @@ export const useRoadmapStore = create((set) => ({
     saveRoadmap: async (formData) => {
         try {
             set({ loading: true });
-            const res = await axios.post("/api/roadmap/modify", formData);
+            const res = await axios.post("/api/roadmap/modifyroadmap", formData);
             const data = res.data;
 
             if (data.success && data.roadmap && Array.isArray(data.roadmap.steps)) {
@@ -72,7 +72,7 @@ export const useRoadmapStore = create((set) => ({
         try {
             if (!window.confirm("Are you sure you want to delete this roadmap?")) return;
             set({ loading: true });
-            const res = await axios.delete("/api/roadmap/remove");
+            const res = await axios.delete("/api/roadmap/removeroadmap");
             const data = res.data;
 
             if (data.success) {
