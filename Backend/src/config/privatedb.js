@@ -379,8 +379,6 @@ const main = async () => {
     console.log(privatejob);
 }
 
-main().catch((e) => console.log(e)).finally(async () => {
-        await prisma.$disconnect()
-    });
+main().catch((e) => console.log(e)).finally(async () => { await prisma.$disconnect() });
 
 export default prisma;

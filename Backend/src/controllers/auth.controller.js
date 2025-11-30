@@ -343,7 +343,7 @@ export const sendVerifyOtp = async (req, res) => {
       await sendOtp(user.id, user.email);
       return res.json({ success: true, message: "OTP sent to your email" });
     } catch (otpError) {
-      console.error("❌ Send Verify OTP failed:", otpError.message);
+      console.error(" Send Verify OTP failed:", otpError.message);
       return res.status(500).json({ success: false, message: "Failed to send OTP. Try again later." });
     }
 

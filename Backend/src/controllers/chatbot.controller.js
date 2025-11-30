@@ -11,7 +11,7 @@ if (!GEMINI_API_KEY) {
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-const chatbot = async (req, res) => {
+export const chatbot = async (req, res) => {
   try {
     const { message } = req.body;
 
@@ -39,4 +39,3 @@ const chatbot = async (req, res) => {
   }
 };
 
-export default chatbot;

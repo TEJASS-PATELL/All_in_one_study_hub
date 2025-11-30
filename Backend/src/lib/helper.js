@@ -3,7 +3,7 @@ import sendMailersendEmail from "../config/nodemailer.js";
 
 const prisma = new PrismaClient();
 
-const sendOtp = async (userId, userEmail) => {
+export const sendOtp = async (userId, userEmail) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     const expires = Math.floor(Date.now() / 1000) + 5 * 60; 
 
@@ -30,5 +30,3 @@ const sendOtp = async (userId, userEmail) => {
         throw new Error("Failed to send verification OTP.");
     }
 };
-
-export default sendOtp;
