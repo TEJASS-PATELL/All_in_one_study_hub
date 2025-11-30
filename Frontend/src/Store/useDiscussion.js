@@ -13,7 +13,7 @@ export const useDiscussionStore = create((set, get) => ({
   fetchDiscussions: async (userId) => {
     try {
       set({ isFetching: true });
-      const res = await axios.get("/api/discussion");
+      const res = await axios.get("/api/discussion/getdiscussion");
       const discussions = res.data?.data || res.data;
 
       const likedSet = new Set();
@@ -38,7 +38,7 @@ export const useDiscussionStore = create((set, get) => ({
   submitExperience: async (formData, user, onSuccess) => {
     try {
       const dataToSend = { ...formData, userId: user?.id, email: user?.email };
-      const res = await axios.post("/api/discussion", dataToSend);
+      const res = await axios.post("/api/discussion/creatediscussion", dataToSend);
       if (res.status === 200 || res.status === 201) {
         onSuccess();
         get().fetchDiscussions(user.id);
@@ -64,7 +64,7 @@ export const useDiscussionStore = create((set, get) => ({
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
     try {
-      await axios.delete(`/api/discussion/${id}`);
+      await axios.delete(`/api/discussion/${id}/delete`);
       alert("Deleted successfully.");
       get().fetchDiscussions(userId);
     } catch (err) {
