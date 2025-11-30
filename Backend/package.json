@@ -4,8 +4,8 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "dev": "bun --watch src/index.js",
-    "start": "bun --smol run src/index.js", 
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
     "prisma": "npx prisma"
   },
   "dependencies": {
