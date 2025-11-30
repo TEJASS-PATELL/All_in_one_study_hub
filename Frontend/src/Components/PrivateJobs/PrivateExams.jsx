@@ -14,7 +14,7 @@ const PrivateExams = () => {
   useEffect(() => {
     if (!activeCategory) { setExams([]); return; }
     setLoading(true);
-    axios.get(`${import.meta.env.VITE_API_URL}/api/exam/private-jobs`, { params: { category: activeCategory } })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/exam/private-jobs/${activeCategory}`)
       .then((res) => {
         setExams(Array.isArray(res.data) ? res.data : []);
       })
