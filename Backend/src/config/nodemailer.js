@@ -4,7 +4,7 @@ const mailersend = new MailerSend({
   apiKey: process.env.MAILERSEND_API_KEY,
 });
 
-export const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
+const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
   try {
     const senderAddress = process.env.MAIL_FROM_ADDRESS;
     const senderName = process.env.MAIL_SENDER_NAME || "Your Study Hub";
@@ -34,3 +34,5 @@ export const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
     throw new Error("Failed to send email via Mailersend API.");
   }
 };
+
+export default sendMailersendEmail
