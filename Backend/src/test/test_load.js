@@ -2,12 +2,12 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 
 export const options = {
-  vus: 1,
-  duration: '5s',
+  vus: 100,
+  duration: '30s',
 };
 
 export default function () {
-  const url = 'https://all-in-one-study-hub.onrender.com/api/exam/government-jobs';
+  const url = `${__ENV.SERVER_URL}/api/exam/government-jobs/Engineering`;
 
   const res = http.get(url);
 

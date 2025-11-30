@@ -3,7 +3,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import * as dotenv from 'dotenv';
 import passport from "./config/passport.js";
-
+import { warmUpCache } from './controllers/exam.controller.js';
+import { warmUpPrivateJobsCache } from './controllers/privatejob.controller.js';
 import authRoutes from "./routes/auth.route.js";
 import discussionRoutes from "./routes/discussion.route.js";
 import examRoutes from "./routes/exam.route.js";
@@ -38,4 +39,6 @@ app.use((req, res) => {
 const PORT = process.env.PORT || 4001;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+  warmUpCache();
+  warmUpPrivateJobsCache();
 });

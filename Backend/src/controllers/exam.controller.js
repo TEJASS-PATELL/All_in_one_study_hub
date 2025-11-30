@@ -1,8 +1,39 @@
 import { PrismaClient } from '@prisma/client';
 import NodeCache from 'node-cache';
 
+const THREE_HOURS_IN_SECONDS = 3 * 3600;
 const prisma = new PrismaClient();
-const myCache = new NodeCache({ stdTTL: 3600, checkperiod: 120 });
+const myCache = new NodeCache({ stdTTL: THREE_HOURS_IN_SECONDS, checkperiod: 120 });
+
+const WARMUP_CATEGORIES = ['Engineering', 'Medical', 'Civil Services', 'Law Exams', 'Banking & Finance', 'Defense Exams', 'Railway Exams', 'Teaching & Education'];
+
+export const warmUpCache = async () => {
+  console.log('--- Starting Cache Warm-up ---');
+  for (const category of WARMUP_CATEGORIES) {
+    const cacheKey = `exams_${category}`;
+
+    if (myCache.get(cacheKey)) {
+      console.log(`Cache already warm for: ${category}`);
+      continue;
+    }
+
+    try {
+      const exams = await prisma.exam.findMany({
+        where: { category },
+      });
+
+      if (exams && exams.length > 0) {
+        myCache.set(cacheKey, exams);
+        console.log(`Successfully warmed up cache for: ${category}`);
+      } else {
+        console.log(`No exams found for warm-up category: ${category}`);
+      }
+    } catch (error) {
+      console.error(`Error during cache warm-up for ${category}:`, error.message);
+    }
+  }
+  console.log('--- Cache Warm-up Complete ---');
+};
 
 export const getexamdata = async (req, res) => {
   const { category } = req.params;
@@ -14,6 +45,7 @@ export const getexamdata = async (req, res) => {
 
   try {
     let exams = myCache.get(cacheKey);
+
     if (exams) {
       console.log(`Cache Hit for category: ${category}`);
       return res.json(exams);
