@@ -10,7 +10,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Exam {
@@ -27,8 +26,8 @@ model Exam {
   attemptLimit String  @db.Text
   salary       String @db.Text
   examMode     String @db.Text
+  @@index([category]) 
 }
-
 model PrivateJob {
   id             Int    @id @default(autoincrement())
   title          String @db.Text
@@ -38,6 +37,7 @@ model PrivateJob {
   selectionStage String @db.Text
   tips           String @db.Text
   skills         String @db.Text
+  @@index([category]) 
 }
 
 model User {

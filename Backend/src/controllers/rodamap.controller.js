@@ -1,8 +1,9 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
-const { generateRoadmap } = require("../services/geminiService");
+import { PrismaClient } from "@prisma/client";
+import { generateRoadmap } from "../services/geminiService.js";
 
-exports.getRoadmap = async (req, res) => {
+const prisma = new PrismaClient();
+
+export const getRoadmap = async (req, res) => {
   try {
     const roadmap = await prisma.roadmap.findUnique({
       where: { userId: req.user.userid },
@@ -19,9 +20,10 @@ exports.getRoadmap = async (req, res) => {
   }
 };
 
-exports.createorupdateRoadmap = async (req, res) => {
+export const createorupdateRoadmap = async (req, res) => {
   try {
     const { jobType, jobRoles, education, skills, status, notes, roadmapDuration } = req.body;
+
     const aiRoadmap = await generateRoadmap({
       jobType,
       jobRoles,
@@ -29,7 +31,7 @@ exports.createorupdateRoadmap = async (req, res) => {
       skills,
       status,
       notes,
-      roadmapDuration
+      roadmapDuration,
     });
 
     const { title, steps } = aiRoadmap;
@@ -54,27 +56,27 @@ exports.createorupdateRoadmap = async (req, res) => {
   }
 };
 
-exports.removeroadmap = async (req, res) => {
+export const removeroadmap = async (req, res) => {
   try {
     const result = await prisma.roadmap.deleteMany({
-      where: { userId: req.user.userid }
+      where: { userId: req.user.userid },
     });
 
     if (result.count === 0) {
       return res.status(404).json({
         success: false,
-        message: "No roadmap found for this user"
+        message: "No roadmap found for this user",
       });
     }
 
     res.json({
       success: true,
-      message: "Roadmap deleted successfully"
+      message: "Roadmap deleted successfully",
     });
   } catch (err) {
     res.status(500).json({
       success: false,
-      message: "Error deleting roadmap"
+      message: "Error deleting roadmap",
     });
   }
 };

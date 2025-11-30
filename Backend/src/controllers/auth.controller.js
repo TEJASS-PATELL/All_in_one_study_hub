@@ -1,15 +1,15 @@
-const { PrismaClient } = require("@prisma/client");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const cloudinary = require("../config/cloudinary");
-const sendOtp = require("../lib/helper");
-const sendMailersendEmail = require("../config/nodemailer");
-const crypto = require("crypto");
+import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import cloudinary from "../config/cloudinary.js";
+import sendOtp from "../lib/helper.js";
+import sendMailersendEmail from "../config/nodemailer.js";
+import crypto from "crypto";
 
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
-
 const isProduction = process.env.NODE_ENV === "production";
+
 const generateToken = (userid) =>
   jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
 
@@ -20,7 +20,7 @@ const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
   if (!email || !password)
     return res.status(400).json({ msg: "All fields are required" });
@@ -52,7 +52,7 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.signup = async (req, res) => {
+export const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -119,7 +119,7 @@ exports.signup = async (req, res) => {
   }
 };
 
-exports.logout = async (req, res) => {
+export const logout = async (req, res) => {
   try {
     const userId = req.user.userid;
 
@@ -138,7 +138,7 @@ exports.logout = async (req, res) => {
   }
 };
 
-exports.getuser = async (req, res) => {
+export const getuser = async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user.userid },
@@ -161,7 +161,7 @@ exports.getuser = async (req, res) => {
   }
 };
 
-exports.alluser = async (req, res) => {
+export const alluser = async (req, res) => {
   try {
     const users = await prisma.user.findMany({
       select: {
@@ -182,7 +182,7 @@ exports.alluser = async (req, res) => {
   }
 };
 
-exports.updateprofile = async (req, res) => {
+export const updateprofile = async (req, res) => {
   try {
     const { image } = req.body;
     const userId = req.user.userid;
@@ -202,7 +202,7 @@ exports.updateprofile = async (req, res) => {
   }
 }
 
-exports.deleteAccount = async (req, res) => {
+export const deleteAccount = async (req, res) => {
   try {
     const userId = req.user.userid;
 
@@ -236,7 +236,7 @@ exports.deleteAccount = async (req, res) => {
   }
 };
 
-exports.sendPasswordResetLink = async (req, res) => {
+export const sendPasswordResetLink = async (req, res) => {
   const { email } = req.body;
 
   if (!email) {
@@ -282,7 +282,7 @@ exports.sendPasswordResetLink = async (req, res) => {
   }
 }
 
-exports.resetPassword = async (req, res) => {
+export const resetPassword = async (req, res) => {
   const { newPassword } = req.body;
   const { token } = req.params;
 
@@ -320,7 +320,7 @@ exports.resetPassword = async (req, res) => {
   }
 }
 
-exports.sendVerifyOtp = async (req, res) => {
+export const sendVerifyOtp = async (req, res) => {
   try {
     const { email } = req.body;
 
@@ -353,7 +353,7 @@ exports.sendVerifyOtp = async (req, res) => {
   }
 };
 
-exports.verifyOtp = async (req, res) => {
+export const verifyOtp = async (req, res) => {
   try {
     const { otp, email } = req.body;
 

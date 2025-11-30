@@ -1,26 +1,29 @@
-const express = require("express");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const passport = require("./config/passport"); 
+import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import dotenv from "dotenv";
+import passport from "./config/passport.js";
 
-const app = express();
+import authRoutes from "./routes/auth.route.js";
+import discussionRoutes from "./routes/discussion.route.js";
+import examRoutes from "./routes/exam.route.js";
+import roadmapRoutes from "./routes/roadmap.route.js";
+import chatbotRoutes from "./routes/chatbot.route.js";
+
 dotenv.config();
 
-app.use(cors({
-  origin: [process.env.CLIENT_URL, "http://localhost:5173"],
-  credentials: true
-}));
+const app = express();
+
+app.use(
+  cors({
+    origin: [process.env.CLIENT_URL, "http://localhost:5173"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(passport.initialize()); 
-
-const authRoutes = require("./routes/auth.route");
-const discussionRoutes = require("./routes/discussion.route");
-const examRoutes = require("./routes/exam.route");
-const roadmapRoutes = require("./routes/roadmap.route");
-const chatbotRoutes = require("./routes/chatbot.route");
+app.use(passport.initialize());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/discussion", discussionRoutes);

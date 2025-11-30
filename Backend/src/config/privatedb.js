@@ -1,4 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const main = async () => {
@@ -379,11 +379,8 @@ const main = async () => {
     console.log(privatejob);
 }
 
-main()
-    .catch((e) => console.log(e))
-    .finally(async () => {
+main().catch((e) => console.log(e)).finally(async () => {
         await prisma.$disconnect()
     });
 
-module.exports = prisma;
-
+export default prisma;

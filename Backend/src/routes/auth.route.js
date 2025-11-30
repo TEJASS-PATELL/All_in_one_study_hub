@@ -1,9 +1,10 @@
-const express = require("express");
+import express from "express";
+import jwt from "jsonwebtoken";
+import passport from "../config/passport.js";
+import authMiddleware from "../middlewares/auth.middleware.js";
+import { signup, login, logout, getuser, alluser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } from "../controllers/auth.controller";
+
 const router = express.Router();
-const jwt = require("jsonwebtoken");
-const passport = require("../config/passport")
-const authMiddleware = require("../middlewares/auth.middleware");
-const { signup, login, logout, getuser, alluser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } = require("../controllers/auth.controller");
 
 router.post("/signup", signup);           
 router.post("/login", login);             
@@ -46,4 +47,4 @@ router.get(
   }
 );
 
-module.exports = router;
+export default router;

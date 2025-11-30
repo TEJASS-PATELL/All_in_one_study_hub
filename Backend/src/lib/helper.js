@@ -1,7 +1,7 @@
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
+import { PrismaClient } from "@prisma/client";
+import sendMailersendEmail from "../config/nodemailer.js";
 
-const sendMailersendEmail = require("../config/nodemailer"); 
+const prisma = new PrismaClient();
 
 const sendOtp = async (userId, userEmail) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
@@ -31,4 +31,4 @@ const sendOtp = async (userId, userEmail) => {
     }
 };
 
-module.exports = sendOtp; 
+export default sendOtp;

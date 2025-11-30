@@ -1,7 +1,7 @@
-const { PrismaClient } = require("@prisma/client");
+import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
-exports.getDiscussions = async (req, res) => {
+export const getDiscussions = async (req, res) => {
   const userId = req.user.userid;
 
   try {
@@ -25,7 +25,7 @@ exports.getDiscussions = async (req, res) => {
   }
 };
 
-exports.createDiscussion = async (req, res) => {
+export const createDiscussion = async (req, res) => {
   const userId = req.user.userid;
   const {
     name, location, category, qualification,
@@ -71,7 +71,7 @@ exports.createDiscussion = async (req, res) => {
   }
 };
 
-exports.deleteDiscussion = async (req, res) => {
+export const deleteDiscussion = async (req, res) => {
   const discussionId = parseInt(req.params.id);
   const userId = req.user.userid;
 
@@ -99,7 +99,7 @@ exports.deleteDiscussion = async (req, res) => {
   }
 };
 
-exports.likeDiscussion = async (req, res) => {
+export const likeDiscussion = async (req, res) => {
   const discussionId = parseInt(req.params.id);
   const userId = req.user.userid;
 

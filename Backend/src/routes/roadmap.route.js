@@ -1,10 +1,11 @@
-const express = require("express");
+import express from "express";
+import { getRoadmap, createorupdateRoadmap, removeroadmap } from "../controllers/rodamap.controller.js";
+import authentication from "../middlewares/auth.middleware.js";
+
 const router = express.Router();
-const { getRoadmap, createorupdateRoadmap, removeroadmap } = require("../controllers/rodamap.controller");
-const authentication = require("../middlewares/auth.middleware");
 
 router.get("/", authentication, getRoadmap);
 router.post("/modify", authentication, createorupdateRoadmap);
 router.delete("/remove", authentication, removeroadmap);
 
-module.exports = router;
+export default router;
