@@ -4,7 +4,7 @@ import { getprivatejobdata } from "../controllers/privatejob.controller.js";
 
 const router = express.Router();
 
-router.get("/government-jobs", getexamdata);
-router.get("/private-jobs", getprivatejobdata);
+router.get("/government-jobs/:category", getexamdata);
+router.get("/private-jobs/:category", getprivatejobdata);
 
 export default router;

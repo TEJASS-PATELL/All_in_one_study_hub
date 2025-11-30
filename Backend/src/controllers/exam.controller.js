@@ -2,12 +2,12 @@ import { PrismaClient } from '@prisma/client';
 import NodeCache from 'node-cache';
 
 const prisma = new PrismaClient();
-const myCache = new NodeCache({ stdTTL: 3600, checkperiod: 120 }); 
+const myCache = new NodeCache({ stdTTL: 3600, checkperiod: 120 });
 
 export const getexamdata = async (req, res) => {
-  const { category } = req.query;
+  const { category } = req.params;
   if (!category) {
-    return res.status(400).json({ error: 'Category query parameter is required.' });
+    return res.status(400).json({ error: 'Category path parameter is required.' });
   }
 
   const cacheKey = `exams_${category}`;
@@ -35,4 +35,3 @@ export const getexamdata = async (req, res) => {
     return res.status(500).json({ error: 'Failed to fetch exams' });
   }
 };
-
