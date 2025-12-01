@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import cacheClient from './cacheClient.js'; 
-
+import cacheClient from '../services/cacheClient.js'; 
 const THREE_HOURS_IN_SECONDS = 3 * 3600;
 const prisma = new PrismaClient();
 

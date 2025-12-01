@@ -1,8 +1,7 @@
 import { PrismaClient } from "@prisma/client";
-import NodeCache from "node-cache";
+import cacheClient from '../services/cacheClient.js'; 
 const THREE_HOURS_IN_SECONDS = 3 * 3600;
 const prisma = new PrismaClient();
-import cacheClient from '../services/cacheClient.js';
 
 const WARMUP_PRIVATE_JOB_CATEGORIES = ['Core Engineering', 'Sales & Marketing', 'Finance & Accounting', 'Customer Support', 'Human Resources', 'Design & Multimedia'];
 
