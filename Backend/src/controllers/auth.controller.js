@@ -5,6 +5,7 @@ import cloudinary from "../config/cloudinary.js";
 import sendOtp from "../lib/helper.js";
 import sendMailersendEmail from "../config/nodemailer.js";
 import crypto from "crypto";
+import cacheClient from "../services/cacheClient.js";
 
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -139,7 +140,16 @@ export const logout = async (req, res) => {
 };
 
 export const getuser = async (req, res) => {
+  const userId = req.user.userid;
+  const cacheKey = `user:${userId}`;
+
   try {
+    const cachedUser = await cacheClient.get(cacheKey);
+    if (cachedUser) {
+      console.log("Serving user from cache");
+      return res.status(200).json(JSON.parse(cachedUser));
+    }
+
     const user = await prisma.user.findUnique({
       where: { id: req.user.userid },
       select: {
@@ -154,7 +164,7 @@ export const getuser = async (req, res) => {
     });
 
     if (!user) return res.status(404).json({ msg: "User not found" });
-
+    await cacheClient.set(cacheKey, JSON.stringify(user), 'EX', 3600);
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json({ msg: "Failed to fetch user", error: err.message });
