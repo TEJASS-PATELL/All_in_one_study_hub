@@ -33,6 +33,8 @@ export const getRoadmap = async (req, res) => {
 };
 
 export const createorupdateRoadmap = async (req, res) => {
+  const userId = req.user.userid;
+  const cacheKey = `roadmap:${userId}`;
   try {
     const { jobType, jobRoles, education, skills, status, notes, roadmapDuration } = req.body;
 
@@ -71,6 +73,8 @@ export const createorupdateRoadmap = async (req, res) => {
 };
 
 export const removeroadmap = async (req, res) => {
+  const userId = req.user.userid;
+  const cacheKey = `roadmap:${userId}`;
   try {
     const result = await prisma.roadmap.deleteMany({
       where: { userId: req.user.userid },
