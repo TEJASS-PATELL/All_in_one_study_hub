@@ -48,7 +48,7 @@ export const useRoadmapStore = create((set) => ({
     saveRoadmap: async (formData) => {
         try {
             set({ loading: true });
-            const res = await axios.post("/api/roadmap/modifyroadmap", formData);
+            const res = await axios.post("/api/roadmap/generateroadmap", formData);
             const data = res.data;
 
             if (data.success && data.roadmap && Array.isArray(data.roadmap.steps)) {
