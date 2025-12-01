@@ -1,10 +1,20 @@
 import { PrismaClient } from "@prisma/client";
 import { generateRoadmap } from "../services/geminiService.js";
+import NodeCache from "node-cache";
 
 const prisma = new PrismaClient();
+const roadmapCache = new NodeCache({ stdTTL: 3600 });
 
 export const getRoadmap = async (req, res) => {
+  const userId = req.user.userid;
+  const cacheKey = `roadmap:${userId}`;
+
   try {
+    const cachedRoadmap = roadmapCache.get(cacheKey);
+    if (cachedRoadmap) {
+      return res.json({ success: true, roadmap: cachedRoadmap });
+    }
+
     const roadmap = await prisma.roadmap.findUnique({
       where: { userId: req.user.userid },
     });
@@ -12,6 +22,8 @@ export const getRoadmap = async (req, res) => {
     if (!roadmap) {
       return res.status(404).json({ success: false, message: "No roadmap found" });
     }
+
+    roadmapCache.set(cacheKey, roadmap);
 
     res.json({ success: true, roadmap });
   } catch (err) {
@@ -49,6 +61,8 @@ export const createorupdateRoadmap = async (req, res) => {
       },
     });
 
+    roadmapCache.del(cacheKey);
+
     res.json({ success: true, roadmap });
   } catch (err) {
     console.error("Error creating/updating roadmap:", err);
@@ -61,6 +75,8 @@ export const removeroadmap = async (req, res) => {
     const result = await prisma.roadmap.deleteMany({
       where: { userId: req.user.userid },
     });
+
+    roadmapCache.del(cacheKey);
 
     if (result.count === 0) {
       return res.status(404).json({

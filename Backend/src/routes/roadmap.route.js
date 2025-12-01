@@ -4,8 +4,8 @@ import authentication from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.get("/", authentication, getRoadmap);
-router.post("/modify", authentication, createorupdateRoadmap);
-router.delete("/remove", authentication, removeroadmap);
+router.get("/getroadmap", authentication, getRoadmap);
+router.post("/generateroadmap", authentication, createorupdateRoadmap);
+router.delete("/removeroadmap", authentication, removeroadmap);
 
 export default router;
