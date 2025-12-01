@@ -9,7 +9,7 @@ export const options = {
 };
 
 export default function () {
-    const url = `${__ENV.SERVER_URL}/api/auth/getuser`;
+    const url = `${__ENV.SERVER_URL}/api/auth/alluser`;
     
     const params = {
         cookies: {

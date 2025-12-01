@@ -123,6 +123,8 @@ export const signup = async (req, res) => {
 export const logout = async (req, res) => {
   try {
     const userId = req.user.userid;
+    const userCacheKey = `user:${userId}`;
+    const allUsersCacheKey = `all_users_list`;
 
     await prisma.user.update({
       where: { id: userId },
@@ -131,6 +133,9 @@ export const logout = async (req, res) => {
         isLogin: false,
       },
     });
+
+    await cacheClient.del(userCacheKey);
+    await cacheClient.del(allUsersCacheKey);
 
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 }).json({ msg: "Logged out successfully" });
   } catch (err) {
@@ -172,24 +177,38 @@ export const getuser = async (req, res) => {
 };
 
 export const alluser = async (req, res) => {
-  try {
-    const users = await prisma.user.findMany({
-      select: {
-        id: true,
-        name: true,
-        email: true,
-        createdAt: true,
-        profilepic: true,
-        lastLogin: true,
-        lastLogout: true,
-        isLogin: true,
-      },
-    });
+    const cacheKey = `all_users_list`; 
+    
+    try {
+        const cachedUsers = await cacheClient.get(cacheKey);
+        
+        if (cachedUsers) {
+            console.log("Serving ALL users from cache");
+            return res.status(200).json(JSON.parse(cachedUsers));
+        }
 
-    res.status(200).json(users);
-  } catch (err) {
-    res.status(500).json({ msg: "Failed to fetch users", error: err.message });
-  }
+        const users = await prisma.user.findMany({
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                createdAt: true,
+                profilepic: true,
+                lastLogin: true,
+                lastLogout: true,
+                isLogin: true,
+            },
+        });
+
+        if (users.length > 0) {
+            await cacheClient.set(cacheKey, JSON.stringify(users), 'EX', 900); 
+        }
+
+        res.status(200).json(users);
+    } catch (err) {
+        console.error("Error fetching all users:", err);
+        res.status(500).json({ msg: "Failed to fetch users", error: err.message });
+    }
 };
 
 export const updateprofile = async (req, res) => {
@@ -213,8 +232,11 @@ export const updateprofile = async (req, res) => {
 }
 
 export const deleteAccount = async (req, res) => {
+  const userId = req.user.userid;
+
+  const userCacheKey = `user:${userId}`;
+  const allUsersCacheKey = `all_users_list`;
   try {
-    const userId = req.user.userid;
 
     if (!userId) {
       return res.status(401).json({ msg: "Unauthorized – user ID not found" });
@@ -236,6 +258,8 @@ export const deleteAccount = async (req, res) => {
     await prisma.like.deleteMany({ where: { userId } });
 
     await prisma.user.delete({ where: { id: userId } });
+
+    await cacheClient.del(userCacheKey, allUsersCacheKey);
 
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 });
 
