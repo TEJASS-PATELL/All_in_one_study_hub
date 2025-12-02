@@ -10,6 +10,7 @@ import cacheClient from "../services/cacheClient.js";
 const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
 const isProduction = process.env.NODE_ENV === "production";
+const CACHE_TTL = 3600;
 
 const generateToken = (userid) =>
   jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
@@ -221,7 +222,10 @@ export const updateprofile = async (req, res) => {
 
     const uploadProfilePic = await cloudinary.uploader.upload(image, { folder: "users_profile" });
 
-    await prisma.user.update({ where: { id: userId }, data: { profilepic: uploadProfilePic.secure_url } });
+    const updatedUser = await prisma.user.update({ where: { id: userId }, data: { profilepic: uploadProfilePic.secure_url } });
+
+    const userCacheKey = `user:${userId}`;
+    await cacheClient.set(userCacheKey, JSON.stringify(updatedUser), 'EX', CACHE_TTL);
 
     return res.status(200).json({ success: true, message: "User Profile updated succesfully", image: uploadProfilePic.secure_url });
 

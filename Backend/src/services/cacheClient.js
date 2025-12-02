@@ -10,7 +10,7 @@ const cacheClient = new Redis(redisUrl, {
             console.error('Redis: Max retries exceeded, giving up.');
             return null; 
         }
-        const delay = Math.min(times * 500, 2000); // 500ms, 1000ms, 1500ms, 2000ms...
+        const delay = Math.min(times * 500, 2000); 
         console.log(`Redis: Retrying connection in ${delay}ms (Attempt ${times})...`);
         return delay;
     }
@@ -21,7 +21,7 @@ cacheClient.on('connect', () => {
 });
 
 cacheClient.on('error', (err) => {
-    console.error('Redis Connection Error (Network/Host Issue):', err.message);
+    console.error('Redis Connection Error : ', err.message);
 });
 
 export default cacheClient;
