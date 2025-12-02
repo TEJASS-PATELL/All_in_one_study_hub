@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import NodeCache from "node-cache"; 
-const tokenCache = new NodeCache({ stdTTL: 300 }); 
+const tokenCache = new NodeCache({ stdTTL: 1200 }); 
 
 const authentication = (req, res, next) => {
   const token = req.cookies?.token;

@@ -1,8 +1,18 @@
 import { PrismaClient } from "@prisma/client";
+import cacheClient from "../services/cacheClient.js";
 const prisma = new PrismaClient();
 
-export const getDiscussions = async (req, res) => {
-  const userId = req.user.userid;
+const DISCUSSION_CACHE_KEY = 'all_discussions';
+const CACHE_TTL = 3600;
+
+export const warmUpDiscussionsCache = async () => {
+  console.log('--- Starting Discussion Cache Warm-up ---');
+  const cacheKey = DISCUSSION_CACHE_KEY;
+
+  if (await cacheClient.get(cacheKey)) {
+    console.log(`Discussion cache already warm.`);
+    return;
+  }
 
   try {
     const discussions = await prisma.discussion.findMany({
@@ -12,6 +22,40 @@ export const getDiscussions = async (req, res) => {
       },
       orderBy: { createdAt: "desc" },
     });
+
+    if (discussions && discussions.length > 0) {
+      await cacheClient.set(cacheKey, JSON.stringify(discussions), 'EX', CACHE_TTL);
+      console.log(`Successfully warmed up discussion cache. Total items: ${discussions.length}`);
+    } else {
+      console.log(`No discussions found for warm-up.`);
+    }
+  } catch (error) {
+    console.error('Error during discussion cache warm-up:', error.message);
+  }
+};
+
+export const getDiscussions = async (req, res) => {
+  const userId = req.user.userid;
+
+  try {
+    let discussions;
+    let discussionsJSON = await cacheClient.get(DISCUSSION_CACHE_KEY);
+
+    if (discussionsJSON) {
+      discussions = JSON.parse(discussionsJSON);
+    } else {
+      discussions = await prisma.discussion.findMany({
+        include: {
+          user: true,
+          likes: true,
+        },
+        orderBy: { createdAt: "desc" },
+      });
+
+      if (discussions && discussions.length > 0) {
+        await cacheClient.set(DISCUSSION_CACHE_KEY, JSON.stringify(discussions), 'EX', CACHE_TTL);
+      }
+    }
 
     const sorted = [
       ...discussions.filter((d) => d.userId === userId),
@@ -34,7 +78,7 @@ export const createDiscussion = async (req, res) => {
   } = req.body;
 
   if (!name || !location || !category || !qualification ||
-      !examGiven || !examCracked || !advice || !description) {
+    !examGiven || !examCracked || !advice || !description) {
     return res.status(400).json({ success: false, message: "All required fields must be filled." });
   }
 
@@ -64,6 +108,8 @@ export const createDiscussion = async (req, res) => {
       },
     });
 
+    await cacheClient.del(DISCUSSION_CACHE_KEY);
+
     res.status(201).json({ success: true, data: newDiscussion });
   } catch (err) {
     console.error("Error creating discussion:", err);
@@ -91,6 +137,8 @@ export const deleteDiscussion = async (req, res) => {
     }
 
     await prisma.discussion.delete({ where: { id: discussionId } });
+
+    await cacheClient.del(DISCUSSION_CACHE_KEY);
 
     res.status(200).json({ success: true, message: "Discussion deleted successfully." });
   } catch (err) {
@@ -124,6 +172,8 @@ export const likeDiscussion = async (req, res) => {
       where: { id: discussionId },
       data: { likesCount: { increment: 1 } },
     });
+
+    await cacheClient.del(DISCUSSION_CACHE_KEY);
 
     res.status(200).json({ success: true, message: "Liked successfully." });
   } catch (err) {

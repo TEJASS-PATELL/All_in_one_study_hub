@@ -1,23 +1,36 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
-const TEST_TOKEN = __ENV.TEST_TOKEN || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjE0LCJpYXQiOjE3NjQ1ODk2MTMsImV4cCI6MTc2NTE5NDQxM30.Z_9hf6VKnv1K2ysf3g9fWtNQ7eamjzjKGEyQFzaKjsU'; 
+const TEST_TOKEN = __ENV.TEST_TOKEN || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjE1LCJpYXQiOjE3NjQ2OTUxNTYsImV4cCI6MTc2NTI5OTk1Nn0.yL7saOV1_OTOB9UocMzjxCXzsXo4PWcO5dQYlRaH8vI'; 
 
 export const options = {
-    vus: 100,          
-    duration: '30s',   //? configured time
+    vus: 10,          
+    duration: '10s',   //? configured time
 };
 
 export default function () {
-    const url = `${__ENV.SERVER_URL}/api/exam/government-jobs/Engineering`;
+    const url = `${__ENV.SERVER_URL}/api/roadmap/generateroadmap`;
+
+    const payload = JSON.stringify({
+        jobType: 'IT',
+        jobRoles: 'Backend Developer',
+        education: 'B.Tech',
+        skills: 'c++' ,
+        status: 'starting',
+        notes: 'none',
+        roadmapDuration: '4 months',
+    });
     
-    // const params = {
-    //     cookies: {
-    //         token: TEST_TOKEN,
-    //     },
-    // };
+    const params = {
+        headers: {
+            'Content-Type': 'application/json', // Content-Type zaroori hai
+        },
+        cookies: {
+            token: TEST_TOKEN,
+        },
+    };
     
-    const res = http.get(url); 
+    const res = http.post(url, payload, params); 
 
     check(res, {
         'Status is 200/202': (r) => r.status === 200 || r.status === 202, 
