@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
@@ -42,12 +43,13 @@ export const useDiscussionStore = create((set, get) => ({
       if (res.status === 200 || res.status === 201) {
         onSuccess();
         get().fetchDiscussions(user.id);
+        toast.success("Thanks for helping others grow in their career journey!");
       } else {
-        alert("Something went wrong.");
+        toast.error("Something went wrong.");
       }
     } catch (err) {
       console.error("Submit error:", err.response || err);
-      alert(err.response?.data?.message || "Failed to submit.");
+      toast.error(err.response?.data?.message || "Failed to submit.");
     }
   },
 
@@ -65,7 +67,7 @@ export const useDiscussionStore = create((set, get) => ({
 
     try {
       await axios.delete(`/api/discussion/${id}/delete`);
-      alert("Deleted successfully.");
+      toast.success("Deleted successfully.");
       get().fetchDiscussions(userId);
     } catch (err) {
       alert("Delete failed.");
