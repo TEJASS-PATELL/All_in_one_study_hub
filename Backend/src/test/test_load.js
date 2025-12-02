@@ -4,20 +4,20 @@ import { check, sleep } from 'k6';
 const TEST_TOKEN = __ENV.TEST_TOKEN || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjE0LCJpYXQiOjE3NjQ1ODk2MTMsImV4cCI6MTc2NTE5NDQxM30.Z_9hf6VKnv1K2ysf3g9fWtNQ7eamjzjKGEyQFzaKjsU'; 
 
 export const options = {
-    vus: 10,          
-    duration: '10s',   //? configured time
+    vus: 100,          
+    duration: '30s',   //? configured time
 };
 
 export default function () {
-    const url = `${__ENV.SERVER_URL}/api/auth/alluser`;
+    const url = `${__ENV.SERVER_URL}/api/exam/government-jobs/Engineering`;
     
-    const params = {
-        cookies: {
-            token: TEST_TOKEN,
-        },
-    };
+    // const params = {
+    //     cookies: {
+    //         token: TEST_TOKEN,
+    //     },
+    // };
     
-    const res = http.get(url, params); 
+    const res = http.get(url); 
 
     check(res, {
         'Status is 200/202': (r) => r.status === 200 || r.status === 202, 
