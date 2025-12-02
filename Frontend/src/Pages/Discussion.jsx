@@ -58,7 +58,7 @@ const Discussion = () => {
       setOpen(false);
       resetForm();
     });
-    toast.success("Thanks for helping others grow in their career journey!");
+    toast("Thanks for helping others grow in their career journey!");
   };
 
   const filteredExperiences = experiences.filter((exp) => {

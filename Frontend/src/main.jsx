@@ -9,6 +9,13 @@ const root = document.getElementById("root");
 createRoot(root).render(
   <>
     <App />
-    <Toaster />
+    <Toaster
+      toastOptions={{
+        style: {
+          fontWeight: "700",  
+          fontSize: "15px",
+        },
+      }}
+    />
   </>
 );
