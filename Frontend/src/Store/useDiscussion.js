@@ -43,7 +43,6 @@ export const useDiscussionStore = create((set, get) => ({
       if (res.status === 200 || res.status === 201) {
         onSuccess();
         get().fetchDiscussions(user.id);
-        toast.success("Thanks for helping others grow in their career journey!");
       } else {
         toast.error("Something went wrong.");
       }

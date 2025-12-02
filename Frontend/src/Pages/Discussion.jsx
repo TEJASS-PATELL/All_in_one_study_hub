@@ -5,6 +5,7 @@ import { useAuthStore } from "../Store/useAuthStore";
 import { useDiscussionStore } from "../Store/useDiscussion";
 import "./Discussion.css";
 import Loading from "../Layouts/Loading";
+import toast from "react-hot-toast";
 
 const categories = ["Government Job", "Private Job", "IT Job"];
 
@@ -57,6 +58,7 @@ const Discussion = () => {
       setOpen(false);
       resetForm();
     });
+    toast.success("Thanks for helping others grow in their career journey!");
   };
 
   const filteredExperiences = experiences.filter((exp) => {
