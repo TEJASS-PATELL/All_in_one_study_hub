@@ -9,23 +9,28 @@ export const useDiscussionStore = create((set, get) => ({
   experiences: [],
   isFetching: false,
   userHasPosted: false,
-  userLikedDiscussions: new Set(likedIds.map(id => Number(id))),
+  userLikedDiscussions: new Set(),
 
   fetchDiscussions: async (userId) => {
     set({ isFetching: true });
 
     try {
       let discussions = [];
+      let likedIds = [];
+
       try {
         const res = await axios.get("/api/discussion/getdiscussion");
-        discussions = res.data?.data || [];
-      } catch {}
+        discussions = Array.isArray(res.data?.data) ? res.data.data : [];
+      } catch {
+        discussions = [];
+      }
 
-      let likedIds = [];
       try {
         const res = await axios.get("/api/discussion/userlikes");
-        likedIds = res.data?.data || [];
-      } catch {}
+        likedIds = Array.isArray(res.data?.data) ? res.data.data : [];
+      } catch {
+        likedIds = [];
+      }
 
       set({
         experiences: discussions,
@@ -33,6 +38,7 @@ export const useDiscussionStore = create((set, get) => ({
         userLikedDiscussions: new Set(likedIds.map((id) => Number(id))),
         isFetching: false,
       });
+
     } catch {
       set({ isFetching: false });
     }
@@ -40,13 +46,13 @@ export const useDiscussionStore = create((set, get) => ({
 
   submitExperience: async (formData, user, onSuccess) => {
     try {
-      const dataToSend = {
+      const payload = {
         ...formData,
         userId: user?.id,
         email: user?.email,
       };
 
-      const res = await axios.post("/api/discussion/creatediscussion", dataToSend);
+      const res = await axios.post("/api/discussion/creatediscussion", payload);
 
       if (res.status === 200 || res.status === 201) {
         onSuccess();
@@ -67,11 +73,8 @@ export const useDiscussionStore = create((set, get) => ({
 
       const liked = new Set(get().userLikedDiscussions);
 
-      if (action === "liked") {
-        liked.add(id);
-      } else {
-        liked.delete(id);
-      }
+      if (action === "liked") liked.add(id);
+      else liked.delete(id);
 
       const updatedExperiences = get().experiences.map((exp) =>
         exp.id === id ? { ...exp, likesCount: updatedLikes } : exp
@@ -81,6 +84,7 @@ export const useDiscussionStore = create((set, get) => ({
         userLikedDiscussions: liked,
         experiences: updatedExperiences,
       });
+
     } catch (err) {
       toast.error(err.response?.data?.message || "Error performing action.");
     }
