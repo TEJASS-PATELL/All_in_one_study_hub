@@ -3,20 +3,16 @@ import cacheClient from '../services/cacheClient.js';
 const THREE_HOURS_IN_SECONDS = 3 * 3600;
 const prisma = new PrismaClient();
 
-const WARMUP_CATEGORIES = ['Engineering', 'Medical', 'Civil Services', 'Law Exams', 'Banking & Finance', 'Defense Exams', 'Railway Exams', 'Teaching & Education'];
+const values = ['Engineering', 'Medical', 'Civil Services', 'Law Exams', 'Banking & Finance', 'Defense Exams', 'Railway Exams', 'Teaching & Education'];
 
 export const warmUpCache = async () => {
-    for (const category of WARMUP_CATEGORIES) {
+    for (const category of values) {
         const cacheKey = `exams_${category}`;
 
-        if (await cacheClient.get(cacheKey)) {
-            continue;
-        }
+        if (await cacheClient.get(cacheKey)) continue;
 
         try {
-            const exams = await prisma.exam.findMany({
-                where: { category },
-            });
+            const exams = await prisma.exam.findMany({where: { category }});
 
             if (exams && exams.length > 0) {
                 await cacheClient.set(cacheKey, JSON.stringify(exams), 'EX', THREE_HOURS_IN_SECONDS);

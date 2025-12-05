@@ -4,14 +4,9 @@ const redisUrl = process.env.REDIS_API;
 
 const cacheClient = new Redis(redisUrl, {
     maxRetriesPerRequest: null,
-    
     retryStrategy: function (times) {
-        if (times > 10) { 
-            console.error('Redis: Max retries exceeded, giving up.');
-            return null; 
-        }
+        if (times > 10) return null; 
         const delay = Math.min(times * 500, 2000); 
-        console.log(`Redis: Retrying connection in ${delay}ms (Attempt ${times})...`);
         return delay;
     }
 });

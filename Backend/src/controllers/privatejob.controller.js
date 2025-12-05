@@ -3,10 +3,10 @@ import cacheClient from "../services/cacheClient.js";
 const THREE_HOURS_IN_SECONDS = 3 * 3600;
 const prisma = new PrismaClient();
 
-const WARMUP_PRIVATE_JOB_CATEGORIES = ['Core Engineering', 'Sales & Marketing', 'Finance & Accounting', 'Customer Support', 'Human Resources', 'Design & Multimedia'];
+const values = ['Core Engineering', 'Sales & Marketing', 'Finance & Accounting', 'Customer Support', 'Human Resources', 'Design & Multimedia'];
 
 export const warmUpPrivateJobsCache = async () => {
-    for (const category of WARMUP_PRIVATE_JOB_CATEGORIES) {
+    for (const category of values) {
         const cacheKey = `privatejobs_${category}`;
 
         if (await cacheClient.get(cacheKey)) { 
@@ -14,9 +14,7 @@ export const warmUpPrivateJobsCache = async () => {
         }
 
         try {
-            const privateJobs = await prisma.privateJob.findMany({
-                where: { category },
-            });
+            const privateJobs = await prisma.privateJob.findMany({ where: { category } });
 
             if (privateJobs && privateJobs.length > 0) {
                 await cacheClient.set(cacheKey, JSON.stringify(privateJobs), 'EX', THREE_HOURS_IN_SECONDS);
@@ -43,9 +41,7 @@ export const getprivatejobdata = async (req, res) => {
             return res.json(JSON.parse(privateJobsJSON)); 
         }
 
-        let privateJobs = await prisma.privateJob.findMany({
-            where: { category },
-        });
+        let privateJobs = await prisma.privateJob.findMany({ where: { category } });
 
         if (privateJobs && privateJobs.length > 0) {
             await cacheClient.set(cacheKey, JSON.stringify(privateJobs), 'EX', THREE_HOURS_IN_SECONDS);
