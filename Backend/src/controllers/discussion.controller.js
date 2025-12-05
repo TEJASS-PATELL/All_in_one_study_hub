@@ -218,3 +218,21 @@ export const likeDiscussion = async (req, res) => {
     res.status(500).json({ success: false, message: "Server error." });
   }
 };
+
+export const getUserLikedDiscussions = async (req, res) => {
+  const userId = req.user.userid;
+
+  try {
+    const likes = await prisma.like.findMany({
+      where: { userId },
+      select: { discussionId: true },
+    });
+
+    const likedIds = likes.map(l => l.discussionId);
+
+    res.status(200).json({ success: true, data: likedIds });
+  } catch (err) {
+    console.error("User likes fetch error:", err);
+    res.status(500).json({ success: false, message: "Server error." });
+  }
+};
