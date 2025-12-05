@@ -44,47 +44,43 @@ export const getDiscussions = async (req, res) => {
 
   try {
     let discussions;
+
     let discussionsJSON = await cacheClient.get(DISCUSSION_CACHE_KEY);
 
-    if (!discussionsJSON || discussionsJSON === "[]" || discussionsJSON.length < 5) {
-      discussionsJSON = null;
-    }
-
-    if (discussionsJSON) {
+    if (discussionsJSON && discussionsJSON !== "[]" && discussionsJSON.length > 5) {
       discussions = JSON.parse(discussionsJSON);
     } else {
-      const lockKey = 'discussion_cache_lock';
-      const lockAcquired = await cacheClient.set(lockKey, 'locked', { NX: true, EX: 10 });
+      const lockKey = "discussion_cache_lock";
+
+      const lockAcquired = await cacheClient.set(lockKey, "locked", "NX", "EX", 10);
 
       if (lockAcquired) {
         try {
           discussions = await prisma.discussion.findMany({
-            include: {
-              user: { select: { id: true } },
-            },
+            include: { user: { select: { id: true } } },
             orderBy: { createdAt: "desc" },
           });
 
-          if (discussions && discussions.length > 0) {
-            await cacheClient.set(DISCUSSION_CACHE_KEY, JSON.stringify(discussions), 'EX', CACHE_TTL);
+          if (discussions.length > 0) {
+            await cacheClient.set(
+              DISCUSSION_CACHE_KEY,
+              JSON.stringify(discussions),
+              "EX",
+              CACHE_TTL
+            );
           }
-        } catch (error) {
-          console.error("DB error during lock holder fetch:", error);
         } finally {
           await cacheClient.del(lockKey);
         }
       } else {
         await wait(100);
         discussionsJSON = await cacheClient.get(DISCUSSION_CACHE_KEY);
-
-        if (discussionsJSON) {
-          discussions = JSON.parse(discussionsJSON);
-        } else {
-          discussions = await prisma.discussion.findMany({
-            include: { user: { select: { id: true } } },
-            orderBy: { createdAt: "desc" },
-          });
-        }
+        discussions = discussionsJSON
+          ? JSON.parse(discussionsJSON)
+          : await prisma.discussion.findMany({
+              include: { user: { select: { id: true } } },
+              orderBy: { createdAt: "desc" },
+            });
       }
     }
 
@@ -93,14 +89,17 @@ export const getDiscussions = async (req, res) => {
       ...discussions.filter((d) => d.userId !== userId),
     ];
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
-      data: sorted
+      data: sorted,
     });
 
   } catch (err) {
     console.error("Error fetching discussions:", err);
-    res.status(500).json({ success: false, message: "Server error." });
+    return res.status(500).json({
+      success: false,
+      message: "Server error.",
+    });
   }
 };
 

@@ -57,19 +57,29 @@ const Discussion = () => {
     submitExperience(formData, user, () => {
       setOpen(false);
       resetForm();
+      toast("Thanks for helping others grow in their career journey!");
     });
-    toast("Thanks for helping others grow in their career journey!");
   };
 
   const filteredExperiences = experiences.filter((exp) => {
     const query = searchQuery.toLowerCase();
-    return [
-      exp.location, exp.examGiven, exp.examCracked,
-      exp.company, exp.jobRole, exp.category
-    ].some((field) => field?.toLowerCase().includes(query));
+
+    const fields = [
+      exp.name,
+      exp.location,
+      exp.examGiven,
+      exp.examCracked,
+      exp.company,
+      exp.jobRole,
+      exp.category,
+    ];
+
+    return fields.some((field) =>
+      field?.toLowerCase().includes(query)
+    );
   });
 
-  if (isFetching) return <Loading/>;
+  if (isFetching) return <Loading />;
 
   return (
     <div className="discussion-container">
@@ -140,7 +150,7 @@ const Discussion = () => {
               required
               value={formData.description}
               onChange={handleChange}
-              className="discussion-textarea"/>
+              className="discussion-textarea" />
 
             <button onClick={handleSubmit} className="discussion-submit">
               Submit
@@ -185,7 +195,7 @@ const Discussion = () => {
                 onClick={() => likeDiscussion(exp.id, userId)}
                 disabled={userLikedDiscussions.has(exp.id)}
               >
-                <AiFillHeart style={{ color: "red"}} />
+                <AiFillHeart style={{ color: "red" }} />
                 {userLikedDiscussions.has(exp.id) ? "Liked" : "Like"} ({exp.likesCount || 0})
               </button>
 

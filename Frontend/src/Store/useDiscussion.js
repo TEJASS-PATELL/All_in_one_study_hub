@@ -12,32 +12,40 @@ export const useDiscussionStore = create((set, get) => ({
   userLikedDiscussions: new Set(),
 
   fetchDiscussions: async (userId) => {
+    set({ isFetching: true });
+
     try {
-      set({ isFetching: true });
+      let discussions = [];
+      try {
+        const res = await axios.get("/api/discussion/getdiscussion");
+        discussions = res.data?.data || [];
+      } catch { }
 
-      const [discussionsRes, userLikesRes] = await Promise.all([
-        axios.get("/api/discussion/getdiscussion"),
-        axios.get("/api/discussion/userlikes"),
-      ]);
-
-      const discussions = discussionsRes.data?.data || [];
-      const likedDiscussionIds = userLikesRes.data?.data || [];
+      let likedIds = [];
+      try {
+        const res = await axios.get("/api/discussion/userlikes");
+        likedIds = res.data?.data || [];
+      } catch { }
 
       set({
         experiences: discussions,
         userHasPosted: discussions.some((d) => d.userId === userId),
-        userLikedDiscussions: new Set(likedDiscussionIds),
+        userLikedDiscussions: new Set(likedIds),
         isFetching: false,
       });
-    } catch (err) {
-      console.error("Fetch error:", err);
+    } catch {
       set({ isFetching: false });
     }
   },
 
   submitExperience: async (formData, user, onSuccess) => {
     try {
-      const dataToSend = { ...formData, userId: user?.id, email: user?.email };
+      const dataToSend = {
+        ...formData,
+        userId: user?.id,
+        email: user?.email,
+      };
+
       const res = await axios.post("/api/discussion/creatediscussion", dataToSend);
 
       if (res.status === 200 || res.status === 201) {
@@ -47,7 +55,6 @@ export const useDiscussionStore = create((set, get) => ({
         toast.error("Something went wrong.");
       }
     } catch (err) {
-      console.error("Submit error:", err.response || err);
       toast.error(err.response?.data?.message || "Failed to submit.");
     }
   },
@@ -55,23 +62,19 @@ export const useDiscussionStore = create((set, get) => ({
   likeDiscussion: async (id, userId) => {
     try {
       const res = await axios.post(`/api/discussion/${id}/like`);
-
       const updatedLikes = res.data?.updatedLikes;
 
-      const updatedLikedSet = new Set(get().userLikedDiscussions);
-      updatedLikedSet.add(id);
+      const liked = new Set(get().userLikedDiscussions);
+      liked.add(id);
 
       const updatedExperiences = get().experiences.map((exp) =>
-        exp.id === id
-          ? { ...exp, likesCount: updatedLikes }
-          : exp
+        exp.id === id ? { ...exp, likesCount: updatedLikes } : exp
       );
 
       set({
-        userLikedDiscussions: updatedLikedSet,
+        userLikedDiscussions: liked,
         experiences: updatedExperiences,
       });
-
     } catch (err) {
       toast.error(err.response?.data?.message || "Like failed.");
     }
@@ -84,8 +87,9 @@ export const useDiscussionStore = create((set, get) => ({
       await axios.delete(`/api/discussion/${id}/delete`);
       toast.success("Deleted successfully.");
       get().fetchDiscussions(userId);
-    } catch (err) {
+    } catch {
       toast.error("Delete failed.");
     }
   },
 }));
+

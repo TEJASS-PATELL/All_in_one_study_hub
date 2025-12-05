@@ -10,5 +10,4 @@ router.delete("/:id/delete", authentication, deleteDiscussion);
 router.post("/:id/like", authentication, likeDiscussion);
 router.get("/userlikes", authentication, getUserLikedDiscussions); 
 
-
 export default router;
