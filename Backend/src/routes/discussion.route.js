@@ -8,6 +8,6 @@ router.get("/getdiscussion", authentication, getDiscussions);
 router.post("/creatediscussion", authentication, createDiscussion);
 router.delete("/:id/delete", authentication, deleteDiscussion);
 router.post("/:id/like", authentication, likeDiscussion);
-router.get("/userlikes", authMiddleware, getUserLikedDiscussions);
+router.get("/userlikes", authentication, getUserLikedDiscussions);
 
 export default router;
