@@ -7,6 +7,7 @@ import { warmUpCache } from './controllers/exam.controller.js';
 import { warmUpDiscussionsCache } from './controllers/discussion.controller.js';
 import { warmUpPrivateJobsCache } from './controllers/privatejob.controller.js';
 import authRoutes from "./routes/auth.route.js";
+import compression from 'compression';
 import discussionRoutes from "./routes/discussion.route.js";
 import examRoutes from "./routes/exam.route.js";
 import roadmapRoutes from "./routes/roadmap.route.js";
@@ -25,6 +26,7 @@ app.use(
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(compression());
 app.use(passport.initialize());
 
 app.use("/api/auth", authRoutes);

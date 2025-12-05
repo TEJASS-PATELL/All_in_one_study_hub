@@ -39,15 +39,7 @@ export const createorupdateRoadmap = async (req, res) => {
     try {
         const { jobType, jobRoles, education, skills, status, notes, roadmapDuration } = req.body;
 
-        const aiRoadmap = await generateRoadmap({
-            jobType,
-            jobRoles,
-            education,
-            skills,
-            status,
-            notes,
-            roadmapDuration,
-        });
+        const aiRoadmap = await generateRoadmap({jobType,jobRoles,education,skills,status,notes,roadmapDuration});
 
         const { title, steps } = aiRoadmap;
 

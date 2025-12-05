@@ -9,11 +9,9 @@ const CACHE_TTL = 3600;
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 export const warmUpDiscussionsCache = async () => {
-  console.log('--- Discussion Cache Warm-up started ---');
   const cacheKey = DISCUSSION_CACHE_KEY;
 
   if (await cacheClient.get(cacheKey)) {
-    console.log(`Discussion cache already warm.`);
     return;
   }
 
@@ -29,7 +27,6 @@ export const warmUpDiscussionsCache = async () => {
 
     if (discussions && discussions.length > 0) {
       await cacheClient.set(cacheKey, JSON.stringify(discussions), 'EX', CACHE_TTL);
-      console.log(`Successfully warmed up discussion cache. Total items: ${discussions.length}`);
     } else {
       console.log(`No discussions found for warm-up.`);
     }
