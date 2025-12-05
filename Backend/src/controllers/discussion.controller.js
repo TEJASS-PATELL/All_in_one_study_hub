@@ -22,7 +22,7 @@ export const warmUpDiscussionsCache = async () => {
     const discussions = await prisma.discussion.findMany({
       include: {
         user: {
-          select: { id: true, username: true },
+          select: { id: true },
         },
       },
       orderBy: { createdAt: "desc" },
@@ -42,14 +42,8 @@ export const warmUpDiscussionsCache = async () => {
 export const getDiscussions = async (req, res) => {
   const userId = req.user.userid;
 
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || PAGE_LIMIT;
-  const skip = (page - 1) * limit;
-
   try {
     let discussions;
-    let totalCount;
-
     let discussionsJSON = await cacheClient.get(DISCUSSION_CACHE_KEY);
 
     if (!discussionsJSON || discussionsJSON === "[]" || discussionsJSON.length < 5) {
@@ -66,7 +60,7 @@ export const getDiscussions = async (req, res) => {
         try {
           discussions = await prisma.discussion.findMany({
             include: {
-              user: { select: { id: true, username: true } },
+              user: { select: { id: true } },
             },
             orderBy: { createdAt: "desc" },
           });
@@ -74,12 +68,11 @@ export const getDiscussions = async (req, res) => {
           if (discussions && discussions.length > 0) {
             await cacheClient.set(DISCUSSION_CACHE_KEY, JSON.stringify(discussions), 'EX', CACHE_TTL);
           }
-        } catch (dbErr) {
-          console.error("DB error during lock holder fetch:", dbErr);
+        } catch (error) {
+          console.error("DB error during lock holder fetch:", error);
         } finally {
           await cacheClient.del(lockKey);
         }
-
       } else {
         await wait(100);
         discussionsJSON = await cacheClient.get(DISCUSSION_CACHE_KEY);
@@ -88,34 +81,26 @@ export const getDiscussions = async (req, res) => {
           discussions = JSON.parse(discussionsJSON);
         } else {
           discussions = await prisma.discussion.findMany({
-            include: { user: { select: { id: true, username: true } } },
+            include: { user: { select: { id: true } } },
             orderBy: { createdAt: "desc" },
           });
         }
       }
     }
 
-    const sortedAndFiltered = [
+    const sorted = [
       ...discussions.filter((d) => d.userId === userId),
       ...discussions.filter((d) => d.userId !== userId),
     ];
 
-    const paginatedDiscussions = sortedAndFiltered.slice(skip, skip + limit);
-    totalCount = sortedAndFiltered.length;
-
     res.status(200).json({
       success: true,
-      data: paginatedDiscussions,
-      metadata: {
-        total: totalCount,
-        page,
-        limit,
-        totalPages: Math.ceil(totalCount / limit)
-      }
+      data: sorted
     });
+
   } catch (err) {
     console.error("Error fetching discussions:", err);
-    res.status(500).json({ success: false, message: "Server error fetching discussions." });
+    res.status(500).json({ success: false, message: "Server error." });
   }
 };
 

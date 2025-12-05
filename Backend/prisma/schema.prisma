@@ -92,7 +92,6 @@ model Discussion {
   likes         Like[]
   createdAt     DateTime @default(now())
 }
-
 model Like {
   id           Int        @id @default(autoincrement())
   userId       Int
