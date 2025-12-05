@@ -1,256 +1,44 @@
-.main-container{
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-  
-  .header {
-    background: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    padding: 2rem 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .header-content {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-
-  .header h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    margin-bottom: 0.6rem;
-    letter-spacing: -0.025em;
-  }
-
-  .header p {
-    font-size: 1.28rem;
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-.main-content {
-  background: #fff;
-  color: #000;
-  padding: 120px 20px;
-}
-
 .main-container {
-  max-width: 1600px;
+  max-width: 1600px; 
   margin: auto;
+  padding: 0 1.5rem; 
 }
 
-.Job-section-title {
-  font-size: 3.7rem; 
-  font-weight: bold;
-  margin-bottom: 30px;
+.header {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-content {
+  color: rgb(0, 0, 0);
   text-align: center;
-  letter-spacing: 1.2px;
+  position: relative;
+  z-index: 1;
 }
 
-.p-title {
-  font-size: 1.25em;
-  color: #151515;
-  margin-bottom: 40px;
-  line-height: 1.8;
-  max-width: 1250px;
+.header h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.025em;
+}
+
+.header p {
+  font-size: 1.28rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center; 
-}
-
-.G-job-cards {
-  margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
-.G-card {
-  background: rgb(255, 255, 255); 
-  border: 1px solid black;
-  border-radius: 20px;
-  overflow: hidden;
-  backdrop-filter: blur(6px); /* subtle glass effect */
-  -webkit-backdrop-filter: blur(6px);
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 400px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.G-card:hover {
-  transform: scale(1.01);
-}
-
-.G-card-header {
-  padding: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 3rem;
-  background: #000;
-  color: #ffffff;
-}
-
-.G-card-body {
-  padding: 25px 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.G-card-title {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #000;
-}
-
-.G-card-text {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #000000;
-}
-
-.G-btn {
-  text-decoration: none;
-  padding: 14px 24px;
-  background: #000;
-  color: #fff;
-  border-radius: 15px;
-  display: inline-flex;
-  margin-bottom: 5px;
-  align-items: center;
-  gap: 14px;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.G-btn-icon {
-  font-size: 1.2rem;
-}
- 
-.features {
-  background: #ffffff;
-  color: #000;
-  padding: 150px 40px;
-  text-align: center;
-}
-
-.feature-container {
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
-.section-title {
-  font-size: 2.8rem;
-  color: #000;
-  margin-bottom: 70px;
-  font-weight: 800;
-  position: relative;
-  letter-spacing: 0.5px;
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 60px 40px;
-  margin-top: 40px;
-}
-
-.feature-card {
-  background-color: #ffffff;
-  border-radius: 18px;
-  padding: 40px 25px;
-  border: 1px solid #e2e5ea;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
-}
-
-.feature-card:hover {
-  transform: translateY(-6px);
-}
-
-.feature-icon {
-  font-size: 2.8rem;
-  color: #111;
-  margin-bottom: 25px;
-}
-
-.feature-title {
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: #000;
-  margin-bottom: 15px;
-}
-
-.feature-text {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.8;
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-
-.cta {
-  background: #ffffff;
-  padding: 3rem 0;
-  color: #000000;
-  text-align: center;
-}
-
-.cta h2 {
-  font-size: 3.2rem;
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-}
-
-.cta p {
-  max-width: 700px;
-  margin: 0 auto 2rem;
-  font-size: 1.5rem;
-  color: #000000;
-}
-
-.btn-cta {
-  display: inline-block;
-  padding: 1.2rem 2.5rem;
-  background: #000000;
-  color: #ffffff;
-  font-weight: 600;
-  border-radius: 8px;
-  font-size: 1.05rem;
-  text-decoration: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.btn-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.2);
-}
-
-.career-tools {
-  background-color: #ffffff;
-  padding: 60px 20px;
-  text-align: center;
-  color: #000;
 }
 
 .Lhero {
   background: #ffffff;
   color: #000;
-  height: 100vh;         
-  width: 100vw;         
+  height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   padding-top: 80px;
@@ -295,7 +83,7 @@
   margin-right: auto;
 }
 
-.lhero-content p strong{
+.lhero-content p strong {
   color: #0048ff;
 }
 
@@ -378,12 +166,112 @@
   }
 }
 
+.main-content {
+  background: #fff;
+  color: #000;
+  padding: 120px 20px;
+}
+
+.Job-section-title {
+  font-size: 3.7rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1.2px;
+}
+
+.p-title {
+  font-size: 1.25em;
+  color: #151515;
+  margin-bottom: 40px;
+  line-height: 1.8;
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.G-job-cards {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.G-card {
+  background: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 20px;
+  overflow: hidden;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.G-card:hover {
+  transform: scale(1.01);
+}
+
+.G-card-header {
+  padding: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  background: #000;
+  color: #ffffff;
+}
+
+.G-card-body {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.G-card-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.G-card-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.G-btn {
+  text-decoration: none;
+  padding: 14px 24px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  display: inline-flex;
+  margin-bottom: 5px;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.G-btn-icon {
+  font-size: 1.2rem;
+}
+
 .Ldiv {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 30px;
-  flex-wrap: wrap; /* makes it responsive */
+  flex-wrap: wrap;
   margin-top: 30px;
 }
 
@@ -436,7 +324,67 @@
   color: #000;
 }
 
-/* === FAQ Section === */
+.features {
+  background: #ffffff;
+  color: #000;
+  padding: 150px 40px;
+  text-align: center;
+}
+
+.feature-container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  color: #000;
+  margin-bottom: 70px;
+  font-weight: 800;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 40px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background-color: #ffffff;
+  border-radius: 18px;
+  padding: 40px 25px;
+  border: 1px solid #e2e5ea;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+.feature-icon {
+  font-size: 2.8rem;
+  color: #111;
+  margin-bottom: 25px;
+}
+
+.feature-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 15px;
+}
+
+.feature-text {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.8;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 .Gfaq-section {
   max-width: 1100px;
   margin: 0 auto;
@@ -445,13 +393,12 @@
 
 .Gfaq-title {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 50px;
   color: #000000;
 }
 
-/* === FAQ Items === */
 .Gfaq-container {
   display: flex;
   flex-direction: column;
@@ -464,7 +411,7 @@
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 .Gfaq-toggle {
@@ -509,7 +456,6 @@
   padding: 0px 30px 30px;
 }
 
-/* === Responsive === */
 @media (max-width: 768px) {
   .Gfaq-title {
     font-size: 2rem;
@@ -523,6 +469,51 @@
   .Gfaq-answer {
     font-size: 0.95rem;
   }
+}
+
+.cta {
+  background: #ffffff;
+  padding: 3rem 0;
+  color: #000000;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.cta p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.btn-cta {
+  display: inline-block;
+  padding: 1.2rem 2.5rem;
+  background: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px -10px rgba(0, 0, 0, 0.2);
+}
+
+.career-tools {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+  color: #000;
 }
 
 .testimonial-section {

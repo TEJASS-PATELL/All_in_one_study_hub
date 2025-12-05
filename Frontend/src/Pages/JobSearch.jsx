@@ -111,7 +111,8 @@ function JobSearch() {
 
       <section className="features" id='features'>
         <div className="feature-container">
-          <h2 className="section-title">Why Choose CareerHub</h2>
+          <h2 className="Job-section-title">Why Choose CareerHub</h2>
+          <p className='p-title'>CareerHub simplifies your job search and exam preparation journey. Here, you'll find job listings from multiple platforms, top preparation resources, and practice tools—all in one place. It's the ultimate destination to boost your career prospects!</p>
           <div className="features-grid">
 
             <div className="feature-card">
@@ -198,45 +199,10 @@ function JobSearch() {
         </div>
       </section>
 
-      <section className="testimonial-section">
-        <div className="stars">
-          {Array(5).fill(0).map((_, index) => (
-            <svg
-              key={index}
-              className="star-icon"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.974a1 1 0 00.95.69h4.18c.969 0 
-                1.371 1.24.588 1.81l-3.388 2.462a1 1 0 00-.364 1.118l1.287 
-                3.974c.3.922-.755 1.688-1.54 1.118l-3.388-2.462a1 1 0 
-                00-1.175 0l-3.388 2.462c-.784.57-1.838-.196-1.539-1.118l1.287-3.974a1 
-                1 0 00-.364-1.118L2.045 9.4c-.783-.57-.38-1.81.588-1.81h4.18a1 
-                1 0 00.95-.69l1.286-3.974z" />
-            </svg>
-          ))}
-        </div>
-        <p className="testimonial-quote">
-          “This platform helped me plan my career, crack interviews, and stay on track with my studies — all in one place.”
-        </p>
-        <div className="testimonial-user">
-
-          <span className="user-name">Rohan Mehta – B.Tech Student</span>
-        </div>
-      </section>
-
       <div className="Gfaq-section" id='faq'>
         <h2 className="Gfaq-title">Frequently Asked Questions</h2>
         <div className="Gfaq-container">
           {[
-            {
-              question: "How do I create an account on the website?",
-              answer: "Click on the 'Sign Up' button at the top right corner and follow the instructions. You’ll need a valid email address to register."
-            },
-            {
-              question: "Can I get IT job preparation materials?",
-              answer: "Yes, once logged in, you can access and save IT job preparation resources directly."
-            },
             {
               question: "What if I forget my password?",
               answer: "No worries! Use the 'Forgot Password' option on the login page to reset it via your registered email."
@@ -246,12 +212,12 @@ function JobSearch() {
               answer: "We are currently working on a dedicated mobile app. Meanwhile, our website is fully responsive and works smoothly on mobile devices."
             },
             {
-              question: "Do you offer mock tests and previous year papers?",
-              answer: "Our website provides various platforms for mock tests and previous year papers at one place, along with detailed analysis to help you practice effectively."
+              question: "Can I get IT job preparation materials?",
+              answer: "Yes, once logged in, you can access and save IT job preparation resources directly."
             },
             {
-              question: "Can users share their job experiences or preparation journey?",
-              answer: "Yes! Users can post their job experiences, preparation strategies, and success stories to inspire and guide other learners in the community."
+              question: "How do I create an account on the website?",
+              answer: "Click on the 'Sign Up' button at the top right corner and follow the instructions. You’ll need a valid email address to register."
             },
             {
               question: "How can I contact support if I face any issues?",
@@ -261,6 +227,15 @@ function JobSearch() {
               question: "Can I generate a personalized study roadmap?",
               answer:
                 "Yes! Our platform allows you to generate AI-powered personalized study roadmaps based on your goals, timeline, and preferred learning style.",
+            },
+
+            {
+              question: "Do you offer mock tests and previous year papers?",
+              answer: "Our website provides various platforms for mock tests and previous year papers at one place, along with detailed analysis to help you practice effectively."
+            },
+            {
+              question: "Can users share their job experiences or preparation journey?",
+              answer: "Yes! Users can post their job experiences, preparation strategies, and success stories to inspire and guide other learners in the community."
             },
           ].map((item, index) => (
             <div className="Gfaq-item" key={index}>
