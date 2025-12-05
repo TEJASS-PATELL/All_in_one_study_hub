@@ -1,15 +1,23 @@
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
+const TEST_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjIxLCJpYXQiOjE3NjQ5NTkxNzUsImV4cCI6MTc2NTU2Mzk3NX0.PsExEDZf6hh-TdXj9tKDi3o3xpKqywfGGTLzrB5AxjI';
+
 export const options = {
-  vus: 100,          
-  duration: '60s', 
+  vus: 50,          
+  duration: '30s', 
 };
 
 export default function () {
-  const url = `${__ENV.SERVER_URL}/api/exam/private-jobs/Core Engineering`;
+  const url = `${__ENV.SERVER_URL}/api/discussion/getdiscussion`;
 
-  const res = http.get(url);
+  const params = {
+    cookies: {
+      token: TEST_TOKEN,
+    },
+  };
+
+  const res = http.get(url, params);
 
   check(res, {
     'Status is 201/200': (r) => r.status === 201 || r.status === 200,

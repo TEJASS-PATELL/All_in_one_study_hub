@@ -37,16 +37,16 @@ export const warmUpDiscussionsCache = async () => {
 
 export const getDiscussions = async (req, res) => {
   const userId = req.user.userid;
+  const lockKey = "discussion_lock";
 
   try {
     let discussions;
     let cached = await cacheClient.get(DISCUSSION_CACHE_KEY);
 
-    if (cached && cached.length > 5 && cached !== "[]") {
+    if (cached) {
       discussions = JSON.parse(cached);
     } else {
-      const lockKey = "discussion_cache_lock";
-      const lock = await cacheClient.set(lockKey, "locked", "NX", "EX", 10);
+      const lock = await cacheClient.set(lockKey, 1, { NX: true, EX: 5 });
 
       if (lock) {
         try {
@@ -67,18 +67,22 @@ export const getDiscussions = async (req, res) => {
       } else {
         await wait(100);
 
-        let retryCache = await cacheClient.get(DISCUSSION_CACHE_KEY);
-        discussions = retryCache ? JSON.parse(retryCache) : await prisma.discussion.findMany({
+        const retryCache = await cacheClient.get(DISCUSSION_CACHE_KEY);
+
+        discussions = retryCache
+          ? JSON.parse(retryCache)
+          : await prisma.discussion.findMany({
               include: { user: { select: { id: true } } },
               orderBy: { createdAt: "desc" },
             });
       }
     }
 
-    const sorted = [
-      ...discussions.filter((d) => d.userId === userId),
-      ...discussions.filter((d) => d.userId !== userId),
-    ];
+    const sorted = discussions.sort((a, b) => {
+      if (a.userId === userId && b.userId !== userId) return -1;
+      if (a.userId !== userId && b.userId === userId) return 1;
+      return 0;
+    });
 
     res.status(200).json({ success: true, data: sorted });
   } catch (err) {
