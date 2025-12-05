@@ -185,7 +185,7 @@ const Discussion = () => {
               <button className="like-button" onClick={() => likeDiscussion(exp.id)}>
                 <AiFillHeart
                   style={{
-                    color: userLikedDiscussions.has(exp.id) ? "red" : "gray",
+                    color: userLikedDiscussions.has(exp.id) ? "white" : "gray",
                   }}/>
                 {userLikedDiscussions.has(exp.id) ? "Liked" : "Like"} (
                 {exp.likesCount || 0})

@@ -9,7 +9,7 @@ export const useDiscussionStore = create((set, get) => ({
   experiences: [],
   isFetching: false,
   userHasPosted: false,
-  userLikedDiscussions: new Set(),
+  userLikedDiscussions: new Set(likedIds.map(id => Number(id))),
 
   fetchDiscussions: async (userId) => {
     set({ isFetching: true });
@@ -30,7 +30,7 @@ export const useDiscussionStore = create((set, get) => ({
       set({
         experiences: discussions,
         userHasPosted: discussions.some((d) => d.userId === userId),
-        userLikedDiscussions: new Set(likedIds),
+        userLikedDiscussions: new Set(likedIds.map((id) => Number(id))),
         isFetching: false,
       });
     } catch {
