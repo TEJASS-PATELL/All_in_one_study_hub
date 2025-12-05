@@ -19,13 +19,13 @@ export const useDiscussionStore = create((set, get) => ({
       try {
         const res = await axios.get("/api/discussion/getdiscussion");
         discussions = res.data?.data || [];
-      } catch { }
+      } catch {}
 
       let likedIds = [];
       try {
         const res = await axios.get("/api/discussion/userlikes");
         likedIds = res.data?.data || [];
-      } catch { }
+      } catch {}
 
       set({
         experiences: discussions,
@@ -59,13 +59,19 @@ export const useDiscussionStore = create((set, get) => ({
     }
   },
 
-  likeDiscussion: async (id, userId) => {
+  likeDiscussion: async (id) => {
     try {
       const res = await axios.post(`/api/discussion/${id}/like`);
+      const action = res.data?.action;
       const updatedLikes = res.data?.updatedLikes;
 
       const liked = new Set(get().userLikedDiscussions);
-      liked.add(id);
+
+      if (action === "liked") {
+        liked.add(id);
+      } else {
+        liked.delete(id);
+      }
 
       const updatedExperiences = get().experiences.map((exp) =>
         exp.id === id ? { ...exp, likesCount: updatedLikes } : exp
@@ -76,7 +82,7 @@ export const useDiscussionStore = create((set, get) => ({
         experiences: updatedExperiences,
       });
     } catch (err) {
-      toast.error(err.response?.data?.message || "Like failed.");
+      toast.error(err.response?.data?.message || "Error performing action.");
     }
   },
 
@@ -92,4 +98,3 @@ export const useDiscussionStore = create((set, get) => ({
     }
   },
 }));
-

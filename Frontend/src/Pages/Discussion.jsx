@@ -13,24 +13,25 @@ const Discussion = () => {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [formData, setFormData] = useState({
-    name: "", location: "", qualification: "", examGiven: "", examCracked: "",
-    jobRole: "", company: "", department: "", salaryPackage: "",
-    advice: "", description: "", category: "",
+    name: "",
+    location: "",
+    qualification: "",
+    examGiven: "",
+    examCracked: "",
+    jobRole: "",
+    company: "",
+    department: "",
+    salaryPackage: "",
+    advice: "",
+    description: "",
+    category: "",
   });
 
   const { authUser: user, fetchUser } = useAuthStore();
   const userId = user?.id;
 
-  const {
-    experiences,
-    isFetching,
-    fetchDiscussions,
-    submitExperience,
-    userHasPosted,
-    userLikedDiscussions,
-    likeDiscussion,
-    deleteDiscussion,
-  } = useDiscussionStore();
+  const {experiences,isFetching,fetchDiscussions,submitExperience,userHasPosted,userLikedDiscussions,likeDiscussion,
+  deleteDiscussion } = useDiscussionStore();
 
   useEffect(() => {
     if (!userId) fetchUser();
@@ -46,11 +47,8 @@ const Discussion = () => {
   };
 
   const resetForm = () => {
-    setFormData({
-      name: "", location: "", qualification: "", examGiven: "", examCracked: "",
-      jobRole: "", company: "", department: "", salaryPackage: "",
-      advice: "", description: "", category: "",
-    });
+    setFormData({name: "",location: "",qualification: "",examGiven: "",examCracked: "",jobRole: "",company: "",
+      department: "",salaryPackage: "",advice: "",description: "",category: ""});
   };
 
   const handleSubmit = () => {
@@ -63,20 +61,8 @@ const Discussion = () => {
 
   const filteredExperiences = experiences.filter((exp) => {
     const query = searchQuery.toLowerCase();
-
-    const fields = [
-      exp.name,
-      exp.location,
-      exp.examGiven,
-      exp.examCracked,
-      exp.company,
-      exp.jobRole,
-      exp.category,
-    ];
-
-    return fields.some((field) =>
-      field?.toLowerCase().includes(query)
-    );
+    const fields = [exp.name,exp.location,exp.examGiven,exp.examCracked,exp.company,exp.jobRole,exp.category];
+    return fields.some((field) => field?.toLowerCase().includes(query));
   });
 
   if (isFetching) return <Loading />;
@@ -94,8 +80,7 @@ const Discussion = () => {
         placeholder="Search by name, company, exam, etc."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className="discussion-search-input"
-      />
+        className="discussion-search-input" />
 
       {!userHasPosted ? (
         <button onClick={() => setOpen(true)} className="discussion-button">
@@ -118,9 +103,8 @@ const Discussion = () => {
             </div>
 
             <div className="form-grid">
-              {["name", "location", "qualification", "examGiven", "examCracked",
-                "jobRole", "company", "department", "salaryPackage", "advice"
-              ].map((field) => (
+              {["name","location","qualification","examGiven","examCracked","jobRole","company","department",
+              "salaryPackage","advice"].map((field) => (
                 <input
                   key={field}
                   name={field}
@@ -140,7 +124,9 @@ const Discussion = () => {
               className="discussion-select">
               <option value="">Choose Category</option>
               {categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
+                <option key={cat} value={cat}>
+                  {cat}
+                </option>
               ))}
             </select>
 
@@ -150,7 +136,7 @@ const Discussion = () => {
               required
               value={formData.description}
               onChange={handleChange}
-              className="discussion-textarea" />
+              className="discussion-textarea"/>
 
             <button onClick={handleSubmit} className="discussion-submit">
               Submit
@@ -164,7 +150,10 @@ const Discussion = () => {
           <div key={exp.id} className="discussion-card">
             <div className="discussion-card-header">
               <h2>{exp.name}</h2>
-              <span><strong>Current Location - </strong>{exp.location}</span>
+              <span>
+                <strong>Current Location - </strong>
+                {exp.location}
+              </span>
             </div>
 
             <div className="discussion-details-grid">
@@ -178,8 +167,11 @@ const Discussion = () => {
               <div><strong>Package:</strong> {exp.salaryPackage || "N/A"}</div>
               <div><strong>Email:</strong> {exp.email || "N/A"}</div>
               <div>
-                <strong>Posted At:</strong> {new Date(exp.createdAt).toLocaleDateString("en-IN", {
-                  day: "numeric", month: "short", year: "numeric"
+                <strong>Posted At:</strong>{" "}
+                {new Date(exp.createdAt).toLocaleDateString("en-IN", {
+                  day: "numeric",
+                  month: "short",
+                  year: "numeric",
                 })}
               </div>
             </div>
@@ -190,13 +182,13 @@ const Discussion = () => {
             </div>
 
             <div className="like-section">
-              <button
-                className="like-button"
-                onClick={() => likeDiscussion(exp.id, userId)}
-                disabled={userLikedDiscussions.has(exp.id)}
-              >
-                <AiFillHeart style={{ color: "red" }} />
-                {userLikedDiscussions.has(exp.id) ? "Liked" : "Like"} ({exp.likesCount || 0})
+              <button className="like-button" onClick={() => likeDiscussion(exp.id)}>
+                <AiFillHeart
+                  style={{
+                    color: userLikedDiscussions.has(exp.id) ? "red" : "gray",
+                  }}/>
+                {userLikedDiscussions.has(exp.id) ? "Liked" : "Like"} (
+                {exp.likesCount || 0})
               </button>
 
               {exp.userId === userId && (
