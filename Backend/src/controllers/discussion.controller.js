@@ -52,6 +52,10 @@ export const getDiscussions = async (req, res) => {
 
     let discussionsJSON = await cacheClient.get(DISCUSSION_CACHE_KEY);
 
+    if (!discussionsJSON || discussionsJSON === "[]" || discussionsJSON.length < 5) {
+      discussionsJSON = null;
+    }
+
     if (discussionsJSON) {
       discussions = JSON.parse(discussionsJSON);
     } else {
@@ -116,27 +120,46 @@ export const getDiscussions = async (req, res) => {
 };
 
 export const getUserLikedDiscussions = async (req, res) => {
+  const discussionId = parseInt(req.params.id);
   const userId = req.user.userid;
 
+  if (isNaN(discussionId)) {
+    return res.status(400).json({ success: false, message: "Invalid discussion ID." });
+  }
+
   try {
-    const likedRecords = await prisma.like.findMany({
-      where: { userId: userId },
-      select: {
-        discussionId: true,
-      },
+    const alreadyLiked = await prisma.like.findUnique({
+      where: { userId_discussionId: { userId, discussionId } },
     });
 
-    const likedIds = likedRecords.map(record => record.discussionId);
+    if (alreadyLiked) {
+      return res.status(400).json({ success: false, message: "You have already liked this discussion." });
+    }
+
+    const updatedDiscussion = await prisma.$transaction(async (tx) => {
+      await tx.like.create({ data: { userId, discussionId } });
+
+      return await tx.discussion.update({
+        where: { id: discussionId },
+        data: { likesCount: { increment: 1 } },
+        select: { id: true, likesCount: true },
+      });
+    });
+
+    try {
+      await cacheClient.del(DISCUSSION_CACHE_KEY);
+    } catch (err) {
+      setTimeout(() => cacheClient.del(DISCUSSION_CACHE_KEY), 200);
+    }
 
     res.status(200).json({
       success: true,
-      data: likedIds,
-      message: "User liked discussion IDs fetched successfully."
+      message: "Liked successfully.",
+      updatedLikes: updatedDiscussion.likesCount,
     });
-
   } catch (err) {
-    console.error("Error fetching user liked discussions:", err);
-    res.status(500).json({ success: false, message: "Server error fetching liked discussions." });
+    console.error("Error liking discussion:", err);
+    res.status(500).json({ success: false, message: "Server error liking discussion." });
   }
 };
 
@@ -236,7 +259,7 @@ export const likeDiscussion = async (req, res) => {
       }),
     ]);
 
-    await cacheClient.del(DISCUSSION_CACHE_KEY); 
+    await cacheClient.del(DISCUSSION_CACHE_KEY);
 
     res.status(200).json({ success: true, message: "Liked successfully." });
   } catch (err) {

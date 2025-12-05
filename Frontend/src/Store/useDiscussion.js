@@ -5,13 +5,6 @@ import toast from "react-hot-toast";
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 
-const customConfirm = (message) => {
-    return new Promise((resolve) => {
-        console.warn(`CONFIRMATION REQUIRED: ${message}.`);
-        resolve(true);
-    });
-};
-
 export const useDiscussionStore = create((set, get) => ({
   experiences: [],
   isFetching: false,
@@ -29,12 +22,11 @@ export const useDiscussionStore = create((set, get) => ({
 
       const discussions = discussionsRes.data?.data || [];
       const likedDiscussionIds = userLikesRes.data?.data || [];
-      const likedSet = new Set(likedDiscussionIds);
 
       set({
         experiences: discussions,
         userHasPosted: discussions.some((d) => d.userId === userId),
-        userLikedDiscussions: likedSet,
+        userLikedDiscussions: new Set(likedDiscussionIds),
         isFetching: false,
       });
     } catch (err) {
@@ -62,25 +54,36 @@ export const useDiscussionStore = create((set, get) => ({
 
   likeDiscussion: async (id, userId) => {
     try {
-      await axios.post(`/api/discussion/${id}/like`);
+      const res = await axios.post(`/api/discussion/${id}/like`);
 
-      const currentLiked = get().userLikedDiscussions;
-      const newLiked = new Set(currentLiked).add(id);
-      set({ userLikedDiscussions: newLiked });
+      const updatedLikes = res.data?.updatedLikes;
 
-      get().fetchDiscussions(userId);
+      const updatedLikedSet = new Set(get().userLikedDiscussions);
+      updatedLikedSet.add(id);
+
+      const updatedExperiences = get().experiences.map((exp) =>
+        exp.id === id
+          ? { ...exp, likesCount: updatedLikes }
+          : exp
+      );
+
+      set({
+        userLikedDiscussions: updatedLikedSet,
+        experiences: updatedExperiences,
+      });
+
     } catch (err) {
       toast.error(err.response?.data?.message || "Like failed.");
     }
   },
 
   deleteDiscussion: async (id, userId) => {
-    const confirmed = await customConfirm("Are you sure you want to delete this post?");
-    if (!confirmed) return;
+    if (!window.confirm("Are you sure you want to delete this post?")) return;
 
     try {
       await axios.delete(`/api/discussion/${id}/delete`);
       toast.success("Deleted successfully.");
+      get().fetchDiscussions(userId);
     } catch (err) {
       toast.error("Delete failed.");
     }
