@@ -127,8 +127,7 @@ const Discussion = () => {
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="discussion-select"
-            >
+              className="discussion-select">
               <option value="">Choose Category</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>{cat}</option>
@@ -141,8 +140,7 @@ const Discussion = () => {
               required
               value={formData.description}
               onChange={handleChange}
-              className="discussion-textarea"
-            />
+              className="discussion-textarea"/>
 
             <button onClick={handleSubmit} className="discussion-submit">
               Submit
