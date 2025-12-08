@@ -1,0 +1,112 @@
+.jobsectors-section {
+  padding: 120px 20px;
+  background: #ffffff;
+}
+
+.jobsectors-container {
+  max-width: 1300px;
+  margin: auto;
+  text-align: center;
+}
+
+.jobsectors-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+}
+
+.jobsectors-subtitle {
+  font-size: 20px;
+  color: #6b7280;
+  max-width: 900px;
+  margin: 20px auto 50px;
+}
+
+/* GRID LAYOUT */
+.jobsectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 28px;
+}
+
+/* CARD DESIGN */
+.job-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADER COLORS */
+.job-card-header {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.job-card-header .job-card-icon {
+  font-size: 40px;
+  color: #fff;
+}
+
+/* Different colored headers */
+.job-card-header.govt {
+  background: #4f46e5; /* Indigo */
+}
+
+.job-card-header.private {
+  background: #0ea5e9; /* Sky Blue */
+}
+
+.job-card-header.remote {
+  background: #10b981; /* Green */
+}
+
+.job-card-header.foreign {
+  background: #f97316; /* Orange */
+}
+
+/* BODY */
+.job-card-body {
+  padding: 22px;
+  text-align: left;
+}
+
+.job-card-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.job-card-text {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 18px;
+}
+
+/* BUTTON */
+.job-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #7c3aed;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.job-btn:hover {
+  background: #6d28d9;
+}

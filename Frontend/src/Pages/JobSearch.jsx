@@ -1,10 +1,12 @@
 import './JobSearch.css';
 import { Link, NavLink } from 'react-router-dom';
 import React from "react";
+import BenefitsSection from '../Components/BenefitsSection';
+import JobSections from '../Components/JobSections';
 
 function JobSearch() {
   return (
-    <>
+    <section className='main-section'> 
       <section className="Lhero">
         <div className="ltop-container">
           <div className="lhero-content">
@@ -23,182 +25,16 @@ function JobSearch() {
             </div>
           </div>
 
+            <img className="home-img" src="right.png" alt="Home" />
           <div className="luser-badge">
             <strong>STUDY SMART • GROW CONFIDENT • GET HIRED</strong>
           </div>
-
-          <button
-            className="scroll-down"
-            onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-            aria-label="Scroll Down"
-          >
-            <i className="fas fa-chevron-down"></i>
-          </button>
         </div>
       </section>
 
-      <main className="main-content">
-        <div className="main-container">
-          <h2 className="Job-section-title">Explore Job Sectors</h2>
-          <p className='p-title'>
-            Discover top job sectors across Government and Private domains. From Engineering and Healthcare to Finance and IT, explore career paths, required skills, and opportunities tailored to your interests. Find out what suits you best and plan your journey with confidence.
-          </p>
-
-          <div className="G-job-cards">
-            <div className="G-card">
-              <div className="G-card-header govt">
-                <i className="fas fa-landmark icon"></i>
-              </div>
-              <div className="G-card-body">
-                <h3 className="G-card-title">Government Jobs</h3>
-                <p className="G-card-text">
-                  Explore various government examinations and job opportunities with stable career growth, long-term benefits, and strong job security.
-                </p>
-                <NavLink to="/government-jobs" className="G-btn btn-primary">
-                  Explore <i className="fas fa-arrow-right btn-icon"></i>
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="G-card">
-              <div className="G-card-header private">
-                <i className="fas fa-building icon"></i>
-              </div>
-              <div className="G-card-body">
-                <h3 className="G-card-title">Private Jobs</h3>
-                <p className="G-card-text">
-                  Discover exciting opportunities in multiple private sector fields with competitive salaries, fast growth potential, diverse career paths, and industry recognition.
-                </p>
-                <NavLink to="/private-jobs" className="G-btn btn-primary">
-                  Explore <i className="fas fa-arrow-right btn-icon"></i>
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="G-card">
-              <div className="G-card-header remote">
-                <i className="fas fa-laptop-house icon"></i>
-              </div>
-              <div className="G-card-body">
-                <h3 className="G-card-title">IT Jobs</h3>
-                <p className="G-card-text">
-                  Build a successful tech career with remote-friendly IT roles, flexible schedules, global exposure, and strong growth in leading innovative companies.
-                </p>
-
-                <NavLink to="/it-jobs" className="G-btn btn-primary">
-                  Explore <i className="fas fa-arrow-right btn-icon"></i>
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="G-card">
-              <div className="G-card-header foreign">
-                <i className="fas fa-globe icon"></i>
-              </div>
-              <div className="G-card-body">
-                <h3 className="G-card-title">Foreign Jobs</h3>
-                <p className="G-card-text">
-                  Discover international roles across tech, healthcare, finance, and more, and unlock a rewarding global career with long-term growth and exposure.
-                </p>
-                <NavLink to="/foreign-jobs" className="G-btn btn-primary">
-                  Explore <i className="fas fa-arrow-right btn-icon"></i>
-                </NavLink>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      <section className="features" id='features'>
-        <div className="feature-container">
-          <h2 className="Job-section-title">Why Choose CareerHub</h2>
-          <p className='p-title'>CareerHub simplifies your job search and exam preparation journey. Here, you'll find job listings from multiple platforms, top preparation resources, and practice tools—all in one place. It's the ultimate destination to boost your career prospects!</p>
-          <div className="features-grid">
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-laptop-code"></i>
-              </div>
-              <h3 className="feature-title">Multiple Job Platforms</h3>
-              <p className="feature-text">
-                Explore exciting career opportunities from various platforms whether IT, private, or government sectors — all in one convenient place.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-book-open"></i>
-              </div>
-              <h3 className="feature-title">Top Preparation Resources</h3>
-              <p className="feature-text">
-                Access the best preparation materials and resources for government and competitive exams to stay ahead.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-pencil-alt"></i>
-              </div>
-              <h3 className="feature-title">Practice Platforms</h3>
-              <p className="feature-text">
-                Boost your exam readiness with comprehensive mock tests, quizzes, and practice sections designed for government and competitive exams.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-layer-group"></i>
-              </div>
-              <h3 className="feature-title">Category-Wise Exam Insights</h3>
-              <p className="feature-text">
-                Get detailed explanations of exams — government, private, and IT — organized neatly by category for easy navigation.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-robot"></i>
-              </div>
-              <h3 className="feature-title">AI Tools Access</h3>
-              <p className="feature-text">
-                Explore our AI Tools page to quickly access powerful AI utilities for learning, productivity, and creativity.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-route"></i>
-              </div>
-              <h3 className="feature-title">Roadmap Builder</h3>
-              <p className="feature-text">
-                Design your personalized career roadmap with milestones and resources to achieve your professional goals.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-users"></i>
-              </div>
-              <h3 className="feature-title">Share Your Journey</h3>
-              <p className="feature-text">
-                Inspire others by sharing your job or exam experiences, tips, and real-life insights with the CareerHub community.
-              </p>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                <i className="fas fa-hourglass-half"></i>
-              </div>
-              <h3 className="feature-title">Upcoming Features</h3>
-              <p className="feature-text">
-                Exciting tools like AI-powered interview simulation and live career chat are coming soon — stay tuned!
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
+      <JobSections />
+      <BenefitsSection />
+      
       <div className="Gfaq-section" id='faq'>
         <h2 className="Gfaq-title">Frequently Asked Questions</h2>
         <div className="Gfaq-container">
@@ -250,12 +86,12 @@ function JobSearch() {
       </div>
 
       <section className="cta">
-        <div className="container">
+        <div className="cta-container">
           <h2>Ready to find your dream job?</h2>
           <p>Join thousands of successful job seekers who found their perfect career match with CareerHub</p>
         </div>
       </section>
-    </>
+    </section>
   );
 }
 
