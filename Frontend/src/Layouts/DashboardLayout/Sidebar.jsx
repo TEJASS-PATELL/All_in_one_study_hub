@@ -40,7 +40,6 @@ const Sidebar = () => {
         <NavLink to="/discussion" className="dashboard-nav-item"><FaComments /> Discussion</NavLink>
         <NavLink to="/chatroom" className="dashboard-nav-item"><FaPaperPlane /> ChatRoom</NavLink>
         <NavLink to="/aiinterview" className="dashboard-nav-item"><FaRobot /> AI-Interview</NavLink>
-
         <button className="dashboard-nav-item logout-btn" onClick={handleLogout}>
           <FaSignOutAlt /> Logout
         </button>
