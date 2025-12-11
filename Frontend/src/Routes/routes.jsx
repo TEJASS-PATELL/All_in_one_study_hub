@@ -24,9 +24,9 @@ import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
 import VerifyAccount from "../Components/VerifyEmail";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
-import Roadmap from "../Layouts/DashboardLayout/Roadmap";
-import TodoPage from "../Layouts/DashboardLayout/TodoPage";
-import Members from "../Layouts/DashboardLayout/Members";
+const Roadmap = lazy(() => import("../Layouts/DashboardLayout/Roadmap"));
+const TodoPage = lazy(() => import("../Layouts/DashboardLayout/TodoPage"));
+const Members = lazy(() => import("../Layouts/DashboardLayout/Members"));
 
 export const routers = [
   { path: "/login", element: <LoginPage /> },
@@ -38,11 +38,11 @@ export const routers = [
     path: "/",
     element: <ProtectedRoute />,
     children: [
+      { path: "/", element: <JobSearch /> },
       {
-        path: "",
         element: <DashboardLayout />,
         children: [
-          { path: "roadmap", element: <Roadmap/> },
+          { path: "roadmap", element: <Roadmap /> },
           { path: "members", element: <Members /> },
           { path: "dailytask", element: <TodoPage /> },
           { path: "discussion", element: <Discussion /> },
