@@ -3,9 +3,7 @@ import { lazy } from "react";
 import Layout from "../Layouts/Layout";
 import LoginPage from "../Pages/Login";
 import SignUpPage from "../Pages/Signup";
-import Profile from "../Pages/Roadmap";
-import Members from "../Pages/Members";
-const Discussion = lazy(() => import("../Pages/Discussion"));
+const Discussion = lazy(() => import("../Layouts/DashboardLayout/Discussion"));
 const GovJobSearch = lazy(() => import("../Pages/GovernmentSection/GovJobSearch"));
 const PrivateJobSearch = lazy(() => import("../Pages/PrivateSection/PrivateJobSearch"));
 const ITJobsearch = lazy(() => import("../Pages/ItSection/ITJobsearch"));
@@ -15,7 +13,7 @@ const PracticeExam = lazy(() => import("../Pages/GovernmentSection/PracticeExam"
 const ExamDay = lazy(() => import("../Pages/GovernmentSection/ExamDay"));
 const AITools = lazy(() => import("../Pages/AITools"));
 const ItRoadmapPage = lazy(() => import("../Pages/ItSection/ITJobRoadmap"));
-const Dashboard = lazy(() => import("../Pages/Dashboard"));
+const Dashboard = lazy(() => import("../Layouts/DashboardLayout/Dashboard"));
 const JobPlatformsPage = lazy(() => import("../Pages/ItSection/ITJobSearchPlatform"));
 const ITJobSection = lazy(() => import("../Pages/ItSection/ITJobSection"));
 const ITJobresources = lazy(() => import("../Pages/ItSection/ITJobresources"));
@@ -26,6 +24,10 @@ import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
 import VerifyAccount from "../Components/VerifyEmail";
+import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
+import Roadmap from "../Layouts/DashboardLayout/Roadmap";
+import TodoPage from "../Layouts/DashboardLayout/TodoPage";
+import Members from "../Layouts/DashboardLayout/Members";
 
 export const routers = [
   { path: "/login", element: <LoginPage /> },
@@ -34,36 +36,23 @@ export const routers = [
   { path: "/forgot-password", element: <EnterEmail /> },
   { path: "/reset-password/:token", element: <ResetPassword /> },
   {
-    path: "/dashboard",
+    path: "/",
     element: <ProtectedRoute />,
-    children: [{ path: "", element: <Dashboard /> }],
+    children: [
+      {
+        path: "",
+        element: <DashboardLayout />,
+        children: [
+          { path: "roadmap", element: <Roadmap/> },
+          { path: "members", element: <Members /> },
+          { path: "dailytask", element: <TodoPage /> },
+          { path: "discussion", element: <Discussion /> },
+          { path: "chatroom", element: <ComingSoon /> },
+          { path: "aiinterview", element: <ComingSoon /> },
+        ],
+      },
+    ],
   },
-  {
-    path: "/roadmap",
-    element: <ProtectedRoute />,
-    children: [{ path: "", element: <Profile /> }],
-  },
-  {
-    path: "/members",
-    element: <ProtectedRoute />,
-    children: [{ path: "", element: <Members /> }],
-  },
-  {
-    path: "/discussion",
-    element: <ProtectedRoute />,
-    children: [{ path: "", element: <Discussion /> }],
-  },
-  {
-    path: "/chatroom",
-    element: <ProtectedRoute />,
-    children: [{ path: "", element: <ComingSoon /> }],
-  },
-  {
-    path: "/aiinterview",
-    element: <ProtectedRoute />,
-    children: [{ path: "", element: <ComingSoon /> }],
-  },
-
   {
     path: "/",
     element: <Layout />,
