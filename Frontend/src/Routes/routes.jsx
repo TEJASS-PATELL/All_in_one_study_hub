@@ -35,16 +35,15 @@ export const routers = [
   { path: "/forgot-password", element: <EnterEmail /> },
   { path: "/reset-password/:token", element: <ResetPassword /> },
   {
-    path: "/",
-    element: <ProtectedRoute />,
+    path: "/dashboard",
+    element: <DashboardLayout />,
     children: [
-      { path: "/", element: <JobSearch /> },
       {
-        element: <DashboardLayout />,
+        element: <ProtectedRoute />,
         children: [
           { path: "roadmap", element: <Roadmap /> },
           { path: "members", element: <Members /> },
-          { path: "dailytask", element: <TodoPage /> },
+          { index: true, element: <TodoPage /> },
           { path: "discussion", element: <Discussion /> },
           { path: "chatroom", element: <ComingSoon /> },
           { path: "aiinterview", element: <ComingSoon /> },
