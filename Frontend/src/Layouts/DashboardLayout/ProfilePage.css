@@ -1,5 +1,5 @@
 .profile-page-main {
-  padding: 60px;
+  padding: 10px;
   font-family: 'Montserrat';
   background-color: #ffffff;
   min-height: 90vh;
@@ -21,38 +21,58 @@
 }
 
 .profile-page-card {
-  background-color: #fff;
-  padding: 20px;
+  background: #ffffff;
   width: 100%;
-  max-width: 700px; 
-  border-radius: 12px;
-  border: 1px solid rgb(211, 211, 211);
+  max-width: 650px;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  animation: fadeProfile 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+@keyframes fadeProfile {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .profile-page-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .profile-form-group {
   display: flex;
   flex-direction: column;
+  gap: 6px;
 }
 
 .profile-form-group label {
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  color: #111;
 }
 
+
+/* INPUTS + SELECTS + TEXTAREA */
 .profile-form-group input,
 .profile-form-group select,
 .profile-form-group textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 15px;
-  background-color: #fefefe;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  outline: none;
+  transition: all 0.2s ease;
+  background: #fafafa;
+  box-sizing: border-box;
 }
 
 .profile-form-group textarea {
@@ -60,17 +80,33 @@
   min-height: 80px;
 }
 
+/* FOCUS STYLE */
+.profile-form-group input:focus,
+.profile-form-group select:focus,
+.profile-form-group textarea:focus {
+  border-color: #000;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+}
+
+
+/* SUBMIT BUTTON */
 .profile-submit-button {
-  margin-top: 20px;
-  padding: 12px;
-  background-color: #000000;
-  color: white;
-  font-size: 16px;
+  padding: 14px;
+  margin-top: 10px;
+  background: #000;
+  color: #fff;
+  font-size: 1.15rem;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.2s;
+}
+
+.profile-submit-button:hover {
+  background: #1a1a1a;
+  transform: translateY(-1px);
 }
 
 .step-title {

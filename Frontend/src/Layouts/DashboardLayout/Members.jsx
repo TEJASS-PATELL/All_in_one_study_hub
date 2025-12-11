@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Members.css';
-import { useAuthStore } from "../Store/useAuthStore";
-import Loading from '../Layouts/Loading';
+import { useAuthStore } from "../../Store/useAuthStore";
+import Loading from '../Loading';
 
 const Members = () => {
   const allUsers = useAuthStore.getState().allUsers; 

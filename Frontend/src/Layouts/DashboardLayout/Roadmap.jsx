@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import "./ProfilePage.css";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useRoadmapStore } from "../Store/useRoadmap";
-import Loading from "../Layouts/Loading";
+import { useRoadmapStore } from "../../Store/useRoadmap";
+import Loading from "../Loading.jsx";
 
-export default function Profile() {
+export default function Roadmap() {
   const { roadmapData, roadmapTitle, showForm, loading, fetchRoadmap, saveRoadmap, deleteRoadmap,   setShowForm } = useRoadmapStore();
   const [formData, setFormData] = useState({
     jobType: "",
@@ -41,8 +41,6 @@ export default function Profile() {
 
   return (
     <main className="profile-page-main">
-      <header className="profile-page-header">
-      </header>
 
       <section className="profile-page-content">
         {showForm ? (
@@ -80,8 +78,7 @@ export default function Profile() {
                   value={formData.education}
                   onChange={handleChange}
                   placeholder="e.g. B.Tech in CSE, B.Sc"
-                  required
-                />
+                  required />
               </div>
               <div className="profile-form-group">
                 <label>Skills You Have:</label>
@@ -128,7 +125,6 @@ export default function Profile() {
                   placeholder="e.g. I need mock test help, or interview tips"
                 />
               </div>
-
               <button type="submit" className="profile-submit-button">
                 Save Profile
               </button>
