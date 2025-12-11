@@ -13,7 +13,6 @@ const PracticeExam = lazy(() => import("../Pages/GovernmentSection/PracticeExam"
 const ExamDay = lazy(() => import("../Pages/GovernmentSection/ExamDay"));
 const AITools = lazy(() => import("../Pages/AITools"));
 const ItRoadmapPage = lazy(() => import("../Pages/ItSection/ITJobRoadmap"));
-const Dashboard = lazy(() => import("../Layouts/DashboardLayout/Dashboard"));
 const JobPlatformsPage = lazy(() => import("../Pages/ItSection/ITJobSearchPlatform"));
 const ITJobSection = lazy(() => import("../Pages/ItSection/ITJobSection"));
 const ITJobresources = lazy(() => import("../Pages/ItSection/ITJobresources"));

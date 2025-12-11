@@ -1,5 +1,5 @@
 .profile-page-main {
-  padding: 10px;
+  padding: 20px;
   font-family: 'Montserrat';
   background-color: #ffffff;
   min-height: 90vh;
@@ -23,23 +23,12 @@
 .profile-page-card {
   background: #ffffff;
   width: 100%;
+  margin-top: 35px;
   max-width: 650px;
   padding: 32px;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  animation: fadeProfile 0.3s ease-in-out;
+  border: 1px solid rgb(205, 205, 205);
   box-sizing: border-box;
-}
-
-@keyframes fadeProfile {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .profile-page-form {
@@ -60,8 +49,6 @@
   color: #111;
 }
 
-
-/* INPUTS + SELECTS + TEXTAREA */
 .profile-form-group input,
 .profile-form-group select,
 .profile-form-group textarea {
@@ -80,7 +67,6 @@
   min-height: 80px;
 }
 
-/* FOCUS STYLE */
 .profile-form-group input:focus,
 .profile-form-group select:focus,
 .profile-form-group textarea:focus {
@@ -89,8 +75,6 @@
   box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
 }
 
-
-/* SUBMIT BUTTON */
 .profile-submit-button {
   padding: 14px;
   margin-top: 10px;
@@ -105,7 +89,6 @@
 }
 
 .profile-submit-button:hover {
-  background: #1a1a1a;
   transform: translateY(-1px);
 }
 

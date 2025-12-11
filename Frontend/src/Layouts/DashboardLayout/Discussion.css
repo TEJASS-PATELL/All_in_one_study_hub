@@ -34,11 +34,6 @@
   color: white;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.discussion-button:hover {
-  background-color: #747474;
 }
 
 .discussion-popup {
@@ -124,11 +119,6 @@
   cursor: pointer;
   width: 100%;
   grid-column: span 2;
-  transition: background-color 0.2s ease;
-}
-
-.discussion-submit:hover {
-  background-color: #222;
 }
 
 .discussion-list {
