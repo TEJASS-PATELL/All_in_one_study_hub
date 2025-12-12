@@ -7,6 +7,7 @@ axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set) => ({
   authUser: null,
+  users: [],
   isLoading: true,
   isAuthenticated: false,
   isEmailVerify: false,
@@ -16,12 +17,7 @@ export const useAuthStore = create((set) => ({
     try {
       const res = await axios.get("/api/auth/getuser");
       const user = res.data;
-
-      if (user?.id) {
-        set({ authUser: user, isAuthenticated: true, isLoading: false });
-      } else {
-        set({ authUser: null, isAuthenticated: false, isLoading: false });
-      }
+      set({ authUser: user, isAuthenticated: true, isLoading: false });
     } catch (err) {
       set({ authUser: null, isAuthenticated: false, isLoading: false });
     }
@@ -31,20 +27,11 @@ export const useAuthStore = create((set) => ({
     try {
       set({ isLoading: true });
 
-      const res = await axios.post("/api/auth/login", {
-        email: email.trim().toLowerCase(),
-        password
-      });
-
+      const res = await axios.post("/api/auth/login", { email, password});
       const user = res.data?.user || res.data;
 
-      if (user?.id) {
-        set({
-          authUser: user,
-          isAuthenticated: true,
-          isLoading: false
-        });
-
+      if (user) {
+        set({ authUser: user, isAuthenticated: true, isLoading: false });
         toast.success("Login successful");
         navigate("/", { replace: true });
       } else {
@@ -60,11 +47,7 @@ export const useAuthStore = create((set) => ({
     try {
       set({ isLoading: true });
 
-      const res = await axios.post("/api/auth/signup", {
-        name,
-        email,
-        password
-      });
+      const res = await axios.post("/api/auth/signup", {name,  email,  password});
 
       if (res.data.success) {
         return {
@@ -221,12 +204,12 @@ export const useAuthStore = create((set) => ({
 
   allUsers: async () => {
     try {
-      const res = await axios.get("/api/auth/allusers", {withCredentials : true});
-      return res;
+      const res = await axios.get("/api/auth/allusers");
+      set({users : res.data})
+      return res.data; 
     } catch (error) {
-      console.error("Error fetching users:", error);
       toast.error(error?.response?.data?.message || "Failed to fetch users");
-      return null;
+      return [];
     }
   }
 
