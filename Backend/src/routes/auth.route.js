@@ -1,9 +1,10 @@
 import express from "express";
+import { PrismaClient } from "@prisma/client";
 import jwt from "jsonwebtoken";
 import passport from "../config/passport.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
 import { signup, login, logout, getuser, alluser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } from "../controllers/auth.controller.js";
-
+const prisma = new PrismaClient();
 const router = express.Router();
 
 router.post("/signup", signup);           
