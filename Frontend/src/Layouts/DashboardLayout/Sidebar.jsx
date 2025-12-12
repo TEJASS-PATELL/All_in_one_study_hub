@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaChartBar, FaSignOutAlt, FaHome, FaUsers, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck } from "react-icons/fa";
+import { FaSignOutAlt, FaHome, FaUsers, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck } from "react-icons/fa";
 import { useAuthStore } from "../../Store/useAuthStore";
 import ImageUpload from "../../Components/ImageUpload";
 import "./Sidebar.css";
@@ -34,12 +34,12 @@ const Sidebar = () => {
 
       <nav className="dashboard-nav">
         <NavLink to="/" className="dashboard-nav-item"><FaHome /> Home</NavLink>
-        <NavLink to="/dailytask" className="dashboard-nav-item"><FaClipboardCheck />Daily-Task</NavLink>
-        <NavLink to="/roadmap" className="dashboard-nav-item"><FaMapSigns /> Roadmap</NavLink>
-        <NavLink to="/members" className="dashboard-nav-item"><FaUsers /> Members</NavLink>
-        <NavLink to="/discussion" className="dashboard-nav-item"><FaComments /> Discussion</NavLink>
-        <NavLink to="/chatroom" className="dashboard-nav-item"><FaPaperPlane /> ChatRoom</NavLink>
-        <NavLink to="/aiinterview" className="dashboard-nav-item"><FaRobot /> AI-Interview</NavLink>
+        <NavLink to="/dashboard" className="dashboard-nav-item"><FaClipboardCheck />Daily-Task</NavLink>
+        <NavLink to="/dashboard/roadmap" className="dashboard-nav-item"><FaMapSigns /> Roadmap</NavLink>
+        <NavLink to="/dashboard/members" className="dashboard-nav-item"><FaUsers /> Members</NavLink>
+        <NavLink to="/dashboard/discussion" className="dashboard-nav-item"><FaComments /> Discussion</NavLink>
+        <NavLink to="/dashboard/chatroom" className="dashboard-nav-item"><FaPaperPlane /> ChatRoom</NavLink>
+        <NavLink to="/dashboard/ai-interview" className="dashboard-nav-item"><FaRobot /> AI-Interview</NavLink>
         <button className="dashboard-nav-item logout-btn" onClick={handleLogout}>
           <FaSignOutAlt /> Logout
         </button>

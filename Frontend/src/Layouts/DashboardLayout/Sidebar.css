@@ -5,6 +5,12 @@
   background: #ffffff;
 }
 
+.dashboard-container {
+  display: flex;
+  font-family: 'Montserrat';
+  background-color: #ffffff;
+}
+
 .dashboard-sidebar {
   width: 280px;
   background-color: #000000;
