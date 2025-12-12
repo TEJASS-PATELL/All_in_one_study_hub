@@ -32,18 +32,33 @@ router.get(
     failureRedirect: process.env.CLIENT_URL + "/login",
     session: false,
   }),
-  (req, res) => { 
-    const token = jwt.sign({ userid: req.user.id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+  async (req, res) => { 
+    try {
+      const userId = req.user.id;
 
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
-      maxAge: 7 * 24 * 60 * 60 * 1000, 
-      path: "/",
-    });
+      const token = jwt.sign({ userid: userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
 
-    res.redirect(process.env.CLIENT_URL + "/");
+      await prisma.user.update({
+        where: { id: userId },
+        data: { lastLogin: new Date(), isLogin: true },
+      });
+
+      await cacheClient.del(`all_users_list`);
+      await cacheClient.del(`user:${userId}`);
+
+      res.cookie("token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        path: "/",
+      });
+
+      res.redirect(process.env.CLIENT_URL + "/");
+    } catch (err) {
+      console.error("Google login callback error:", err);
+      res.redirect(process.env.CLIENT_URL + "/login");
+    }
   }
 );
 

@@ -23,6 +23,7 @@ model Exam {
   examMode     String @db.Text
   @@index([category]) 
 }
+
 model PrivateJob {
   id             Int    @id @default(autoincrement())
   title          String @db.Text

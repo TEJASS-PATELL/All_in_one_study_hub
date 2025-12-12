@@ -45,6 +45,8 @@ export const login = async (req, res) => {
       data: { lastLogin: new Date(), isLogin: true },
     });
 
+    await cacheClient.del('all_users_list');
+
     res.cookie("token", token, { ...cookieOptions, secure: false }).json({
       msg: "Login successful",
       user: { id: user.id, name: user.name, email: user.email },
@@ -78,7 +80,7 @@ export const signup = async (req, res) => {
           message: "Account exists but not verified. OTP resent.",
         });
       } catch (otpError) {
-        console.error("❌ Resend OTP failed for existing user:", otpError.message);
+        console.error("Resend OTP failed for existing user:", otpError.message);
         return res.status(500).json({ success: false, message: "User exists, but failed to send verification OTP. Try again later." });
       }
     }
@@ -107,7 +109,7 @@ export const signup = async (req, res) => {
       });
 
     } catch (otpError) {
-      console.error("❌ Initial OTP send failed for new user:", otpError.message);
+      console.error(" Initial OTP send failed for new user:", otpError.message);
       await prisma.user.delete({ where: { id: user.id } });
       return res.status(500).json({
         success: false,
@@ -137,6 +139,7 @@ export const logout = async (req, res) => {
 
     await cacheClient.del(userCacheKey);
     await cacheClient.del(allUsersCacheKey);
+    await cacheClient.del('all_users_list');
 
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 }).json({ msg: "Logged out successfully" });
   } catch (err) {
@@ -152,7 +155,6 @@ export const getuser = async (req, res) => {
   try {
     const cachedUser = await cacheClient.get(cacheKey);
     if (cachedUser) {
-      console.log("Serving user from cache");
       return res.status(200).json(JSON.parse(cachedUser));
     }
 
@@ -195,14 +197,13 @@ export const alluser = async (req, res) => {
                 email: true,
                 createdAt: true,
                 profilepic: true,
-                lastLogin: true,
                 lastLogout: true,
                 isLogin: true,
             },
         });
 
         if (users.length > 0) {
-            await cacheClient.set(cacheKey, JSON.stringify(users), 'EX', 900); 
+            await cacheClient.set(cacheKey, JSON.stringify(users), 'EX', 3600); 
         }
 
         res.status(200).json(users);
@@ -222,10 +223,7 @@ export const updateprofile = async (req, res) => {
 
     const uploadProfilePic = await cloudinary.uploader.upload(image, { folder: "users_profile" });
 
-    const updatedUser = await prisma.user.update({ where: { id: userId }, data: { profilepic: uploadProfilePic.secure_url } });
-
-    const userCacheKey = `user:${userId}`;
-    await cacheClient.set(userCacheKey, JSON.stringify(updatedUser), 'EX', CACHE_TTL);
+    await prisma.user.update({ where: { id: userId }, data: { profilepic: uploadProfilePic.secure_url } });
 
     return res.status(200).json({ success: true, message: "User Profile updated succesfully", image: uploadProfilePic.secure_url });
 
