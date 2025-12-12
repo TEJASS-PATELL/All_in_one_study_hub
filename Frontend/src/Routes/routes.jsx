@@ -1,6 +1,5 @@
 import React from "react";
 import { lazy } from "react";
-import Layout from "../Layouts/Layout";
 import LoginPage from "../Pages/Login";
 import SignUpPage from "../Pages/Signup";
 const Discussion = lazy(() => import("../Layouts/DashboardLayout/Discussion"));
@@ -23,10 +22,11 @@ import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
 import VerifyAccount from "../Components/VerifyEmail";
-import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 const Roadmap = lazy(() => import("../Layouts/DashboardLayout/Roadmap"));
 const TodoPage = lazy(() => import("../Layouts/DashboardLayout/TodoPage"));
 const Members = lazy(() => import("../Layouts/DashboardLayout/Members"));
+const Layout = lazy(() => import("../Layouts/Layout"));
+const DashboardLayout = lazy(() => import("../Layouts/DashboardLayout/DashboardLayout"));
 
 export const routers = [
   { path: "/login", element: <LoginPage /> },
@@ -46,7 +46,7 @@ export const routers = [
           { index: true, element: <TodoPage /> },
           { path: "discussion", element: <Discussion /> },
           { path: "chatroom", element: <ComingSoon /> },
-          { path: "aiinterview", element: <ComingSoon /> },
+          { path: "ai-interview", element: <ComingSoon /> },
         ],
       },
     ],
