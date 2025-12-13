@@ -24,8 +24,7 @@ const cookieOptions = {
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
-  if (!email || !password)
-    return res.status(400).json({ msg: "All fields are required" });
+  if (!email || !password) return res.status(400).json({ msg: "All fields are required" });
 
   try {
     const normalizedEmail = email.trim().toLowerCase();

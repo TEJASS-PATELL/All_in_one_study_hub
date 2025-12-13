@@ -11,9 +11,7 @@ const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 export const warmUpDiscussionsCache = async () => {
   const cacheKey = DISCUSSION_CACHE_KEY;
 
-  if (await cacheClient.get(cacheKey)) {
-    return;
-  }
+  if (await cacheClient.get(cacheKey)) { return; }
 
   try {
     const discussions = await prisma.discussion.findMany({
@@ -46,7 +44,7 @@ export const getDiscussions = async (req, res) => {
     if (cached) {
       discussions = JSON.parse(cached);
     } else {
-      const lock = await cacheClient.set(lockKey, 1, { NX: true, EX: 5 });
+      const lock = await cacheClient.set(lockKey, "1", "NX", "EX", 5);
 
       if (lock) {
         try {
