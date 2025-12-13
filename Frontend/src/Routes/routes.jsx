@@ -16,7 +16,7 @@ const JobPlatformsPage = lazy(() => import("../Pages/ItSection/ITJobSearchPlatfo
 const ITJobSection = lazy(() => import("../Pages/ItSection/ITJobSection"));
 const ITJobresources = lazy(() => import("../Pages/ItSection/ITJobresources"));
 const ForeignJobsPage = lazy(() => import("../Pages/ForeignJobsPage"));
-const JobSearch = lazy(() => import("../Pages/JobSearch"));
+const JobSearch = lazy(() => import("../Pages/Home"));
 import ProtectedRoute from "../Components/ProtectedRoute";
 import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
