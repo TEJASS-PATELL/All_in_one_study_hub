@@ -28,9 +28,7 @@ router.get(
   })
 );
 
-router.get(
-  "/google/callback",
-  passport.authenticate("google", {
+router.get("/google/callback", passport.authenticate("google", {
     failureRedirect: process.env.CLIENT_URL + "/login",
     session: false,
   }),
@@ -42,7 +40,7 @@ router.get(
 
       await prisma.user.update({
         where: { id: userId },
-        data: { lastLogin: new Date(), isLogin: true },
+        data: { lastLogin: new Date(), isLogin: true, isAccountVerified: true },
       });
 
       await cacheClient.del(`all_users_list`);
