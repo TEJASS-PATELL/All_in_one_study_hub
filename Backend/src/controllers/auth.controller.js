@@ -165,6 +165,7 @@ export const getuser = async (req, res) => {
         email: true,
         createdAt: true,
         profilepic: true,
+        isAccountVerified: true,
         lastLogin: true,
         lastLogout: true,
       },
@@ -405,7 +406,7 @@ export const verifyOtp = async (req, res) => {
       return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
     }
 
-    await prisma.user.update({
+    const updatedUser = await prisma.user.update({
       where: { id: user.id },
       data: {
         isAccountVerified: true,
@@ -418,7 +419,7 @@ export const verifyOtp = async (req, res) => {
 
     res.cookie("token", token, cookieOptions);
 
-    return res.json({ success: true, message: "Email verified" });
+    return res.json({ success: true, message: "Email verified", user: {isAccountVerified: updatedUser.isAccountVerified} });
 
   } catch (err) {
     console.log(err);

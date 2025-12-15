@@ -3,11 +3,11 @@ import { useAuthStore } from "../Store/useAuthStore";
 import React from "react";
 
 const ProtectedRoute = () => {
-  const { authUser, isLoading } = useAuthStore();
+  const { authUser, isEmailVerify, isLoading } = useAuthStore();
 
   if (isLoading) return <div>Loading...</div>;
 
-  return authUser ? <Outlet /> : <Navigate to="/login" replace />;
+  return authUser && isEmailVerify ? <Outlet /> : <Navigate to="/login" replace />;
 };
 
 export default ProtectedRoute;

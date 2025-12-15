@@ -17,7 +17,7 @@ export const useAuthStore = create((set) => ({
     try {
       const res = await axios.get("/api/auth/getuser");
       const user = res.data;
-      set({ authUser: user, isAuthenticated: true, isLoading: false });
+      set({ authUser: user, isAuthenticated: true, isLoading: false, isEmailVerify: user.isAccountVerified });
     } catch (err) {
       set({ authUser: null, isAuthenticated: false, isLoading: false });
     }
@@ -93,12 +93,7 @@ export const useAuthStore = create((set) => ({
       if (res.data.success) {
         const userRes = await axios.get("/api/auth/getuser");
 
-        set({
-          authUser: userRes.data,
-          isAuthenticated: true,
-          isEmailVerify: true,
-          isLoading: false
-        });
+        set({ authUser: userRes.data,isAuthenticated: true,isEmailVerify: res.data.user.isAccountVerified,isLoading: false});
 
         toast.success("Email verified successfully!");
         return true;
@@ -122,11 +117,7 @@ export const useAuthStore = create((set) => ({
 
       await axios.get("/api/auth/logout");
 
-      set({
-        authUser: null,
-        isAuthenticated: false,
-        isLoading: false
-      });
+      set({ authUser: null, isAuthenticated: false, isLoading: false });
 
       toast.success("Logged out successfully");
     } catch (err) {

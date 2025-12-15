@@ -43,9 +43,6 @@ router.get("/google/callback", passport.authenticate("google", {
         data: { lastLogin: new Date(), isLogin: true, isAccountVerified: true },
       });
 
-      await cacheClient.del(`all_users_list`);
-      await cacheClient.del(`user:${userId}`);
-
       res.cookie("token", token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
