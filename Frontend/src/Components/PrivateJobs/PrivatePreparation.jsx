@@ -7,13 +7,6 @@ const PrivatePreparation = () => {
   return (
     <div className="G-preparation-section">
       <div className="G-section-title">
-        <div className="float-icon-containerr">
-          <img
-            src="people.png"
-            alt="Floating Icon"
-            className="floating-icon-preperation"
-          />
-        </div>
         <h2>Preparing for Private Jobs</h2>
         <p className="G-preparation-description">Essential skills and strategies to crack MNC and startup job roles</p>
       </div>

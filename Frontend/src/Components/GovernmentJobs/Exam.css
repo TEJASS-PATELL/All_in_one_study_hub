@@ -64,9 +64,7 @@
 }
 
 .exam-card-header {
-  border-bottom: 1px solid #cacaca;
   padding-bottom: 14px;
-  margin-bottom: 20px;
 }
 
 .exam-card-title {
@@ -115,7 +113,7 @@
 }
 
 .exam-desc {
-  font-size: 14.5px;
+  font-size: 15px;
   color: #000000;
   line-height: 1.65;
 }

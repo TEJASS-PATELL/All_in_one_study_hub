@@ -221,6 +221,19 @@
     font-size: 14px;
     margin-bottom: 10px;
   }
+
+  .p-exam-title {
+  font-size: 23px;
+  font-weight: 600;
+  color: blue;
+  margin-bottom: 6px;
+}
+
+.p-exam-desc {
+  font-size: 17px;
+  color: #000000;
+  line-height: 1.65;
+}
   
   .resource-link {
     color: #4776E6;
@@ -318,14 +331,14 @@
   .exam-detail { 
   padding: 10px 0px;
   border-radius: 8px;
-  font-size: 18px;
+  font-size: 16px;
   color: #2a2a2a;
   margin-top: 10px;
   line-height: 1.5;
 }
 
 .exam-detail strong {
-  color: #000000;
+  color: #0d00ff;
   font-weight: 900;
 }
 
