@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import NodeCache from "node-cache";
-import redis from "../services/cacheClient";
+import cacheClient from "../services/cacheClient";
 
 const tokenCache = new NodeCache({ stdTTL: 1200 }); 
 const REDIS_TTL = 1200; 
@@ -19,7 +19,7 @@ const authentication = async (req, res, next) => {
   }
 
   try {
-    const redisUser = await redis.get(`auth:${token}`);
+    const redisUser = await cacheClient.get(`auth:${token}`);
     if (redisUser) {
       const parsed = JSON.parse(redisUser);
       tokenCache.set(token, parsed);
@@ -36,7 +36,7 @@ const authentication = async (req, res, next) => {
     const userPayload = { userid: decoded.userid };
 
     tokenCache.set(token, userPayload);
-    await redis.set( `auth:${token}`, JSON.stringify(userPayload), "EX", REDIS_TTL);
+    await cacheClient.set( `auth:${token}`, JSON.stringify(userPayload), "EX", REDIS_TTL);
 
     req.user = userPayload;
     next();
@@ -44,7 +44,7 @@ const authentication = async (req, res, next) => {
     console.error("JWT verification failed:", err.message);
 
     tokenCache.del(token);
-    await redis.del(`auth:${token}`);
+    await cacheClient.del(`auth:${token}`);
 
     return res.status(401).json({ success: false, message: "Invalid or expired token." });
   }
