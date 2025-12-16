@@ -16,7 +16,6 @@ const JobSections = () => {
         </p>
 
         <div className="G-job-cards">
-          {/* Government Jobs */}
           <div className="G-card">
             <div className="G-card-header govt">
               <i className="fas fa-landmark icon"></i>
@@ -35,7 +34,6 @@ const JobSections = () => {
             </div>
           </div>
 
-          {/* Private Jobs */}
           <div className="G-card">
             <div className="G-card-header private">
               <i className="fas fa-building icon"></i>
@@ -54,7 +52,6 @@ const JobSections = () => {
             </div>
           </div>
 
-          {/* IT Jobs */}
           <div className="G-card">
             <div className="G-card-header remote">
               <i className="fas fa-laptop-house icon"></i>
@@ -73,7 +70,6 @@ const JobSections = () => {
             </div>
           </div>
 
-          {/* Foreign Jobs */}
           <div className="G-card">
             <div className="G-card-header foreign">
               <i className="fas fa-globe icon"></i>

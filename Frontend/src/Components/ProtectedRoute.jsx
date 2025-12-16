@@ -4,9 +4,7 @@ import React from "react";
 
 const ProtectedRoute = () => {
   const { authUser, isEmailVerify, isLoading } = useAuthStore();
-
   if (isLoading) return <div>Loading...</div>;
-
   return authUser && isEmailVerify ? <Outlet /> : <Navigate to="/login" replace />;
 };
 

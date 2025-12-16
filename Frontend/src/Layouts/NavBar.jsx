@@ -6,7 +6,7 @@ import { useAuthStore } from "../Store/useAuthStore";
 
 export default function NavBar() {
   const navigate = useNavigate();
-  const { authUser, fetchUser } = useAuthStore();
+  const { authUser, fetchUser, isEmailVerify } = useAuthStore();
 
   useEffect(() => {
     if (!authUser) {
@@ -38,7 +38,7 @@ export default function NavBar() {
         </ul>
 
         <div className="Lnavbar-auth-buttons">
-          {!authUser ? (
+          {!authUser && !isEmailVerify ? (
             <Link to="/login" className="Llogin-btn">Login</Link>
           ) : (
             <button className="Lprofile-btn" onClick={handleProfileClick}>
