@@ -1,6 +1,6 @@
 .G-preparation-section {
   background-color: #ffffff;
-  padding: 100px 20px;
+  padding: 20px 20px 80px 20px;
   margin: 0 auto;
   max-width: 1750px;
 }
@@ -15,14 +15,14 @@
 
 .G-section-title h2 {
   margin-top: 10px;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #000000;
   line-height: 1.1;
 }
 
 .G-section-title p {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #000000;
   opacity: 0.85;
   margin-top: 8px;

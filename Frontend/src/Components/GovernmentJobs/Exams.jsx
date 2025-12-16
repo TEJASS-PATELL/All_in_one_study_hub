@@ -91,7 +91,7 @@ const Exams = () => {
     <div className="G-category-section">
       <div className="section-titlee">
         <h2>Explore By Category</h2>
-        <p>Find the perfect exam pathway for your career goals</p>
+        <p>Find the perfect exam for your career goals</p>
       </div>
 
       <div className="G-category-filter">

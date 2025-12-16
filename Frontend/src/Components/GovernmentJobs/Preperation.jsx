@@ -5,13 +5,6 @@ const PreparationSection = () => {
   return (
     <div className="G-preparation-section">
       <div className="G-section-title">
-        <div className="float-icon-containerr">
-          <img
-            src="people.png"
-            alt="Floating Icon"
-            className="floating-icon-preperation"
-          />
-        </div>
         <h2>Preparing for Government Exams</h2>
         <p>Smart resources and proven techniques for cracking top government jobs</p>
       </div>
