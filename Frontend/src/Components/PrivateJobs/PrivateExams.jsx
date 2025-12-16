@@ -53,13 +53,6 @@ const PrivateExams = () => {
   return (
     <div className="G-category-section">
       <div className="section-titlee">
-        <div className="G-float-icon-container">
-          <img
-            src="answers.png"
-            alt="Explore private jobs"
-            className="floating-icon-exam"
-          />
-        </div>
         <h2>Explore Private Job Categories</h2>
         <p>Find the best private job roles based on your interest</p>
       </div>
