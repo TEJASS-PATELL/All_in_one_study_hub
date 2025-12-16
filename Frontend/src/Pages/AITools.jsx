@@ -3,7 +3,6 @@ import "./AITools.css";
 import { FaRobot, FaImage, FaBook, FaFlask, FaCode, FaTasks, FaBriefcase, FaGraduationCap } from "react-icons/fa";
 import React from "react";
 
-
 const aiCategories = [
   {
     icon: FaRobot,
@@ -136,6 +135,7 @@ const aiCategories = [
 ];
 
 const AITools = () => {
+    console.log("AITools rendered");
   return (
     <section className="ai-section" aria-label="Top AI Tools by Category">
       <h1 className="section-title">Top AI Tools by Category</h1>
