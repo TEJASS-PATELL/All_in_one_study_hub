@@ -1,5 +1,5 @@
 .ai-section {
-  padding: 5rem 1.5rem;
+  padding: 5rem 1.5rem 1rem 1.5rem;
   max-width: 1650px;
   margin: 0 auto;
   background: #ffffff;
@@ -10,8 +10,19 @@
   font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 2rem;
-  color: #000000;
+}
+
+.ai-detail {
+  font-size: 1.35rem;
+  line-height: 1.5;
+  max-width: 1250px;
+  margin: 10px auto 40px;
+  text-align: center;
+}
+
+.ai-detail span {
+  font-weight: 700;
+  color: #0008ff;
 }
 
 .ai-cards-grid {
@@ -21,48 +32,36 @@
 }
 
 .ai-category-card {
-  margin-top: 20px;
-  border: 1px solid rgb(207, 207, 207);
-  background: #ffffff;
+  margin-top: 10px;
+  height: 480px;
   overflow-y: auto;
-  height: 540px;
+  border: 1px solid rgb(207, 207, 207);
   border-radius: 12px;
+  padding: 0 1rem;
+  background: #ffffff;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  padding: 0 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  outline-offset: 4px;
-  cursor: default;
 }
 
 .ai-category-header {
   position: sticky;
-  display: flex;
-  margin-bottom: 10px;
-  gap: 20px;
   top: 0;
-  background-color: white;
-  padding: 30px 0 0 10px;
+  display: flex;
+  gap: 20px;
+  padding: 20px 0 10px 10px;
+  background: #ffffff;
   border-bottom: 1px solid #ddd;
+  z-index: 1;
 }
 
-.ai-category-header:hover {
-  color: white;
-}
-
-.ai-category-header svg {
+.ai-category-icon {
   font-size: 1.85rem;
   color: #0008ff;
   flex-shrink: 0;
 }
 
-/* Category title */
 .category-title {
   font-size: 1.35rem;
-  width: 100%;
   font-weight: 600;
-  margin-bottom: 1rem;
-  color: #000000;
-  padding-bottom: 0.4rem;
 }
 
 .tool-list {
@@ -72,92 +71,53 @@
 }
 
 .tool-item {
-  font-size: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
   padding: 8px 12px;
-  color: #ff0000;
+  margin-bottom: 5px;
   border-bottom: 1px solid rgb(226, 226, 226);
   border-right: 1px solid rgb(226, 226, 226);
   border-radius: 8px;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.25s ease;
 }
 
 .tool-item:hover,
 .tool-item:focus-within {
   background-color: #000000;
-  color: white;
-}
-
-.tool-item:hover .tool-link,
-.tool-item:hover .tool-name,
-.tool-item:hover .tool-link-icon,
-.tool-item:focus-within .tool-link,
-.tool-item:focus-within .tool-name,
-.tool-item:focus-within .tool-link-icon {
-  color: white;
-  outline: none;
 }
 
 .tool-link {
   color: #000000;
   font-weight: 500;
   text-decoration: none;
-  position: relative;
-  padding-bottom: 2px;
-  transition: color 0.25s ease;
 }
 
-.tool-name {
-  margin-left: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #000000;
-  user-select: text;
+.tool-item:hover .tool-link,
+.tool-item:focus-within .tool-link {
+  color: #ffffff;
 }
 
-.tool-link-icon {
-  color: #000000f3;
-  font-size: 1rem;
-  text-decoration: none;
-  border: none;
+.external-link {
   display: flex;
   align-items: center;
-  cursor: pointer;
-  transition: color 0.25s ease;
 }
 
-.tool-link-icon:hover,
-.tool-link-icon:focus {
+.link-icon {
+  color: blue;
+  font-size: 1rem;
+}
+
+.tool-item:hover .link-icon {
   color: #ffffff;
-  outline: none;
 }
-
-.ai-detail {
-  font-size: 1.35rem; 
-  line-height: 1.5;
-  color: #000000;
-  background: white;
-  border-radius: 12px;
-  max-width: 1250px;
-  margin: 10px auto 40px auto;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-align: center;
-}
-
-.ai-detail span {
-  font-weight: 700; 
-  color: #0008ff; 
-}
-
 
 @media (max-width: 600px) {
   .section-title {
     font-size: 2rem;
   }
+
   .category-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 }

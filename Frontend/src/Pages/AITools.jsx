@@ -135,15 +135,17 @@ const aiCategories = [
 ];
 
 const AITools = () => {
-    console.log("AITools rendered");
   return (
     <section className="ai-section" aria-label="Top AI Tools by Category">
       <h1 className="section-title">Top AI Tools by Category</h1>
+
       <p className="ai-detail">
-        Discover powerful <span>AI tools</span> for every task — from chatting with smart <span>AI assistants</span> to generating stunning <span>images, code, or research</span> with ease. Explore tools that simplify <span>studying, writing, designing, and coding</span> — all in one place.
-        Whether you're a student, developer, or creator, AI boosts your <span>productivity, creativity, and learning</span> like never before.
-        These tools are free, easy to use, and designed to help you do more in less time.
+        Discover powerful <span>AI tools</span> for every task — from smart
+        <span> AI assistants</span> to generating <span>images, code, and research</span>.
+        Perfect for students, developers, and creators to boost
+        <span> productivity and creativity</span>.
       </p>
+
       <div className="ai-cards-grid">
         {aiCategories.map((category, index) => (
           <div key={index} className="ai-category-card">
@@ -151,27 +153,16 @@ const AITools = () => {
               <category.icon className="ai-category-icon" />
               <h2 className="category-title">{category.category}</h2>
             </div>
+
             <ul className="tool-list">
               {category.tools.map((tool, idx) => (
                 <li key={idx} className="tool-item">
-                  <a
-                    href={tool.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tool-link-icon"
-                    aria-label={`Open ${tool.name} website in new tab`}
-                  >
-                    &#9679;
-                    <span className="tool-name">{tool.name}</span>
+                  <a href={tool.link} target="_blank" rel="noopener noreferrer" className="tool-link">
+                    {tool.name}
                   </a>
-                  <a
-                    href={tool.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="tool-link-icon"
-                    aria-label={`Open ${tool.name} website in new tab`}
-                  >
-                    <FiExternalLink />
+
+                  <a href={tool.link} target="_blank" rel="noopener noreferrer" className="external-link" aria-label={`Open ${tool.name}`}>
+                    <FiExternalLink className='link-icon'/>
                   </a>
                 </li>
               ))}
@@ -180,7 +171,6 @@ const AITools = () => {
         ))}
       </div>
     </section>
-
   );
 };
 
