@@ -6,38 +6,29 @@ axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
 
 export const useRoadmapStore = create((set) => ({
-    roadmapData: null,
+    roadmapData: [],
     roadmapTitle: "",
     showForm: true,
     loading: false,
 
     fetchRoadmap: async () => {
-        try {
-            set({ loading: true });
-            const res = await axios.get("/api/roadmap/getroadmap");
-            const data = res.data;
+        set({ loading: true });
 
-            if (data.success && data.roadmap) {
-                if (Array.isArray(data.roadmap.steps) && data.roadmap.steps.length > 0) {
-                    set({
-                        roadmapData: data.roadmap.steps,
-                        roadmapTitle: data.roadmap.title || "",
-                        showForm: false,
-                    });
-                } else {
-                    toast("No roadmap found, please create one.", { icon: "🗺️" });
-                    set({ showForm: true });
-                }
+        try {
+            const { data } = await axios.get("/api/roadmap/getroadmap");
+
+            if ( data?.success && data?.roadmap && Array.isArray(data.roadmap.steps) &&  data.roadmap.steps.length > 0) {
+                set({
+                    roadmapData: data.roadmap.steps,
+                    roadmapTitle: data.roadmap.title,
+                    showForm: false,
+                });
             } else {
-                toast("No roadmap found, please create one.", { icon: "🗺️" });
-                set({ showForm: true });
+                set({ roadmapData: [], roadmapTitle: "", showForm: true});
             }
         } catch (err) {
-            set({ showForm: true });
-            if (err.response && err.response.status === 404) {
-                toast("No roadmap found, please create one.");
-                set({ showForm: true });
-            } else {
+            set({ roadmapData: [], roadmapTitle: "", showForm: true});
+            if (!err?.response || err.response.status >= 500) {
                 toast.error("Failed to load roadmap");
             }
         } finally {
@@ -76,7 +67,7 @@ export const useRoadmapStore = create((set) => ({
             const data = res.data;
 
             if (data.success) {
-                set({ roadmapData: null, showForm: true });
+                set({ roadmapData: [], showForm: true });
                 toast.success("Roadmap deleted successfully!");
             } else {
                 toast.error("Failed to delete roadmap");
