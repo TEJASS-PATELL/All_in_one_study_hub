@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import NodeCache from "node-cache";
-import { redis } from "../services/cacheClient";
+import redis from "../services/cacheClient";
 
 const tokenCache = new NodeCache({ stdTTL: 1200 }); 
 const REDIS_TTL = 1200; 
