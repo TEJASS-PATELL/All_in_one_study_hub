@@ -44,15 +44,10 @@
   padding: 10px 18px;
   font-size: 14px;
   border-radius: 8px;
-  border: 1px solid #cbd5f5;
+  border: 1px solid #d0d0d0;
   background: #ffffff;
   color: #1e293b;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.G-filter-button:hover {
-  background: #eef2ff;
 }
 
 .G-filter-button.active {
@@ -69,7 +64,7 @@
 }
 
 .exam-card-header {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #cacaca;
   padding-bottom: 14px;
   margin-bottom: 20px;
 }
@@ -89,7 +84,7 @@
 
 .no-exams-found {
   text-align: center;
-  color: #64748b;
+  color: #000000;
   font-size: 14px;
   padding: 16px 0;
 }
@@ -101,7 +96,7 @@
 }
 
 .exam-card-item {
-  border: 1px solid #e5e7eb;
+  border: 1px solid #cacaca;
   border-radius: 12px;
   padding: 18px 18px 16px;
   margin-bottom: 20px;
@@ -144,10 +139,6 @@
   color: #ffffff;
   cursor: pointer;
   transition: background 0.2s ease;
-}
-
-.toggle-btn:hover {
-  background: #1e3a8a;
 }
 
 .accordion-wrapper {
