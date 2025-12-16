@@ -1,8 +1,5 @@
-import { PrismaClient } from "@prisma/client";
 import cacheClient from "../services/cacheClient.js";
-
-const prisma = new PrismaClient();
-
+import { prisma } from "../lib/prisma.js";
 const DISCUSSION_CACHE_KEY = 'all_discussions';
 const CACHE_TTL = 3600;
 

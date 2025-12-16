@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import cloudinary from "../config/cloudinary.js";
@@ -6,11 +5,10 @@ import sendOtp from "../lib/helper.js";
 import sendMailersendEmail from "../config/nodemailer.js";
 import crypto from "crypto";
 import cacheClient from "../services/cacheClient.js";
+import { prisma } from "../lib/prisma.js";
 
-const prisma = new PrismaClient();
 const JWT_SECRET = process.env.JWT_SECRET;
 const isProduction = process.env.NODE_ENV === "production";
-const CACHE_TTL = 3600;
 
 const generateToken = (userid) =>
   jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
