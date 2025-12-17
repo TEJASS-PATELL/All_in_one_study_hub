@@ -3,7 +3,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export async function generateRoadmap(profileData) {
   try {
-    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({  model: "gemini-3-pro-preview" });
     const prompt = `
 You are an expert career coach and industry mentor. Based on the user's profile below, create a **highly detailed, practical, and actionable preparation roadmap**.
 
@@ -62,7 +62,7 @@ Example output format:
     `;
 
     const result = await model.generateContent(prompt);
-    let text = await result.response.text();
+    let text = result.response.text();
 
     text = text.trim();
     if (text.startsWith("```")) {

@@ -16,18 +16,15 @@ export default function ChatBot() {
 
   const handleSend = async () => {
     if (!input.trim()) return;
-    console.log("gg")
 
     const userMsg = { sender: "user", text: input };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
-    const reply = await AIreply(input, [...messages, userMsg]);
-    
-    if (reply) {
-      console.log("gg")
+    try {
+      const reply = await AIreply(input, [...messages, userMsg]);
       setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
-    } else {
+    } catch (err) {
       setMessages((prev) => [...prev, { sender: "bot", text: "Something went wrong. Try again later." }]);
     }
   };
@@ -48,7 +45,7 @@ export default function ChatBot() {
           <div className="chat-window">
             {messages.map((msg, i) => (
               <div key={i} className={`message ${msg.sender}`}>
-                <ReactMarkdown>{isAuthenticated ? msg.text : "Please Login First"}</ReactMarkdown>
+                <ReactMarkdown skipHtml>{isAuthenticated ? msg.text : "Please Login First"}</ReactMarkdown>
               </div>
             ))}
             {isLoading && <div className="message bot">Typing...</div>}
