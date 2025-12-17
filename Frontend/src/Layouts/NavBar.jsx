@@ -33,7 +33,7 @@ export default function NavBar() {
           <li><button onClick={() => scrollToSection("features")}>Features</button></li>
           <li><Link className='ai-tools' to="/ai-tools">AI Tools</Link></li>
           <li><Link className='platform' to="/it-jobs/ITjobsearch-platform">Job-Search</Link></li>
-          <li><button onClick={() => scrollToSection("footer")}>Contact</button></li>
+          <li><Link className='home' to="/dashboard/roadmap">RoadMap</Link></li>
           <li><button onClick={() => scrollToSection("faq")}>FAQ's</button></li>
         </ul>
 

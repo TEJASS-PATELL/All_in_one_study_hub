@@ -32,7 +32,7 @@ const ExamMetadataAccordion = ({ exam }) => {
             <ul className="pattern-list">
               {examPattern.map((pattern, idx) => (
                 <li key={idx} className="pattern-item">
-                  <FaCheckCircle style={{ marginRight: 8, color: 'green' }} />
+                  <FaCheckCircle style={{ marginRight: 8, color: 'blue' }} />
                   {pattern}
                 </li>
               ))}
@@ -91,7 +91,7 @@ const ExamMetadataAccordion = ({ exam }) => {
           <ul className="eligibility-list">
             {eligibility.map((item, idx) => (
               <li key={idx} className="eligibility-item">
-                <Dot size={18} color="green" style={{ marginRight: 6 }} />
+                <Dot size={24} color="blue" style={{ marginRight: 6 }} />
                 {item}
               </li>
             ))}

@@ -18,7 +18,7 @@ const BenefitsSection = () => {
     {
       title: 'Practice Platforms',
       desc:
-        'Boost your readiness with mock tests, quizzes, and topic-wise practice tools.',
+        'Boost your readiness with mock tests, quizzes, and topic-wise practice tools with 20+ platforms.',
       icon: <i className="fas fa-pencil-alt"></i>,
     },
     {
@@ -26,6 +26,12 @@ const BenefitsSection = () => {
       desc:
         'Get structured exam information across government, private, and IT categories.',
       icon: <i className="fas fa-layer-group"></i>,
+    },
+    {
+      title: 'Personalized Daily Planner',
+      desc:
+        'Use the dashboard to create daily study tasks, manage goals, and track your overall preparation progress efficiently.',
+      icon: <i className="fas fa-clipboard-list"></i>,
     },
     {
       title: 'AI Tools Access',
@@ -77,5 +83,4 @@ const BenefitsSection = () => {
     </section>
   );
 };
-
 export default BenefitsSection;

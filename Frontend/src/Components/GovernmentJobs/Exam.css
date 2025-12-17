@@ -108,12 +108,12 @@
 .exam-title {
   font-size: 22px;
   font-weight: 600;
-  color: #111827;
+  color: #000000;
   margin-bottom: 6px;
 }
 
 .exam-desc {
-  font-size: 15px;
+  font-size: 16px;
   color: #000000;
   line-height: 1.65;
 }
@@ -121,7 +121,7 @@
 .exam-link {
   display: inline-block;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #0044ff;
   text-decoration: underline;
@@ -140,7 +140,7 @@
 }
 
 .accordion-wrapper {
-  margin-top: 16px;
+  margin-top: 10px;
   display: none;
 }
 
