@@ -9,12 +9,11 @@ const Members = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    (async () => {
+    (async () => { 
       await allUsers(); 
       setLoading(false);
     })();
   }, [allUsers]);
-  console.log(users);
 
   if (loading) return <Loading />;
 
@@ -32,15 +31,9 @@ const Members = () => {
               <img src={user.profilepic || "/user.png"} alt="User Avatar" className="avatar" />
               <div className="user-info">
                 <span className="user-name">{user.name}</span>
-                <span className="user-date">
-                  Joined: {new Date(user.createdAt).toLocaleDateString("en-IN")}
-                </span>
+                <span className="user-date"> Joined: {new Date(user.createdAt).toLocaleDateString("en-IN")}</span>
                 <span className={`user-status ${user.isLogin ? "active" : "inactive"}`}>
-                  {user.isLogin
-                    ? "Active now"
-                    : user.lastLogout
-                      ? `Last seen: ${new Date(user.lastLogout).toLocaleDateString("en-IN")}`
-                      : "Status unavailable"}
+                  {user.isLogin ? "Active now" : user.lastLogout ? `Last seen: ${new Date(user.lastLogout).toLocaleDateString("en-IN")}` : "Status unavailable"}
                 </span>
               </div>
             </div>
