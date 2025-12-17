@@ -129,8 +129,8 @@ form {
 }
 
 .todo-counter {
-  font-size: 12px;
-  color: #666;
+  font-size: 15px;
+  color: #000000;
   margin-top: 8px;
 }
 
@@ -140,9 +140,23 @@ form {
   top: 40px;
 }
 
+.todo-complete-btn {
+  background: none;
+  border: none;
+  z-index: 9999;
+  color: #000000;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.todo-text.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
 .progress-container .CircularProgressbar {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
 }
 
 @media (max-width: 900px) {
