@@ -28,8 +28,7 @@ const PracticeExam = () => {
                     placeholder="Search platforms or exams..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-input"
-                />
+                    className="search-input" />
             </section>
 
             <section className="test-grid">
@@ -40,12 +39,7 @@ const PracticeExam = () => {
                             <p className="test-infoo">{p.exams}</p>
                             <p className="test-attempts"> <FaUsers style={{ marginRight: '7px' }} />{p.users}</p>
                             <p className="test-info">{p.desc}</p>
-                            <a
-                                href={p.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="take-test-btn"
-                            >
+                            <a href={p.link} target="_blank" rel="noopener noreferrer" className="take-test-btn">
                                 <FaGlobe style={{ marginRight: '6px' }} /> Visit Platform
                             </a>
                         </div>

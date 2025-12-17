@@ -6,7 +6,7 @@ const BenefitsSection = () => {
     {
       title: 'Multiple Job Platforms',
       desc:
-        'Explore opportunities from various job portals including IT, private and government sectors — all in one place.',
+        'Explore opportunities from various job portals including IT, private and government sectors all in one place.',
       icon: <i className="fas fa-laptop-code"></i>,
     },
     {
@@ -24,7 +24,8 @@ const BenefitsSection = () => {
     {
       title: 'Category-Wise Exam Insights',
       desc:
-        'Get structured exam information across government, private, and IT categories.',
+  'Get structured exam information across government, private, and IT categories clearly and reliably.',
+
       icon: <i className="fas fa-layer-group"></i>,
     },
     {
@@ -41,20 +42,17 @@ const BenefitsSection = () => {
     },
     {
       title: 'Roadmap Builder',
-      desc:
-        'Create a personalized roadmap to achieve your professional goals step-by-step.',
+     desc: 'Create a personalized roadmap to achieve your professional goals step-by-step efficiently and confidently.',
       icon: <i className="fas fa-route"></i>,
     },
     {
       title: 'Share Your Journey',
-      desc:
-        'Inspire others by sharing your career stories, exam experiences, and tips.',
+      desc:'Inspire others by sharing your career stories, exam experiences, and tips confidently and authentically.',
       icon: <i className="fas fa-users"></i>,
     },
     {
       title: 'Upcoming Features',
-      desc:
-        'Exciting updates like AI-powered interview simulator and live chat coming soon.',
+      desc:'Exciting updates like AI-powered virtual interview simulator and live chat  coming soon worldwide.',
       icon: <i className="fas fa-hourglass-half"></i>,
     },
   ];
