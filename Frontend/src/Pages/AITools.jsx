@@ -137,7 +137,7 @@ const aiCategories = [
 const AITools = () => {
   return (
     <section className="ai-section" aria-label="Top AI Tools by Category">
-      <h1 className="section-title">Top AI Tools by Category</h1>
+      <h1 className="it-section-title">Top AI Tools by Category</h1>
 
       <p className="ai-detail">
         Discover powerful <span>AI tools</span> for every task — from smart

@@ -294,9 +294,7 @@
 .itplatform-job-card a:hover {
   background-color: var(--primary-hover-color);
   cursor: pointer;
-  transform: scale(1.05);
 }
-
 
 @media (max-width: 768px) {
   .itplatform-job-page h1 {

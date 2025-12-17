@@ -6,9 +6,10 @@
   color: #000000;
 }
 
-.section-title {
+.it-section-title {
   font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -16,7 +17,7 @@
   font-size: 1.35rem;
   line-height: 1.5;
   max-width: 1250px;
-  margin: 10px auto 40px;
+  margin: 0px auto 40px;
   text-align: center;
 }
 

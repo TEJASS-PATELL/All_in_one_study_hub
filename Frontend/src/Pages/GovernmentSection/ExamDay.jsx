@@ -1,6 +1,5 @@
 import React from "react";
 import "./ExamDay.css";
-import { FaClock, FaCheckCircle, FaBrain, FaListAlt, FaRegSmile, FaSyncAlt, FaLightbulb, FaUserShield } from "react-icons/fa";
 
 const ExamDay = () => {
   return (
@@ -8,139 +7,132 @@ const ExamDay = () => {
       <header className="strategy-header">
         <h1>Ultimate Exam-Day Strategy</h1>
         <p>
-          Maximize your performance with proven strategies for question selection, time management, and pressure control.
+          A clear, practical plan to help you maximize marks through smarter question selection,
+          disciplined time control, and calm decision-making under pressure.
         </p>
       </header>
 
       <section className="strategy-cards">
-
         <div className="strategy-card">
-          <FaCheckCircle className="strategy-icon" />
           <h2>1. Smart Question Selection</h2>
           <p>
-            Don’t dive into the paper blindly. Start with sections you're most confident in. Categorize questions as:
+            Never start an exam randomly. Your first few minutes decide momentum. Quickly identify
+            where you are strongest and build confidence early.
           </p>
           <ul>
-            <li><strong>Easy :</strong> Attempt immediately.</li>
-            <li><strong>Moderate :</strong> Attempt after easy ones.</li>
-            <li><strong>Difficult :</strong> Skip & revisit if time allows.</li>
-            <li><strong>Trap Questions :</strong> Avoid overthinking or spending too long — move on quickly.</li>
+            <li><strong>Easy:</strong> Solve immediately to secure quick marks.</li>
+            <li><strong>Moderate:</strong> Attempt once momentum is built.</li>
+            <li><strong>Difficult:</strong> Skip initially and revisit later.</li>
+            <li><strong>Trap questions:</strong> If clarity doesn’t come fast, move on.</li>
           </ul>
           <p>
-            This reduces time wasted on tough questions early on and boosts confidence right away.
+            This approach prevents early time drain and keeps your confidence high throughout the paper.
           </p>
         </div>
 
         <div className="strategy-card">
-          <FaClock className="strategy-icon" />
-          <h2>2. Time Management Plan</h2>
+          <h2>2. Structured Time Management</h2>
           <p>
-            Divide total exam duration smartly. For example, in a 3-hour paper:
+            Time is fixed; marks are flexible. Plan your exam in blocks so no section dominates unfairly.
           </p>
           <ul>
-            <li><strong>First 10 mins : </strong> Quick scan of the entire paper.</li>
-            <li><strong>Next 90 mins : </strong> Solve all easy and known questions.</li>
-            <li><strong>Next 50 mins : </strong> Attempt moderate/difficult questions.</li>
-            <li><strong>Last 10 mins : </strong> Review flagged/left-out questions.</li>
+            <li><strong>First 10 minutes:</strong> Scan the full paper and mark priorities.</li>
+            <li><strong>Next 50–60% time:</strong> Complete all easy and familiar questions.</li>
+            <li><strong>Remaining time:</strong> Tackle moderate and selected difficult ones.</li>
+            <li><strong>Last 5–10 minutes:</strong> Review and finalize answers.</li>
           </ul>
           <p>
-            Use a timer/watch to track progress and avoid spending too long on a single section.
+            Keep an eye on the clock and set a mental limit per question to avoid over-investment.
           </p>
         </div>
 
         <div className="strategy-card">
-          <FaBrain className="strategy-icon" />
-          <h2>3. Pressure Handling Techniques</h2>
+          <h2>3. Control Exam Pressure</h2>
           <p>
-            Exam halls can trigger panic. Master emotional control:
+            Stress impacts accuracy, recall, and decision-making more than most students realize.
+            Managing pressure is not about eliminating stress completely, but about keeping it within
+            a controllable range so your preparation can actually work.
           </p>
           <ul>
-            <li>Take 3 deep breaths before the test begins.</li>
-            <li>If you blank out, close your eyes and re-center for 5 seconds.</li>
-            <li>Remind yourself: “I've prepared. I can do this.”</li>
-          </ul>
-          <p>
-            A calm brain works faster and makes fewer mistakes.
-          </p>
-        </div>
-
-        <div className="strategy-card">
-          <FaListAlt className="strategy-icon" />
-          <h2>4. Follow a Clear Attempt Order</h2>
-          <p>
-            Don’t break flow by jumping across sections randomly. Plan your section order in advance.
-            If it’s a mixed paper, always:
-          </p>
-          <ul>
-            <li>Attempt high-scoring topics first.</li>
-            <li>Leave negative-marking risky questions last.</li>
-            <li>Keep 5–10 minutes at the end for quick revision and unanswered questions.</li>
-            <li>Mark tough questions to revisit later instead of wasting time initially.</li>
+            <li>Before starting, take 3–4 slow breaths to settle your heartbeat.</li>
+            <li>If your mind goes blank, stop writing, pause for 5 seconds, and restart step-by-step.</li>
+            <li>Break difficult questions into smaller logical steps instead of rushing.</li>
+            <li>Use calm internal reminders to avoid panic-driven mistakes.</li>
           </ul>
         </div>
 
         <div className="strategy-card">
-          <FaRegSmile className="strategy-icon" />
-          <h2>5. Keep Your Mind & Body Fresh</h2>
+          <h2>4. Maintain a Clear Attempt Order</h2>
           <p>
-            The night before matters! Sleep at least 6–7 hours, avoid junk food, and stay hydrated.
-            On exam day:
+            A fixed attempt order keeps your brain in flow mode. Random switching between sections
+            increases fatigue and wastes mental energy that should be used for solving.
           </p>
           <ul>
-            <li>Reach early to avoid last-minute stress.</li>
-            <li>Carry all required documents and stationery.</li>
-            <li>Eat a light, nutritious breakfast.</li>
+            <li>Begin with sections you have practiced the most.</li>
+            <li>Secure guaranteed marks before moving to uncertain areas.</li>
+            <li>Leave negative-marking or time-consuming questions for later rounds.</li>
+            <li>Mark difficult questions and return only if time permits.</li>
+            <li>Follow the same order you practiced during mock tests.</li>
+          </ul>
+        </div>
+
+        <div className="strategy-card">
+          <h2>5. Keep Mind and Body Exam-Ready</h2>
+          <p>
+            Preparation doesn’t end with studying. Physical readiness matters on exam day.
+          </p>
+          <ul>
+            <li>Sleep at least 6–7 hours the night before.</li>
+            <li>Eat light, nutritious food and stay hydrated.</li>
+            <li>Arrive early with all required documents.</li>
           </ul>
           <p>
-            A calm and well-rested mind performs far better under pressure than an exhausted one.
+            A rested body supports sharper thinking and better concentration.
           </p>
         </div>
 
         <div className="strategy-card">
-          <FaSyncAlt className="strategy-icon" />
-          <h2>6. Adapt on the Spot</h2>
+          <h2>6. Adapt to the Paper in Real Time</h2>
           <p>
-            If the paper is tougher than expected, stay flexible. Everyone's facing it, not just you.
+            If the paper feels difficult, remember it’s the same for everyone. Adapt, don’t panic.
           </p>
           <ul>
-            <li>Adjust your attempt plan based on paper difficulty.</li>
-            <li>Don’t panic if section order or pattern changes slightly.</li>
-            <li>Focus on accuracy over speed when the paper feels challenging.</li>
+            <li>Re-prioritize questions based on difficulty.</li>
+            <li>Slow down slightly to improve accuracy.</li>
+            <li>Stick to logic, not emotions.</li>
           </ul>
           <p>
-            Stay calm, trust your preparation, and handle unexpected twists with confidence.
+            Smart adaptation often matters more than raw speed.
           </p>
         </div>
 
         <div className="strategy-card">
-          <FaLightbulb className="strategy-icon" />
-          <h2>7. Use Elimination Tactics</h2>
+          <h2>7. Apply Elimination Techniques</h2>
           <p>
-            When unsure of an answer, don’t guess blindly. Narrow down choices by:
+            When unsure, avoid blind guessing. Use logic to improve probability.
           </p>
           <ul>
-            <li>Eliminating obviously wrong options first.</li>
-            <li>Looking for logical contradictions in remaining choices.</li>
-            <li>Using formulas or rough work to support educated guesses.</li>
+            <li>Eliminate clearly incorrect options.</li>
+            <li>Check units, signs, and extreme values.</li>
+            <li>Use rough calculations to support choices.</li>
           </ul>
           <p>
-            This technique increases your odds in MCQs and reduces negative marking risk.
+            This reduces negative marking and increases MCQ accuracy.
           </p>
         </div>
 
         <div className="strategy-card">
-          <FaUserShield className="strategy-icon" />
-          <h2>8. Secure a Buffer Zone</h2>
+          <h2>8. Keep a Safety Buffer</h2>
           <p>
-            Always aim to finish 5–10 minutes early. This safety margin helps you:
+            Aim to finish early. A buffer is your insurance against mistakes and surprises.
           </p>
           <ul>
-            <li>Double-check calculations or logical steps.</li>
-            <li>Fix bubbling errors in OMR sheets or digital interfaces.</li>
-            <li>Calmly handle last-minute surprises or technical issues.</li>
+            <li>Recheck calculations and assumptions.</li>
+            <li>Verify answer marking or submission steps.</li>
+            <li>Use remaining time to improve clarity and presentation of answers.</li>
           </ul>
           <p>
-            This habit can save precious marks and avoid silly mistakes.
+            Many top scores are decided in the final review minutes.
           </p>
         </div>
       </section>

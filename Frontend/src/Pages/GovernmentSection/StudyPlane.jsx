@@ -1,24 +1,6 @@
 import React, { useState } from "react";
-import "./StudyPlan.css"; 
+import "./StudyPlan.css";
 import { BarChart2, Brain, Calendar1Icon, Flame, Focus, Leaf, RefreshCcw, Target, Zap } from "lucide-react";
-
-const tips = [
-  "Plan your day the night before. It reduces decision fatigue and sets a clear path for the morning.",
-  "Use 25–5 Pomodoro bursts for intense focus. Short breaks prevent burnout and maintain high energy.",
-  "Don’t chase motivation, build discipline by showing up daily, even when you don't feel like it.",
-  "Mornings are for deep work—protect them fiercely. Schedule your most demanding tasks first.",
-  "Use ‘Time Blocking’ to assign every hour a task. This creates structure and accountability.",
-  "Rest is productive—schedule short breaks (5-10 mins every hour) and full reset days (1 day/week).",
-  "Reflect weekly: What worked? What didn’t? What will you improve next week? Continuous improvement is key.",
-  "Batch similar tasks (e.g., emails, errands, research) to reduce context switching and improve efficiency.",
-  "Start with the hardest task (Eat That Frog). Accomplishing it first builds momentum for the rest of the day.",
-  "Track your energy levels throughout the day to optimize study sessions. Schedule demanding tasks for peak energy times.",
-  "Use the 80/20 rule (Pareto Principle): Focus on the 20% of activities that yield 80% of the results.",
-  "Hydrate and eat nutritious snacks. Your brain needs fuel to perform optimally.",
-  "Practice active recall instead of passive re-reading. Test yourself frequently.",
-  "Teach what you learn. Explaining concepts to others solidifies your own understanding.",
-  "Break down large projects into smaller, manageable steps to avoid overwhelm and maintain motivation."
-];
 
 const StudyPlan = () => {
   const [sections, setSections] = useState({
@@ -40,13 +22,11 @@ const StudyPlan = () => {
     <>
       <div className="Gstudy-plan-wrapper">
         <section className="Gwhy-time-matters">
-           <h1>Become the Master of Your Time</h1>
+          <h1>Control Your Time Before It Controls You</h1>
           <p>
-            Time is your most valuable, non-renewable asset. Mastering it doesn't
-            just improve grades; it reduces stress, prevents burnout, and unlocks
-            your true potential. The most successful students aren't necessarily
-            the busiest—they are the most <strong>Intentional</strong> and{" "}
-            <strong>Strategic</strong> with their time.
+            Time is non-renewable. Used poorly, it creates stress; used well, it builds
+            momentum and confidence. High-performing students don’t stay busy — they stay
+            intentional, focused, and strategic with every hour.
           </p>
         </section>
       </div>
