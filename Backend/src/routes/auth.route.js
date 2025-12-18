@@ -2,7 +2,7 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import passport from "../config/passport.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
-import { signup, login, logout, getuser, alluser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } from "../controllers/auth.controller.js";
+import { signup, login, logout, getuser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } from "../controllers/auth.controller.js";
 import { prisma } from "../lib/prisma.js";
 const router = express.Router();
 
