@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaSignOutAlt, FaHome, FaUsers, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck } from "react-icons/fa";
+import { FaSignOutAlt, FaHome, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck } from "react-icons/fa";
 import { useAuthStore } from "../../Store/useAuthStore";
 import ImageUpload from "../../Components/ImageUpload";
 import "./Sidebar.css";
@@ -36,7 +36,6 @@ const Sidebar = () => {
         <NavLink to="/" className="dashboard-nav-item"><FaHome /> Home</NavLink>
         <NavLink to="/dashboard" className="dashboard-nav-item"><FaClipboardCheck />Daily-Task</NavLink>
         <NavLink to="/dashboard/roadmap" className="dashboard-nav-item"><FaMapSigns /> Roadmap</NavLink>
-        <NavLink to="/dashboard/members" className="dashboard-nav-item"><FaUsers /> Members</NavLink>
         <NavLink to="/dashboard/discussion" className="dashboard-nav-item"><FaComments /> Discussion</NavLink>
         <NavLink to="/dashboard/chatroom" className="dashboard-nav-item"><FaPaperPlane /> ChatRoom</NavLink>
         <NavLink to="/dashboard/ai-interview" className="dashboard-nav-item"><FaRobot /> AI-Interview</NavLink>

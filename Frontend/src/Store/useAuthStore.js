@@ -193,15 +193,4 @@ export const useAuthStore = create((set) => ({
     }
   },
 
-  allUsers: async () => {
-    try {
-      const res = await axios.get("/api/auth/allusers");
-      set({users : res.data})
-      return res.data; 
-    } catch (error) {
-      toast.error(error?.response?.data?.message || "Failed to fetch users");
-      return [];
-    }
-  }
-
 }));

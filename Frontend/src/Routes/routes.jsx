@@ -24,7 +24,6 @@ import ResetPassword from "../Components/ResetPassword";
 import VerifyAccount from "../Components/VerifyEmail";
 const Roadmap = lazy(() => import("../Layouts/DashboardLayout/Roadmap"));
 const TodoPage = lazy(() => import("../Layouts/DashboardLayout/TodoPage"));
-const Members = lazy(() => import("../Layouts/DashboardLayout/Members"));
 const Layout = lazy(() => import("../Layouts/Layout"));
 const DashboardLayout = lazy(() => import("../Layouts/DashboardLayout/DashboardLayout"));
 
@@ -42,7 +41,6 @@ export const routers = [
         element: <ProtectedRoute />,
         children: [
           { path: "roadmap", element: <Roadmap /> },
-          { path: "members", element: <Members /> },
           { index: true, element: <TodoPage /> },
           { path: "discussion", element: <Discussion /> },
           { path: "chatroom", element: <ComingSoon /> },
