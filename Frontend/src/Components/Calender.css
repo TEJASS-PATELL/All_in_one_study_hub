@@ -1,0 +1,96 @@
+.box {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  color: #000;
+  z-index: 9999;
+}
+
+.calendar {
+  width: 340px;
+  height: 210px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.calendar1 {
+  width: 60%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #000;
+  font-size: 22px;
+}
+
+.calendar2 {
+  width: 40%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+#date {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+#day {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #000;
+  color: #fff;
+  width: 110px;
+  padding: 6px 0;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 18px;
+}
+
+.label-row {
+  display: flex;
+  gap: 14px;
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+
+#month {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#year {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .calendar {
+    width: 100%;
+    max-width: 320px;
+  }
+}

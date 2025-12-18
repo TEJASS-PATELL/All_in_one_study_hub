@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import "./TodoPage.css";
+import { Calendar } from "lucide-react";
+import Calender from "../../Components/Calender";
 
 const MAX_TASKS = 10;
 
@@ -48,11 +50,7 @@ const TodoPage = () => {
   };
 
   const handleCompleteTodo = (index) => {
-    setTodos(prev =>
-      prev.map((todo, i) =>
-        i === index ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    setTodos(prev => prev.map((todo, i) => i === index ? { ...todo, completed: !todo.completed } : todo));
   };
 
   const handleDeleteTodo = (index) => {
@@ -60,7 +58,7 @@ const TodoPage = () => {
   };
 
   const getProgressColor = (value) => {
-    if (value === 100){
+    if (value === 100) {
       toast.success("Awesome! You’ve completed all your daily tasks. Great job!");
       return "black";
     }
@@ -118,17 +116,20 @@ const TodoPage = () => {
       </main>
 
       <div className="progress-container">
-        <CircularProgressbar
-          value={progressValue}
-          text={`${progressValue}%`}
-          styles={buildStyles({
-            pathTransitionDuration: 0.6,
-            pathTransition: "ease-in-out",
-            pathColor: getProgressColor(progressValue),
-            textColor: "#111827",
-            trailColor: "#e5e7eb",
-          })}
-        />
+        <div className="progress-fixed">
+          <CircularProgressbar
+            value={progressValue}
+            text={`${progressValue}%`}
+            styles={buildStyles({
+              pathTransitionDuration: 0.6,
+              pathTransition: "ease-in-out",
+              pathColor: getProgressColor(progressValue),
+              textColor: "#111827",
+              trailColor: "#e5e7eb",
+            })}
+          />
+        </div> 
+        <Calender />
       </div>
     </section>
   );
