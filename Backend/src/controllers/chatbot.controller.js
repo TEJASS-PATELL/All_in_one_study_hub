@@ -9,7 +9,7 @@ if (!GEMINI_API_KEY) {
 }
 
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 export const chatbot = async (req, res) => {
   try {
@@ -19,18 +19,10 @@ export const chatbot = async (req, res) => {
       return res.status(400).json({ error: "Invalid message" });
     }
 
-    const chat = model.startChat({
-      systemInstruction: { parts: [{ text: assistantAI }] },
-      history: [
-        {
-          role: "user",
-          parts: [{ text: message }],
-        },
-      ],
-    });
-
-    const result = await chat.sendMessage(message);
-    const text = result.response.text();
+    const prompt = `${assistantAI}\n\nUser: ${message}`;
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
 
     res.status(200).json({ reply: text.trim() });
   } catch (error) {
@@ -38,4 +30,3 @@ export const chatbot = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
-
