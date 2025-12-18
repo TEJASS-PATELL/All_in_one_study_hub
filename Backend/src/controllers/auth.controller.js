@@ -177,40 +177,6 @@ export const getuser = async (req, res) => {
   }
 };
 
-export const alluser = async (req, res) => {
-    const cacheKey = `all_users_list`; 
-    
-    try {
-        const cachedUsers = await cacheClient.get(cacheKey);
-        
-        if (cachedUsers) {
-            console.log("Serving ALL users from cache");
-            return res.status(200).json(JSON.parse(cachedUsers));
-        }
-
-        const users = await prisma.user.findMany({
-            select: {
-                id: true,
-                name: true,
-                email: true,
-                createdAt: true,
-                profilepic: true,
-                lastLogout: true,
-                isLogin: true,
-            },
-        });
-
-        if (users.length > 0) {
-            await cacheClient.set(cacheKey, JSON.stringify(users), 'EX', 3600); 
-        }
-
-        res.status(200).json(users);
-    } catch (err) {
-        console.error("Error fetching all users:", err);
-        res.status(500).json({ msg: "Failed to fetch users", error: err.message });
-    }
-};
-
 export const updateprofile = async (req, res) => {
   try {
     const { image } = req.body;

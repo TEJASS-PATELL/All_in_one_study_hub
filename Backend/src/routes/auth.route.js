@@ -12,7 +12,6 @@ router.get("/logout", authMiddleware, logout);
 router.put("/upload-profile", authMiddleware, updateprofile); 
 router.delete("/delete-account", authMiddleware, deleteAccount); 
 router.get("/getuser", authMiddleware, getuser); 
-router.get("/allusers", alluser);  
 router.post("/send-reset-link", sendPasswordResetLink);
 router.patch("/reset-password/:token", resetPassword);
 router.post("/send-verify-otp", sendVerifyOtp);
