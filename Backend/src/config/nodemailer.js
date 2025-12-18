@@ -7,7 +7,7 @@ const mailersend = new MailerSend({
 const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
   try {
     const senderAddress = process.env.MAIL_FROM_ADDRESS;
-    const senderName = process.env.MAIL_SENDER_NAME || "Your Study Hub";
+    const senderName = "Your Study Hub";
 
     if (!senderAddress || senderAddress.trim() === "") {
       console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
@@ -35,4 +35,4 @@ const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
   }
 };
 
-export default sendMailersendEmail
+export default sendMailersendEmail;

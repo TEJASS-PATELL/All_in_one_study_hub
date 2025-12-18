@@ -1,5 +1,5 @@
 import './Footer.css';
-import { FaBriefcase, FaEnvelope, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { FaEnvelope, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import React from "react";
 
 const Footer = () => {
@@ -8,13 +8,6 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-bottom">
           <div className="social-links">
-            <a href="https://portfolio-sooty-six-82.vercel.app"
-              className="social-link"
-              target="_blank"
-              rel="noopener noreferrer">
-              <FaBriefcase size={30} />
-            </a>
-
             <a
               href="https://mail.google.com/mail/?view=cm&to=tejasspatell2@gmail.com"
               target="_blank"
