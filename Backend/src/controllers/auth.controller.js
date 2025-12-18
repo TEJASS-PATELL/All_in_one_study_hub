@@ -6,6 +6,7 @@ import sendMailersendEmail from "../config/nodemailer.js";
 import crypto from "crypto";
 import cacheClient from "../services/cacheClient.js";
 import { prisma } from "../lib/prisma.js";
+import { extractImageId } from "../config/extractImageId.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const isProduction = process.env.NODE_ENV === "production";
@@ -198,38 +199,32 @@ export const updateprofile = async (req, res) => {
 }
 
 export const deleteAccount = async (req, res) => {
-  const userId = req.user.userid;
-
-  const userCacheKey = `user:${userId}`;
-  const allUsersCacheKey = `all_users_list`;
   try {
-
+    const userId = req.user?.userid;
     if (!userId) {
-      return res.status(401).json({ msg: "Unauthorized – user ID not found" });
+      return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    const user = await prisma.user.findUnique({ where: { id: userId } });
-    if (!user) return res.status(404).json({ msg: "User not found" });
+    const user = await prisma.user.findUnique({ where: { id: userId }, select: { profilepic: true }});
 
-    if (user.profilepic) {
-      try {
-        const publicId = user.profilepic.split("/").pop().split(".")[0];
-        await cloudinary.uploader.destroy(`users_profile/${publicId}`);
-      } catch (err) {
-        console.warn("Cloudinary image delete failed:", err.message);
-      }
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
     }
-    await prisma.roadmap.deleteMany({ where: { userId } });
-    await prisma.discussion.deleteMany({ where: { userId } });
-    await prisma.like.deleteMany({ where: { userId } });
 
     await prisma.user.delete({ where: { id: userId } });
-
-    await cacheClient.del(userCacheKey, allUsersCacheKey);
-
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 });
+    res.status(200).json({ msg: "Account deleted successfully" });
 
-    return res.status(200).json({ msg: "Account deleted successfully" });
+    if (user.profilepic) {
+      const publicId = extractImageId(user.profilepic);
+      if (publicId) { 
+        cloudinary.uploader.destroy(publicId).catch(err => {
+            console.error("Cloudinary delete failed:", err.message);
+          });
+      }
+    }
+
+    cacheClient.del(`user:${userId}`, "all_users_list").catch(console.error);
   } catch (err) {
     console.error("Delete Account Error:", err);
     return res.status(500).json({ msg: "Error while deleting account" });

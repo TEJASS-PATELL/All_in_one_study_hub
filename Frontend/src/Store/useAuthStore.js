@@ -146,7 +146,7 @@ export const useAuthStore = create((set) => ({
   deleteAccount: async () => {
     try {
       await axios.delete("/api/auth/delete-account");
-      set({ authUser: null, isAuthenticated: false });
+      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isLoading: false });
       toast.success("Account deleted");
     } catch (err) {
       toast.error("Error deleting account");

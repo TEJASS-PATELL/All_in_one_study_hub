@@ -6,13 +6,12 @@ import { useAuthStore } from "../Store/useAuthStore";
 
 export default function NavBar() {
   const navigate = useNavigate();
-  const { authUser, fetchUser, isEmailVerify } = useAuthStore();
+  const { authUser, fetchUser } = useAuthStore();
 
   useEffect(() => {
-    if (!authUser) {
-      fetchUser();
-    }
-  }, [authUser, fetchUser]);
+    if (authUser === null) return;
+    fetchUser();
+  }, []);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -38,7 +37,7 @@ export default function NavBar() {
         </ul>
 
         <div className="Lnavbar-auth-buttons">
-          {!authUser && !isEmailVerify ? (
+          {!authUser ? (
             <Link to="/login" className="Llogin-btn">Login</Link>
           ) : (
             <button className="Lprofile-btn" onClick={handleProfileClick}>
