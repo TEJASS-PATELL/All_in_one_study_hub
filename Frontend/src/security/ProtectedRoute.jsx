@@ -1,10 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
 import { useAuthStore } from "../Store/useAuthStore";
 import React from "react";
+import Loading from "../Layouts/Loading";
 
 const ProtectedRoute = () => {
   const { authUser, isEmailVerify, isLoading } = useAuthStore();
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading />;
   return authUser && isEmailVerify ? <Outlet /> : <Navigate to="/login" replace />;
 };
 

@@ -17,7 +17,7 @@ const ITJobSection = lazy(() => import("../Pages/ItSection/ITJobSection"));
 const ITJobresources = lazy(() => import("../Pages/ItSection/ITJobresources"));
 const ForeignJobsPage = lazy(() => import("../Pages/ForeignJobsPage"));
 const JobSearch = lazy(() => import("../Pages/Home"));
-import ProtectedRoute from "../Components/ProtectedRoute";
+import ProtectedRoute from "../security/ProtectedRoute";
 import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
