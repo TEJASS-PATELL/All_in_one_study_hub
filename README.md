@@ -1,137 +1,133 @@
+Here is a professional and comprehensive GitHub README.md file tailored for your project.
+
 📚 All-in-One Study Hub
+All-in-One Study Hub is an AI-powered full-stack web ecosystem designed to streamline career preparation for students and freshers. Whether aiming for Government jobs, Private sector roles, or IT careers, this platform provides structured roadmaps, trusted resources, and AI-driven guidance—all in one place.
 
-An AI-powered full-stack web platform designed to help students and freshers prepare for Government, Private, and IT sector careers — all in one place.
+🚀 Key Features
+🎯 Comprehensive Career Preparation
+Targeted Sections: Dedicated pathways for Government, Private, and IT sectors.
 
-The platform focuses on structured guidance, trusted resources, time management, and AI assistance, solving the problem of scattered preparation materials and lack of clear roadmaps.
+Strategic Guidance: Exam-specific details, syllabus breakdowns, and preparation strategies.
 
-🚀 Features
-🎯 Exam & Career Preparation
+Resource Integration: Direct access to 20+ Government exam platforms for mock tests and PYQs.
 
-Dedicated Exam Sections for Government, Private & IT careers
-
-Exam-Wise Guidance with clear details, syllabus focus, and preparation strategy
-
-20+ Government Exam Platforms for mock tests and previous-year questions
-
-Private Sector Preparation including aptitude, reasoning, and company-specific resources
+Corporate Readiness: Comprehensive aptitude, reasoning, and company-specific preparation resources.
 
 💻 IT & Tech Career Support
+Curated IT Hub: Handpicked free YouTube learning paths for Web Development, DSA, Data Science, and Core IT skills.
 
-IT Preparation Hub with curated free YouTube channels for:
+Technology Explorer: In-depth insights into various technologies, including required skill sets and average salary data.
 
-Web Development
+Beginner Roadmaps: Step-by-step career paths for those starting from scratch in the tech industry.
 
-DSA
+🤖 AI-Powered Intelligence
+AI Roadmaps: Personalized career paths generated via the Gemini API.
 
-Data Science
+AI Chatbot: A 24/7 virtual assistant to resolve doubts and provide instant guidance.
 
-Core IT skills
-
-Technology Explorer Page:
-
-What to learn for each technology
-
-Required skills
-
-Average salary insights
-
-Beginner-friendly career roadmap
-
-🤖 AI-Powered Features
-
-AI Career Roadmaps generated using Gemini API
-
-AI Chatbot Assistant for instant guidance and doubts
-
-AI Tools Page with productivity and study-boosting tools
+AI Productivity Tools: A curated page featuring tools to boost study efficiency.
 
 ⏱️ Productivity & Planning
+Time Management System: Tools to help students manage their preparation schedules.
 
-Time Management System
+Personal Dashboard: A centralized hub for creating and tracking daily tasks.
 
-Personal Dashboard for creating and tracking daily tasks
+💼 Job & Interview Prep
+Job Search Aggregator: Links to 30+ job search platforms.
 
-💼 Job & Interview Preparation
+Career Building: Integrated resume builders, coding practice platforms, and mock interview resources.
 
-30+ Job Search Platforms
+Community Insights: A shared space where users post real-world interview and exam experiences.
 
-Resume builder websites
+🔐 Security & Authentication
+OTP Verification: Secure email-based signup and password recovery.
 
-Aptitude preparation resources
+Google OAuth: Seamless social login integration.
 
-Coding practice platforms
-
-Mock interview platforms
-
-🤝 Community
-
-Users can share job and exam experiences to help others
-
-🔐 Authentication & Security
-
-Email OTP-based signup
-
-Forgot password via secure email link
-
-Google OAuth login
-
-🚀 More
-
-Many additional features already present
-
-Continuous improvements and new features planned
-
-📝 Note
-
-⚠️ Responsiveness:
-Currently, the platform is best optimized for desktop view.
-Full mobile responsiveness is under development and will be added in upcoming updates.
+JWT Security: Robust session management using JSON Web Tokens.
 
 🛠️ Tech Stack
 Frontend
+React.js: UI components and logic.
 
-React.js
+Zustand: Lightweight and fast state management.
 
-Zustand (state management)
+React Hot Toast: For interactive and clean notifications.
 
-React Hot Toast (notifications)
+CSS: Custom responsive UI design.
 
-CSS (responsive UI design)
+Backend & Database
+Node.js & Express.js: Scalable REST API architecture.
 
-Backend
+PostgreSQL: Relational database for structured data.
 
-Node.js
+Prisma ORM: Type-safe database queries and schema management.
 
-Express.js (REST APIs & core logic)
+Redis: High-performance caching for optimized speed.
 
-Database
+Integration & Testing
+Gemini API: Powering the AI chatbot and roadmap generation.
+
+Cloudinary: Efficient media/image storage and optimization.
+
+Jest: Unit and integration testing.
+
+Mail Sender: Transactional emails for OTP and recovery.
+
+⚙️ Getting Started
+Prerequisites
+Node.js (v16 or higher)
 
 PostgreSQL
 
-Prisma ORM (type-safe queries & schema management)
+Redis (optional for local dev, recommended for production)
 
-Caching
+Installation
+Clone the Repository:
 
-Redis (performance optimization)
+Bash
 
-Testing
+git clone https://github.com/your-username/study-hub.git
+cd study-hub
+Install Backend Dependencies:
 
-Jest (unit & basic integration testing)
+Bash
 
-Cloud & Media
+cd server
+npm install
+Install Frontend Dependencies:
 
-Cloudinary (image upload, storage & optimization)
+Bash
 
-AI Integration
+cd ../client
+npm install
+Environment Setup: Create a .env file in the server directory and add your credentials:
 
-Gemini API (AI chatbot & career roadmap generation)
+DATABASE_URL
 
-Authentication & Email
+GEMINI_API_KEY
 
-Email OTP verification
+CLOUDINARY_URL
 
-JWT-based authentication
+JWT_SECRET
 
-Google OAuth
+EMAIL_USER / EMAIL_PASS
 
-Mail Sender (transactional emails)
+Run Migrations:
+
+Bash
+
+cd server
+npx prisma migrate dev
+Launch the App:
+
+Bash
+
+# Run Backend
+npm run start
+
+# Run Frontend (in a separate terminal)
+cd ../client
+npm run dev
+📝 Important Note
+[!WARNING] Responsiveness: The platform is currently optimized for Desktop View. Full mobile responsiveness is under active development and will be released in future updates.
