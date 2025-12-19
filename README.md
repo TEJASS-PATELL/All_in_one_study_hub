@@ -1,133 +1,96 @@
-Here is a professional and comprehensive GitHub README.md file tailored for your project.
+<div align="center">
 
-📚 All-in-One Study Hub
-All-in-One Study Hub is an AI-powered full-stack web ecosystem designed to streamline career preparation for students and freshers. Whether aiming for Government jobs, Private sector roles, or IT careers, this platform provides structured roadmaps, trusted resources, and AI-driven guidance—all in one place.
+# 📚 All-in-One Study Hub
+### *The Ultimate AI-Powered Ecosystem for Career Preparation*
 
-🚀 Key Features
-🎯 Comprehensive Career Preparation
-Targeted Sections: Dedicated pathways for Government, Private, and IT sectors.
+[![GitHub Stars](https://img.shields.io/github/stars/your-username/study-hub?style=for-the-badge&color=ffd700)](https://github.com/your-username/study-hub)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-Strategic Guidance: Exam-specific details, syllabus breakdowns, and preparation strategies.
+**Bridge the gap between learning and employment with structured roadmaps, trusted resources, and AI assistance.**
 
-Resource Integration: Direct access to 20+ Government exam platforms for mock tests and PYQs.
+[Explore Features](#-key-features) • [Tech Stack](#-tech-stack) • [Installation](#-getting-started)
 
-Corporate Readiness: Comprehensive aptitude, reasoning, and company-specific preparation resources.
+</div>
 
-💻 IT & Tech Career Support
-Curated IT Hub: Handpicked free YouTube learning paths for Web Development, DSA, Data Science, and Core IT skills.
+---
 
-Technology Explorer: In-depth insights into various technologies, including required skill sets and average salary data.
+## 📖 Overview
+**All-in-One Study Hub** is designed for students and freshers aiming for **Government, Private, and IT sector careers**. It solves the problem of scattered preparation materials by providing a unified platform with AI-driven roadmaps and community-driven insights.
 
-Beginner Roadmaps: Step-by-step career paths for those starting from scratch in the tech industry.
+---
 
-🤖 AI-Powered Intelligence
-AI Roadmaps: Personalized career paths generated via the Gemini API.
+## 🚀 Key Features
 
-AI Chatbot: A 24/7 virtual assistant to resolve doubts and provide instant guidance.
+### 🎯 **Career Preparation Hub**
+- **Sector-Specific Guidance:** Dedicated sections for **Govt, Private, & IT** sectors.
+- **Exam Strategy:** Clear details on syllabus focus and preparation roadmaps.
+- **Resource Integration:** Links to **20+ Govt Exam Platforms** for mock tests & PYQs.
+- **Corporate Readiness:** Specialized resources for **Aptitude, Reasoning, and Coding**.
 
-AI Productivity Tools: A curated page featuring tools to boost study efficiency.
+### 💻 **IT & Tech Support**
+- **Curated Learning:** Handpicked free YouTube tracks for **Web Dev, DSA, & Data Science**.
+- **Technology Explorer:** Real-world insights on **salary, required skills,** and beginner paths.
+- **Job Aggregator:** Direct access to **30+ top job search platforms**.
 
-⏱️ Productivity & Planning
-Time Management System: Tools to help students manage their preparation schedules.
+### 🤖 **AI-Powered Intelligence**
+- **AI Roadmaps:** Personalized career paths generated via **Gemini API**.
+- **AI Chatbot:** A 24/7 virtual assistant for instant doubt resolution.
+- **AI Toolset:** Specialized tools to boost daily productivity and focus.
 
-Personal Dashboard: A centralized hub for creating and tracking daily tasks.
+### 🔐 **Security & Community**
+- **Authentication:** Secure **OTP-based signup**, JWT sessions, and Google OAuth.
+- **Community Wall:** Share and learn from real **interview experiences** posted by peers.
+- **Personal Dashboard:** Track tasks and manage time with an integrated system.
 
-💼 Job & Interview Prep
-Job Search Aggregator: Links to 30+ job search platforms.
+---
 
-Career Building: Integrated resume builders, coding practice platforms, and mock interview resources.
+## 🛠️ Tech Stack
 
-Community Insights: A shared space where users post real-world interview and exam experiences.
+<table align="center">
+  <tr>
+    <td align="center" width="120">
+      <img src="https://skillicons.dev/icons?i=react" width="50" height="50" alt="React" />
+      <br /><b>React.js</b>
+    </td>
+    <td align="center" width="120">
+      <img src="https://skillicons.dev/icons?i=nodejs" width="50" height="50" alt="Node.js" />
+      <br /><b>Node.js</b>
+    </td>
+    <td align="center" width="120">
+      <img src="https://skillicons.dev/icons?i=express" width="50" height="50" alt="Express" />
+      <br /><b>Express.js</b>
+    </td>
+    <td align="center" width="120">
+      <img src="https://skillicons.dev/icons?i=postgres" width="50" height="50" alt="Postgres" />
+      <br /><b>PostgreSQL</b>
+    </td>
+    <td align="center" width="120">
+      <img src="https://skillicons.dev/icons?i=prisma" width="50" height="50" alt="Prisma" />
+      <br /><b>Prisma ORM</b>
+    </td>
+    <td align="center" width="120">
+      <img src="https://skillicons.dev/icons?i=redis" width="50" height="50" alt="Redis" />
+      <br /><b>Redis</b>
+    </td>
+  </tr>
+</table>
 
-🔐 Security & Authentication
-OTP Verification: Secure email-based signup and password recovery.
+**Other Tools:** Zustand, Cloudinary, Gemini API, Jest, JWT, NodeMailer.
 
-Google OAuth: Seamless social login integration.
+---
 
-JWT Security: Robust session management using JSON Web Tokens.
+## ⚙️ Getting Started
 
-🛠️ Tech Stack
-Frontend
-React.js: UI components and logic.
+### 📋 Prerequisites
+- **Node.js** (v16+)
+- **PostgreSQL** instance
+- **Gemini API Key**
 
-Zustand: Lightweight and fast state management.
+### 🔧 Installation Steps
 
-React Hot Toast: For interactive and clean notifications.
-
-CSS: Custom responsive UI design.
-
-Backend & Database
-Node.js & Express.js: Scalable REST API architecture.
-
-PostgreSQL: Relational database for structured data.
-
-Prisma ORM: Type-safe database queries and schema management.
-
-Redis: High-performance caching for optimized speed.
-
-Integration & Testing
-Gemini API: Powering the AI chatbot and roadmap generation.
-
-Cloudinary: Efficient media/image storage and optimization.
-
-Jest: Unit and integration testing.
-
-Mail Sender: Transactional emails for OTP and recovery.
-
-⚙️ Getting Started
-Prerequisites
-Node.js (v16 or higher)
-
-PostgreSQL
-
-Redis (optional for local dev, recommended for production)
-
-Installation
-Clone the Repository:
-
-Bash
-
-git clone https://github.com/your-username/study-hub.git
-cd study-hub
-Install Backend Dependencies:
-
-Bash
-
-cd server
-npm install
-Install Frontend Dependencies:
-
-Bash
-
-cd ../client
-npm install
-Environment Setup: Create a .env file in the server directory and add your credentials:
-
-DATABASE_URL
-
-GEMINI_API_KEY
-
-CLOUDINARY_URL
-
-JWT_SECRET
-
-EMAIL_USER / EMAIL_PASS
-
-Run Migrations:
-
-Bash
-
-cd server
-npx prisma migrate dev
-Launch the App:
-
-Bash
-
-# Run Backend
-npm run start
-
-# Run Frontend (in a separate terminal)
-cd ../client
-npm run dev
-📝 Important Note
-[!WARNING] Responsiveness: The platform is currently optimized for Desktop View. Full mobile responsiveness is under active development and will be released in future updates.
+1. **Clone the Project**
+   ```bash
+   git clone [https://github.com/your-username/study-hub.git](https://github.com/your-username/study-hub.git)
+   cd study-hub
