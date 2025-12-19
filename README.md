@@ -93,5 +93,6 @@
 <div align="center">
 
 Developed with ❤️ by Tejas Patel
+</div>
 Found this helpful? Give it a ⭐!
 </div>
