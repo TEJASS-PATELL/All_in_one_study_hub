@@ -88,9 +88,10 @@
 - **PostgreSQL** instance
 - **Gemini API Key**
 
-### 🔧 Installation Steps
+[!WARNING] Mobile Compatibility: This platform is currently optimized for Desktop View. Mobile responsiveness is being implemented in the upcoming version.
 
-1. **Clone the Project**
-   ```bash
-   git clone [https://github.com/your-username/study-hub.git](https://github.com/your-username/study-hub.git)
-   cd study-hub
+<div align="center">
+
+Developed with ❤️ by Tejas Patel
+Found this helpful? Give it a ⭐!
+</div>
