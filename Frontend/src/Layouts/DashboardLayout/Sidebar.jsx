@@ -1,7 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaSignOutAlt, FaHome, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck } from "react-icons/fa";
+import { FaSignOutAlt, FaHome, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck, FaUserCircle } from "react-icons/fa";
 import { useAuthStore } from "../../Store/useAuthStore";
-import ImageUpload from "../../Components/ImageUpload";
 import "./Sidebar.css";
 
 const Sidebar = () => {
@@ -23,7 +22,11 @@ const Sidebar = () => {
   return (
     <aside className="dashboard-sidebar">
       <div className="dashboard-user-info">
-        <ImageUpload />
+        <div className="avatar-upload">
+          <div className="avatar-wrapper">
+              <FaUserCircle className="avatar-img"/>
+          </div>
+        </div>
         <p className="username">{user?.name}</p>
         <p className="user-email">{user?.email}</p>
         <p className="user-joined">

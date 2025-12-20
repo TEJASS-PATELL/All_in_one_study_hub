@@ -126,23 +126,6 @@ export const useAuthStore = create((set) => ({
     }
   },
 
-  updateImage: async (UserImage) => {
-    try {
-      set({ isLoading: true });
-
-      const res = await axios.put("/api/auth/upload-profile", UserImage);
-      toast.success("Profile updated successfully");
-      return res.data;
-
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Profile update failed");
-      return false;
-
-    } finally {
-      set({ isLoading: false });
-    }
-  },
-
   deleteAccount: async () => {
     try {
       await axios.delete("/api/auth/delete-account");

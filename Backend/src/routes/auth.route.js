@@ -2,14 +2,13 @@ import express from "express";
 import jwt from "jsonwebtoken";
 import passport from "../config/passport.js";
 import authMiddleware from "../middlewares/auth.middleware.js";
-import { signup, login, logout, getuser, updateprofile, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } from "../controllers/auth.controller.js";
+import { signup, login, logout, getuser, deleteAccount, sendPasswordResetLink, resetPassword, verifyOtp, sendVerifyOtp } from "../controllers/auth.controller.js";
 import { prisma } from "../lib/prisma.js";
 const router = express.Router();
 
 router.post("/signup", signup);           
 router.post("/login", login);             
 router.get("/logout", authMiddleware, logout);    
-router.put("/upload-profile", authMiddleware, updateprofile); 
 router.delete("/delete-account", authMiddleware, deleteAccount); 
 router.get("/getuser", authMiddleware, getuser); 
 router.post("/send-reset-link", sendPasswordResetLink);
@@ -28,17 +27,11 @@ router.get(
 router.get("/google/callback", passport.authenticate("google", {
     failureRedirect: process.env.CLIENT_URL + "/login",
     session: false,
-  }),
-  async (req, res) => { 
+  }), async (req, res) => { 
     try {
       const userId = req.user.id;
 
       const token = jwt.sign({ userid: userId }, process.env.JWT_SECRET, { expiresIn: "7d" });
-
-      await prisma.user.update({
-        where: { id: userId },
-        data: { lastLogin: new Date(), isLogin: true, isAccountVerified: true },
-      });
 
       res.cookie("token", token, {
         httpOnly: true,

@@ -178,26 +178,6 @@ export const getuser = async (req, res) => {
   }
 };
 
-export const updateprofile = async (req, res) => {
-  try {
-    const { image } = req.body;
-    const userId = req.user.userid;
-
-    if (!userId) return res.status(401).json({ message: "User ID is missing" });
-    if (!image) return res.status(400).json({ message: "Profile picture is required" });
-
-    const uploadProfilePic = await cloudinary.uploader.upload(image, { folder: "users_profile" });
-
-    await prisma.user.update({ where: { id: userId }, data: { profilepic: uploadProfilePic.secure_url } });
-
-    return res.status(200).json({ success: true, message: "User Profile updated succesfully", image: uploadProfilePic.secure_url });
-
-  } catch (error) {
-    console.error("Error in updateProfile:", error.stack);
-    res.status(500).json({ success: false, message: "Error while uploading profile" });
-  }
-}
-
 export const deleteAccount = async (req, res) => {
   try {
     const userId = req.user?.userid;

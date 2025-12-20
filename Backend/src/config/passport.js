@@ -23,17 +23,11 @@ passport.use(
           return done(new Error("No email found in Google profile"), null);
         }
 
-        let user = await prisma.user.findUnique({
-          where: { email },
-        });
+        let user = await prisma.user.findUnique({ where: { email }});
 
         if (!user) {
           user = await prisma.user.create({
-            data: {
-              name,
-              email,
-              password: "", 
-            },
+            data: { name, email, password: "", isAccountVerified: true },
           });
         }
 
@@ -45,18 +39,5 @@ passport.use(
     }
   )
 );
-
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser(async (id, done) => {
-  try {
-    const user = await prisma.user.findUnique({ where: { id } });
-    done(null, user);
-  } catch (err) {
-    done(err, null);
-  }
-});
 
 export default passport;
