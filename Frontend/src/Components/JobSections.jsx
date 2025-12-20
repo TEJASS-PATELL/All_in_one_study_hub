@@ -22,7 +22,7 @@ const JobSections = () => {
             </div>
 
             <div className="G-card-body">
-              <h3 className="G-card-title">Government Jobs</h3>
+              <h3 className="G-card-title">Government Section</h3>
               <p className="G-card-text">
                 Explore various government examinations and job opportunities
                 with stable career growth, long-term benefits, and strong job
@@ -40,7 +40,7 @@ const JobSections = () => {
             </div>
 
             <div className="G-card-body">
-              <h3 className="G-card-title">Private Jobs</h3>
+              <h3 className="G-card-title">Private Section </h3>
               <p className="G-card-text">
                 Discover exciting opportunities in multiple private sector fields
                 with competitive salaries, fast growth potential, diverse career
@@ -58,7 +58,7 @@ const JobSections = () => {
             </div>
 
             <div className="G-card-body">
-              <h3 className="G-card-title">IT Jobs</h3>
+              <h3 className="G-card-title">IT Section </h3>
               <p className="G-card-text">
                 Build a successful tech career with remote-friendly IT roles,
                 flexible schedules, global exposure, and strong growth in leading
@@ -76,7 +76,7 @@ const JobSections = () => {
             </div>
 
             <div className="G-card-body">
-              <h3 className="G-card-title">Foreign Jobs</h3>
+              <h3 className="G-card-title">Foreign Section </h3>
               <p className="G-card-text">
                 Discover international roles across tech, healthcare, finance,
                 and more, and unlock a rewarding global career with long-term
