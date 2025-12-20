@@ -185,26 +185,12 @@ export const deleteAccount = async (req, res) => {
       return res.status(401).json({ msg: "Unauthorized" });
     }
 
-    const user = await prisma.user.findUnique({ where: { id: userId }, select: { profilepic: true }});
-
-    if (!user) {
-      return res.status(404).json({ msg: "User not found" });
-    }
-
     await prisma.user.delete({ where: { id: userId } });
+    cacheClient.del(`user:${userId}`, "all_users_list");
+
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 });
     res.status(200).json({ msg: "Account deleted successfully" });
 
-    if (user.profilepic) {
-      const publicId = extractImageId(user.profilepic);
-      if (publicId) { 
-        cloudinary.uploader.destroy(publicId).catch(err => {
-            console.error("Cloudinary delete failed:", err.message);
-          });
-      }
-    }
-
-    cacheClient.del(`user:${userId}`, "all_users_list").catch(console.error);
   } catch (err) {
     console.error("Delete Account Error:", err);
     return res.status(500).json({ msg: "Error while deleting account" });
