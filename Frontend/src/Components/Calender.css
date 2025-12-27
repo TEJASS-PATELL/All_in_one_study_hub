@@ -16,7 +16,6 @@
   background: #ffffff;
   display: flex;
   align-items: center;
-  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -27,7 +26,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 2px solid #000;
   font-size: 22px;
 }
 
@@ -79,12 +77,12 @@
 
 #month {
   margin-top: 15px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
 }
 
 #year {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
 }
 

@@ -75,6 +75,9 @@ const TodoPage = () => {
             <FaClipboardList className="todo-title-icon" />
             Add Daily Task
           </h3>
+          <p>
+            You can add up to 10 tasks. To add more, first complete existing tasks or remove your existing tasks.
+          </p>
 
           <form onSubmit={handleAddTodo}>
             <input
@@ -128,7 +131,7 @@ const TodoPage = () => {
               trailColor: "#e5e7eb",
             })}
           />
-        </div> 
+        </div>
         <Calender />
       </div>
     </section>
