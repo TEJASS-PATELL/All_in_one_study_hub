@@ -33,11 +33,7 @@ export default function NavBar() {
             <Link to="/login" className="Llogin-btn">Login</Link>
           ) : (
             <div className="Lprofile-wrapper" onClick={() => navigate("/dashboard")}>
-              {authUser.profilepic ? (
-                <img src={authUser.profilepic} alt="Profile" className="nav-profile-img" />
-              ) : (
                 <FaUserCircle size={38} className="nav-profile-icon" />
-              )}
             </div>
           )}
         </div>

@@ -54,7 +54,7 @@
   padding: 16px 36px;
   font-size: 1rem;
   font-weight: 700;
-  border-radius: 50px;
+  border-radius: 20px;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: inline-block;
@@ -67,19 +67,17 @@
 }
 
 .lbtn-dark:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .lbtn-light {
   background-color: transparent;
   color: #000000;
-  border: 2px solid #e5e7eb;
+  border: 2px solid #000000;
 }
 
 .lbtn-light:hover {
-  border-color: #000000;
-  background-color: #f9fafb;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .luser-badge {
