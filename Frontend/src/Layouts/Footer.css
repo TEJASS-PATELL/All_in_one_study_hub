@@ -65,6 +65,10 @@
 }
 
 @media (max-width: 480px) {
+  .footer{
+    padding: 30px 0;
+  }
+
   .social-links {
     gap: 20px;
     font-size: 28px;
