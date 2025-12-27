@@ -218,7 +218,7 @@ const StudyMaterial = () => {
                   </span>
                 </button>
                 <div className={`collapsible-content ${openSections[index] === "coaching" ? "open" : ""}`}>
-                  {card.coachingData.map((coaching, i) => (
+                  {card.coachingData.map((coaching) => (
                     <div key={index} className="LcoachingCard">
                       <div className="LcoachingTitle"><FaGraduationCap /> {coaching.name}</div>
                       <div className="LcoachingTagline">"{coaching.tagline}"</div>
