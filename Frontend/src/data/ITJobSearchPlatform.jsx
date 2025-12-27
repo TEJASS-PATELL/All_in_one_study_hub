@@ -6,8 +6,17 @@ export const platforms = [
     url: "https://www.linkedin.com",
     type: "Global Platform",
     features: ["Global Networking", "Daily Job Alerts", "Company Insights", "Skill Validation"],
-    headquarters: "Sunnyvale, USA",
     idealFor: "All Professionals"
+  },
+  {
+    logo: "https://dashboard.myjobb.ai/assets/logo.png", // Verify actual path
+    customClass: "myjobb-img",
+    description: "Next-gen AI job search aggregator that automates application tracking and personalized matching.",
+    url: "https://dashboard.myjobb.ai",
+    type: "AI Career Copilot",
+    features: ["AI Job Matching", "Auto-Application Tracking", "Smart Resume Analysis", "Unified Job Dashboard"],
+    headquarters: "Remote / AI Native",
+    idealFor: "Modern Job Seekers"
   },
   {
     logo: "../ITjobplatform/unstop.jpg",
@@ -16,7 +25,6 @@ export const platforms = [
     url: "https://unstop.com/",
     type: "Opportunity Hub",
     features: ["Hiring Challenges", "Coding Contests", "Paid Internships", "Skill Assessments"],
-    headquarters: "New Delhi, India",
     idealFor: "Students & Freshers"
   },
   {
@@ -26,7 +34,6 @@ export const platforms = [
     url: "https://www.indeed.com",
     type: "Global Platform",
     features: ["Quick Job Search", "Company Reviews", "Salary Estimates", "Easy Apply Mode"],
-    headquarters: "Austin, Texas, USA",
     idealFor: "All Job Seekers"
   },
   {
@@ -36,7 +43,6 @@ export const platforms = [
     url: "https://www.hirist.tech/",
     type: "Tech Job Platform",
     features: ["Tech-Only Roles", "Direct Hiring", "One-Click Apply", "Application Status"],
-    headquarters: "New Delhi, India",
     idealFor: "IT Professionals"
   },
   {
@@ -46,7 +52,6 @@ export const platforms = [
     url: "https://www.naukri.com",
     type: "Indian Platform",
     features: ["Resume Database", "Recruiter Chat", "Profile Tracking", "Market Insights"],
-    headquarters: "Noida, India",
     idealFor: "Indian Job Seekers"
   },
   {
@@ -56,7 +61,6 @@ export const platforms = [
     url: "https://www.workatastartup.com/",
     type: "Startup Platform",
     features: ["Direct Founder Access", "Equity Options", "Startup Culture", "Remote Tech Jobs"],
-    headquarters: "Mountain View, USA",
     idealFor: "Startup Enthusiasts"
   },
   {
@@ -66,7 +70,6 @@ export const platforms = [
     url: "https://internship.aicte-india.org/",
     type: "Govt Platform",
     features: ["Verified Listings", "Govt Certification", "Skill Workshops", "Rural Internships"],
-    headquarters: "New Delhi, India",
     idealFor: "Engineering Students"
   },
   {
@@ -76,7 +79,6 @@ export const platforms = [
     url: "https://mycareernet.in/",
     type: "Campus Hub",
     features: ["Hiring Contests", "Virtual Job Fairs", "Skill Badges", "Career Mentoring"],
-    headquarters: "Bengaluru, India",
     idealFor: "Final Year Students"
   },
   {
@@ -86,7 +88,6 @@ export const platforms = [
     url: "https://cutshort.io",
     type: "AI Hiring Platform",
     features: ["AI Matchmaking", "Direct Chat", "Verified Salaries", "No Consultant Spam"],
-    headquarters: "Pune, India",
     idealFor: "Senior Tech Talent"
   },
   {
@@ -96,7 +97,6 @@ export const platforms = [
     url: "https://www.greenhouse.com",
     type: "Enterprise ATS",
     features: ["Structured Hiring", "Fair Evaluations", "Interview Prep", "Global Openings"],
-    headquarters: "New York, USA",
     idealFor: "Corporate Applicants"
   },
   {
@@ -106,7 +106,6 @@ export const platforms = [
     url: "https://cuvette.tech/",
     type: "Student Platform",
     features: ["0-2 Years Jobs", "Internship Drives", "Interview Prep", "Tech Community"],
-    headquarters: "Bengaluru, India",
     idealFor: "CS/IT Graduates"
   },
   {
@@ -116,7 +115,6 @@ export const platforms = [
     url: "https://studentscircles.com/",
     type: "Drive Alerts",
     features: ["Off-Campus Drives", "Walk-In Alerts", "MNC Hiring", "Fresher Updates"],
-    headquarters: "India",
     idealFor: "Batch 2024/25/26"
   },
   {
@@ -126,7 +124,6 @@ export const platforms = [
     url: "https://www.eventbeep.com/",
     type: "Networking Hub",
     features: ["Campus Events", "Peer Networking", "Exclusive Perks", "Gig Work"],
-    headquarters: "Pune, India",
     idealFor: "College Students"
   },
   {
@@ -136,7 +133,6 @@ export const platforms = [
     url: "https://www.glassdoor.com",
     type: "Review Platform",
     features: ["Salary Data", "Company Culture", "Interview Prep", "Employee Ratings"],
-    headquarters: "San Francisco, USA",
     idealFor: "Company Research"
   },
   {
@@ -146,7 +142,6 @@ export const platforms = [
     url: "https://internshala.com/",
     type: "Internship Portal",
     features: ["Stipend Jobs", "Online Trainings", "Resume Scoring", "Fresher Jobs"],
-    headquarters: "Gurugram, India",
     idealFor: "College Students"
   },
   {
@@ -156,7 +151,6 @@ export const platforms = [
     url: "https://www.idealist.org/",
     type: "Nonprofit Platform",
     features: ["Volunteer Roles", "Social Work", "Global Impact", "Nonprofit Jobs"],
-    headquarters: "New York, USA",
     idealFor: "Impact Seekers"
   },
   {
@@ -166,7 +160,6 @@ export const platforms = [
     url: "https://wellfound.com/",
     type: "Startup Platform",
     features: ["Direct Hiring", "No Recruiter Bias", "Equity Transparency", "Startup News"],
-    headquarters: "New York, USA",
     idealFor: "Tech Innovators"
   },
   {
@@ -176,7 +169,6 @@ export const platforms = [
     url: "https://www.flexjobs.com",
     type: "Remote Hub",
     features: ["Verified Listings", "Flexible Hours", "No Scams", "Career Coaching"],
-    headquarters: "Boulder, USA",
     idealFor: "Remote Workers"
   },
   {
@@ -186,7 +178,6 @@ export const platforms = [
     url: "https://joinhandshake.com",
     type: "University Hub",
     features: ["Campus Career", "Virtual Events", "Early Access", "Peer Insights"],
-    headquarters: "San Francisco, USA",
     idealFor: "University Students"
   },
   {
@@ -196,7 +187,6 @@ export const platforms = [
     url: "https://www.ziprecruiter.com",
     type: "AI Job Board",
     features: ["Smart Matching", "One-Tap Apply", "Mobile App", "Employer Tracking"],
-    headquarters: "Santa Monica, USA",
     idealFor: "Fast Applicants"
   },
   {
@@ -206,7 +196,6 @@ export const platforms = [
     url: "https://in.prosple.com/",
     type: "Graduate Portal",
     features: ["Graduate Programs", "Career Advice", "Employer Vetting", "Global Network"],
-    headquarters: "Sydney, Australia",
     idealFor: "Recent Graduates"
   },
   {
@@ -216,7 +205,6 @@ export const platforms = [
     url: "https://remoteok.com",
     type: "Remote Tech",
     features: ["Verified Salaries", "Global Hiring", "Tech Focus", "Full-time Roles"],
-    headquarters: "Remote First",
     idealFor: "Digital Nomads"
   },
   {
@@ -226,7 +214,6 @@ export const platforms = [
     url: "https://weworkremotely.com",
     type: "Remote Platform",
     features: ["High Traffic", "Verified Firms", "Global Roles", "Job Alerts"],
-    headquarters: "Remote First",
     idealFor: "Remote Seekers"
   },
   {
@@ -236,7 +223,6 @@ export const platforms = [
     url: "https://www.crossover.com",
     type: "Elite Remote",
     features: ["High Salaries", "Skill Testing", "Long-Term Roles", "Premium Companies"],
-    headquarters: "Austin, USA",
     idealFor: "Top 1% Talent"
   },
   {
@@ -246,7 +232,6 @@ export const platforms = [
     url: "https://justremote.co",
     type: "Remote Hub",
     features: ["Hidden Jobs", "Powerful Filters", "Global Reach", "Remote First"],
-    headquarters: "London, UK",
     idealFor: "Tech Seekers"
   },
   {
