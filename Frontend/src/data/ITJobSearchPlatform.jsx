@@ -9,16 +9,6 @@ export const platforms = [
     idealFor: "All Professionals"
   },
   {
-    logo: "https://dashboard.myjobb.ai/assets/logo.png", // Verify actual path
-    customClass: "myjobb-img",
-    description: "Next-gen AI job search aggregator that automates application tracking and personalized matching.",
-    url: "https://dashboard.myjobb.ai",
-    type: "AI Career Copilot",
-    features: ["AI Job Matching", "Auto-Application Tracking", "Smart Resume Analysis", "Unified Job Dashboard"],
-    headquarters: "Remote / AI Native",
-    idealFor: "Modern Job Seekers"
-  },
-  {
     logo: "../ITjobplatform/unstop.jpg",
     customClass: "unstop-img",
     description: "A premier platform for students to find hackathons, hiring challenges, and internships.",
@@ -53,6 +43,16 @@ export const platforms = [
     type: "Indian Platform",
     features: ["Resume Database", "Recruiter Chat", "Profile Tracking", "Market Insights"],
     idealFor: "Indian Job Seekers"
+  },
+    {
+    logo: "	https://dashboard.myjobb.ai/images/logo.svg",
+    customClass: "myjobb-img",
+    description: "India's premier AI-powered platform that matches resumes with highly relevant jobs using advanced neural filtering.",
+    url: "https://dashboard.myjobb.ai",
+    type: "AI Career Copilot",
+    features: ["Neural Job Matching", "Multi-Source Aggregation", "Instant Skill Analysis", "Automated Relevance Check"],
+    headquarters: "India",
+    idealFor: "Modern Job Seekers"
   },
   {
     logo: "../ITjobplatform/YCombinator.png",
@@ -251,7 +251,6 @@ export const platforms = [
     url: "https://www.foundit.in",
     type: "Indian Platform",
     features: ["AI Career Tool", "Skill Badges", "Global Reach", "Smart Alerts"],
-    headquarters: "Hyderabad, India",
     idealFor: "Experienced Pros"
   },
   {
@@ -261,7 +260,6 @@ export const platforms = [
     url: "https://remotive.com",
     type: "Startup Remote",
     features: ["Curated List", "Slack Community", "Salary Filters", "Tech Focus"],
-    headquarters: "Remote First",
     idealFor: "Startup Lovers"
   },
   {
@@ -271,7 +269,6 @@ export const platforms = [
     url: "https://www.adzuna.com",
     type: "Search Engine",
     features: ["Salary Predictor", "Market Trends", "Aggregated Ads", "AI Resume Check"],
-    headquarters: "London, UK",
     idealFor: "Market Research"
   },
   {
@@ -281,7 +278,6 @@ export const platforms = [
     url: "https://www.timesjobs.com",
     type: "Indian Platform",
     features: ["Corporate Jobs", "Skill Tests", "Resume Services", "Job Events"],
-    headquarters: "Noida, India",
     idealFor: "Govt & Corp Talent"
   },
   {
@@ -291,7 +287,6 @@ export const platforms = [
     url: "https://www.shine.com",
     type: "Indian Portal",
     features: ["Resume Builder", "Learning Courses", "Alert Services", "Hiring Insights"],
-    headquarters: "Gurugram, India",
     idealFor: "Early Career"
   },
   {
@@ -301,7 +296,6 @@ export const platforms = [
     url: "https://www.freshersworld.com",
     type: "Fresher Portal",
     features: ["Govt Job Alerts", "Interview Prep", "Aptitude Tests", "Campus Drives"],
-    headquarters: "Bengaluru, India",
     idealFor: "New Graduates"
   }
 ];
