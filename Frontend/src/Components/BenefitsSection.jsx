@@ -1,78 +1,86 @@
 import React from 'react';
 import './BenefitsSection.css';
+import {
+  FaLaptopCode,
+  FaBookOpen,
+  FaPencilAlt,
+  FaLayerGroup,
+  FaClipboardList,
+  FaRobot,
+  FaRoute,
+  FaUsers,
+  FaHourglassHalf,
+} from "react-icons/fa";
 
 const BenefitsSection = () => {
-  const features = [
-    {
-      title: 'Multiple Job Platforms',
-      desc:
-        'Explore opportunities from various job portals including IT, private and government sectors all in one place.',
-      icon: <i className="fas fa-laptop-code"></i>,
-    },
-    {
-      title: 'Top Preparation Resources',
-      desc:
-        'Find high-quality study materials and preparation guides for competitive and government exams.',
-      icon: <i className="fas fa-book-open"></i>,
-    },
-    {
-      title: 'Practice Platforms',
-      desc:
-        'Boost your readiness with mock tests, quizzes, and topic-wise practice tools with 20+ platforms.',
-      icon: <i className="fas fa-pencil-alt"></i>,
-    },
-    {
-      title: 'Category-Wise Exam Insights',
-      desc:
-  'Get structured exam information across government, private, and IT categories clearly and reliably.',
-
-      icon: <i className="fas fa-layer-group"></i>,
-    },
-    {
-      title: 'Personalized Daily Planner',
-      desc:
-        'Use the dashboard to create daily study tasks, manage goals, and track your overall preparation progress efficiently.',
-      icon: <i className="fas fa-clipboard-list"></i>,
-    },
-    {
-      title: 'AI Tools Access',
-      desc:
-        'Access powerful AI utilities for productivity, learning, and creativity on one page.',
-      icon: <i className="fas fa-robot"></i>,
-    },
-    {
-      title: 'Roadmap Builder',
-     desc: 'Create a personalized roadmap to achieve your professional goals step-by-step efficiently and confidently.',
-      icon: <i className="fas fa-route"></i>,
-    },
-    {
-      title: 'Share Your Journey',
-      desc:'Inspire others by sharing your career stories, exam experiences, and tips confidently and authentically.',
-      icon: <i className="fas fa-users"></i>,
-    },
-    {
-      title: 'Upcoming Features',
-      desc:'Exciting updates like AI-powered virtual interview simulator and live chat  coming soon worldwide.',
-      icon: <i className="fas fa-hourglass-half"></i>,
-    },
-  ];
+const features = [
+  {
+    title: "Unified Job Hub",
+    description: "Access diverse opportunities across IT, private, and government sectors from multiple portals in one central place.",
+    icon: <FaLaptopCode />,
+  },
+  {
+    title: "Premium Study Vault",
+    description: "Unlock high-quality preparation guides and curated study materials tailored for competitive and government exams.",
+    icon: <FaBookOpen />,
+  },
+  {
+    title: "Adaptive Practice Suite",
+    description: "Sharpen your skills with interactive mock tests, quizzes, and specialized tools from over 20+ leading platforms.",
+    icon: <FaPencilAlt />,
+  },
+  {
+    title: "Strategic Exam Insights",
+    description: "Stay ahead with structured data and reliable updates on government, private, and IT exam trends and patterns.",
+    icon: <FaLayerGroup />,
+  },
+  {
+    title: "Smart Daily Planner",
+    description: "Optimize your routine with a personalized dashboard to set goals, manage tasks, and monitor preparation progress.",
+    icon: <FaClipboardList />,
+  },
+  {
+    title: "Integrated AI Toolkit",
+    description: "Boost your productivity and learning speed with a curated suite of powerful AI utilities on a single page.",
+    icon: <FaRobot />,
+  },
+  {
+    title: "Professional Roadmap",
+    description: "Design a step-by-step career path to achieve your professional milestones with clarity and confidence.",
+    icon: <FaRoute />,
+  },
+  {
+    title: "Community Spotlights",
+    description: "Share your career milestones and exam strategies to inspire and empower fellow aspirants in the community.",
+    icon: <FaUsers />,
+  },
+  {
+    title: "Next-Gen Innovations",
+    description: "Stay tuned for upcoming AI-powered interview simulators and real-time global collaboration tools.",
+    icon: <FaHourglassHalf />,
+  },
+];
 
   return (
-    <section className="features-section" id="features">
-      <div className="features-container">
-        <h2 className="features-title">Why You'll Love CareerHub</h2>
-        <p className="features-subtitle">
-          CareerHub simplifies your job search and exam preparation by putting opportunities,
-          resources, and tools together in one place.
+    <section className="skills-section">
+      <div className="skills-container">
+        <h2 className="skills-title">Explore Skill Categories</h2>
+        <p className="skills-subtitle">
+          Discover thousands of skills across diverse categories, taught by passionate community members from around the world.
         </p>
 
-        <div className="features-grid">
-          {features.map((item, index) => (
-            <div className="feature-card" key={index}>
-              <div className="feature-icon">{item.icon}</div>
-              <div>
-                <h3 className="feature-heading">{item.title}</h3>
-                <p className="feature-text">{item.desc}</p>
+        <div className="features-grid-custom">
+          {features.map((feature, index) => (
+            <div key={index} className={`feature-item ${index === 0 || index === 4 || index === 8 ? 'lg-border-l' : ''} ${index < 4 ? 'lg-border-b' : ''}`}>
+              <div className={`hover-gradient ${index < 4 ? 'grad-top' : 'grad-bottom'}`} />
+
+              <div className="feature-content">
+                <div className="feature-icon-box">{feature.icon}</div>
+                <div className="feature-title-box">
+                  <div className="indicator-bar" />
+                  <span className="feature-title-text">{feature.title}</span>
+                </div>
+                <p className="feature-description-text">{feature.description}</p>
               </div>
             </div>
           ))}
@@ -81,4 +89,5 @@ const BenefitsSection = () => {
     </section>
   );
 };
+
 export default BenefitsSection;
