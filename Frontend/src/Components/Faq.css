@@ -1,0 +1,128 @@
+.faq-wrapper {
+    padding: 100px 20px;
+    background-color: #ffffff; 
+    font-family: 'Inter', sans-serif;
+}
+
+.faq-container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-main-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 800;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.faq-subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #000000; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-toggle {
+    display: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #161719;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.faq-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.faq-icon::before,
+.faq-icon::after {
+    content: "";
+    position: absolute;
+    background-color: #9ca3af;
+    transition: all 0.3s ease;
+}
+
+.faq-icon::before {
+    width: 100%;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.faq-icon::after {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: #ffffff;
+    padding: 0 24px;
+}
+
+.faq-answer p {
+    padding-bottom: 20px;
+    color: #4b5563;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.faq-toggle:checked ~ .faq-answer {
+    max-height: 200px; 
+}
+
+.faq-toggle:checked ~ .faq-question {
+    color: #2563eb;
+}
+
+.faq-toggle:checked ~ .faq-question .faq-icon::after {
+    transform: translateX(-50%) rotate(90deg);
+    opacity: 0;
+}
+
+.faq-toggle:checked ~ .faq-question .faq-icon::before {
+    background-color: #2563eb;
+}
+
+@media (max-width: 640px) {
+    .faq-main-title { font-size: 26px; }
+    .faq-question { font-size: 16px; padding: 16px; }
+}
