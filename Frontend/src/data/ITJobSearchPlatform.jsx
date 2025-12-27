@@ -2,560 +2,321 @@ export const platforms = [
   {
     logo: "../ITjobplatform/Linkedin.png",
     customClass: "linkedin-img",
-    description: "Professional networking site used for job search, hiring, and networking.",
+    description: "The world's largest professional networking site for job seekers and recruiters worldwide.",
     url: "https://www.linkedin.com",
     type: "Global Platform",
-    features: [
-      "Networking",
-      "Job Alerts",
-      "Company Pages",
-      "Skill Endorsements"
-    ],
-    headquarters: "Sunnyvale, California, USA",
-    idealFor: "Professionals, Graduates, Corporate Networking",
-    activeUsers: "930+ million users (2023)",
-    rating: 4.9,
-    starDisplay: "★★★★★"
+    features: ["Global Networking", "Daily Job Alerts", "Company Insights", "Skill Validation"],
+    headquarters: "Sunnyvale, USA",
+    idealFor: "All Professionals"
   },
   {
     logo: "../ITjobplatform/unstop.jpg",
     customClass: "unstop-img",
-    description: "A platform offering hackathons, and opportunities from top companies.",
+    description: "A premier platform for students to find hackathons, hiring challenges, and internships.",
     url: "https://unstop.com/",
-    type: "Student & Professional Opportunity Platform",
-    features: [
-      "Hackathons & Competitions",
-      "Internships & Job Openings",
-      "Quizzes & Skill Tests",
-      "Resume Building & Skill Showcase"
-    ],
+    type: "Opportunity Hub",
+    features: ["Hiring Challenges", "Coding Contests", "Paid Internships", "Skill Assessments"],
     headquarters: "New Delhi, India",
-    idealFor: "Students, Freshers, Working Professionals",
-    activeUsers: "5 million+ users",
-    rating: 4.8,
-    starDisplay: "★★★★★"
+    idealFor: "Students & Freshers"
   },
   {
     logo: "../ITjobplatform/indeed.png",
     customClass: "indeed-img",
-    description: "Global job board with thousands of job listings and company reviews.",
+    description: "Leading global job board aggregating millions of listings and detailed company reviews.",
     url: "https://www.indeed.com",
     type: "Global Platform",
-    features: [
-      "Resume Upload",
-      "Company Reviews",
-      "Salary Insights",
-      "Interview Tips"
-    ],
+    features: ["Quick Job Search", "Company Reviews", "Salary Estimates", "Easy Apply Mode"],
     headquarters: "Austin, Texas, USA",
-    idealFor: "All job seekers including freshers and experienced professionals",
-    activeUsers: "350+ million monthly visitors",
-    rating: 4.7,
-    starDisplay: "★★★★★"
+    idealFor: "All Job Seekers"
   },
   {
-    logo: "	https://staticlogo.hirist.com/webp/hirist-tech-logo.webp",
+    logo: "https://staticlogo.hirist.com/webp/hirist-tech-logo.webp",
     customClass: "hirist-img",
-    description: "India-based niche job portal focused on IT & tech professionals.",
+    description: "Niche job portal specializing in high-growth IT and technology roles across India.",
     url: "https://www.hirist.tech/",
     type: "Tech Job Platform",
-    features: [
-      "Curated Tech Roles",
-      "Early Applicant Alerts",
-      "One-click Apply",
-      "Real-time Application Tracking"
-    ],
+    features: ["Tech-Only Roles", "Direct Hiring", "One-Click Apply", "Application Status"],
     headquarters: "New Delhi, India",
-    idealFor: "IT Professionals, Freshers, Software Engineers",
-    activeUsers: "1,300,000+ jobseekers",
-    rating: 4.7,
-    starDisplay: "★★★★☆"
+    idealFor: "IT Professionals"
   },
   {
     logo: "../ITjobplatform/Naukri.png",
     customClass: "naukri-img",
-    description: "One of India’s largest job search platforms.",
+    description: "India's pioneer job portal with the largest database of recruiters and active job seekers.",
     url: "https://www.naukri.com",
     type: "Indian Platform",
-    features: [
-      "Resume Builder",
-      "Job Alerts",
-      "Recruiter Contact",
-      "Profile Insights"
-    ],
+    features: ["Resume Database", "Recruiter Chat", "Profile Tracking", "Market Insights"],
     headquarters: "Noida, India",
-    idealFor: "Indian Job Seekers across all industries",
-    activeUsers: "75+ million users",
-    rating: 4.6,
-    starDisplay: "★★★★★"
+    idealFor: "Indian Job Seekers"
   },
   {
     logo: "../ITjobplatform/YCombinator.png",
     customClass: "ycombinator-img",
-    description: "Startup-focused job platform where early and growth-stage YC-backed companies hire talent across engineering, product, design, and business roles.",
-    url: "https://www.workatastartup.com/",   
-    type: "Startup Job Search Platform",
-    features: [
-      "Direct Hiring from YC-funded startups",
-      "Filter by Role, Location, and Funding Stage",
-      "Startup Matches Based on Skills",
-      "One-Click Apply to Multiple Companies"
-    ],
-    idealFor: "Software Engineers, Product Managers, Designers, Startup Enthusiasts",
-    activeUsers: "3,000+ YC startups actively hiring",
-    rating: 4.6,
-    starDisplay: "★★★★☆"
+    description: "Direct access to high-growth startup roles funded by the world's top startup accelerator.",
+    url: "https://www.workatastartup.com/",
+    type: "Startup Platform",
+    features: ["Direct Founder Access", "Equity Options", "Startup Culture", "Remote Tech Jobs"],
+    headquarters: "Mountain View, USA",
+    idealFor: "Startup Enthusiasts"
   },
   {
     logo: "../ITjobplatform/AICTE.jpg",
     customClass: "aicte-img",
-    description: "Government-backed internship platform for students in India.",
+    description: "Government of India initiative connecting students with verified technical internships.",
     url: "https://internship.aicte-india.org/",
-    type: "Government Platform",
-    features: [
-      "Verified Internships",
-      "Skill Development",
-      "Student-Focused Opportunities",
-      "Direct Company Listings"
-    ],
+    type: "Govt Platform",
+    features: ["Verified Listings", "Govt Certification", "Skill Workshops", "Rural Internships"],
     headquarters: "New Delhi, India",
-    idealFor: "Indian Students seeking internships",
-    activeUsers: "10+ million students",
-    rating: 4.6,
-    starDisplay: "★★★★☆"
+    idealFor: "Engineering Students"
   },
   {
     logo: "../ITjobplatform/MyCareerNet.png",
     customClass: "mycareernet-img",
-    description: "Platform for contests, challenges, events, and job listings for fresh graduates and jobseekers.",
-    url: "https://mycareernet.in/mycareernet",
-    type: "Indian Early‑Career Talent Platform",
-    features: [
-      "Hiring contests & challenges",
-      "Career fairs & networking events",
-      "Job listings & internship opportunities",
-      "Skill showcases & prizes"
-    ],
-    idealFor: "Freshers, early‑career jobseeker",
-    activeUsers: "Not disclosed",
-    rating: "4.6",
-    starDisplay: "★★★★✩"
+    description: "Career platform focused on campus events, hiring contests, and early-career job roles.",
+    url: "https://mycareernet.in/",
+    type: "Campus Hub",
+    features: ["Hiring Contests", "Virtual Job Fairs", "Skill Badges", "Career Mentoring"],
+    headquarters: "Bengaluru, India",
+    idealFor: "Final Year Students"
   },
   {
     logo: "../ITjobplatform/cutshort.png",
     customClass: "cutshort-img",
-    description: "Modern hiring platform that connects startups and professionals directly.",
+    description: "AI-powered hiring platform that removes middle-men for faster direct tech recruitment.",
     url: "https://cutshort.io",
-    type: "Startup Hiring",
-    features: [
-      "AI Matchmaking",
-      "Direct Chat with Recruiters",
-      "Remote Jobs",
-      "Skill Tags"
-    ],
-    headquarters: "India",
-    idealFor: "Startup-focused job seekers and techies",
-    activeUsers: "3+ million users",
-    rating: 4.6,
-    starDisplay: "★★★★✩"
+    type: "AI Hiring Platform",
+    features: ["AI Matchmaking", "Direct Chat", "Verified Salaries", "No Consultant Spam"],
+    headquarters: "Pune, India",
+    idealFor: "Senior Tech Talent"
   },
   {
     logo: "../ITjobplatform/GREENHOUSE.jpg",
     customClass: "greenhouse-img",
-    description: "AI-powered, end-to-end recruiting platform that helps companies source, interview, and hire top talent efficiently.",
+    description: "Enterprise recruiting software used by top global firms to manage their hiring lifecycle.",
     url: "https://www.greenhouse.com",
-    type: "Recruiting / Applicant Tracking Software (ATS)",
-    features: [
-      "Structured Interview Kits",
-      "AI-Powered Candidate Scorecards",
-      "Custom Hiring Workflows",
-      "Rich Integrations with HR & Productivity Tools"
-    ],
-    idealFor: "HR Teams, Recruiting Departments, Enterprises Hiring at Scale",
-    activeUsers: "7,000+ customers",
-    rating: 4.5,
-    starDisplay: "★★★★☆"
+    type: "Enterprise ATS",
+    features: ["Structured Hiring", "Fair Evaluations", "Interview Prep", "Global Openings"],
+    headquarters: "New York, USA",
+    idealFor: "Corporate Applicants"
   },
   {
     logo: "../ITjobplatform/cuvette.svg",
     customClass: "cuvette-img",
-    description: "A platform connecting college students and recent graduates in India with internships and early‑career jobs.",
+    description: "Focused on solving the fresher hiring gap by connecting students with tech startups.",
     url: "https://cuvette.tech/",
-    type: "Student Career Platform",
-    features: [
-      "Internship & Job Listings",
-      "Placement‑Guarantee Courses",
-      "Skill & Interview Prep",
-      "Campus Community Events"
-    ],
-    idealFor: "College Students, Early Graduates, Entry‑Level Tech Roles",
-    activeUsers: "2.5M+ users, 7500+ companies",
-    rating: 4.5,
-    starDisplay: "★★★★☆"
+    type: "Student Platform",
+    features: ["0-2 Years Jobs", "Internship Drives", "Interview Prep", "Tech Community"],
+    headquarters: "Bengaluru, India",
+    idealFor: "CS/IT Graduates"
   },
   {
     logo: "../ITjobplatform/StudentsCircles.png",
     customClass: "studentscircles-img",
-    description: "Job portal focused on student and fresher jobs—off‑campus, internships, remote, walk‑in roles.",
+    description: "Comprehensive portal for off-campus drives, fresher hiring, and walk-in interview alerts.",
     url: "https://studentscircles.com/",
-    type: "Student‑Focused Job Platform",
-    features: [
-      "Off‑Campus Drive Listings",
-      "Fresher & Internship Jobs",
-      "Walk‑In & Remote Job Listings",
-      "Role‑Wise & City‑Wise Filters"
-    ],
-    idealFor: "Students, Fresh Graduates, Entry‑Level Job Seekers",
-    activeUsers: "10 million+ job seekers",
-    rating: 4.5,
-    starDisplay: "★★★★✩"
+    type: "Drive Alerts",
+    features: ["Off-Campus Drives", "Walk-In Alerts", "MNC Hiring", "Fresher Updates"],
+    headquarters: "India",
+    idealFor: "Batch 2024/25/26"
   },
   {
     logo: "../ITjobplatform/beepLogo.svg",
     customClass: "eventbeep-img",
-    description: "A student-centric networking platform offering campus updates, opportunities, and events.",
+    description: "Next-gen student community platform for campus networking and exclusive opportunities.",
     url: "https://www.eventbeep.com/",
-    type: "Student Networking Platform",
-    features: [
-      "Campus Events",
-      "Student Communities",
-      "Internship & Job Alerts",
-      "Event Registration"
-    ],
-    idealFor: "Students, Campus Communities, Event Organizers",
-    activeUsers: "2+ million users",
-    rating: 4.5,
-    starDisplay: "★★★★☆"
+    type: "Networking Hub",
+    features: ["Campus Events", "Peer Networking", "Exclusive Perks", "Gig Work"],
+    headquarters: "Pune, India",
+    idealFor: "College Students"
   },
   {
     logo: "../ITjobplatform/Glassdoor.png",
     customClass: "glassdoor-img",
-    description: "Find jobs and read reviews from current and former employees.",
+    description: "Providing transparency through anonymous employee reviews, salaries, and interview Q&As.",
     url: "https://www.glassdoor.com",
-    type: "Global Platform",
-    features: [
-      "Company Reviews",
-      "Salary Info",
-      "Interview Questions",
-      "Job Listings"
-    ],
-    idealFor: "Candidates researching company culture and salaries",
-    activeUsers: "50+ million unique visitors monthly",
-    rating: 4.5,
-    starDisplay: "★★★★✩"
+    type: "Review Platform",
+    features: ["Salary Data", "Company Culture", "Interview Prep", "Employee Ratings"],
+    headquarters: "San Francisco, USA",
+    idealFor: "Company Research"
   },
   {
     logo: "../ITjobplatform/Internshala.png",
     customClass: "internshala-img",
-    description: "India’s top platform for internships, jobs, and online training, trusted by students and freshers.",
+    description: "India's largest internship portal offering certified trainings and professional roles.",
     url: "https://internshala.com/",
-    type: "Internship & Job Portal",
-    features: [
-      "Internships & Jobs",
-      "Remote Opportunities",
-      "Skill Trainings",
-      "Student-Friendly Interface"
-    ],
-    idealFor: "Students, freshers, and those seeking skill development",
-    activeUsers: "10M+ registered users",
-    rating: 4.5,
-    starDisplay: "★★★★✩"
+    type: "Internship Portal",
+    features: ["Stipend Jobs", "Online Trainings", "Resume Scoring", "Fresher Jobs"],
+    headquarters: "Gurugram, India",
+    idealFor: "College Students"
   },
   {
     logo: "../ITjobplatform/IdealistLogo.jpg",
     customClass: "idealist-img",
-    description: "Nonprofit job, internship, volunteer & community platform focused on social impact.",
+    description: "Global network for social impact jobs, volunteer tasks, and nonprofit career growth.",
     url: "https://www.idealist.org/",
-    type: "Social‑Impact Platform",
-    features: [
-      "Nonprofit Job Listings",
-      "Volunteer Opportunities",
-      "Internships & Events",
-      "Career Advice & Salary Explorer"
-    ],
-    idealFor: "Nonprofit professionals, volunteers, students, career changers",
-    activeUsers: "Millions of users & 150,000+ organizations globally",
-    rating: 4.4,
-    starDisplay: "★★★★✩"
+    type: "Nonprofit Platform",
+    features: ["Volunteer Roles", "Social Work", "Global Impact", "Nonprofit Jobs"],
+    headquarters: "New York, USA",
+    idealFor: "Impact Seekers"
   },
   {
     logo: "../ITjobplatform/WellfoundD.png",
     customClass: "wellfound-img",
-    description: "Platform to find jobs in startups and tech companies.",
+    description: "Formerly AngelList, it is the top destination for startup jobs and tech talent equity.",
     url: "https://wellfound.com/",
     type: "Startup Platform",
-    features: [
-      "Startup Roles",
-      "Equity Options",
-      "Remote Friendly",
-      "Tech & Non-Tech Jobs"
-    ],
-    idealFor: "Startup lovers, early stage job seekers, remote workers",
-    activeUsers: "8+ million users",
-    rating: 4.3,
-    starDisplay: "★★★★✩"
+    features: ["Direct Hiring", "No Recruiter Bias", "Equity Transparency", "Startup News"],
+    headquarters: "New York, USA",
+    idealFor: "Tech Innovators"
   },
   {
     logo: "../ITjobplatform/flexjobs.svg",
     customClass: "flexjobs-img",
-    description: "Premium site for verified remote, freelance, and flexible jobs.",
+    description: "The leading site for hand-screened, high-quality flexible and remote job opportunities.",
     url: "https://www.flexjobs.com",
-    type: "Remote & Flexible Jobs",
-    features: [
-      "Hand‑screened Listings",
-      "Remote Only",
-      "Career Coaching",
-      "Resume Review"
-    ],
-    idealFor: "Remote workers, freelancers, flexible‑schedule seekers",
-    activeUsers: "100k+ jobs screened weekly",
-    rating: 4.3,
-    starDisplay: "★★★★✩"
+    type: "Remote Hub",
+    features: ["Verified Listings", "Flexible Hours", "No Scams", "Career Coaching"],
+    headquarters: "Boulder, USA",
+    idealFor: "Remote Workers"
   },
   {
     logo: "../ITjobplatform/handshake.png",
     customClass: "handshake-img",
-    description: "University career platform connecting students with employers.",
+    description: "Connecting students with employers through their university career service center.",
     url: "https://joinhandshake.com",
-    type: "Student & Early‑Career",
-    features: [
-      "Campus Recruiting",
-      "Virtual Fairs",
-      "Internships"
-    ],
-    idealFor: "University students & recent grads",
-    activeUsers: "Used by hundreds of universities globally",
-    rating: 4.2,
-    starDisplay: "★★★★✩"
+    type: "University Hub",
+    features: ["Campus Career", "Virtual Events", "Early Access", "Peer Insights"],
+    headquarters: "San Francisco, USA",
+    idealFor: "University Students"
   },
   {
     logo: "../ITjobplatform/ziprecruiter.png",
     customClass: "ziprecruiter-img",
-    description: "AI‑matched job board with huge network & mobile app.",
+    description: "Smart job board using AI to match your resume with the perfect employer instantly.",
     url: "https://www.ziprecruiter.com",
-    type: "General Job Board",
-    features: [
-      "Smart Matching",
-      "One‑Click Apply",
-      "Resume Database"
-    ],
-    idealFor: "Fast job applications across industries",
-    activeUsers: "21+ million weekly users",
-    rating: 4.2,
-    starDisplay: "★★★★✩"
+    type: "AI Job Board",
+    features: ["Smart Matching", "One-Tap Apply", "Mobile App", "Employer Tracking"],
+    headquarters: "Santa Monica, USA",
+    idealFor: "Fast Applicants"
   },
   {
     logo: "../ITjobplatform/prosple.png",
     customClass: "prosple-img",
-    description: "Career & education‑tech platform connecting students and grads with internships, graduates jobs & employer advice.",
+    description: "Graduate-specific job board providing employer reviews and detailed career pathways.",
     url: "https://in.prosple.com/",
-    type: "Student & Graduate Job Platform",
-    features: [
-      "Internship & Graduate Job Listings",
-      "Career Advice & Articles",
-      "University & Employer Events",
-      "Discussion Forum"
-    ],
-    idealFor: "Students, Recent Graduates, Entry‑Level Candidates",
-    activeUsers: "Used by universities & employers across APAC, UK & North America",
-    rating: 4.1,
-    starDisplay: "★★★★✩"
+    type: "Graduate Portal",
+    features: ["Graduate Programs", "Career Advice", "Employer Vetting", "Global Network"],
+    headquarters: "Sydney, Australia",
+    idealFor: "Recent Graduates"
   },
   {
     logo: "../ITjobplatform/remoteok.webp",
     customClass: "remoteok-img",
-    description: "Huge board for remote tech jobs with salary transparency.",
+    description: "A popular platform listing remote tech jobs with a focus on high salary transparency.",
     url: "https://remoteok.com",
-    type: "Remote Tech Jobs",
-    features: [
-      "Salary Info",
-      "Tech Roles Only",
-      "Full‑time & Contract"
-    ],
-    idealFor: "Tech professionals looking for remote roles",
-    activeUsers: "Millions of monthly visitors",
-    rating: 4.1,
-    starDisplay: "★★★★✩"
-  },
-  {
-    logo: "../ITjobplatform/hirist.png",
-    customClass: "hirist-img",
-    description: "Popular platform for tech jobs and startups in India.",
-    url: "https://www.hirist.com",
-    type: "Tech Job Platform",
-    features: [
-      "Tech Roles",
-      "Startup Jobs",
-      "Direct Apply",
-      "Skill Filter"
-    ],
-    idealFor: "Tech professionals and startup enthusiasts",
-    activeUsers: "3+ million tech professionals",
-    rating: 4.0,
-    starDisplay: "★★★★✩"
+    type: "Remote Tech",
+    features: ["Verified Salaries", "Global Hiring", "Tech Focus", "Full-time Roles"],
+    headquarters: "Remote First",
+    idealFor: "Digital Nomads"
   },
   {
     logo: "../ITjobplatform/wwr.png",
     customClass: "wwr-img",
-    description: "One of the largest remote job boards across industries.",
+    description: "Trustworthy remote community offering jobs in programming, marketing, and customer support.",
     url: "https://weworkremotely.com",
-    type: "Remote Jobs",
-    features: [
-      "Tech & Non‑tech Roles",
-      "Verified Employers",
-      "Remote Only"
-    ],
-    idealFor: "Anyone seeking reputable remote work",
-    activeUsers: "6+ million monthly visitors",
-    rating: 4.0,
-    starDisplay: "★★★★✩"
+    type: "Remote Platform",
+    features: ["High Traffic", "Verified Firms", "Global Roles", "Job Alerts"],
+    headquarters: "Remote First",
+    idealFor: "Remote Seekers"
   },
   {
     logo: "../ITjobplatform/Crossover.png",
     customClass: "crossover-img",
-    description: "Elite remote jobs marketplace for top 1% global talent.",
+    description: "High-paying remote marketplace that hires the top 1% of global professionals only.",
     url: "https://www.crossover.com",
-    type: "Remote Elite Talent",
-    features: [
-      "Skill Assessments",
-      "Long‑Term Remote",
-      "High‑Salary Roles"
-    ],
-    idealFor: "Highly skilled professionals seeking premium remote roles",
-    activeUsers: "Thousands of global roles",
-    rating: 3.9,
-    starDisplay: "★★★✩✩"
+    type: "Elite Remote",
+    features: ["High Salaries", "Skill Testing", "Long-Term Roles", "Premium Companies"],
+    headquarters: "Austin, USA",
+    idealFor: "Top 1% Talent"
   },
   {
     logo: "../ITjobplatform/justremote.png",
     customClass: "justremote-img",
-    description: "Remote‑only job board with powerful filters.",
+    description: "Curated list of remote jobs that aren't typically found on traditional job boards.",
     url: "https://justremote.co",
-    type: "Remote Jobs",
-    features: [
-      "Power Search",
-      "Developer & Design Jobs",
-      "Remote"
-    ],
-    idealFor: "Remote job seekers wanting curated listings",
-    activeUsers: "Thousands of listings daily",
-    rating: 3.9,
-    starDisplay: "★★★✩✩"
+    type: "Remote Hub",
+    features: ["Hidden Jobs", "Powerful Filters", "Global Reach", "Remote First"],
+    headquarters: "London, UK",
+    idealFor: "Tech Seekers"
   },
   {
     logo: "../ITjobplatform/hirexll.png",
     customClass: "hirexl-img",
-    description: "Tech-focused hiring platform helping Indian IT talent connect with top companies in software, cloud, ML, and DevOps.",
+    description: "Connecting Indian tech talent with premium companies across Cloud, ML, and AI sectors.",
     url: "https://hirexl.in/",
-    type: "Tech Talent Platform",
-    features: [
-      "Pre-screened Jobs",
-      "Skill-Based Hiring",
-      "Startup & MNC Roles"
-    ],
-    idealFor: "Software engineers, DevOps, ML engineers, cloud professionals",
-    activeUsers: "Thousands of tech candidates & hiring partners",
-    rating: 3.9,
-    starDisplay: "★★★✩✩"
+    type: "Tech Marketplace",
+    features: ["Pre-Screened Roles", "ML/AI Jobs", "Indian Market", "MNC Hiring"],
+    headquarters: "Bengaluru, India",
+    idealFor: "Specialized Techies"
   },
   {
     logo: "../ITjobplatform/Foundit.png",
     customClass: "foundit-img",
-    description: "Previously Monster Gulf, now a platform to connect professionals and recruiters.",
+    description: "Transformed from Monster to Foundit, offering personalized career growth and AI tools.",
     url: "https://www.foundit.in",
-    type: "Rebranded Platform",
-    features: [
-      "Career Advice",
-      "Skill Tests",
-      "Job Alerts",
-      "Resume Tips"
-    ],
-    idealFor: "Candidates across India and Middle East",
-    activeUsers: "25+ million professionals",
-    rating: 3.8,
-    starDisplay: "★★★✩✩"
+    type: "Indian Platform",
+    features: ["AI Career Tool", "Skill Badges", "Global Reach", "Smart Alerts"],
+    headquarters: "Hyderabad, India",
+    idealFor: "Experienced Pros"
   },
   {
     logo: "../ITjobplatform/remotive.svg",
     customClass: "remotive-img",
-    description: "Curated remote startup & tech jobs board with community.",
+    description: "Hand-picked remote startup jobs focused on developer, sales, and product roles.",
     url: "https://remotive.com",
-    type: "Remote Tech & Startup Jobs",
-    features: [
-      "Newsletter",
-      "Chat Community",
-      "Remote Roles"
-    ],
-    idealFor: "Techies wanting remote startup roles",
-    activeUsers: "Hundreds of remote listings weekly",
-    rating: 3.8,
-    starDisplay: "★★★✩✩"
+    type: "Startup Remote",
+    features: ["Curated List", "Slack Community", "Salary Filters", "Tech Focus"],
+    headquarters: "Remote First",
+    idealFor: "Startup Lovers"
   },
   {
     logo: "../ITjobplatform/Adzuna.png",
     customClass: "adzuna-img",
-    description: "Job search engine aggregating global listings with AI tools.",
+    description: "A smart search engine for jobs that uses AI to predict market salary data.",
     url: "https://www.adzuna.com",
-    type: "Job Search Engine",
-    features: [
-      "Salary Predictor",
-      "AI Interview Prep",
-      "Worldwide Listings"
-    ],
-    idealFor: "Global job seekers wanting aggregated listings",
-    activeUsers: "Operating in 20+ countries",
-    rating: 3.7,
-    starDisplay: "★★★✩✩"
+    type: "Search Engine",
+    features: ["Salary Predictor", "Market Trends", "Aggregated Ads", "AI Resume Check"],
+    headquarters: "London, UK",
+    idealFor: "Market Research"
   },
   {
     logo: "../ITjobplatform/timesjobs.svg",
     customClass: "timesjobs-img",
-    description: "Wide‑reach job board with a strong IT and engineering section.",
+    description: "Focusing on large-scale recruitment across engineering, IT, and administrative sectors.",
     url: "https://www.timesjobs.com",
     type: "Indian Platform",
-    features: [
-      "Resume Forwarding",
-      "Career Advice",
-      "Skill Tests",
-      "Alerts"
-    ],
-    idealFor: "IT freshers and experienced hires",
-    activeUsers: "25+ million users",
-    rating: 3.6,
-    starDisplay: "★★★✩✩"
+    features: ["Corporate Jobs", "Skill Tests", "Resume Services", "Job Events"],
+    headquarters: "Noida, India",
+    idealFor: "Govt & Corp Talent"
   },
   {
     logo: "../ITjobplatform/shine-logo.png",
     customClass: "shine-img",
-    description: "Job search site with resume services and job alerts.",
+    description: "Bridging the gap between job seekers and employers with personalized career services.",
     url: "https://www.shine.com",
-    type: "Indian Platform",
-    features: [
-      "Resume Writing",
-      "Skill Certification",
-      "Alerts",
-      "Job Matching"
-    ],
-    idealFor: "Indian candidates looking for skill enhancement & jobs",
-    activeUsers: "40+ million users",
-    rating: 3.5,
-    starDisplay: "★★★✩✩"
+    type: "Indian Portal",
+    features: ["Resume Builder", "Learning Courses", "Alert Services", "Hiring Insights"],
+    headquarters: "Gurugram, India",
+    idealFor: "Early Career"
   },
   {
     logo: "../ITjobplatform/Freshersworld.png",
     customClass: "freshersworld-img",
-    description: "Focused on entry‑level IT jobs and campus hiring.",
+    description: "India's No.1 site for freshers looking for campus and off-campus tech opportunities.",
     url: "https://www.freshersworld.com",
-    type: "Fresher‑Focused",
-    features: [
-      "Campus Drives",
-      "Internships",
-      "Aptitude Tests",
-      "Job Alerts"
-    ],
-    idealFor: "Fresh graduates and interns in IT",
-    activeUsers: "5+ million users",
-    rating: 3.4,
-    starDisplay: "★★★✩✩"
+    type: "Fresher Portal",
+    features: ["Govt Job Alerts", "Interview Prep", "Aptitude Tests", "Campus Drives"],
+    headquarters: "Bengaluru, India",
+    idealFor: "New Graduates"
   }
 ];

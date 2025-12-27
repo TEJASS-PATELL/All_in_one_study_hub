@@ -22,11 +22,6 @@ function JobPlatformsPage() {
             <p><strong>About:</strong> {platform.description}</p>
             <p><strong>Type:</strong> {platform.type}</p>
             <p><strong>Best For:</strong> {platform.idealFor}</p>
-            <p><strong>Active Users:</strong> {platform.activeUsers}</p>
-
-            <p><strong>Rating:</strong> <span className="platform-rating">{platform.rating}</span></p>
-            <p><strong>Starts:</strong> <span className="platform-stars">{platform.starDisplay}</span></p>
-
             <p><strong>Key Features:</strong></p>
             <ul>
               {platform.features.map((feature, i) => (
