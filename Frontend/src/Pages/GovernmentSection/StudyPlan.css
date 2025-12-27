@@ -33,8 +33,7 @@
 
 .Gsection-toggle-container {
   width: 100%;
-  max-width: 1200px;
-  padding: 20px 20px;
+  max-width: 1000px;
 }
 
 .Gsection-item {
@@ -93,6 +92,7 @@
     opacity: 0;
     transform: translateY(-4px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -110,6 +110,11 @@
 
   .Gsection-item h2 {
     font-size: 1rem;
+  }
+
+  .Gsection-toggle-container {
+    width: 100%;
+    max-width: 550px;
   }
 
   .Gsection-content p,
