@@ -31,14 +31,10 @@
 
 .faq-item {
     background: #ffffff;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #d3d3d3;
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    border-color: #8c8c8c; 
 }
 
 .faq-toggle {
