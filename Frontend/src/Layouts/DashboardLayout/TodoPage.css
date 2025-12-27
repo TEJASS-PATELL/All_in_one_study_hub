@@ -41,7 +41,10 @@
   margin-bottom: 16px;
 }
 
-
+.dashboard-card p{
+  margin-bottom: 2px;
+  margin-left: 5px;
+}
 
 form {
   display: flex;
