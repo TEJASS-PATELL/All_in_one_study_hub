@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { FaTrash, FaClipboardList, FaCheck, FaTimes } from "react-icons/fa";
 import toast from "react-hot-toast";
 import "./TodoPage.css";
@@ -15,7 +15,7 @@ const TodoPage = () => {
     try { return JSON.parse(stored); } catch { return []; }
   });
 
-  useEffect(() => { 
+  useEffect(() => {
     localStorage.setItem("userTodos", JSON.stringify(todos));
   }, [todos]);
 
@@ -25,7 +25,6 @@ const TodoPage = () => {
     return Math.round((completedCount / MAX_TASKS) * 100);
   }, [todos]);
 
-  // Toast for completion - Moved to useEffect to avoid multiple triggers
   useEffect(() => {
     if (progressValue === 100 && todos.length > 0) {
       toast.success("Awesome! You’ve completed all your daily tasks. Great job!", { id: 'complete-toast' });
@@ -52,12 +51,12 @@ const TodoPage = () => {
     setTodos(prev => prev.filter((_, i) => i !== index));
   };
 
-  const getProgressColor = (value) => {
-    if (value === 100) return "#000000"; 
-    if (value >= 70) return "#0088ff";  
-    if (value >= 40) return "#00ff00";   
-    return "#ff4d4d";                   
-  };
+  const getProgressColor = useCallback((value) => {
+    if (value === 100) return "#000000";
+    if (value >= 70) return "#0088ff";
+    if (value >= 40) return "#2fff00";
+    return "red";
+  }, []);
 
   return (
     <section className="todo-main-section">
@@ -104,7 +103,7 @@ const TodoPage = () => {
 
       <div className="progress-container">
         <Calender />
-        <div className="progress-fixed">    
+        <div className="progress-fixed">
           <ProgressBar value={progressValue} getColor={getProgressColor} />
           <p className="todo-counter" style={{ marginTop: '15px', textAlign: 'center' }}>
             {todos.filter(t => t.completed).length} / {MAX_TASKS} Completed

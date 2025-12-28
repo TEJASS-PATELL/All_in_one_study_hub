@@ -23,12 +23,10 @@ function Calender() {
     
         const updateTime = () => {
           const now = new Date();
-    
           const date = now.getDate().toString().padStart(2, '0');
           const day = weekdays[now.getDay()];
           const month = months[now.getMonth()];
           const year = now.getFullYear();
-    
           const hours = now.getHours().toString().padStart(2, '0');
           const minutes = now.getMinutes().toString().padStart(2, '0');
           const seconds = now.getSeconds().toString().padStart(2, '0');
@@ -36,7 +34,7 @@ function Calender() {
           setTime({ hours, minutes, seconds });
           setCalendar({ date, day, month, year });
         };
-    
+  
         updateTime(); 
         const timerId = setInterval(updateTime, 1000); 
     
@@ -68,4 +66,4 @@ function Calender() {
     )
 }
 
-export default Calender;
+export default React.memo(Calender);

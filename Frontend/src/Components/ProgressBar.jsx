@@ -1,3 +1,4 @@
+import React from "react";
 const ProgressBar = ({ value, getColor }) => {
   return (
     <div style={{ width: '100%', marginTop: '20px', padding: '0 10px' }}>
@@ -25,4 +26,4 @@ const ProgressBar = ({ value, getColor }) => {
   );
 };
 
-export default ProgressBar;
+export default React.memo(ProgressBar);

@@ -3,6 +3,12 @@
   overflow-y: auto;  
   width: 100%;
   background: #ffffff;
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.dashboard-content::-webkit-scrollbar {
+  display: none;
 }
 
 .dashboard-container {
