@@ -5,14 +5,7 @@ import { MdWork } from 'react-icons/md';
 import { RxDotFilled } from "react-icons/rx";
 import React from "react";
 
-import {
-    resumePlatforms,
-    codingPracticePlatforms,
-    aptitudePlatforms,
-    mockInterviewPlatforms,
-    openSourceContributionPlatforms,
-    freelancingPlatforms,
-} from "../../data/ITResource";
+import { resumePlatforms, codingPracticePlatforms, aptitudePlatforms, mockInterviewPlatforms, openSourceContributionPlatforms, freelancingPlatforms } from "../../data/ITResource";
 
 const ITJobresources = () => {
     return (
