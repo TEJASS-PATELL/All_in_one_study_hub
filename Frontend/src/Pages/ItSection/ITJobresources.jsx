@@ -155,7 +155,7 @@ const ITJobresources = () => {
                     <li><RxDotFilled className="icon-small" /> Make 2-3 strong <strong>Projects</strong></li>
                     <li><RxDotFilled className="icon-small" /> Customize <strong>Resume for each job</strong></li>
                     <li><RxDotFilled className="icon-small" /> Master <strong>Data Structures & Algorithms</strong></li>
-                    <li><p><RxDotFilled className="icon-small" /> Be <b>strong in your core field</b> like Web Dev, ML, etc.</p></li>
+                    <li><RxDotFilled className="icon-small" /> Be <>strong in your core field</> like Web Dev, ML, etc.</li>
                     <li><RxDotFilled className="icon-small" /> Learn basic <strong>System Design</strong> concepts</li>
                     <li><RxDotFilled className="icon-small" /> Understand <strong>Databases</strong> & SQL queries</li>
                     <li><RxDotFilled className="icon-small" /> Learn about <strong>Networking basics</strong></li>
