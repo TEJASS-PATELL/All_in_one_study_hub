@@ -43,8 +43,14 @@
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
     gap: 12px;
     background-color: #ffffff;
+}
+
+.chat-window::-webkit-scrollbar {
+    display: none;
 }
 
 .message {
@@ -102,9 +108,9 @@
     border: none;
     padding: 0 12px;
     border-radius: 8px;
+    white-space: nowrap;
     cursor: pointer;
     font-weight: 600;
-    transition: opacity 0.2s;
 }
 
 .input-area button:disabled {
@@ -118,6 +124,23 @@
         height: 70vh;
         bottom: 20px;
         right: 20px;
+    }
+
+    .input-area {
+        padding: 8px;
+        gap: 5px;
+    }
+
+    .input-area input {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .input-area button {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+        min-width: 60px; 
+        border-radius: 6px;
     }
 
     .ai-button {
