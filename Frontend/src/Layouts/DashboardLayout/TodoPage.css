@@ -140,6 +140,10 @@ form {
   }
   
   .dashboard-card h3 { font-size: 1.3rem; }
+
+  .todo-add-btn {
+    display: none;
+  }
   
   .progress-fixed {
     width: 150px;

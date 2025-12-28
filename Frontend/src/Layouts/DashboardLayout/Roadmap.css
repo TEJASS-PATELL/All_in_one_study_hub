@@ -233,8 +233,8 @@
 
   .timeline-step {
     width: 100%;
-    padding-left: 50px;
-    padding-right: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .timeline-step.right {
@@ -244,4 +244,6 @@
   .timeline-step::before {
     display: none;
   }
+
 }
+
