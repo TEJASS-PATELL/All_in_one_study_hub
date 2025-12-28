@@ -2,14 +2,16 @@ import './ITJobresources.css';
 import { FaBook, FaCalculator, FaClipboardCheck, FaClock, FaCodeBranch, FaCogs, FaComments, FaDatabase, FaGlobe, FaUserTie } from 'react-icons/fa';
 import { FaFileAlt, FaCode, FaWrench, FaLaptopCode, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { MdWork } from 'react-icons/md';
+import { RxDotFilled } from "react-icons/rx";
 import React from "react";
 
-import { resumePlatforms,
-  codingPracticePlatforms,
-  aptitudePlatforms,
-  mockInterviewPlatforms,
-  openSourceContributionPlatforms,
-  freelancingPlatforms,
+import {
+    resumePlatforms,
+    codingPracticePlatforms,
+    aptitudePlatforms,
+    mockInterviewPlatforms,
+    openSourceContributionPlatforms,
+    freelancingPlatforms,
 } from "../../data/ITResource";
 
 const ITJobresources = () => {
@@ -130,7 +132,6 @@ const ITJobresources = () => {
                 </p>
             </section>
 
-            
             <section className="resources-section">
                 <h2 className="section-heading"><FaLaptopCode /> Top Freelancing Platforms</h2>
                 <div className="card-jobresources">
@@ -156,21 +157,20 @@ const ITJobresources = () => {
             <section className="main-resources-section">
                 <h2 className="section-heading"><MdWork /> Most Important Things</h2>
                 <ul>
-                    <li><FaLinkedin className="icon" /> Build a professional <strong>LinkedIn Profile</strong></li>
-                    <li><FaGithub className="icon" /> Push projects to <strong>GitHub</strong> regularly</li>
-                    <li><FaCode className="icon" /> Make 2-3 strong <strong>Projects</strong></li>
-                    <li><FaFileAlt className="icon" /> Customize <strong>Resume for each job</strong></li>
-                    <li><FaBook className="icon" /> Master <strong>Data Structures & Algorithms (DSA)</strong></li>
-                    <li><FaWrench className="icon" /> Be <strong>strong in your core field</strong> like Web Dev, ML, etc.</li>
-                    <li><FaCogs className="icon" /> Learn basic <strong>System Design</strong> concepts</li>
-                    <li><FaDatabase className="icon" /> Understand <strong>Databases</strong> & SQL queries</li>
-                    <li><FaGlobe className="icon" /> Learn about <strong>Networking basics</strong></li>
-                    <li><FaComments className="icon" /> Practice <strong>Behavioral Interview Questions</strong></li>
-                    <li><FaLaptopCode className="icon" /> Consistently solve <strong>LeetCode / GFG</strong> problems</li>
-                    <li><FaClipboardCheck className="icon" /> Give <strong>Mock Interviews</strong> to improve confidence</li>
-                    <li><FaClock className="icon" /> Make a consistent <strong>Preparation Routine</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Build a professional <strong>LinkedIn Profile</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Push projects to <strong>GitHub</strong> regularly</li>
+                    <li><RxDotFilled className="icon-small" /> Make 2-3 strong <strong>Projects</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Customize <strong>Resume for each job</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Master <strong>Data Structures & Algorithms (DSA)</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Be <strong>strong in your core field</strong> like Web Dev, ML, etc.</li>
+                    <li><RxDotFilled className="icon-small" /> Learn basic <strong>System Design</strong> concepts</li>
+                    <li><RxDotFilled className="icon-small" /> Understand <strong>Databases</strong> & SQL queries</li>
+                    <li><RxDotFilled className="icon-small" /> Learn about <strong>Networking basics</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Practice <strong>Behavioral Interview Questions</strong></li>
+                    <li><RxDotFilled className="icon-small" /> Consistently solve <strong>LeetCode / GFG</strong> problems</li>
+                    <li><RxDotFilled className="icon-small" /> Give <strong>Mock Interviews</strong> to improve confidence</li>
+                    <li><RxDotFilled className="icon-small" /> Make a consistent <strong>Preparation Routine</strong></li>
                 </ul>
-
             </section>
         </div>
     );
