@@ -1,38 +1,29 @@
-import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
+import { Resend } from "resend";
 
-const mailersend = new MailerSend({
-  apiKey: process.env.MAILERSEND_API_KEY,
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
+const sendEmail = async (toEmail, subject, htmlContent) => {
   try {
     const senderAddress = process.env.MAIL_FROM_ADDRESS;
-    const senderName = "Your Study Hub";
 
-    if (!senderAddress || senderAddress.trim() === "") {
-      console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
-      throw new Error("Configuration Error: Sender email is missing.");
+    if (!senderAddress) {
+      throw new Error("MAIL_FROM_ADDRESS missing in env");
     }
 
-    const sentFrom = new Sender(senderAddress, senderName);
-    const recipients = [new Recipient(toEmail)];
+    const response = await resend.emails.send({
+      from: `Your-Study-Hub <${senderAddress}>`,
+      to: toEmail,
+      subject: subject,
+      html: htmlContent,
+    });
 
-    const emailParams = new EmailParams()
-      .setFrom(sentFrom)
-      .setTo(recipients)
-      .setSubject(subject)
-      .setHtml(htmlContent)
-      .setText("Please view this email in HTML mode."); 
-
-    const response = await mailersend.email.send(emailParams);
-
-    console.log("Mailersend API Email Sent Successfully. Response:", response);
-    return { success: true, message: "Email sent via Mailersend." };
+    console.log("Resend Email Sent:", response);
+    return { success: true };
 
   } catch (error) {
-    console.error("Mailersend API Email Error:", error);
-    throw new Error("Failed to send email via Mailersend API.");
+    console.error("Resend Email Error:", error);
+    throw new Error("Failed to send email via Resend");
   }
 };
 
-export default sendMailersendEmail;
+export default sendEmail;
