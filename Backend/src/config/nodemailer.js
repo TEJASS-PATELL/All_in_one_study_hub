@@ -11,7 +11,7 @@ const sendEmail = async (toEmail, subject, htmlContent) => {
     }
 
     const response = await resend.emails.send({
-      from: `Your-Study-Hub <${senderAddress}>`,
+      from: senderAddress,
       to: toEmail,
       subject: subject,
       html: htmlContent,
