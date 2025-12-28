@@ -111,12 +111,35 @@
   margin-top: 20px;
 }
 
-.resume-note { background: #eff6ff; border-left: 5px solid #3b82f6; }
-.coding-note { background: #f0fdf4; border-left: 5px solid #22c55e; }
-.aptitude-note { background: #fffbeb; border-left: 5px solid #f59e0b; }
-.mock-note { background: #fef2f2; border-left: 5px solid #ef4444; }
-.open-source { background: #faf5ff; border-left: 5px solid #a855f7; }
-.freelance-note { background: #ecfeff; border-left: 5px solid #06b6d4; }
+.resume-note {
+  background: #eff6ff;
+  border-left: 5px solid #3b82f6;
+}
+
+.coding-note {
+  background: #f0fdf4;
+  border-left: 5px solid #22c55e;
+}
+
+.aptitude-note {
+  background: #fffbeb;
+  border-left: 5px solid #f59e0b;
+}
+
+.mock-note {
+  background: #fef2f2;
+  border-left: 5px solid #ef4444;
+}
+
+.open-source {
+  background: #faf5ff;
+  border-left: 5px solid #a855f7;
+}
+
+.freelance-note {
+  background: #ecfeff;
+  border-left: 5px solid #06b6d4;
+}
 
 .main-resources-section {
   background: transparent;
@@ -156,15 +179,40 @@
 }
 
 @media (max-width: 768px) {
-  .jobresou-container { padding-top: 80px; }
-  .section-heading { font-size: 1.4rem; }
-  .main-resources-section { padding: 25px 14px; width: auto; }
-  .main-resources-section li { font-size: 0.95rem; padding: 12px 15px; }
+  .jobresou-container {
+    padding-top: 80px;
+  }
+
+  .section-heading {
+    font-size: 1.4rem;
+  }
+
+  .main-resources-section {
+    padding: 25px 14px;
+    width: auto;
+  }
+
+  .main-resources-section li {
+    font-size: 0.95rem;
+    padding: 12px 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  .jobresources-subheading { font-size: 0.95rem; }
-  .jobresourcescard { padding: 20px; }
-  .jobresourcescard a { width: 100%; }
-  .main-resources-section li { font-size: 0.8rem; padding: 12px 15px; }
+  .jobresources-subheading {
+    font-size: 0.95rem;
+  }
+
+  .jobresourcescard {
+    padding: 20px;
+  }
+
+  .jobresourcescard a {
+    width: 100%;
+  }
+
+  .main-resources-section li {
+    font-size: 0.8rem;
+    padding: 12px 15px;
+  }
 }
