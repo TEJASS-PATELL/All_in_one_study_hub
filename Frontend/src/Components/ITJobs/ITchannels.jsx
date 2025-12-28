@@ -15,10 +15,8 @@ export default function ITchannels() {
         {Object.keys(data).map((category) => (
           <button
             key={category}
-            className={`ITs-filter-button ${selectedCategory === category ? "active" : ""
-              } ${category === "Data Structures & Algorithms" ? "dsa" : ""}`}
-            onClick={() => setSelectedCategory(category)}
-          >
+            className={`ITs-filter-button ${selectedCategory === category ? "active" : ""} ${category === "Data Structures & Algorithms" ? "dsa" : ""}`}
+            onClick={() => setSelectedCategory(category)}>
             {category}
           </button>
         ))}
@@ -34,8 +32,7 @@ export default function ITchannels() {
                 className="ITs-resource-link"
                 href={item.link}
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 Visit Channel →
               </a>
             </div>

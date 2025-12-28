@@ -138,3 +138,38 @@
   text-align: center;
 }
 
+@media (max-width: 768px){
+.ITs-resources-wrapper {
+  min-height: 200px; 
+  margin-top: 40px;
+  overflow: visible; 
+  transition: all 0.5s ease;
+}
+
+.ITs-resources-wrapper.open {
+  height: auto;
+  max-height: none; 
+}
+
+.ITs-resources-wrapper {
+  max-height: 600px; 
+  overflow-y: auto;  
+}
+
+.ITs-section-title h1{
+  font-size: 35px;
+}
+
+.ITs-section-title p{
+  font-size: 18px;
+}
+
+.ITdocs-heading{
+  font-size: 2rem;
+}
+
+.ITdocs-description{
+  font-size: 1rem;
+}
+
+}
