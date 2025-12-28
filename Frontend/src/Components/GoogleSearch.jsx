@@ -29,7 +29,6 @@ export default function GoogleSearch() {
             />
             <button type="submit" className="top-search-button">
                 <FontAwesomeIcon icon={faGoogle} style={{ marginRight: "8px" }} />
-                Search
             </button>
         </form>
     );
