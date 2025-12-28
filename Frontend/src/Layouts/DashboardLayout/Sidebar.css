@@ -7,7 +7,6 @@
 
 .dashboard-container {
   display: flex;
-  font-family: 'Montserrat';
   background-color: #ffffff;
 }
 
@@ -147,10 +146,10 @@
   display: none;
   position: fixed;
   top: 15px;
-  left: 15px;
+  left: 5px;
   z-index: 1100;
-  background: #000;
-  color: #fff;
+  background: rgb(0, 0, 0);
+  color: #ffffff;
   border: none;
   padding: 10px;
   border-radius: 5px;
@@ -198,6 +197,9 @@
 @media (max-width: 480px) {
   .dashboard-sidebar {
     width: 250px;
+  }
+  .avatar-upload{
+    display: none;
   }
   .username { font-size: 1.2rem; }
   .user-email { font-size: 0.9rem; }
