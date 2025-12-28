@@ -28,7 +28,7 @@ export default function GoogleSearch() {
                 onChange={(e) => setQuery(e.target.value)}
             />
             <button type="submit" className="top-search-button">
-                <FontAwesomeIcon icon={faGoogle} style={{ marginRight: "8px" }} />
+                <FontAwesomeIcon icon={faGoogle} />
             </button>
         </form>
     );

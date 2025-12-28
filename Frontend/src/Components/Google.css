@@ -5,8 +5,8 @@
   gap: 10px;
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 30px;
-  padding: 10px 16px;
+  border-radius: 20px;
+  padding: 5px 16px;
   width: 100%;
   max-width: 700px;
   margin: 20px auto;
@@ -32,8 +32,9 @@
   background: #000000;
   color: white;
   border: none;
-  border-radius: 25px;
-  padding: 12px 18px;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 10px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
