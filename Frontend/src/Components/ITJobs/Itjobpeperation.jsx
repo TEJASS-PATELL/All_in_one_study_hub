@@ -8,7 +8,7 @@ export default function Itjobpeperation() {
   return (
     <section className="career-dashboard">
       <div className="it-section-title">
-        <h2>Your Career Dashboard</h2>
+        <h1>Your Career Dashboard</h1>
         <p>All your tools, insights, and goals — in one place. Track progress like a pro.</p>
       </div>
       <div className="dashboard-grid">

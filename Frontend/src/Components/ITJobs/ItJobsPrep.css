@@ -89,7 +89,7 @@
   align-items: center;
 }
 
-.it-section-title h2 {
+.it-section-title h1 {
   margin-top: 10px;
   font-size: 3rem;
   font-weight: 700;
@@ -155,5 +155,13 @@
 @media (max-width: 768px) {
   .dashboard-grid {
     grid-template-columns: 1fr;
+  }
+
+  .it-section-title h1{
+    font-size: 2rem;
+  }
+
+  .it-section-title p{
+    font-size: 1rem;
   }
 }
