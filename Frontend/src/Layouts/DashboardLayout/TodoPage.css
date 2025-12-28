@@ -150,7 +150,7 @@ form {
 
 @media (max-width: 480px) {
   .todo-main-section {
-    padding: 40px 1rem 1rem;
+    padding: 20px 1rem 1rem;
   }
   
   .dashboard-card h3 { 
