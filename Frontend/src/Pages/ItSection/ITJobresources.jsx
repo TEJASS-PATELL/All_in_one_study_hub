@@ -154,14 +154,14 @@ const ITJobresources = () => {
                     <li><RxDotFilled className="icon-small" /> Push projects to <strong>GitHub</strong> regularly</li>
                     <li><RxDotFilled className="icon-small" /> Make 2-3 strong <strong>Projects</strong></li>
                     <li><RxDotFilled className="icon-small" /> Customize <strong>Resume for each job</strong></li>
-                    <li><RxDotFilled className="icon-small" /> Master <strong>Data Structures & Algorithms (DSA)</strong></li>
-                    <li><RxDotFilled className="icon-small" /> Be <strong>strong in your core field</strong> like Web Dev, ML, etc.</li>
+                    <li><RxDotFilled className="icon-small" /> Master <strong>Data Structures & Algorithms</strong></li>
+                    <li><p><RxDotFilled className="icon-small" /> Be <b>strong in your core field</b> like Web Dev, ML, etc.</p></li>
                     <li><RxDotFilled className="icon-small" /> Learn basic <strong>System Design</strong> concepts</li>
                     <li><RxDotFilled className="icon-small" /> Understand <strong>Databases</strong> & SQL queries</li>
                     <li><RxDotFilled className="icon-small" /> Learn about <strong>Networking basics</strong></li>
                     <li><RxDotFilled className="icon-small" /> Practice <strong>Behavioral Interview Questions</strong></li>
-                    <li><RxDotFilled className="icon-small" /> Consistently solve <strong>LeetCode / GFG</strong> problems</li>
-                    <li><RxDotFilled className="icon-small" /> Give <strong>Mock Interviews</strong> to improve confidence</li>
+                    <li><RxDotFilled className="icon-small" /> Consistently solve LeetCode / GFG problems</li>
+                    <li><RxDotFilled className="icon-small" /> Give Mock Interviews to improve confidence</li>
                     <li><RxDotFilled className="icon-small" /> Make a consistent <strong>Preparation Routine</strong></li>
                 </ul>
             </section>
