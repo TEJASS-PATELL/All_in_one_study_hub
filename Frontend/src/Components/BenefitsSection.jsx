@@ -62,7 +62,7 @@ const features = [
 ];
 
   return (
-    <section className="skills-section">
+    <section className="skills-section" id='features'>
       <div className="skills-container">
         <h2 className="skills-title">Explore Skill Categories</h2>
         <p className="skills-subtitle">

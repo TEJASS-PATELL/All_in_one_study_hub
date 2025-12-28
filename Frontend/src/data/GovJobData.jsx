@@ -1,10 +1,7 @@
 export const cardsData = [
     {
-        image: "ENG.svg",
         title: "Engineering Exam Essentials",
         description: "Master core concepts of civil, mechanical, and electrical engineering for top technical government exams.",
-        buttonLabel: "Explore Now",
-        customClass: "style-one",
         youtubeChannels: [
             { name: "Unacademy GATE", link: "https://www.youtube.com/@Gatecsit-dsai" },
             { name: "Made Easy", link: "https://www.youtube.com/@MADEEASYEducation" },
@@ -24,177 +21,97 @@ export const cardsData = [
             { name: "SUCCESS DILIP", link: "https://www.youtube.com/@SUCCESSDILIP" },
             { name: "GATE Adda247", link: "https://www.youtube.com/@gateadda247" },
         ],
-        tips: [
-            "Focus on conceptual clarity over rote memorization.",
-            "Solve previous 10 years' papers religiously.",
-            "Take online mock tests weekly to track performance.",
-            "Time management during exam is crucial.",
-            "Prioritize high-weightage subjects like Strength of Materials, Thermodynamics, etc.",
-            "Maintain a healthy lifestyle with proper sleep, diet, and exercise.",
-            "Don't compare your preparation level with others; focus on your progress.",
-            "Avoid starting new topics just before the exam; focus on revising what you've already studied.",
-            "Seek help from mentors, teachers, or peers when facing difficulties.",
-            "Stay positive and motivated throughout your preparation journey."
-        ],
-        bestWebsitesForPreparation: [
+        preparationStrategy: [
             {
-                name: "Testbook",
-                description: "Offers a wide range of mock tests, online courses, and study materials for various government exams, including engineering.",
-                link: "https://testbook.com/"
+                phase: "Phase 1: Foundation & Concept Building (30 Days)",
+                goal: "Master core concepts and prepare comprehensive notes.",
+                actionPoints: [
+                    "Focus on conceptual clarity over rote memorization, prioritizing high-weightage subjects like Strength of Materials and Thermodynamics.",
+                    "15-Day Core Subject Sprint: Complete one major technical subject including full notes and basic MCQs.",
+                    "Seek guidance from mentors or peers immediately when facing difficult technical hurdles."
+                ]
             },
             {
-                name: "MADE EASY",
-                description: "A well-known platform providing coaching, study materials, test series, and job updates specifically for GATE, ESE, and other engineering competitive exams.",
-                link: "https://www.madeeasy.in/"
+                phase: "Phase 2: Speed & Practice Marathon (15-30 Days)",
+                goal: "Improve problem-solving speed and accuracy.",
+                actionPoints: [
+                    "Solve the last 10 years' Previous Year Question papers (PYQs) religiously to understand exam patterns.",
+                    "7-Day Speed Revision Challenge: Perform a quick brush-up of all high-weightage topics every week.",
+                    "Practice time management techniques to ensure efficiency during the actual examination."
+                ]
             },
             {
-                name: "Adda247",
-                description: "Provides comprehensive resources, including live classes, mock tests, and study materials for various government engineering exams like SSC JE, state AE/JE, and PSU recruitments.",
-                link: "https://www.adda247.com/engineering-jobs/"
-            },
-            {
-                name: "Shiksha",
-                description: "Offers information on various engineering exams, colleges, and government job opportunities after B.Tech, along with preparation tips.",
-                link: "https://www.shiksha.com/engineering/articles/government-jobs-after-btech-blogId-190848"
-            },
-            {
-                name: "Unstop",
-                description: "Lists challenges, internships, and job opportunities, including direct recruitment by PSUs and government organizations.",
-                link: "https://unstop.com/"
-            },
-            {
-                name: "BYJU'S Exam Prep",
-                description: "Provides structured courses, live classes, and test series tailored for SSC JE, GATE, and other engineering competitive exams.",
-                link: "https://byjusexamprep.com/"
-            },
-            {
-                name: "NPTEL",
-                description: "A government initiative offering in-depth video lectures by IIT faculty on core engineering subjects helpful for GATE and ESE preparation.",
-                link: "https://nptel.ac.in/"
-            },
-            {
-                name: "Unacademy",
-                description: "One of India’s leading platforms offering live classes, doubt-solving, and structured preparation for GATE, ESE, and state-level engineering exams.",
-                link: "https://unacademy.com/"
+                phase: "Phase 3: Mock Test & Final Revision (Final Stretch)",
+                goal: "Achieve exam readiness and mental peak performance.",
+                actionPoints: [
+                    "30-Day Mock Test Marathon: Complete 20+ full-length mocks and perform a detailed analysis of each.",
+                    "Avoid starting new topics right before the exam; focus exclusively on revising existing knowledge.",
+                    "Maintain a healthy lifestyle with proper sleep and a positive mindset while tracking personal progress."
+                ]
             }
-        ],
-        keyAreasInSyllabus: [
-            "General Intelligence & Reasoning: Analytical and problem-solving abilities.",
-            "Quantitative Aptitude: Mathematical skills covering various topics.",
-            "General Awareness: Current events, history, culture, geography, economic scene, general polity, and scientific research.",
-            "Relevant Engineering Discipline Subjects: In-depth knowledge of your specific engineering branch (Civil, Mechanical, Electrical, etc.)."
-        ],
-        stressBusters: [
-            "Follow Pomodoro technique: 25 min study, 5 min break.",
-            "Do light stretching or deep breathing between long sessions.",
-            "Watch 1 motivational video daily from a trusted mentor.",
-            "Maintain a digital detox time before sleep — no scrolling.",
-            "Remember why you started — journal it weekly."
-        ],
-        studySprints: [
-            { name: "7-Day Speed Revision Challenge", goal: "Quick brush-up of all high-weightage topics." },
-            { name: "15-Day Core Subject Sprint", goal: "Finish 1 major subject with full notes + MCQs." },
-            { name: "30-Day Mock Test Marathon", goal: "Complete 20+ mocks, analyze each one in detail." },
         ],
         ExamOpportunities: [
             {
-                exam: "GATE",
+                exam: "GATE (Graduate Aptitude Test in Engineering)",
                 opportunities: [
-                    "PSUs like ONGC, NTPC, BHEL, IOCL, HPCL, GAIL, PGCIL, DRDO, etc.",
-                    "M.Tech/MS/PhD admissions in IITs, NITs, and IISc",
-                    "Junior Research Fellowship (JRF) in CSIR labs",
-                    "DRDO Scientist-B (via GATE)",
-                    "BIS Scientist-B (via GATE)",
-                    "AAI Junior Executive (Engineering branches)",
-                    "Coal India Limited MT (via GATE)",
-                    "PGCIL Field Engineer/Field Supervisor roles"
+                    "Management Trainee or Executive Engineer roles in top PSUs like ONGC, IOCL, and NTPC.",
+                    "Research and development (R&D) careers in labs like DRDO and CSIR.",
+                    "Direct entry into Postgraduate programs (M.Tech/PhD) at IITs/IISc with institutional fellowships.",
+                    "Opportunities for Scientist-B positions in central organizations like BIS and BARC."
                 ]
             },
             {
                 exam: "ESE (Engineering Services Examination / IES)",
                 opportunities: [
-                    "Indian Railways (IRSE, IRSEE, IRSS, etc.)",
-                    "Central Water Engineering Services",
-                    "Central Electrical and Mechanical Services",
-                    "Indian Defence Service of Engineers",
-                    "CPWD (Central Public Works Department)",
-                    "Border Roads Organisation (BRO)",
-                    "Survey of India",
-                    "Indian Ordnance Factories"
+                    "Appointment as Class-1 Gazetted Officer (Assistant Executive Engineer) in the Government of India.",
+                    "Key leadership roles in CPWD, Military Engineering Services (MES), and Indian Railways.",
+                    "Administrative and technical management of large-scale national infrastructure projects.",
+                    "Career path leading to high-ranking positions like Chief Engineer or Advisor to the Ministry."
                 ]
             },
             {
-                exam: "SSC JE",
+                exam: "SSC JE (Junior Engineer)",
                 opportunities: [
-                    "CPWD (Civil, Electrical, Mechanical)",
-                    "MES (Military Engineering Services)",
-                    "Central Water Commission",
-                    "Border Roads Organisation",
-                    "Directorate of Quality Assurance",
-                    "Farakka Barrage Project",
-                    "Ministry of Defence (Engineering departments)"
+                    "Supervisory roles in Central Government departments like CPWD, CWC, and Border Roads Organisation (BRO).",
+                    "Responsibility for on-site project execution, technical planning, and quality control.",
+                    "Steady career progression from Junior Engineer to Executive and Superintending Engineer.",
+                    "Technical management of defence-related engineering projects under the Ministry of Defence."
                 ]
             },
             {
                 exam: "State PSC AE/JE Exams",
                 opportunities: [
-                    "State PWDs (e.g., UP PWD, MP PWD)",
-                    "State Irrigation Departments",
-                    "State Electricity Boards (e.g., MSEB, TNEB)",
-                    "Rural Water Supply and Sanitation",
-                    "Urban Development Authorities (e.g., DDA, HUDA)",
-                    "State-level Transport & Rail Infrastructure bodies"
+                    "Gazetted (Assistant Engineer) and Non-Gazetted (Junior Engineer) roles in State-run PWD and Irrigation departments.",
+                    "Engineering positions in State Electricity Boards and Urban Development Authorities (like DDA/HUDA).",
+                    "Key roles in Rural Infrastructure, Water Supply, and State Transport bodies.",
+                    "Direct contribution to state-level policy implementation and public works management."
                 ]
             },
             {
                 exam: "ISRO Scientist/Engineer Exam",
                 opportunities: [
-                    "Scientist/Engineer in ISRO centres like VSSC, URSC, SAC",
-                    "Research positions in Indian National Space Promotion agencies"
+                    "Design and development of satellite systems, launch vehicles, and space exploration tech.",
+                    "Research roles in premier space centers like VSSC (Thiruvananthapuram) and URSC (Bengaluru).",
+                    "Involvement in prestigious national space missions (like Chandrayaan or Gaganyaan).",
+                    "Long-term career as a space scientist with global research exposure."
                 ]
             },
             {
-                exam: "BARC OCES/DGFS",
+                exam: "BARC OCES/DGFS (Scientific Officer)",
                 opportunities: [
-                    "Scientific Officer in BARC",
-                    "Research roles in NPCIL, IGCAR, RRCAT, etc.",
-                    "Project Engineering roles in DAE units"
-                ]
-            },
-            {
-                exam: "DRDO Scientist-B",
-                opportunities: [
-                    "Scientist-B in DRDO Labs (via GATE + interview)",
-                    "Core research & defense system development roles"
-                ]
-            },
-            {
-                exam: "BIS Scientist-B Exam",
-                opportunities: [
-                    "Scientist-B in Bureau of Indian Standards (Engineering Disciplines)",
-                    "Standardization and quality assurance roles in India"
-                ]
-            },
-            {
-                exam: "DMRC Recruitment",
-                opportunities: [
-                    "Junior Engineer (JE) – Civil, Electrical, Electronics",
-                    "Assistant Manager – Engineering roles",
-                    "Section Engineer"
-                ]
-            },
-            {
-                exam: "UPSC Combined Geo-Scientist Exam",
-                opportunities: [
-                    "Geological Survey of India",
-                    "Central Ground Water Board"
+                    "Appointment as Scientific Officer (Group-A) in the Department of Atomic Energy (DAE).",
+                    "Advanced research in nuclear science and project engineering in units like NPCIL and IGCAR.",
+                    "Specialized training in nuclear technology with performance-based career increments.",
+                    "Opportunities for collaborative research and PhD through Homi Bhabha National Institute (HBNI)."
                 ]
             },
             {
                 exam: "UPSC Indian Forest Service (IFoS)",
                 opportunities: [
-                    "Forest Services in Central & State cadres",
-                    "Engineering graduates (Civil/Mechanical) can apply with proper optional subjects"
+                    "All-India Service role as Divisional Forest Officer (DFO) or Conservator of Forests.",
+                    "Engineering-based management of forest resources, wildlife conservation, and eco-infrastructure.",
+                    "Policy formulation roles at the Ministry of Environment, Forest, and Climate Change.",
+                    "High-authority positions like Principal Chief Conservator of Forests (PCCF) at the state level."
                 ]
             }
         ],
@@ -354,11 +271,8 @@ export const cardsData = [
         ],
     },
     {
-        image: "medical.svg",
         title: "Medical Govt Exam Guide",
         description: "Structured topics for Nursing, Paramedical, and CMS exams – from Anatomy to Community Health.",
-        buttonLabel: "Start Learning",
-        customClass: "style-six",
         youtubeChannels: [
             { name: "PW MedEd (Physics Wallah MedEd)", link: "https://www.youtube.com/channel/UC2-z_9WyFEhzV0XaLhCpNxQ" },
             { name: "Osmosis", link: "https://www.youtube.com/user/OsmosisMed" },
@@ -373,326 +287,159 @@ export const cardsData = [
             { name: "CFBR", link: "https://www.youtube.com/c/CFBRClinical" },
             { name: "Lecturio Medical", link: "https://www.youtube.com/c/LecturioMedical" },
         ],
-        materials: [
-            "Anatomy & Physiology by Ross and Wilson",
-            "Medical-Surgical Nursing by Brunner & Suddarth",
-            "Pharmacology by K.D. Tripathi",
-            "Community Health Nursing by Neeraja",
-            "AIIMS Paramedical Prep Guide – Shiksha",
-            "MedCram Clinical Case Compendiums",
-        ],
-        tips: [
-            "Follow a topic-wise daily revision schedule",
-            "Practice weekly mock tests to identify weak areas",
-            "Use Pomodoro technique for focused study with breaks",
-            "Watch clinical case videos to strengthen practical skills",
-            "Stay updated with current health affairs monthly",
-            "Revise drug tables with flashcards regularly",
-            "Form study groups for peer learning",
-            "Use mnemonics for anatomical structures & drug classes",
-            "Teach a topic to a friend—it helps memorization",
-            "Maintain physical and mental wellness through exercise",
-        ],
-        bestWebsitesForPreparation: [
-            { name: "Testpaperlive", description: "Coaching & updates for Nursing & Paramedical exams", link: "https://testpaperlive.com/" },
-            { name: "Mantram Nursing Academy", description: "AIIMS BSc Nursing coaching (online+offline)", link: "https://www.mantramstudygroup.com" },
-            { name: "Wisdom Nursing Classes", description: "Paramedical & Nursing officer exam prep", link: "https://www.wisdomnursingclasses.com" },
-            { name: "Shiksha", description: "AIIMS Paramedical guidance & guide", link: "https://www.shiksha.com/medicine-health-sciences/paramedical/aiims-paramedical-exam-preparation" },
-            { name: "PrepLadder", description: "In-depth video lectures + QBank for medical exams", link: "https://prepladder.com" },
-            { name: "Cerebellum Academy", description: "NEET-PG/FMGE prep with expert faculty", link: "https://cerebellumacademy.com" },
-            { name: "CashKaro: AIIMS prep sites", description: "List of best AIIMS prep sites", link: "https://cashkaro.com/blog/best-sites-to-prepare-for-aiims-exam" },
-        ],
-        keyAreasInSyllabus: [
-            "Anatomy & Physiology",
-            "Medical-Surgical Nursing",
-            "Pharmacology",
-            "Community Health Nursing",
-            "Clinical Examination & Case Studies",
-            "Parmedic Procedures & Instruments",
-            "Current Affairs in Health Sector",
-        ],
-        stressBusters: [
-            "Do a 5 min walk or deep breathing after 45 min study",
-            "Stretch or meditate during study breaks",
-            "Watch an inspiring medical story video daily",
-            "Visual journaling: note your progress & achievements",
-            "Stay connected with family/friends to refresh your mind",
-        ],
-        studySprints: [
-            { name: "7‑Day Anatomy Sprint", goal: "Cover major human systems & diagrams" },
-            { name: "14‑Day Pharmacology Q&A", goal: "Memorize drug classes + practice MCQs" },
-            { name: "10‑Day Clinical Exam Practice", goal: "Daily clinical case video + write-up" },
-            { name: "30‑Day Mock Test Marathon", goal: "Complete 20+ mocks and review each in detail" },
+        preparationStrategy: [
+            {
+                phase: "Phase 1: Foundation & Concept Building (30 Days)",
+                goal: "Master core medical concepts and create high-yield notes.",
+                actionPoints: [
+                    "Focus on conceptual clarity in Anatomy and Physiology, prioritizing diagrams and structural functions.",
+                    "Use mnemonics for drug classifications in Pharmacology and complex anatomical structures.",
+                    "Watch clinical case studies and procedure videos to bridge the gap between theory and practical application."
+                ]
+            },
+            {
+                phase: "Phase 2: Speed, Practice & Memory (15-30 Days)",
+                goal: "Improve solving speed and accuracy for high-yield medical topics.",
+                actionPoints: [
+                    "Perform a daily review of drug tables and dosage charts using flashcards and active recall.",
+                    "Solve Previous Year Questions (PYQs) from AIIMS NORCET, RRB, and State PSCs to identify recurring patterns.",
+                    "Stay updated with National Health Missions (NHM) and monthly current affairs in the healthcare sector."
+                ]
+            },
+            {
+                phase: "Phase 3: Mock Tests & Final Readiness (Final Stretch)",
+                goal: "Achieve exam readiness and peak mental performance.",
+                actionPoints: [
+                    "Execute a 30-day mock test marathon, including full-length papers and detailed analysis of errors.",
+                    "Focus on 'teaching a topic' to peers or self-explaining to solidify difficult clinical concepts.",
+                    "Practice the Pomodoro technique to maintain focus during long study sessions while prioritizing physical wellness."
+                ]
+            }
         ],
         ExamOpportunities: [
             {
-                exam: "Combined Medical Services Examination (UPSC CMSE)",
+                exam: "UPSC Combined Medical Services (CMS)",
                 opportunities: [
-                    "General Duty Medical Officer (GDMO) in Central Health Services",
-                    "Assistant Divisional Medical Officer in Indian Railways",
-                    "Medical Officer in Municipal Corporations (MCD, NDMC)",
-                    "Junior Scale Medical Officer in CHS",
-                    "Health Officer in Central Government hospitals"
+                    "Direct entry as Class-A Gazetted Officer in Central Health Services.",
+                    "Positions like General Duty Medical Officer (GDMO) in Railway Hospitals and Municipalities.",
+                    "Opportunities to work in the prestigious Indian Railways Health Service (IRHS).",
+                    "Long-term career path leading to Chief Medical Director or Administrative Health roles."
                 ]
             },
             {
-                exam: "AIIMS Nursing Officer Recruitment (NORCET)",
+                exam: "Nursing Officer Recruitment (NORCET)",
                 opportunities: [
-                    "Nursing Officer posts at AIIMS Delhi & new AIIMS campuses",
-                    "Staff Nurse vacancies across 23 AIIMS institutes (1,794 posts)",
-                    "Nursing Officer at NITRD, CNC Kolkata, AIIPMR Mumbai",
-                    "Nursing Superintendent roles in AIIMS-constituted hospitals",
-                    "Group-B Nursing roles in central govt medical institutions"
+                    "Nursing Officer roles in premier institutes like AIIMS and NITRD.",
+                    "Career progression to Senior Nursing Officer and Nursing Superintendent.",
+                    "Specialized roles in Critical Care, Operation Theater, and Specialized OPDs.",
+                    "Opportunities in Central Government health institutions like CNC Kolkata and AIIPMR Mumbai."
                 ]
             },
             {
-                exam: "RRB Paramedical & Staff Nurse Recruitment",
+                exam: "RRB & ESIC Medical Recruitment",
                 opportunities: [
-                    "Staff Nurse in Railway hospitals",
-                    "Lab Technician posts",
-                    "ECG Technician roles",
-                    "Pharmacist in RRB medical setups",
-                    "Nursing Superintendent vacancies (~713 posts)"
+                    "Staff Nurse and Technical Officer roles in the vast Railway and ESIC network.",
+                    "Technical positions like Lab Technician, Pharmacist, and ECG/X-Ray Specialists.",
+                    "Steady career in Central Government Social Security and Infrastructure sectors.",
+                    "Opportunities for Nursing Superintendents and Pharmacy Managers in urban health setups."
                 ]
             },
             {
-                exam: "ESIC IMO & Nursing Officer",
+                exam: "State PSC & National Health Mission (NHM)",
                 opportunities: [
-                    "Insurance Medical Officer (GDMO Grade II) in ESIC hospitals",
-                    "Staff Nurse positions in ESIC facilities (~573 vacancies)",
-                    "Medical Officer posts in ESI Scheme-managed hospitals",
-                    "Nursing Officer roles across ESIC network",
-                    "Paramedical staff positions in ESIC"
+                    "Community Health Officer (CHO) roles at Health & Wellness Centers.",
+                    "Staff Nurse and Medical Officer positions in State Medical Colleges (e.g., KGMU, SGPGI).",
+                    "Public Health management roles at the District and Block levels.",
+                    "Technical and Paramedical roles in State-run Radiography and Diagnostic labs."
                 ]
             },
             {
-                exam: "OSSSC Nursing Officer Exam (Odisha)",
+                exam: "Technical, Research & Defence Entry",
                 opportunities: [
-                    "Nursing Officer in Odisha government hospitals",
-                    "Staff Nurse roles under OSSSC (7,000+ vacancies)",
-                    "Paramedical Technician posts",
-                    "Contractual nursing staff in state health mission",
-                    "Assistant Nurse Supervisor positions"
+                    "Scientific Officer and Scientist-B roles in research hubs like BARC and DRDO.",
+                    "Technical Assistant positions in advanced Radiology and OT units at AIIMS/ISRO.",
+                    "Specialized careers as Medical Physicists and Biomedical Engineers in government R&D.",
+                    "Medical Officer roles in the AYUSH department (Ayurveda, Homeopathy, Unani)."
                 ]
             },
             {
-                exam: "State NHM/PSC Nursing & Paramedical Exams",
+                exam: "Military Nursing Services (MNS) & Army Medical Corps",
                 opportunities: [
-                    "Staff Nurse in SGPGI, Lucknow (~1,200 vacancies)",
-                    "Nursing Officer in KGMU, UP (~733 posts)",
-                    "Lab Technician under NHM (Rajasthan, UP, Haryana etc.)",
-                    "Radiographer roles in district hospitals",
-                    "Data Entry & Field Nursing Supervisor jobs"
-                ]
-            },
-            {
-                exam: "NHM Rajasthan / RSMSSB Recruitment",
-                opportunities: [
-                    "Staff Nurse under NHM Rajasthan (8,256 posts)",
-                    "Lab / X-ray Technician positions",
-                    "Pharmacy Technician roles",
-                    "Community Health Officer (CHO) posts",
-                    "Supervisory Nurse positions in state health mission"
-                ]
-            },
-            {
-                exam: "AIIMS Technical & Paramedical Recruitment",
-                opportunities: [
-                    "Technical Assistant in Radiology / OT / Lab",
-                    "Medical Physicist roles",
-                    "Biomedical Engineer posts",
-                    "Speech Therapist / Physiotherapist positions",
-                    "Medical Social Worker in AIIMS health centers"
-                ]
-            },
-            {
-                exam: "CPCB / MHRB Medical Officer Recruitment",
-                opportunities: [
-                    "Medical Officer in Central Pollution Control Board",
-                    "Medical Officer in state Government Medical Colleges (KGMU etc.)",
-                    "Occupational Health Officer posts",
-                    "Public Health Officer roles",
-                    "Environmental Health Officer positions"
-                ]
-            },
-            {
-                exam: "AYUSH Dept Recruitment",
-                opportunities: [
-                    "Ayurveda Medical Officer in State AYUSH dispensaries",
-                    "Unani/Homoeopathy Medical Officer roles",
-                    "Pharmacist in AYUSH hospitals",
-                    "Lecturer in AYUSH Colleges",
-                    "Community Health Officer (AYUSH cadre)"
+                    "Commissioned Officer rank in the Indian Armed Forces (Army/Navy/Air Force).",
+                    "Nursing Officer roles with high-tier benefits and Military Service Pay (MSP).",
+                    "Leadership roles in Military Hospitals and Field Medical Units.",
+                    "Global opportunities through UN Peacekeeping missions for medical personnel."
                 ]
             }
         ],
         coachingData: [
             {
                 name: "Mantram Nursing Academy",
-                tagline: "Union NHM BSc/NORCET & Staff Nurse classroom coaching",
-                location: "1st Floor, Near Ram Krishna Mission, Hazaratganj, Lucknow, UP",
+                tagline: "Leading NORCET & Staff Nurse classroom coaching",
+                location: "Lucknow (Hazaratganj) & Chandigarh (near PGIMER)",
                 courses: ["AIIMS NORCET", "State PSC Nursing", "NHM Staff Nurse"],
-                fees: "₹25,000 – ₹45,000 (Foundation + Crash, classroom)",
+                fees: "₹25,000 – ₹55,000 (Foundation + Crash)",
                 website: "https://www.staffnursecoaching.com",
             },
             {
-                name: "UP NHM Staff Nurse Coaching",
-                tagline: "Specialized NHM & State PSC Staff Nurse coaching",
-                location: "Hazaratganj, Lucknow, UP",
-                courses: ["NHM Staff Nurse", "PSC Staff Nurse", "Paramedical Govt Exams"],
-                fees: "₹15,000 – ₹30,000 per batch",
-                website: "Contact via 9519998885",  // from Facebook post
-            },
-            {
-                name: "Mantram Study Group",
-                tagline: "Offline coaching for AIIMS Nursing & Govt health exams",
-                location: "Chandigarh (near PGIMER), classroom + weekend batches",
-                courses: ["NORCET", "BSc Nursing Entrance", "State Nursing Exams"],
-                fees: "Approx. ₹25,000 – ₹55,000 (contact for batch-wise fees)",
-                website: "https://www.mantramstudygroup.com",
-            },
-            {
                 name: "Nursing Experts",
-                tagline: "Delhi‑NCR classroom coaching for NORCET, RRB, ESIC",
+                tagline: "Premier classroom coaching for NORCET, RRB, ESIC",
                 location: "Patel Nagar, Rohini & Saket, Delhi",
                 courses: ["AIIMS NORCET", "RRB Staff Nurse", "ESIC/NHM Staff Nurse"],
-                fees: "₹25,000 – ₹50,000 (classroom batches)",
+                fees: "₹25,000 – ₹50,000",
                 website: "https://nursingexperts.in",
             },
             {
-                name: "NNL Academy",
-                tagline: "Offline NORCET coaching by Nursing Next Live",
-                location: "Sector 62, Noida (coming soon / launched offline centre)",
-                courses: ["AIIMS NORCET", "RRB Staff Nurse", "ESIC"],
-                fees: "₹20,000 – ₹35,000 (Foundation batch)",
-                website: "https://nnlone.com",
-            },
-            {
-                name: "Topper’s Choice",
-                tagline: "Chandigarh-based AIIMS & Nursing exam coaching",
-                location: "Sector 8, Chandigarh (city‑centre)",
-                courses: ["AIIMS NORCET", "BSc Nursing Entrance"],
-                fees: "Monthly plans (contact for exact fee)",
-                website: "https://topperchoice.in",
+                name: "Cerebellum Academy",
+                tagline: "Premium NEET-PG/Nursing/Paramedical coaching",
+                location: "Defence Colony, New Delhi",
+                courses: ["NEET-PG", "FMGE", "AIIMS Nursing", "Paramedical"],
+                fees: "₹40,000 – ₹80,000",
+                website: "https://cerebellumacademy.com",
             },
             {
                 name: "GKM Nursing Career Point",
-                tagline: "Indore & Jabalpur classrooms for NORCET",
-                location: "Indore, Jabalpur (addresses on site)",
+                tagline: "Central India's top result-driven nursing coaching",
+                location: "Indore & Jabalpur, Madhya Pradesh",
                 courses: ["AIIMS NORCET", "Staff Nurse Govt Exams"],
-                fees: "₹15,000 – ₹30,000 per batch",
+                fees: "₹15,000 – ₹30,000",
                 website: "https://gkmncp.com",
-            },
-            {
-                name: "Cerebellum Academy",
-                tagline: "Delhi classroom + online for NEET‑PG/Paramedical/Nursing",
-                location: "Defence Colony, Delhi",
-                courses: ["NEET‑PG", "FMGE", "AIIMS Nursing", "Paramedical"],
-                fees: "₹40,000 – ₹80,000",
-                website: "https://cerebellumacademy.com",
-            },
-            {
-                name: "Elite IIT (AIIMS Online Coaching)",
-                tagline: "Bangalore offline + online AIIMS/Nursing prep",
-                location: "Bannerghatta Road, Bangalore (offline centre)",
-                courses: ["AIIMS Nursing Entrance", "NEET UG", "PGIMER/PGI Nursing"],
-                fees: "₹20,000 – ₹45,000",
-                website: "Via Sulekha contact",
-            },
-            {
-                name: "Cerebellum Academy (Defence Colony, Delhi)",
-                tagline: "Offline NEET-PG / AIIMS Nursing & Paramedical coaching",
-                location: "Shop No. 7–8, Defence Colony, New Delhi, 110024",
-                courses: ["NEET‑PG", "AIIMS Nursing Entrance", "Paramedical Govt Exams"],
-                fees: "₹40,000 – ₹80,000 (classroom)",
-                website: "https://cerebellumacademy.com",
-            },
+            }
         ],
         coursesData: [
             {
-                name: "Physics Wallah MedEd",
-                exams: "NEET PG, FMGE, NExT, INI-CET",
-                features: "Live & recorded classes, QBank, mock tests, app access, Hinglish support",
-                feeRange: "₹18,999 – ₹34,999 (24–66 month NEET PG/FMGE batches)",
-                website: "https://meded.pw.live",
-            },
-            {
-                name: "PrepLadder (Version X)",
-                exams: "NEET PG, FMGE, INI-CET, Super Specialty (SS)",
-                features: "15% shorter videos, audio/image QBank, rapid revision, full-length mocks",
-                feeRange: "₹3,999 – ₹16,500 (Elite/Pro plan)",
-                website: "https://www.prepladder.com",
-            },
-            {
-                name: "Cerebellum Academy Online",
-                exams: "FMGE, NEET PG, INI CET",
-                features: "Live faculty-led lectures, mock tests, mission plans, updated notes",
-                feeRange: "Contact for pricing (Marathon / Crash batches)",
-                website: "https://www.cerebellumacademy.com",
-            },
-            {
-                name: "DocTutorials",
-                exams: "MBBS, NEET PG, FMGE, INI-CET, NEET SS",
-                features: "Video lectures, structured modules, live webinars, test series",
-                feeRange: "Approx ₹10,000 – ₹40,000 (varies by course)",
-                website: "https://www.doctutorials.com",
+                name: "Physics Wallah MedEd / Nursing",
+                exams: "NEET PG, FMGE, AIIMS Nursing, RRB Staff Nurse, CHO",
+                features: "Live classes, 3D-model learning, 20k+ QBank, doubt engine",
+                feeRange: "₹8,000 – ₹35,000 per batch",
+                website: "https://meded.pw.live"
             },
             {
                 name: "Marrow by Neuroglia",
                 exams: "NEET PG, INI-CET, FMGE, NEXT",
-                features: "Structured video lectures, 18,000+ MCQs, daily live tests, clinical QBank, Marrow Notes",
-                feeRange: "₹6,000 – ₹25,000 (Plan B, C, Pro with different durations)",
-                website: "https://www.marrow.com",
+                features: "Structured video lectures, clinical QBank, Marrow Notes, daily tests",
+                feeRange: "₹6,000 – ₹25,000",
+                website: "https://www.marrow.com"
             },
             {
-                name: "Pre‑PG (Pre‑PG App)",
-                exams: "NEET PG, INICET, FMGE, NExT",
-                features: "21,000+ clinical QBank, daily test series, PrepDNA analytics",
-                feeRange: "Free basic + ₹5,999 – ₹9,999/year for full access",
-                website: "https://pre-pg.com",
+                name: "PrepLadder",
+                exams: "NEET PG, FMGE, INI-CET, Super Specialty",
+                features: "Rapid revision videos, Elite plans, image-based QBank",
+                feeRange: "₹3,999 – ₹16,500",
+                website: "https://www.prepladder.com"
             },
             {
                 name: "Unacademy Medical",
                 exams: "NEET PG, FMGE, INI-CET, NExT",
-                features: "Live interactive classes, QBank, mock tests, doubt-clearing, mentor support",
-                feeRange: "₹20,000 – ₹50,000/year for full subscription",
-                website: "https://unacademy.com",
-            },
-            {
-                name: "DBMCI / eGurukul",
-                exams: "NEET PG, FMGE, MDS, USMLE, MRCP",
-                features: "Live & recorded lectures, test-discussion, full QBank",
-                feeRange: "₹39,999 – ₹59,999 (9–18 months), Recorded-only from ₹7,999",
-                website: "https://dbmci.one",
-            },
-            {
-                name: "Academically FMGE Prep",
-                exams: "FMGE",
-                features: "Video lectures, sample questions, study planner, community support",
-                feeRange: "₹5,000 – ₹10,000 (approx, mid-range)",
-                website: "https://academically.com/doctor/fmge-exam-preparation-course",
-            },
-            {
-                name: "Physics Wallah Nursing Online",
-                exams: "AIIMS Nursing, NEET UG Nursing, RRB Staff Nurse, CHO",
-                features: "Live + recorded, 20k+ QBank, 3D-model classes, weekly tests, doubt engine",
-                feeRange: "₹8,000 – ₹20,000 per batch",
-                website: "https://www.pw.live/nursing",
-            },
+                features: "Interactive live classes, mentor support, structured mock test series",
+                feeRange: "₹20,000 – ₹50,000/year",
+                website: "https://unacademy.com"
+            }
         ],
     },
     {
-        image: "defenceee.svg",
         title: "Defence Services Preparation",
         description: "Prepare for NDA, CDS, AFCAT, OTA and SSB with physical training, written strategy, and interview coaching.",
-        buttonLabel: "Learn More",
-        customClass: "style-two",
-        materials: [
-            "Pathfinder NDA Book by Arihant",
-            "CDS by Arihant Experts",
-            "Current Affairs (monthly magazines)",
-            "Lucent’s General Knowledge",
-        ],
         youtubeChannels: [
             { name: "Defence Wallah", link: "https://www.youtube.com/@DefenceWallahPW" },
             { name: "Rojgar with Ankit Defence", link: "https://www.youtube.com/@RojgarwithAnkitDefence" },
@@ -706,121 +453,79 @@ export const cardsData = [
             { name: "Exampur Defence", link: "https://www.youtube.com/@ExampurDefenceWarrior" },
             { name: "Defence Guru", link: "https://www.youtube.com/@defencegurug5171" },
         ],
-        tips: [
-            "Solve past 10 years’ NDA/CDS papers religiously.",
-            "Balance time between math, English, and GK.",
-            "Daily current affairs helps both written & SSB.",
-            "Practice SSB interview tasks under time pressure.",
-            "Maintain physical fitness for SSB GTO rounds.",
-            "Revise formulas and notes weekly.",
-            "Stay consistent with mock tests every weekend.",
-            "Debrief every mock: note strengths & weaknesses.",
-            "Stay calm and confident during the personality test.",
-            "Discuss doubts with mentors or peers regularly.",
-        ],
-        bestWebsitesForPreparation: [
+        preparationStrategy: [
             {
-                name: "Mockers.in",
-                description: "Free year-wise & subject-wise NDA/CDS mock tests (Math, GK, English) with solutions in Hindi/English.",
-                link: "https://www.mockers.in"
+                phase: "Phase 1: Written Exam Foundation",
+                goal: "Build conceptual depth in Mathematics, English, and General Studies.",
+                actionPoints: [
+                    "Focus on high-weightage Math topics like Algebra, Trigonometry, and Calculus for NDA.",
+                    "Strengthen English Grammar and Vocabulary daily to ace the GAT and CDS English papers.",
+                    "Analyze the last 10 years of PYQs to understand the exam pattern and recurring themes."
+                ]
             },
             {
-                name: "Testbook",
-                description: "Comprehensive mock test series for CDS, NDA, Agniveer, AFCAT with 472+ defence tests and detailed analytics.",
-                link: "https://testbook.com/online-test-series"
+                phase: "Phase 2: SSB & Personality Development",
+                goal: "Develop Officer Like Qualities (OLQs) and physical endurance.",
+                actionPoints: [
+                    "Maintain a daily physical fitness regime (running and push-ups) for GTO tasks.",
+                    "Practice PPDT (Picture Perception & Description Test) and TAT tasks under strict time pressure.",
+                    "Read daily editorials to build well-informed opinions for Group Discussions and Personal Interviews."
+                ]
             },
             {
-                name: "Maj or Kalshi Classes (MKC)",
-                description: "NDA mock test series crafted by CDS experts—full-length simulated papers.",
-                link: "https://www.majorkalshiclasses.com/test-series/description/nda-mock-test"
-            },
-            {
-                name: "SSBCrackExams",
-                description: "CDS & OTA mock test series designed by defence exam specialists.",
-                link: "https://learn.ssbcrackexams.com/learn/CDS-Exam-OTA-Mock-Test-Series"
-            },
-            {
-                name: "Centurion Digital App",
-                description: "Sectional and full-length CDS mock tests with UPSC-level difficulty & detailed feedback.",
-                link: "https://www.centuriondefenceacademy.com"
-            },
-            {
-                name: "CareerWill Defence",
-                description: "Structured test series & free defence mock tests including NDA/CDS/AFCAT via their Defence section.",
-                link: "https://careerwill.com/defence-online-coaching"
-            },
-        ],
-        keyAreasInSyllabus: [
-            "Mathematics (Algebra, Trigonometry, Coordinate Geometry)",
-            "General Ability Test – English (Grammar, Vocabulary, Comprehension)",
-            "General Knowledge & Current Affairs",
-            "SSB Interview: Psychology, GTO, PI, PPDT tasks",
-            "Physical Training: Endurance, running, group tasks",
-        ],
-        stressBusters: [
-            "Practice light exercise or brisk walking daily.",
-            "Use Pomodoro method: 25 min study + 5 min break.",
-            "Visualise clearing SSB to boost motivation.",
-            "Listen to calming music before sleep.",
-            "Avoid mobile 30 min before bed.",
-        ],
-        studySprints: [
-            { name: "10-Day NDA Paper Sprint", goal: "Finish & analyze 5 solved NDA papers" },
-            { name: "7-Day CDS GK Blitz", goal: "Learn current affairs + 500 GK MCQs" },
-            { name: "14-Day SSB Simulation Camp", goal: "Take daily mock SSB tasks + review" },
+                phase: "Phase 3: Mock Drills & Stress Management",
+                goal: "Optimize performance through testing and mental conditioning.",
+                actionPoints: [
+                    "Conduct full-length mock tests every weekend and perform a deep-dive analysis of errors.",
+                    "Use the Pomodoro method (25m study + 5m break) to maintain high focus during long sessions.",
+                    "Use visualization techniques and light exercise to stay calm and confident before the SSB Board."
+                ]
+            }
         ],
         ExamOpportunities: [
             {
-                exam: "NDA (National Defence Academy)",
+                exam: "National Defence Academy (NDA)",
                 opportunities: [
-                    "Join NDA, Pune → 3 years training (B.A./B.Sc/B.Tech) → transfer to IMA (Indian Military Academy), AFA (Air Force Academy) or INA (Indian Naval Academy)",
-                    "Commission as Lieutenant (Basic pay ₹56,100–1,77,500 + Military Service Pay ₹15,500 + allowances)",
-                    "Career progression: Captain → Major → Lt‑Colonel → Colonel → Brigadier → Major General → Lt General → up to COAS/VCOAS",
-                    "Roles in combat, technical, logistics, medical engineering & adventure (para-jump, mountaineering)",
-                    "Post-retirement: roles in diplomacy, defence consultancy, corporate leadership and teaching"
+                    "Early entry as a Commissioned Officer in the Army, Navy, or Air Force right after 12th.",
+                    "Comprehensive 3-year joint training at NDA Pune followed by specialized training at premier academies like IMA, INA, or AFA.",
+                    "Career progression starting from Lieutenant/Sub Lieutenant/Flying Officer up to the highest military ranks.",
+                    "Opportunities to lead combat units and participate in prestigious roles like Paratroopers, Fighter Pilots, or Naval Aviators."
                 ]
             },
             {
-                exam: "CDS (Combined Defence Services)",
+                exam: "Combined Defence Services (CDS)",
                 opportunities: [
-                    "Commission via IMA/INA/AFA (Permanent Commission) or OTA (Officers’ Training Academy) – Short Service Commission (10–14 yrs)",
-                    "Ranks: Lieutenant → Captain → Major → higher ranks; structured promotions",
-                    "Roles: Troop leadership, strategic planning, intelligence, technical/engineering branches",
-                    "Post-retirement career: defence advisory, public sector, industry, teaching"
+                    "Officer-level entry for graduates into the Indian Military Academy (IMA) or Officers Training Academy (OTA).",
+                    "Direct leadership roles in strategic operations, intelligence, and ground-level unit command.",
+                    "Option for Permanent Commission (lifelong service) or Short Service Commission (initial 10-14 years).",
+                    "A life of adventure including peacekeeping missions with the United Nations and high-altitude operations."
                 ]
             },
             {
-                exam: "AFCAT (Air Force Common Admission Test) / OTA (Officers' Training Academy)",
+                exam: "AFCAT & Technical Entry",
                 opportunities: [
-                    "AFCAT → Commissioned as Flying Officer in Indian Air Force (Ground/Technical/Non-technical)",
-                    "OTA via CDS → SSC in Indian Army (can convert to Permanent Commission)",
-                    "Ranks progression: Flying Officer (₹56,100 basic) → Flight Lieutenant → Squadron Leader → up to Air Marshal",
-                    "In-hand salary: ₹85,372 (Flying), ₹74,872 (Ground Technical), ₹71,872 (Ground Non-Tech) per month :contentReference[oaicite:1]{index=1}"
+                    "Officer roles in Flying, Technical (Engineering), or Ground Duty (Administrative/Logistics) branches of the IAF.",
+                    "Opportunities for engineers to lead advanced aerospace projects and maintain state-of-the-art aircraft fleets.",
+                    "Elite lifestyle in the Indian Air Force with exposure to global aviation standards and international exercises.",
+                    "Fast-track career growth in specialized technical cadres of the Indian Navy and Air Force."
                 ]
             },
             {
-                exam: "Agniveer Scheme",
+                exam: "UPSC CAPF (Central Armed Police Forces)",
                 opportunities: [
-                    "4-year enrolment in Army, Navy or IAF as Agniveer (non-officer rank)",
-                    "Monthly pay: ₹30,000 → ₹40,000; post-service Seva Nidhi package ~₹11.71 lakh :contentReference[oaicite:2]{index=2}",
-                    "Up to 25% selected for Permanent Commission via internal criteria :contentReference[oaicite:3]{index=3}",
-                    "Provides technical training, discipline; good for skilled youth"
+                    "Direct entry as Assistant Commandant (Class-A Gazetted Officer) in forces like BSF, CRPF, CISF, and ITBP.",
+                    "Commanding large battalions in border security, internal security, and counter-insurgency operations.",
+                    "Key roles in disaster management (NDRF) and protecting vital national infrastructure (Airports/Power plants).",
+                    "High-authority administrative roles with the power to manage law and order in sensitive zones."
                 ]
             },
             {
-                exam: "UES (University Entry Scheme)",
+                exam: "Agnipath Scheme (Agniveer)",
                 opportunities: [
-                    "Pre-final year B.E/B.Tech students apply via campus drive → SSB selection → join IMA/OTA after graduation",
-                    "Commissioned directly as officers (lieutenants) via Permanent Commission",
-                    "Ideal for technical branches (Engineers) – bypasses NDA/CDS entrance",
-                    "Career progression: Captain → Major → Lt‑Colonel → higher ranks"
-                ]
-            },
-            {
-                exam: "CAPF (Central Armed Police Forces)",
-                opportunities: [
-                    "Join as Assistant Commandant in BSF, CRPF, CISF, ITBP, SSB via UPSC CAPF exam",
-                    "Career path: AC → DIG → IG → Addl IG; roles in border security, intelligence, UN peacekeeping :contentReference[oaicite:4]{index=4}"
+                    "Service as a front-line soldier in the Indian Army, Navy, or Air Force with intense professional training.",
+                    "Opportunity for permanent absorption (up to 25%) based on merit and performance during the 4-year tenure.",
+                    "Acquisition of high-value technical skills and certifications recognized by both government and corporate sectors.",
+                    "Reserved quotas in State Police forces, CAPF, and Defence PSUs (like HAL, BEL) after completion of service."
                 ]
             }
         ],
@@ -908,43 +613,284 @@ export const cardsData = [
             }
         ],
         coursesData: [
-  { name: "Centurion NDA Online Course", exams: "NDA, CDS, AFCAT, SSB", features: "Live + recorded classes, mocks, SSB prep, app access", feeRange: "₹20,000 – ₹50,000", website: "https://www.centuriondefenceacademy.com/online-courses/" },
-  { name: "Defence Wallah Defence Coaching", exams: "NDA, CDS, AFCAT, Agniveer", features: "Live lectures, QBank, mocks, hinglish support", feeRange: "₹5,000 – ₹15,000", website: "https://www.pw.live/defence/batches" },
-  { name: "MKC CDS Online", exams: "CDS", features: "Expert CDS materials, live classes, tests", feeRange: "Contact for pricing", website: "https://www.majorkalshiclasses.com/online-course/online-cds-classes" },
-  { name: "Trishul NDA Online", exams: "NDA", features: "Live classes + doubt sessions, SSB guidance", feeRange: "Contact for pricing", website: "https://www.trishuldefenceacademy.in/nda-online" },
-  { name: "Dehradun Military Academy Online", exams: "NDA, CDS, AFCAT, SSB", features: "Live + recorded lectures, 50–70 mocks, SSB bootcamp, doubt sessions, till-selection promise", feeRange: "₹10,000 – ₹40,000", website: "https://dehradunmilitaryacademy.com" },
-  { name: "Vishwabharati Defence Academy", exams: "NDA, CDS, AFCAT", features: "Short online crash courses, mock papers, e‑materials", feeRange: "₹500+", website: "https://vishwabharatigurukul.com" },
-  { name: "CareerWill Defence Online", exams: "NDA, CDS, AFCAT, Navy/Airforce", features: "Video lectures, interactive classes, test series", feeRange: "₹5,000 – ₹20,000", website: "https://careerwill.com/defence-online-coaching" },
-  { name: "Major Kalshi Classes (MKC) NDA Foundation", exams: "NDA", features: "1‑year foundation online course, expert faculty, structured curriculum", feeRange: "₹30,000 – ₹60,000", website: "https://www.majorkalshiclasses.com/online-course/online-nda-foundation-classes" },
-  { name: "Adda247 Defence Officer Mahapack", exams: "NDA, CDS, AFCAT, CAPF", features: "900 hrs live classes, 2600+ tests, 1123 videos, ebooks, mocks", feeRange: "₹1,899 (18–27 month access)", website: "https://www.adda247.com/defence/live-classes-study-kit" },
-  { name: "Unacademy Defence Courses", exams: "NDA, CDS, AFCAT, CAPF", features: "Live + recorded classes, adaptive tests, expert mentors", feeRange: "Varies by subscription/batch", website: "https://unacademy.com" },
-],
+            { name: "Centurion NDA Online Course", exams: "NDA, CDS, AFCAT, SSB", features: "Live + recorded classes, mocks, SSB prep, app access", feeRange: "₹20,000 – ₹50,000", website: "https://www.centuriondefenceacademy.com/online-courses/" },
+            { name: "Defence Wallah Defence Coaching", exams: "NDA, CDS, AFCAT, Agniveer", features: "Live lectures, QBank, mocks, hinglish support", feeRange: "₹5,000 – ₹15,000", website: "https://www.pw.live/defence/batches" },
+            { name: "MKC CDS Online", exams: "CDS", features: "Expert CDS materials, live classes, tests", feeRange: "Contact for pricing", website: "https://www.majorkalshiclasses.com/online-course/online-cds-classes" },
+            { name: "Trishul NDA Online", exams: "NDA", features: "Live classes + doubt sessions, SSB guidance", feeRange: "Contact for pricing", website: "https://www.trishuldefenceacademy.in/nda-online" },
+            { name: "Dehradun Military Academy Online", exams: "NDA, CDS, AFCAT, SSB", features: "Live + recorded lectures, 50–70 mocks, SSB bootcamp, doubt sessions, till-selection promise", feeRange: "₹10,000 – ₹40,000", website: "https://dehradunmilitaryacademy.com" },
+            { name: "Vishwabharati Defence Academy", exams: "NDA, CDS, AFCAT", features: "Short online crash courses, mock papers, e‑materials", feeRange: "₹500+", website: "https://vishwabharatigurukul.com" },
+            { name: "CareerWill Defence Online", exams: "NDA, CDS, AFCAT, Navy/Airforce", features: "Video lectures, interactive classes, test series", feeRange: "₹5,000 – ₹20,000", website: "https://careerwill.com/defence-online-coaching" },
+            { name: "Major Kalshi Classes (MKC) NDA Foundation", exams: "NDA", features: "1‑year foundation online course, expert faculty, structured curriculum", feeRange: "₹30,000 – ₹60,000", website: "https://www.majorkalshiclasses.com/online-course/online-nda-foundation-classes" },
+            { name: "Adda247 Defence Officer Mahapack", exams: "NDA, CDS, AFCAT, CAPF", features: "900 hrs live classes, 2600+ tests, 1123 videos, ebooks, mocks", feeRange: "₹1,899 (18–27 month access)", website: "https://www.adda247.com/defence/live-classes-study-kit" },
+            { name: "Unacademy Defence Courses", exams: "NDA, CDS, AFCAT, CAPF", features: "Live + recorded classes, adaptive tests, expert mentors", feeRange: "Varies by subscription/batch", website: "https://unacademy.com" }
+        ],
     },
     {
-        image: "upscss.svg",
-        title: "UPSC & State PSC Focus",
+        title: "UPSC Civil Services",
         description: "Crack Civil Services with top-tier content on polity, economy, ethics, and current affairs.",
-        buttonLabel: "Start Practicing",
-        customClass: "style-three",
-        materials: [
-            "NCERTs (Class 6–12) – All subjects",
-            "Laxmikanth – Indian Polity",
-            "Spectrum – Modern History",
-            "Economic Survey & Budget",
+        ExamOpportunities: [
+            {
+                exam: "Indian Administrative Service (IAS)",
+                opportunities: [
+                    "Entry-level roles as Sub-Divisional Magistrate (SDM) with direct control over law, order, and revenue.",
+                    "Responsibility for implementing government policies and managing the entire district administration as a DM/Collector.",
+                    "Career progression to high-ranking policy-making roles like Secretary to the Government of India or Cabinet Secretary.",
+                    "Diverse exposure in sectors like Finance, Education, Health, and Public Works at both State and Central levels."
+                ]
+            },
+            {
+                exam: "Indian Police Service (IPS)",
+                opportunities: [
+                    "Direct leadership of police forces starting as Assistant Superintendent of Police (ASP).",
+                    "Key roles in maintaining public safety, crime prevention, and managing district security as SP/SSP.",
+                    "Opportunities to serve in elite agencies like Intelligence Bureau (IB), RAW, CBI, and NSG.",
+                    "Leadership in specialized units like Counter-Terrorism, Cyber Crime, and Border Security management."
+                ]
+            },
+            {
+                exam: "Indian Foreign Service (IFS)",
+                opportunities: [
+                    "Representing India on the global stage as a diplomat in Indian Embassies and High Commissions abroad.",
+                    "Handling international relations, trade negotiations, and protecting the interests of Indian citizens in foreign lands.",
+                    "Career path leading to prestigious positions like Ambassador, High Commissioner, or Foreign Secretary.",
+                    "Working with international bodies like the United Nations (UN) and representing India in global summits."
+                ]
+            },
+            {
+                exam: "Indian Revenue Service (IRS - IT & Customs)",
+                opportunities: [
+                    "Managing the nation's financial backbone through direct and indirect tax administration.",
+                    "Key roles in economic intelligence, anti-smuggling operations, and preventing money laundering (ED/DRI).",
+                    "Policy formulation in the Ministry of Finance to drive India's economic growth and fiscal stability.",
+                    "Authority to conduct audits, investigations, and ensure corporate tax compliance."
+                ]
+            },
+            {
+                exam: "Indian Audit and Accounts Service (IAAS) & Others",
+                opportunities: [
+                    "Ensuring financial accountability of the government under the Comptroller and Auditor General (CAG).",
+                    "Roles in diverse central services like Indian Postal Service, Railway Management Service, and Defence Estates Service.",
+                    "Managing massive government infrastructures, logistics, and large-scale public welfare systems.",
+                    "Career opportunities in specialized administrative cadres like DANICS and DANIPS for Union Territories."
+                ]
+            }
         ],
+        youtubeChannels: [
+            { name: "StudyIQ IAS", link: "https://www.youtube.com/@StudyIQIAS" },
+            { name: "Drishti IAS", link: "https://www.youtube.com/@drishtiias" },
+            { name: "Vision IAS", link: "https://www.youtube.com/@VisionIASdelhi" },
+            { name: "Mrunal Patel", link: "https://www.youtube.com/@mrunalorg" },
+            { name: "Sansad TV", link: "https://www.youtube.com/@SansadTV" },
+            { name: "Unacademy UPSC", link: "https://www.youtube.com/@UnacademyUPSC" },
+            { name: "PW OnlyIAS", link: "https://www.youtube.com/@onlyiasnothingelse" },
+            { name: "Insight IAS", link: "https://www.youtube.com/@InsightsIASOfficial" },
+        ],
+        preparationStrategy: [
+            {
+                phase: "Phase 1: Foundation & NCERTs (3-6 Months)",
+                goal: "Build a strong conceptual base and understand the vast syllabus.",
+                actionPoints: [
+                    "Finish basic NCERTs (History, Geography, Polity, Economy) to build a foundation.",
+                    "Start reading a national daily newspaper (The Hindu/Indian Express) to track current affairs.",
+                    "Understand the syllabus thoroughly and analyze Previous Year Questions (PYQs)."
+                ]
+            },
+            {
+                phase: "Phase 2: Core Subjects & Optional (6-9 Months)",
+                goal: "Deep dive into GS papers and complete the Optional subject.",
+                actionPoints: [
+                    "Cover standard reference books like Laxmikanth (Polity) and Spectrum (History).",
+                    "Finalize and complete your Optional subject, as it carries 500 marks in Mains.",
+                    "Start Answer Writing practice for Mains to improve speed and structure."
+                ]
+            },
+            {
+                phase: "Phase 3: Prelims & Mains Revision (Final Stretch)",
+                goal: "Intensive testing, revision, and refinement of presentation.",
+                actionPoints: [
+                    "Solve 50+ Prelims Mock Tests to improve accuracy and elimination skills.",
+                    "Focus on Ethics (GS-4) and Essay writing to boost your overall Mains score.",
+                    "Refine Current Affairs notes for the last 1.5 years and revise static facts repeatedly."
+                ]
+            }
+        ],
+        coachingData: [
+            {
+                name: "Vajiram & Ravi",
+                tagline: "India's Legacy Institute for UPSC CSE",
+                location: "Delhi (Old Rajinder Nagar) & Chennai",
+                courses: ["GS Foundation", "Optional Subjects", "CSAT"],
+                fees: "₹1,50,000 – ₹2,10,000",
+                website: "https://www.vajiramandravi.com"
+            },
+            {
+                name: "Vision IAS",
+                tagline: "The Leader in UPSC Test Series & Study Material",
+                location: "Pan-India (Delhi, Jaipur, Hyderabad, Pune)",
+                courses: ["GS Foundation", "Mains Test Series", "Interview Guidance"],
+                fees: "₹80,000 – ₹1,60,000",
+                website: "https://www.visionias.in"
+            },
+            {
+                name: "Drishti IAS",
+                tagline: "Top Choice for Hindi & English Medium Aspirants",
+                location: "Delhi (Mukherjee Nagar), Prayagraj, Jaipur",
+                courses: ["GS Foundation", "Distance Learning", "Mock Interviews"],
+                fees: "₹60,000 – ₹1,30,000",
+                website: "https://www.drishtiias.com"
+            },
+            {
+                name: "Next IAS",
+                tagline: "Expert Faculty for Comprehensive UPSC Prep",
+                location: "Delhi (Old Rajinder Nagar)",
+                courses: ["GS Foundation", "Optional Subjects", "CSAT"],
+                fees: "₹1,00,000 – ₹1,80,000",
+                website: "https://www.nextias.com"
+            }
+        ],
+        coursesData: [
+            { name: "Drishti Learning App Courses", exams: "UPSC CSE, State PCS", features: "Live/Recorded classes, mentorship, daily quiz", feeRange: "₹50,000 – ₹1,00,000", website: "https://www.drishtilearningapp.com" },
+            { name: "PW (Physics Wallah) UPSC", exams: "UPSC CSE", features: "Most affordable, expert faculty, daily current affairs", feeRange: "₹10,000 – ₹35,000", website: "https://www.pw.live/upsc" },
+            { name: "StudyIQ Live Foundation", exams: "UPSC CSE", features: "1-on-1 Mentorship, Answer writing focus, Hindi/English", feeRange: "₹20,000 – ₹35,000", website: "https://www.studyiq.com" },
+            { name: "Unacademy UPSC Plus", exams: "UPSC CSE", features: "Subscription based, multiple educators, flexible learning", feeRange: "₹45,000 – ₹80,000 (Annual)", website: "https://unacademy.com/goal/upsc-civil-services-examination-ias-prelims-mains-gs" },
+            { name: "Sleepy Classes", exams: "UPSC CSE", features: "Subject specific modular courses, affordable price", feeRange: "₹5,000 – ₹25,000", website: "https://sleepyclasses.com" },
+        ],
+    
     },
     {
-        image: "lawww.svg",
-        title: "Law & Judiciary Prep Zone",
-        description: "Ace legal officer and judiciary exams with a clear grip on Constitution, IPC, CPC, and case laws.",
-        buttonLabel: "Test Yourself",
-        customClass: "style-four",
-        materials: [
-            "Bare Acts (IPC, CrPC, CPC, Evidence)",
-            "Indian Constitution by D.D. Basu",
-            "Universal’s Guide to Judiciary Exams",
-            "Landmark Judgments Analysis",
+        title: "Law & Judiciary Preparation Guide",
+        description: "A complete roadmap to mastering the Judicial Services, Legal Officer exams, and the Judge Advocate General (JAG) entry.",
+        youtubeChannels: [
+            { name: "Judiciary Gold", link: "https://www.youtube.com/@JudiciaryGold" },
+            { name: "Finology Legal", link: "https://www.youtube.com/@FinologyLegal" },
+            { name: "StudyIQ Judiciary", link: "https://www.youtube.com/@StudyIQJudiciary" },
+            { name: "Aashayein Judiciary", link: "https://www.youtube.com/@aashayeinJ" },
+            { name: "LegalEdge After College", link: "https://www.youtube.com/@LegalEdgeAfterCollege" },
+            { name: "Learn Law Better", link: "https://www.youtube.com/c/LearnLawBetter" }
         ],
+        preparationStrategy: [
+            {
+                phase: "Step 1: Bare Act Decoding (Foundation)",
+                goal: "Understand the structure and language of statutes.",
+                actionPoints: [
+                    "Read every section carefully, focusing on 'shall' vs 'may' and essential ingredients.",
+                    "Create flowcharts for procedural laws (CrPC and CPC) to visualize the trial process.",
+                    "Memorize the index of major Bare Acts for quick referencing during exams."
+                ]
+            },
+            {
+                phase: "Step 2: Answer Writing & Case Laws (Intermediate)",
+                goal: "Developing legal reasoning and presentation for Mains.",
+                actionPoints: [
+                    "Practice the IRAC method (Issue, Rule, Application, Conclusion) for legal problems.",
+                    "Maintain a 'Case Law Diary' for landmark and recent 2024-2025 judgments.",
+                    "Write one full-length judgment (Civil/Criminal) every week to master the format."
+                ]
+            },
+            {
+                phase: "Step 3: State-Specific & Local Laws (Final)",
+                goal: "Acing the specific requirements of target states.",
+                actionPoints: [
+                    "Study Rent Control Acts, Revenue Codes, and other local laws for states like UP, MP, or Delhi.",
+                    "Focus on the local language paper (Hindi/Regional) which is often a tie-breaker.",
+                    "Take state-specific mock tests to adapt to varying exam patterns."
+                ]
+            },
+            {
+                phase: "Step 1: Bare Act Decoding (Foundation)",
+                goal: "Understand the structure and language of statutes.",
+                actionPoints: [
+                    "Read every section carefully, focusing on 'shall' vs 'may' and essential ingredients.",
+                    "Create flowcharts for procedural laws (CrPC and CPC) to visualize the trial process.",
+                    "Memorize the index of major Bare Acts for quick referencing during exams."
+                ]
+            },
+        ],
+        ExamOpportunities: [
+            {
+                exam: "PCS-J (Civil Judge Junior Division)",
+                opportunities: [
+                    "Direct entry as a Judicial Magistrate or Civil Judge in State Subordinate Courts.",
+                    "Authority to adjudicate on local civil disputes and criminal trials.",
+                    "Growth path to District Judge and potential elevation to High Court.",
+                    "Includes official residence, security, and a highly respected societal status."
+                ]
+            },
+            {
+                exam: "JAG (Judge Advocate General) Entry",
+                opportunities: [
+                    "Commissioned Officer rank (Lieutenant) in the Indian Army's legal wing.",
+                    "Advisory role to military commanders on military, martial, and international law.",
+                    "Combines the discipline of a soldier with the intellect of a legal professional.",
+                    "Service includes high-altitude postings, adventure sports, and military benefits."
+                ]
+            },
+            {
+                exam: "IBPS Law Officer / SEBI / RBI Grade B",
+                opportunities: [
+                    "Specialist officer roles in banking and regulatory sectors.",
+                    "Handling high-value legal documentation, recoveries, and financial compliance.",
+                    "Fixed working hours with corporate-level pay scales and bank perks."
+                ]
+            },
+            {
+                exam: "APO / APP (Assistant Prosecution Officer / Assistant Public Prosecutor)",
+                opportunities: [
+                    "Represent the State Government in criminal cases within Magistrate Courts.",
+                    "Gazetted Officer status (Level 8/10) with competitive pay and government perks.",
+                    "Directly assist the police in investigations and ensure legal compliance in trials.",
+                    "Career progression to Public Prosecutor (PP) or Special Prosecutor for agencies like CBI/NIA."
+                ]
+            },
+            {
+                exam: "Supreme Court / High Court Law Clerk-cum-Research Assistant",
+                opportunities: [
+                    "Directly assist Hon'ble Judges in legal research, case analysis, and judgment drafting.",
+                    "Unparalleled exposure to the highest level of judicial decision-making and legal arguments.",
+                    "Highly valued credential for future practice, LLM applications, or judicial exam interviews.",
+                    "Monthly stipends ranging from ₹50,000 to ₹80,000 depending on the court."
+                ]
+            }
+        ],
+        coachingData: [
+            {
+                name: "Rahul's IAS",
+                tagline: "India's most prestigious academy for Judiciary",
+                location: "Delhi (Mukherjee Nagar & Wazirpur)",
+                courses: ["Judiciary Foundation (English/Hindi)", "UPSC Law Optional"],
+                fees: "₹1,50,000 – ₹2,95,000 (Varies by duration/mode)",
+                website: "https://rahulsias.com"
+            },
+            {
+                name: "Judiciary Gold (Toprankers)",
+                tagline: "Leading the Digital Revolution in Law Prep",
+                location: "Bhopal, Indore, Jaipur & Online",
+                courses: ["Comprehensive Foundation", "State-Specific Crash Courses"],
+                fees: "₹60,000 – ₹1,20,000",
+                website: "https://www.toprankers.com"
+            },
+            {
+                name: "Ambition Law Institute",
+                tagline: "Structured Coaching for Judicial Services",
+                location: "Delhi (Pitam Pura & Mukherjee Nagar)",
+                courses: ["Regular Classroom Program", "Hybrid & Online Batches"],
+                fees: "₹1,40,000 – ₹2,40,000",
+                website: "https://ambitionlawinstitute.com"
+            },
+            {
+                name: "Pahuja Law Academy",
+                tagline: "Specialized Training for Judiciary & APO",
+                location: "Delhi (Mukherjee Nagar)",
+                courses: ["English/Hindi Judiciary", "APO/APP Specialist"],
+                fees: "₹35,000 – ₹1,50,000",
+                website: "https://www.pahujalawacademy.com"
+            }
+        ],
+        coursesData: [
+            { name: "PW Judiciary (Physics Wallah)", exams: "PCS-J, APO, DJS", features: "Most affordable, Hinglish, expert faculty from NLUs", feeRange: "₹10,000 – ₹25,000", website: "https://www.pw.live/judiciary" },
+            { name: "StudyIQ Judiciary Smart Course", exams: "State Judiciary", features: "Recorded & Live lectures, 1-on-1 mentorship", feeRange: "₹20,000 – ₹45,000", website: "https://www.studyiq.com" },
+            { name: "Unacademy Judiciary", exams: "PCS-J", features: "Subscription model, multiple educator access", feeRange: "₹40,000 – ₹70,000", website: "https://unacademy.com" }
+        ]
     },
     {
         image: "bankinggg.svg",

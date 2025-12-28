@@ -20,12 +20,11 @@ export default function NavBar() {
         </div>
 
         <ul className="Lnavbar-links">
-          <li><Link to="/">Home</Link></li>
-          <li><button className="nav-btn-link">Features</button></li>
-          <li><Link className="ai-tools" to="/ai-tools">AI Tools</Link></li>
+          <li><Link to="/government-jobs/Study-Material" className="nav-btn-link">Prep-Resources</Link></li>
+          <li><Link className="ai-tools" to="/ai-tools">AI-Tools</Link></li>
           <li><Link to="/it-jobs/ITjobsearch-platform">Job-Search</Link></li>
           <li><Link to="/dashboard/roadmap">RoadMap</Link></li>
-          <li><button className="nav-btn-link">FAQ's</button></li>
+          <li><Link to="/dashboard/chatroom" className="nav-btn-link">Chat-Room</Link></li>
         </ul>
 
         <div className="Lnavbar-auth-buttons">

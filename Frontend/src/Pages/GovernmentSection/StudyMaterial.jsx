@@ -4,9 +4,7 @@ import "./StudyMaterial.css";
 import {
   FaYoutube,
   FaLightbulb,
-  FaGlobe,
   FaBookOpen,
-  FaSmile,
   FaFlagCheckered,
   FaBriefcase,
   FaChalkboardTeacher,
@@ -15,12 +13,12 @@ import {
   FaRupeeSign,
   FaExternalLinkAlt,
   FaCheckCircle,
+  FaArrowAltCircleRight,
 } from 'react-icons/fa';
 
 import { cardsData } from "../../data/GovJobData";
 
 const StudyMaterial = () => {
-
   const [openSections, setOpenSections] = useState({});
 
   const toggleSection = (cardIndex, sectionName) => {
@@ -47,10 +45,7 @@ const StudyMaterial = () => {
       </div>
       
       {cardsData.map((card, index) => (
-        <div
-          key={index}
-          className="image-cardd-container"
-        >
+        <div key={index} className="image-cardd-container">
           <div className="card-section">
             <h2 className="card-title">{card.title}</h2>
             <p className="card-description">{card.description}</p>
@@ -80,103 +75,30 @@ const StudyMaterial = () => {
               </div>
             )}
 
-            {card.tips && card.tips.length > 0 && (
+            {card.preparationStrategy && card.preparationStrategy.length > 0 && (
               <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "tips")}>
-                  <span className="button-left">
-                    <FaLightbulb style={{ marginRight: '12px' }} />
-                    Top Tips
-                  </span>
-                </button>
-                <div className={`collapsible-content ${openSections[index] === "tips" ? "open" : ""}`}>
-                  <ul className="tips-list">
-                    {card.tips.map((tip, i) => (
-                      <li key={i}>{tip}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {card.bestWebsitesForPreparation && card.bestWebsitesForPreparation.length > 0 && (
-              <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "websites")}>
-                  <span className="button-left">
-                    <FaGlobe style={{ marginRight: '12px' }} />
-                    Best Preparation Websites
-                  </span>
-                </button>
-                <div className={`collapsible-content ${openSections[index] === "websites" ? "open" : ""}`}>
-                  <ul className="websites-list">
-                    {card.bestWebsitesForPreparation.map((site, i) => (
-                      <li key={i} className="website-item">
-                        <h4 className="website-name">
-                          {site.name} –{" "}
-                          <a
-                            href={site.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="website-link"
-                          >
-                            Visit Site <FaExternalLinkAlt size={10} />
-                          </a>
-                        </h4>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {card.keyAreasInSyllabus && card.keyAreasInSyllabus.length > 0 && (
-              <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "syllabus")}>
-                 <span className="button-left">
-                    <FaBookOpen style={{ marginRight: '12px' }} />
-                    Key Areas in Syllabus
-                  </span>
-                </button>
-                <div className={`collapsible-content ${openSections[index] === "syllabus" ? "open" : ""}`}>
-                  <ul className="syllabus-list">
-                    {card.keyAreasInSyllabus.map((area, i) => (
-                      <li className="li" key={i}>{area}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {card.stressBusters && card.stressBusters.length > 0 && (
-              <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "stress")}>
-                  <span className="button-left">
-                    <FaSmile style={{ marginRight: '12px' }} />
-                    Stress Buster Tips
-                  </span>
-                </button>
-                <div className={`collapsible-content ${openSections[index] === "stress" ? "open" : ""}`}>
-                  <ul className="stress-list">
-                    {card.stressBusters.map((tip, i) => (
-                      <li className="li" key={i}>{tip}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            )}
-
-            {card.studySprints && card.studySprints.length > 0 && (
-              <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "sprint")}>
+                <button 
+                  className={`toggle-button ${openSections[index] === 'strategy' ? 'open' : ''}`}
+                  onClick={() => toggleSection(index, "strategy")}
+                >
                   <span className="button-left">
                     <FaFlagCheckered style={{ marginRight: '12px' }} />
-                    Study Sprint Challenges
+                    Preparation Strategy & Sprints
                   </span>
                 </button>
-                <div className={`collapsible-content ${openSections[index] === "sprint" ? "open" : ""}`}>
-                  <ul className="study-list">
-                    {card.studySprints.map((sprint, i) => (
-                      <li className="li" key={i}>
-                        <strong>{sprint.name}:</strong> {sprint.goal}
+                <div className={`collapsible-content ${openSections[index] === "strategy" ? "open" : ""}`}>
+                  <ul className="opportunityList">
+                    {card.preparationStrategy.map((phase, i) => (
+                      <li key={i} className="LopportunityItem">
+                        <strong>{phase.phase}</strong>
+                        <p style={{ fontSize: '1.05rem', color: '#555', margin: '5px 0 10px 0px' }}>
+                          <em>Goal: {phase.goal}</em>
+                        </p>
+                        <ul className="subOpportunityList">
+                          {phase.actionPoints.map((point, j) => (
+                            <li key={j} className="LsubItem">{point}</li>
+                          ))}
+                        </ul>
                       </li>
                     ))}
                   </ul>
@@ -186,7 +108,10 @@ const StudyMaterial = () => {
 
             {card.ExamOpportunities && card.ExamOpportunities.length > 0 && (
               <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "opportunities")}>
+                <button 
+                  className={`toggle-button ${openSections[index] === 'opportunities' ? 'open' : ''}`}
+                  onClick={() => toggleSection(index, "opportunities")}
+                >
                    <span className="button-left">
                     <FaBriefcase style={{ marginRight: '12px' }} />
                     Top Opportunities
@@ -196,7 +121,7 @@ const StudyMaterial = () => {
                   <ul className="opportunityList">
                     {card.ExamOpportunities.map((item, i) => (
                       <li key={i} className="LopportunityItem">
-                        <strong><FaCheckCircle style={{ marginRight: "6px" }} /> {item.exam}</strong>
+                        <strong>{item.exam}</strong>
                         <ul className="subOpportunityList">
                           {item.opportunities.map((op, j) => (
                             <li key={j} className="LsubItem">{op}</li>
@@ -211,24 +136,24 @@ const StudyMaterial = () => {
 
             {card.coachingData && card.coachingData.length > 0 && (
               <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "coaching")}>
+                <button 
+                  className={`toggle-button ${openSections[index] === 'coaching' ? 'open' : ''}`}
+                  onClick={() => toggleSection(index, "coaching")}
+                >
                   <span className="button-left">
                     <FaChalkboardTeacher style={{ marginRight: '12px' }} />
                     Top Coaching Institutes
                   </span>
                 </button>
                 <div className={`collapsible-content ${openSections[index] === "coaching" ? "open" : ""}`}>
-                  {card.coachingData.map((coaching) => (
-                    <div key={index} className="LcoachingCard">
+                  {card.coachingData.map((coaching, idx) => (
+                    <div key={idx} className="LcoachingCard">
                       <div className="LcoachingTitle"><FaGraduationCap /> {coaching.name}</div>
                       <div className="LcoachingTagline">"{coaching.tagline}"</div>
                       <div className="LcoachingLocation"><FaMapMarkerAlt /> {coaching.location}</div>
-                      <div className="LcoachingCourses">
-                        <span className="LcoachingLabel"><FaBookOpen /> Courses :</span> {coaching.courses.join(', ')}
-                      </div>
-                      <div className="LcoachingFees"><FaRupeeSign /> Fees: {coaching.fees}</div>
+                      <div className="LcoachingFees">Fees: {coaching.fees}</div>
                       <a href={coaching.website} className="LcoachingWebsite" target="_blank" rel="noopener noreferrer">
-                        <FaExternalLinkAlt /> Visit Website
+                        <FaExternalLinkAlt /> Visit Website 
                       </a>
                     </div>
                   ))}
@@ -238,10 +163,13 @@ const StudyMaterial = () => {
 
             {card.coursesData && card.coursesData.length > 0 && (
               <div className="toggle-section">
-                <button className="toggle-button" onClick={() => toggleSection(index, "courses")}>
+                <button 
+                  className={`toggle-button ${openSections[index] === 'courses' ? 'open' : ''}`}
+                  onClick={() => toggleSection(index, "courses")}
+                >
                   <span className="button-left">
                     <FaBookOpen style={{ marginRight: '12px' }} />
-                    Top Online Courses
+                    Top Online Course Platforms
                   </span>
                 </button>
                 <div className={`collapsible-content ${openSections[index] === "courses" ? "open" : ""}`}>
@@ -249,7 +177,6 @@ const StudyMaterial = () => {
                     <div key={i} className="LcourseCard">
                       <div className="LcourseTitle"><FaBookOpen /> <span className="Llabel">{course.name}</span></div>
                       <div className="LcourseTagline"><FaCheckCircle /> <span className="Llabel">Exams :</span> {course.exams}</div>
-                      <div className="LcourseLocation"><FaLightbulb /> <span className="Llabel">Features :</span> {course.features}</div>
                       <div className="LcourseFees"><FaRupeeSign /> <span className="Llabel">Fees :</span> {course.feeRange}</div>
                       <a href={course.website} className="LcourseWebsite" target="_blank" rel="noopener noreferrer">
                         <FaExternalLinkAlt /> Visit Website
@@ -265,6 +192,5 @@ const StudyMaterial = () => {
     </div>
   );
 };
-
 
 export default StudyMaterial;
