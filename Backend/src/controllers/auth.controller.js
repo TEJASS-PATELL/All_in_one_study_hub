@@ -6,7 +6,6 @@ import sendMailersendEmail from "../config/nodemailer.js";
 import crypto from "crypto";
 import cacheClient from "../services/cacheClient.js";
 import { prisma } from "../lib/prisma.js";
-import { extractImageId } from "../config/extractImageId.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const isProduction = process.env.NODE_ENV === "production";
