@@ -13,6 +13,14 @@ const transporter = nodemailer.createTransport({
   socketTimeout: 10000,
 });
 
+transporter.verify((error, success) => {
+  if (error) {
+    console.log("Connection check failed:", error);
+  } else {
+    console.log("Server is ready to send emails!");
+  }
+});
+
 const sendEmail = async (toEmail, subject, htmlContent) => {
   try {
     const senderAddress = process.env.MAIL_FROM_ADDRESS || process.env.EMAIL_USER;

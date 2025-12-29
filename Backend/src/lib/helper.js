@@ -25,7 +25,7 @@ const sendOtp = async (userId, userEmail) => {
             </div>
             <p style="color: #999; font-size: 14px;">This code is valid for <b>5 minutes</b>. If you did not request this, please ignore this email.</p>
             <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
-            <p style="color: #bbb; font-size: 12px;">© ${new Date().getFullYear()} Your Project Name. All rights reserved.</p>
+            <p style="color: #bbb; font-size: 12px;">© ${new Date().getFullYear()} All-in-one-study-hub. All rights reserved.</p>
         </div>
     `;
 
