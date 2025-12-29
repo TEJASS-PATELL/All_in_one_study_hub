@@ -1,47 +1,37 @@
-import nodemailer from "nodemailer";
-
-const transporter = nodemailer.createTransport({
-  host: process.env.HOST,
-  port: parseInt(process.env.PORT) || 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  connectionTimeout: 10000, 
-});
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.log("Connection check failed:", error);
-  } else {
-    console.log("Server is ready to send emails!");
-  }
-});
+import axios from "axios";
 
 const sendEmail = async (toEmail, subject, htmlContent) => {
   try {
-    const senderAddress = process.env.MAIL_FROM_ADDRESS || process.env.EMAIL_USER;
+    const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
+    const API_KEY = process.env.BREVO_API_KEY; 
+    const SENDER_EMAIL = process.env.MAIL_FROM_ADDRESS; 
 
-    if (!senderAddress) {
-      throw new Error("Sender address (EMAIL_USER) missing in env");
+    if (!API_KEY || !SENDER_EMAIL) {
+      throw new Error("BREVO_API_KEY or MAIL_FROM_ADDRESS is missing in env");
     }
 
-    const mailOptions = {
-      from: `"Your App Name" <${senderAddress}>`, 
-      to: toEmail,
+    const data = {
+      sender: { name: "Your App Name", email: SENDER_EMAIL },
+      to: [{ email: toEmail }],
       subject: subject,
-      html: htmlContent,
+      htmlContent: htmlContent,
     };
 
-    const info = await transporter.sendMail(mailOptions);
+    const response = await axios.post(BREVO_API_URL, data, {
+      headers: {
+        "api-key": API_KEY,
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+    });
 
-    console.log("Email Sent Successfully:", info.messageId);
-    return { success: true, messageId: info.messageId };
+    console.log("Email Sent Successfully via Brevo API:", response.data.messageId);
+    return { success: true, messageId: response.data.messageId };
 
   } catch (error) {
-    console.error("Nodemailer Error:", error.message);
-    throw new Error(`Failed to send email: ${error.message}`);
+    const errorMsg = error.response ? JSON.stringify(error.response.data) : error.message;
+    console.error("Brevo API Error:", errorMsg);
+    throw new Error(`Failed to send email: ${errorMsg}`);
   }
 };
 
