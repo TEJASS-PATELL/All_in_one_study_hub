@@ -6,7 +6,6 @@ import { useAuthStore } from "../Store/useAuthStore";
 import "./LoginPage.css";
 import React from "react";
 
-
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });

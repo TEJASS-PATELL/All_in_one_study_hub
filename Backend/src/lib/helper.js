@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 const sendOtp = async (userId, userEmail) => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    const expires = Date.now() + 5 * 60 * 1000; 
+    const expires = Math.floor((Date.now() + 5 * 60 * 1000) / 1000);
 
     await prisma.user.update({
         where: { id: userId },
