@@ -3,14 +3,15 @@ import './Navbar.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import { useAuthStore } from "../Store/useAuthStore";
+import Loading from './Loading';
 
 export default function NavBar() {
   const navigate = useNavigate();
   const { authUser, fetchUser } = useAuthStore();
 
   useEffect(() => {
-    if (authUser) fetchUser();
-  }, []);
+    fetchUser();
+  }, [fetchUser]);
 
   return (
     <nav className="Lnavbar">
@@ -28,12 +29,12 @@ export default function NavBar() {
         </ul>
 
         <div className="Lnavbar-auth-buttons">
-          {!authUser ? (
-            <Link to="/login" className="Llogin-btn">Login</Link>
-          ) : (
+          {authUser ? (
             <div className="Lprofile-wrapper" onClick={() => navigate("/dashboard")}>
-                <FaUserCircle size={38} className="nav-profile-icon" />
+              <FaUserCircle size={38} />
             </div>
+          ) : (
+            <Link to="/login" className="Llogin-btn">Login</Link>
           )}
         </div>
       </div>

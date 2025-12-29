@@ -17,6 +17,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login({ email: formData.email, password: formData.password }, navigate);
+    console.log("login")
   };
 
   const handleGoogleLogin = () => {
@@ -64,8 +65,7 @@ const LoginPage = () => {
                 <button
                   type="button"
                   className="password-toggle"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
+                  onClick={() => setShowPassword(!showPassword)}>
                   {showPassword ? <FaLockOpen /> : <FaLock />}
                 </button>
               </div>

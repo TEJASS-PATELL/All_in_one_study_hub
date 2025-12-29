@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [fetchUser]);
 
   return <RouterProvider router={router} />;
 }
