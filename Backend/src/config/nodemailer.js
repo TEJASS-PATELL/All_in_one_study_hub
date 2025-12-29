@@ -1,28 +1,36 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER, 
+    pass: process.env.EMAIL_PASS, 
+  },
+});
 
 const sendEmail = async (toEmail, subject, htmlContent) => {
   try {
-    const senderAddress = process.env.MAIL_FROM_ADDRESS;
+    const senderAddress = process.env.MAIL_FROM_ADDRESS || process.env.EMAIL_USER;
 
     if (!senderAddress) {
-      throw new Error("MAIL_FROM_ADDRESS missing in env");
+      throw new Error("Sender address (EMAIL_USER) missing in env");
     }
 
-    const response = await resend.emails.send({
-      from: senderAddress,
+    const mailOptions = {
+      from: `"Your App Name" <${senderAddress}>`, 
       to: toEmail,
       subject: subject,
       html: htmlContent,
-    });
+    };
 
-    console.log("Resend Email Sent:", response);
-    return { success: true };
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log("Email Sent Successfully:", info.messageId);
+    return { success: true, messageId: info.messageId };
 
   } catch (error) {
-    console.error("Resend Email Error:", error);
-    throw new Error("Failed to send email via Resend");
+    console.error("Nodemailer Error:", error.message);
+    throw new Error(`Failed to send email: ${error.message}`);
   }
 };
 
