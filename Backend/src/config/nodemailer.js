@@ -1,38 +1,38 @@
-import axios from "axios";
+import { MailerSend, EmailParams, Sender, Recipient } from "mailersend";
 
-const sendEmail = async (toEmail, subject, htmlContent) => {
+const mailersend = new MailerSend({
+  apiKey: process.env.MAILERSEND_API_KEY,
+});
+
+const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
   try {
-    const BREVO_API_URL = "https://api.brevo.com/v3/smtp/email";
-    const API_KEY = process.env.BREVO_API_KEY; 
-    const SENDER_EMAIL = process.env.MAIL_FROM_ADDRESS; 
+    const senderAddress = process.env.MAIL_FROM_ADDRESS;
+    const senderName = "Your-Study-Hub";
 
-    if (!API_KEY || !SENDER_EMAIL) {
-      throw new Error("BREVO_API_KEY or MAIL_FROM_ADDRESS is missing in env");
+    if (!senderAddress || senderAddress.trim() === "") {
+      console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
+      throw new Error("Configuration Error: Sender email is missing.");
     }
 
-    const data = {
-      sender: { name: "Your App Name", email: SENDER_EMAIL },
-      to: [{ email: toEmail }],
-      subject: subject,
-      htmlContent: htmlContent,
-    };
+    const sentFrom = new Sender(senderAddress, senderName);
+    const recipients = [new Recipient(toEmail)];
 
-    const response = await axios.post(BREVO_API_URL, data, {
-      headers: {
-        "api-key": API_KEY,
-        "Content-Type": "application/json",
-        "Accept": "application/json",
-      },
-    });
+    const emailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo(recipients)
+      .setSubject(subject)
+      .setHtml(htmlContent)
+      .setText("Please view this email in HTML mode."); 
 
-    console.log("Email Sent Successfully via Brevo API:", response.data.messageId);
-    return { success: true, messageId: response.data.messageId };
+    const response = await mailersend.email.send(emailParams);
+
+    console.log("Mailersend API Email Sent Successfully. Response:", response);
+    return { success: true, message: "Email sent via Mailersend." };
 
   } catch (error) {
-    const errorMsg = error.response ? JSON.stringify(error.response.data) : error.message;
-    console.error("Brevo API Error:", errorMsg);
-    throw new Error(`Failed to send email: ${errorMsg}`);
+    console.error("Mailersend API Email Error:", error);
+    throw new Error("Failed to send email via Mailersend API.");
   }
 };
 
-export default sendEmail;
+export default sendMailersendEmail;

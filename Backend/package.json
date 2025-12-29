@@ -27,6 +27,7 @@
     "jsonwebtoken": "^9.0.2",
     "lodash.debounce": "^4.0.8",
     "mailersend": "^2.6.0",
+    "mailtrap": "^4.4.0",
     "mongoose": "^8.16.3",
     "mysql2": "^3.14.1",
     "node-cache": "^5.1.2",
@@ -34,7 +35,8 @@
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "resend": "^6.6.0",
-    "sib-api-v3-sdk": "^8.5.0"
+    "sib-api-v3-sdk": "^8.5.0",
+    "twilio": "^5.11.1"
   },
   "devDependencies": {
     "prisma": "^6.17.0"
