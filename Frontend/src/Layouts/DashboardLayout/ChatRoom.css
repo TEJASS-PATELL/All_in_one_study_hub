@@ -202,11 +202,15 @@
 
 @media (max-width: 768px) {
     .chatroom-header h1 {
-        font-size: 2rem;
+        font-size: 1.75rem;
+    }
+
+    .chat-header p{
+        font-size: 1rem;
     }
 
     .chatroom-wrapper {
-        padding: 20px 1rem;
+        padding: 10px 1rem;
     }
 
     .room-card:hover {

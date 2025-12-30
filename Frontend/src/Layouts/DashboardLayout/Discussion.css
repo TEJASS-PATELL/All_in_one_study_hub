@@ -252,7 +252,7 @@
 
 @media (max-width: 480px) {
   .discussion-container {
-    padding-top: 30px;
+    padding-top: 10px;
   }
 
   .discussion-popup-content {
