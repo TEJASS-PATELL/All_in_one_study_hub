@@ -7,13 +7,12 @@ import Loading from "./Layouts/Loading";
 const router = createBrowserRouter(routers);
 
 function App() {
-  const { fetchUser, isLoading } = useAuthStore();
+  const { fetchUser } = useAuthStore();
 
   useEffect(() => {
     fetchUser();
   }, []);
 
-  if (isLoading) return <Loading />;
   return <RouterProvider router={router} />;
 }
 

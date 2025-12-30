@@ -15,10 +15,8 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const success = await login({ email: formData.email, password: formData.password });
-    if (success) {
+      await login({ email: formData.email, password: formData.password });
       navigate("/");
-    }
   };
 
   const handleGoogleLogin = () => {
