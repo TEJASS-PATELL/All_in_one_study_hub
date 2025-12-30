@@ -49,14 +49,18 @@ export default function VerifyAccount() {
 
           <button disabled={isLoading} onClick={handleVerify} className="forgot-btn">
             {isLoading ? (
-                <>
-                  <Loader2 className="loader animate-spin mr-2" size={18} />
-                  Verify Account...
-                </>
-              ) : (
-                "Verify"
-              )}
+              <>
+                <Loader2 className="loader animate-spin mr-2" size={18} />
+                Verify Account...
+              </>
+            ) : (
+              "Verify"
+            )}
           </button>
+
+          <p className="spam-notice">
+            <b>Note:</b> If you don't see the email in your inbox, please check your <b>Spam or Junk folder</b>.
+          </p>
         </div>
       </div>
     </div>
