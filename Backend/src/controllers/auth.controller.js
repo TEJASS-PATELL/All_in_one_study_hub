@@ -1,6 +1,5 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import cloudinary from "../config/cloudinary.js";
 import sendOtp from "../lib/helper.js";
 import sendMailersendEmail from "../config/nodemailer.js";
 import crypto from "crypto";
@@ -8,15 +7,13 @@ import cacheClient from "../services/cacheClient.js";
 import { prisma } from "../lib/prisma.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
-const isProduction = process.env.NODE_ENV === "production";
 
-const generateToken = (userid) =>
-  jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
+const generateToken = (userid) => jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
 
 const cookieOptions = {
   httpOnly: true,
-  secure: isProduction,
-  sameSite: isProduction ? "None" : "Lax",
+  secure: process.env.NODE_ENV === "production",
+  sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
 
@@ -30,23 +27,19 @@ export const login = async (req, res) => {
     const user = await prisma.user.findUnique({
       where: { email: normalizedEmail },
     });
+
     if (!user) return res.status(400).json({ msg: "User not found" });
 
     const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) return res.status(400).json({ msg: "Invalid credentials" });
+    if (!isMatch) return res.status(400).json({ msg: "Invalid Password" });
+
+    await cacheClient.del(`user:${user.id}`);
 
     const token = generateToken(user.id);
 
-    await prisma.user.update({
-      where: { email: normalizedEmail },
-      data: { lastLogin: new Date(), isLogin: true },
-    });
-
-    await cacheClient.del('all_users_list');
-
-    res.cookie("token", token, { ...cookieOptions, secure: false }).json({
+    res.cookie("token", token, cookieOptions ).json({
       msg: "Login successful",
-      user: { id: user.id, name: user.name, email: user.email },
+      user: { id: user.id, name: user.name, email: user.email, isAccountVerified: user.isAccountVerified },
     });
   } catch (err) {
     res.status(500).json({ msg: "Login failed", error: err.message });
@@ -72,12 +65,9 @@ export const signup = async (req, res) => {
       try {
         await sendOtp(exist.id, exist.email);
         return res.json({
-          success: true,
-          redirectToVerify: true,
-          message: "Account exists but not verified. OTP resent.",
+          success: true, redirectToVerify: true, message: "Account exists but not verified. OTP resent.",
         });
       } catch (otpError) {
-        console.error("Resend OTP failed for existing user:", otpError.message);
         return res.status(500).json({ success: false, message: "User exists, but failed to send verification OTP. Try again later." });
       }
     }
@@ -90,27 +80,19 @@ export const signup = async (req, res) => {
         email: cleanEmail,
         password: hashed,
         isAccountVerified: false,
-        lastLogin: new Date(),
-        isLogin: true,
-        lastLogout: null,
       },
     });
 
     try {
       await sendOtp(user.id, user.email);
-
-      return res.status(201).json({
-        success: true,
-        redirectToVerify: true,
-        message: "Verification OTP sent!",
-      });
+      return res.status(201).json({ success: true, redirectToVerify: true, message: "Verification OTP sent!" });
 
     } catch (otpError) {
       console.error(" Initial OTP send failed for new user:", otpError.message);
       await prisma.user.delete({ where: { id: user.id } });
       return res.status(500).json({
         success: false,
-        message: "Signup successful, but failed to send verification email. Please register again later."
+        message: "Failed to send verification email. Please register again."
       });
     }
 
@@ -128,15 +110,10 @@ export const logout = async (req, res) => {
 
     await prisma.user.update({
       where: { id: userId },
-      data: {
-        lastLogout: new Date(),
-        isLogin: false,
-      },
     });
 
     await cacheClient.del(userCacheKey);
     await cacheClient.del(allUsersCacheKey);
-    await cacheClient.del('all_users_list');
 
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 }).json({ msg: "Logged out successfully" });
   } catch (err) {
@@ -162,10 +139,7 @@ export const getuser = async (req, res) => {
         name: true,
         email: true,
         createdAt: true,
-        profilepic: true,
         isAccountVerified: true,
-        lastLogin: true,
-        lastLogout: true,
       },
     });
 
@@ -185,7 +159,6 @@ export const deleteAccount = async (req, res) => {
     }
 
     await prisma.user.delete({ where: { id: userId } });
-    cacheClient.del(`user:${userId}`, "all_users_list");
 
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 });
     res.status(200).json({ msg: "Account deleted successfully" });
@@ -332,18 +305,21 @@ export const verifyOtp = async (req, res) => {
 
     const updatedUser = await prisma.user.update({
       where: { id: user.id },
-      data: {
-        isAccountVerified: true,
-        verifyOtp: "",
-        verifyOtpExpireAt: 0,
-      },
+      data: { isAccountVerified: true, verifyOtp: "", verifyOtpExpireAt: 0 },
     });
 
+    await cacheClient.del(`user:${user.id}`);
     const token = generateToken(user.id);
-
     res.cookie("token", token, cookieOptions);
 
-    return res.json({ success: true, message: "Email verified", user: {isAccountVerified: updatedUser.isAccountVerified} });
+    return res.json({
+      success: true, message: "Email verified", user: {
+        id: updatedUser.id,
+        name: updatedUser.name,
+        email: updatedUser.email,
+        isAccountVerified: updatedUser.isAccountVerified
+      }
+    });
 
   } catch (err) {
     console.log(err);
