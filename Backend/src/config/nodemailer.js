@@ -10,7 +10,6 @@ const sendMailersendEmail = async (toEmail, subject, htmlContent) => {
     const senderName = "Your-Study-Hub";
 
     if (!senderAddress || senderAddress.trim() === "") {
-      console.error("CRITICAL: MAIL_FROM_ADDRESS ENV not found!");
       throw new Error("Configuration Error: Sender email is missing.");
     }
 
