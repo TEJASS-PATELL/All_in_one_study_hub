@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { IoClose, IoTrashBin } from "react-icons/io5";
-import { AiFillHeart } from "react-icons/ai";
 import { useAuthStore } from "../../Store/useAuthStore";
 import { useDiscussionStore } from "../../Store/useDiscussion";
 import "./Discussion.css";
@@ -27,19 +26,14 @@ const Discussion = () => {
     category: "",
   });
 
-  const { authUser: user, fetchUser } = useAuthStore();
+  const { authUser: user } = useAuthStore();
   const userId = user?.id;
 
-  const {experiences,isFetching,fetchDiscussions,submitExperience,userHasPosted,userLikedDiscussions,likeDiscussion,
-  deleteDiscussion } = useDiscussionStore();
-
-  useEffect(() => {
-    if (!userId) fetchUser();
-  }, [userId]);
+  const {experiences,isFetching,fetchDiscussions,submitExperience,userHasPosted,deleteDiscussion } = useDiscussionStore();
 
   useEffect(() => {
     if (userId) fetchDiscussions(userId);
-  }, [userId]);
+  }, [userId, fetchDiscussions]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,15 +49,17 @@ const Discussion = () => {
     submitExperience(formData, user, () => {
       setOpen(false);
       resetForm();
-      toast("Thanks for helping others grow in their career journey!");
+      toast.success("Thanks for helping others grow!");
     });
   };
 
-  const filteredExperiences = experiences.filter((exp) => {
+  const filteredExperiences = useMemo(() => {
     const query = searchQuery.toLowerCase();
-    const fields = [exp.name,exp.location,exp.examGiven,exp.examCracked,exp.company,exp.jobRole,exp.category];
-    return fields.some((field) => field?.toLowerCase().includes(query));
-  });
+    return experiences.filter((exp) => {
+      const fields = [exp.name, exp.location, exp.examGiven, exp.examCracked, exp.company, exp.jobRole, exp.category];
+      return fields.some((field) => field?.toLowerCase().includes(query));
+    });
+  }, [experiences, searchQuery]);
 
   if (isFetching) return <Loading />;
 
@@ -182,14 +178,6 @@ const Discussion = () => {
             </div>
 
             <div className="like-section">
-              <button className="like-button" onClick={() => likeDiscussion(exp.id)}>
-                <AiFillHeart
-                  style={{
-                    color: userLikedDiscussions.has(exp.id) ? "white" : "gray",
-                  }}/>
-                {userLikedDiscussions.has(exp.id) ? "Liked" : "Like"} (
-                {exp.likesCount || 0})
-              </button>
 
               {exp.userId === userId && (
                 <button className="delete-button" onClick={() => deleteDiscussion(exp.id, userId)}>
