@@ -163,3 +163,8 @@ footer {
   transition: background-color 0.2s;
 }
 
+@media (max-width: 480px) {
+  .signup-form h2{
+    font-size: 1.5rem;
+  }
+}
