@@ -4,7 +4,7 @@ import { prisma } from "../lib/prisma.js";
 
 const values = ['Core Engineering', 'Sales & Marketing', 'Finance & Accounting', 'Customer Support', 'Human Resources', 'Design & Multimedia'];
 
-export const warmUpPrivateJobsCache = async () => {
+export const warmUpPrivateSection = async () => {
     for (const category of values) {
         const cacheKey = `privatejobs_${category}`;
 
