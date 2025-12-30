@@ -206,11 +206,7 @@
     }
 
     .chatroom-wrapper {
-        padding: 40px 1rem;
-    }
-
-    .main-icon {
-        visibility: hidden;
+        padding: 20px 1rem;
     }
 
     .room-card:hover {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaGavel, FaBuilding, FaLaptopCode, FaUsers, FaArrowRight } from 'react-icons/fa';
+import { FaGavel, FaBuilding, FaLaptopCode, FaArrowRight } from 'react-icons/fa';
 import './ChatRoom.css';
 
 const ChatRoom = () => {
@@ -40,7 +40,7 @@ const ChatRoom = () => {
   return (
     <div className="chatroom-wrapper">
       <div className="chatroom-header">
-        <h1><FaUsers className="main-icon" /> Community Chat Rooms</h1>
+        <h1>Community Chat Rooms</h1>
         <p>Connect with like-minded individuals across different domains.</p>
       </div>
 

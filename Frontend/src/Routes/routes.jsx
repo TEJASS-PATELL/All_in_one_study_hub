@@ -22,7 +22,7 @@ import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
 import VerifyAccount from "../Components/VerifyEmail";
-import ChatRoom from "../Pages/ChatRoom";
+const ChatRoom = lazy(() => import('../Layouts/DashboardLayout/ChatRoom'));
 const Roadmap = lazy(() => import("../Layouts/DashboardLayout/Roadmap"));
 const TodoPage = lazy(() => import("../Layouts/DashboardLayout/TodoPage"));
 const Layout = lazy(() => import("../Layouts/Layout"));

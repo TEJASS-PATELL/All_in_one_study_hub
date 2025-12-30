@@ -71,7 +71,6 @@
 .profile-form-group textarea:focus {
   border-color: #000;
   background: #fff;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
 }
 
 .profile-submit-button {
@@ -245,5 +244,19 @@
     display: none;
   }
 
-}
+  .profile-form-group label {
+    font-size: 0.95rem;
+  }
 
+  .profile-form-group input,
+  .profile-form-group select,
+  .profile-form-group textarea {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .profile-page-card{
+    margin-top: 10px;
+    padding: 20px 25px 20px 25px;
+  }
+}

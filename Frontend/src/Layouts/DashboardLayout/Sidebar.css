@@ -151,13 +151,13 @@
 .mobile-menu-icon {
   display: none;
   position: fixed;
-  top: 15px;
+  top: 10px;
   left: 5px;
   z-index: 1100;
   background: rgb(0, 0, 0);
   color: #ffffff;
   border: none;
-  padding: 10px;
+  padding: 8px;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -208,5 +208,5 @@
     display: none;
   }
   .username { font-size: 1.2rem; }
-  .user-email { font-size: 0.9rem; }
+  .user-email { font-size: 0.85rem; }
 }
