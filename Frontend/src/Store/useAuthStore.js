@@ -7,7 +7,6 @@ axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set) => ({
   authUser: null,
-  users: [],
   isLoading: true,
   isAuthenticated: false,
   isEmailVerify: false,
@@ -23,17 +22,16 @@ export const useAuthStore = create((set) => ({
     }
   },
 
-  login: async ({ email, password }, navigate) => {
+  login: async ({ email, password }) => {
     try {
       set({ isLoading: true });
 
-      const res = await axios.post("/api/auth/login", { email, password});
+      const res = await axios.post("/api/auth/login", { email, password });
       const user = res.data?.user || res.data;
 
       if (user) {
-        set({ authUser: user, isAuthenticated: true, isLoading: false });
+        set({ authUser: user, isAuthenticated: true, isLoading: false, isEmailVerify: user.isAccountVerified});
         toast.success("Login successful");
-        navigate("/", { replace: true });
       } else {
         throw new Error("Invalid login response");
       }
@@ -91,10 +89,7 @@ export const useAuthStore = create((set) => ({
       const res = await axios.post("/api/auth/verify-account", { otp, email });
 
       if (res.data.success) {
-        const userRes = await axios.get("/api/auth/getuser");
-
-        set({ authUser: userRes.data,isAuthenticated: true,isEmailVerify: res.data.user.isAccountVerified,isLoading: false});
-
+        set({ authUser: res.data.user ,isAuthenticated: true, isEmailVerify: res.data.user.isAccountVerified, isLoading: false});
         toast.success("Email verified successfully!");
         return true;
       }
@@ -175,5 +170,4 @@ export const useAuthStore = create((set) => ({
       set({ isLoading: false });
     }
   },
-
 }));
