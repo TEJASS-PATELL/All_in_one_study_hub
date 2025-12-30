@@ -215,7 +215,7 @@
 .delete-button {
   background: none;
   border: none;
-  color: #ef4444;
+  color: #ff0000;
   cursor: pointer;
   font-weight: 600;
   display: flex;

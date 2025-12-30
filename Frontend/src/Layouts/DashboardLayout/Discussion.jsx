@@ -178,7 +178,6 @@ const Discussion = () => {
             </div>
 
             <div className="like-section">
-
               {exp.userId === userId && (
                 <button className="delete-button" onClick={() => deleteDiscussion(exp.id, userId)}>
                   <IoTrashBin className="icon" /> Delete
