@@ -9,10 +9,7 @@ const sendOtp = async (userId, userEmail) => {
 
     await prisma.user.update({
         where: { id: userId },
-        data: {
-            verifyOtp: otp,
-            verifyOtpExpireAt: expires,
-        },
+        data: { verifyOtp: otp, verifyOtpExpireAt: expires },
     });
 
     const subject = "Your Email Verification OTP";
