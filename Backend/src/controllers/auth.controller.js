@@ -106,14 +106,8 @@ export const logout = async (req, res) => {
   try {
     const userId = req.user.userid;
     const userCacheKey = `user:${userId}`;
-    const allUsersCacheKey = `all_users_list`;
-
-    await prisma.user.update({
-      where: { id: userId },
-    });
 
     await cacheClient.del(userCacheKey);
-    await cacheClient.del(allUsersCacheKey);
 
     res.clearCookie("token", { ...cookieOptions, maxAge: 0 }).json({ msg: "Logged out successfully" });
   } catch (err) {
