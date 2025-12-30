@@ -18,7 +18,7 @@ export default function EnterEmail() {
     if (result) {
       navigate("/login");
     }
-    else return false;
+    else navigate("/signup"); return false;
   };
 
   return (
