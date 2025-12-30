@@ -57,9 +57,9 @@
 
 .discussion-status {
   text-align: center;
-  color: #22c55e;
+  color: rgb(0, 72, 255);
   font-weight: 600;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .discussion-popup {
@@ -142,21 +142,17 @@
 
 .discussion-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 25px;
 }
 
 .discussion-card {
   background: #fff;
-  border: 1px solid #eee;
+  border: 1px solid #d2d2d2;
   border-radius: 16px;
   padding: 25px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01);
   transition: box-shadow 0.3s;
-}
-
-.discussion-card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .discussion-card-header {
@@ -199,28 +195,17 @@
   align-items: center;
 }
 
-.like-button {
+.delete-button {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: #000;
-  color: #fff;
+  background: transparent;
+  color: #ff0000;
   padding: 8px 16px;
   border-radius: 20px;
-  border: none;
+  border: 1px solid rgb(209, 209, 209);
   cursor: pointer;
   font-size: 0.9rem;
-}
-
-.delete-button {
-  background: none;
-  border: none;
-  color: #ff0000;
-  cursor: pointer;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 5px;
 }
 
 @media (max-width: 768px) {
@@ -230,6 +215,11 @@
 
   .discussion-title {
     font-size: 1.8rem;
+  }
+
+  .discussion-list {
+    grid-template-columns: 1fr; 
+    gap: 15px; 
   }
 
   .form-grid {
