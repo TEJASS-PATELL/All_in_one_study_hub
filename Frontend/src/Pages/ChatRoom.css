@@ -10,21 +10,10 @@
     margin-bottom: 50px;
 }
 
-.badge {
-    background: #f3f4f6;
-    color: #374151;
-    padding: 6px 16px;
-    border-radius: 100px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
 .chatroom-header h1 {
     font-size: 2.8rem;
     color: #000000;
-    margin: 15px 0;
+    margin: 5px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +48,7 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-  
+
 }
 
 .room-card:hover {
@@ -116,9 +105,20 @@
 }
 
 @keyframes pulse {
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 103, 185, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 103, 185, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
 }
 
 .join-button {
@@ -143,62 +143,77 @@
 }
 
 .privacy-note {
-  margin-top: 60px;
-  padding: 30px;
-  background: #fafafa;
-  border-radius: 20px;
-  border: 1px dashed #ccc;
-  text-align: left;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+    margin-top: 50px;
+    padding: 30px;
+    background: #fafafa;
+    border-radius: 20px;
+    border: 1px dashed #ccc;
+    text-align: left;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .privacy-note h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  color: #000;
-  text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #000;
+    text-align: center;
 }
 
 .privacy-note p {
-  color: #000000;
-  font-size: 0.95rem;
-  line-height: 1.6;
+    color: #000000;
+    font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-.privacy-note p b{
+.privacy-note p b {
     color: #0044ff;
 }
 
 .privacy-note ul {
-  margin-top: 15px;
-  padding-left: 20px;
+    margin-top: 15px;
+    padding-left: 20px;
 }
 
 .privacy-note li {
-  margin-bottom: 8px;
-  list-style-type: disc;
+    margin-bottom: 8px;
+    list-style-type: disc;
 }
 
-.privacy-note li b{
+.privacy-note li b {
     color: #0044ff;
 }
 
 @media (max-width: 600px) {
-  .live-info-bar {
-    gap: 10px;
-  }
-  .info-item {
-    font-size: 0.75rem;
-    padding: 6px 12px;
-  }
-  .privacy-note {
-    padding: 20px;
-  }
+    .live-info-bar {
+        gap: 10px;
+    }
+
+    .info-item {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .privacy-note {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    .chatroom-header h1 { font-size: 2rem; }
-    .chatroom-wrapper { padding: 40px 1rem; }
+    .chatroom-header h1 {
+        font-size: 2rem;
+    }
+
+    .chatroom-wrapper {
+        padding: 40px 1rem;
+    }
+
+    .main-icon {
+        visibility: hidden;
+    }
+
+    .room-card:hover {
+        transform: none;
+    }
 }

@@ -8,27 +8,27 @@ const ChatRoom = () => {
       id: 1,
       title: "Government Sector",
       icon: <FaGavel />,
-      desc: "Discuss Govt exams, UPSC, Judiciary, and latest notifications.",
-      members: "---- Online",
-      color: "black", 
+      desc: "Discuss Govt exams, UPSC, Judiciary, and latest notifications. Connect with aspirants to share study resources and strategy together. Grow your knowledge base daily.",
+      members: "0 Online",
+      color: "black",
       lightColor: "rgba(55, 52, 52, 0.111)"
     },
     {
       id: 2,
       title: "Private Sector",
       icon: <FaBuilding />,
-      desc: "Corporate life, Private Law firms, and placement discussions.",
-      members: "---- Online",
-      color: "black", 
+      desc: "Corporate life, Private Law firms, and placement discussions. Get insights on work culture and professional growth from experts instantly. Build your network globally.",
+      members: "0 Online",
+      color: "black",
       lightColor: "rgba(55, 52, 52, 0.111)"
     },
     {
       id: 3,
-      title: "IT & Tech",
+      title: "IT & Tech Sector",
       icon: <FaLaptopCode />,
-      desc: "Coding, AI interviews, and tech trends in the industry.",
-      members: "---- Online",
-      color: "black", 
+      desc: "Coding, AI interviews, and tech trends in the industry. Engage with developers to solve complex bugs and discuss new frameworks efficiently. Learn latest tech skills weekly.",
+      members: "0 Online",
+      color: "black",
       lightColor: "rgba(55, 52, 52, 0.111)"
     }
   ];
@@ -52,13 +52,13 @@ const ChatRoom = () => {
             </div>
             <h2>{room.title}</h2>
             <p>{room.desc}</p>
-            
+
             <div className="room-footer">
               <div className="room-status">
                 <span className="dot"></span> {room.members}
               </div>
-              <button 
-                className="join-button" 
+              <button
+                className="join-button"
                 onClick={() => handleJoin(room.title)}>
                 Join Now <FaArrowRight />
               </button>
