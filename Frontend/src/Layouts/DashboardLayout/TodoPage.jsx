@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { FaTrash, FaClipboardList, FaCheck, FaTimes } from "react-icons/fa";
+import { FaTrash, FaClipboardList, FaCheck, FaTimes, FaPlus } from "react-icons/fa";
 import toast from "react-hot-toast";
 import "./TodoPage.css";
 import Calender from "../../Components/Calender";
@@ -78,7 +78,9 @@ const TodoPage = () => {
               maxLength={250}
               required
             />
-            <button type="submit" className="todo-add-btn">Add</button>
+            <button type="submit" className="todo-add-btn" aria-label="Add todo">
+              <FaPlus />
+            </button>
           </form>
 
           <ul className="todo-list">
