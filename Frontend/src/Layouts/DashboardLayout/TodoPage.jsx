@@ -4,13 +4,10 @@ import toast from "react-hot-toast";
 import "./TodoPage.css";
 import Calender from "../../Components/Calender";
 import ProgressBar from "../../Components/ProgressBar";
-import { useCelebration } from "../../hooks/useCelebration";
-
 const MAX_TASKS = 10;
 
 const TodoPage = () => {
   const [todoText, setTodoText] = useState("");
-  const { triggerCelebration } = useCelebration();
   const [todos, setTodos] = useState(() => {
     const stored = localStorage.getItem("userTodos");
     if (!stored) return [];
@@ -33,14 +30,9 @@ const TodoPage = () => {
 
   useEffect(() => {
     if (progressValue === 100 && todos.length > 0) {
-      triggerCelebration();
-      toast.success("Awesome! You’ve completed all your daily tasks. Great job!", {
-        id: "complete-toast",
-        icon: "🎉",
-        duration: 5000,
-      });
+      toast.success("Awesome! You’ve completed all your daily tasks. Great job!")
     }
-  }, [progressValue, todos.length, triggerCelebration]);
+  }, [progressValue, todos.length]);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -54,12 +46,17 @@ const TodoPage = () => {
     setTodoText("");
   };
 
+  const handleClearAll = () => {
+    if (todos.length === 0) return;
+    const confirmDelete = window.confirm("Are you sure you want to clear all tasks?");
+    if (confirmDelete) {
+      setTodos([]);
+      toast.success("List cleared!");
+    }
+  };
+
   const handleCompleteTodo = (index) => {
-    setTodos((prev) =>
-      prev.map((todo, i) =>
-        i === index ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    setTodos((prev) => prev.map((todo, i) => i === index ? { ...todo, completed: !todo.completed } : todo));
   };
 
   const handleDeleteTodo = (index) => {
@@ -127,6 +124,13 @@ const TodoPage = () => {
               ))
             )}
           </ul>
+        </div>
+        <div className="todo-footer">
+          {todos.length > 0 && (
+            <button onClick={handleClearAll} className="clear-all-btn">
+              Clear List
+            </button>
+          )}
         </div>
       </main>
 
