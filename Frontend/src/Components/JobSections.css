@@ -115,4 +115,8 @@
   .job-grid-bw {
     grid-template-columns: 1fr;
   }
+
+  .job-card-bw:hover {
+  transform: none;
+  }
 }
