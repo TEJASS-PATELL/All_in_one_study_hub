@@ -4,15 +4,21 @@ import toast from "react-hot-toast";
 import "./TodoPage.css";
 import Calender from "../../Components/Calender";
 import ProgressBar from "../../Components/ProgressBar";
+import { useCelebration } from "../../hooks/useCelebration";
 
 const MAX_TASKS = 10;
 
 const TodoPage = () => {
   const [todoText, setTodoText] = useState("");
+  const { triggerCelebration } = useCelebration();
   const [todos, setTodos] = useState(() => {
     const stored = localStorage.getItem("userTodos");
     if (!stored) return [];
-    try { return JSON.parse(stored); } catch { return []; }
+    try {
+      return JSON.parse(stored);
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {
@@ -21,15 +27,20 @@ const TodoPage = () => {
 
   const progressValue = useMemo(() => {
     if (todos.length === 0) return 0;
-    const completedCount = todos.filter(t => t.completed).length;
+    const completedCount = todos.filter((t) => t.completed).length;
     return Math.round((completedCount / MAX_TASKS) * 100);
   }, [todos]);
 
   useEffect(() => {
     if (progressValue === 100 && todos.length > 0) {
-      toast.success("Awesome! You’ve completed all your daily tasks. Great job!", { id: 'complete-toast' });
+      triggerCelebration();
+      toast.success("Awesome! You’ve completed all your daily tasks. Great job!", {
+        id: "complete-toast",
+        icon: "🎉",
+        duration: 5000,
+      });
     }
-  }, [progressValue, todos.length]);
+  }, [progressValue, todos.length, triggerCelebration]);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -39,16 +50,20 @@ const TodoPage = () => {
       toast.error("You can only add up to 10 tasks.");
       return;
     }
-    setTodos(prev => [...prev, { text: trimmed, completed: false }]);
+    setTodos((prev) => [...prev, { text: trimmed, completed: false }]);
     setTodoText("");
   };
 
   const handleCompleteTodo = (index) => {
-    setTodos(prev => prev.map((todo, i) => i === index ? { ...todo, completed: !todo.completed } : todo));
+    setTodos((prev) =>
+      prev.map((todo, i) =>
+        i === index ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   const handleDeleteTodo = (index) => {
-    setTodos(prev => prev.filter((_, i) => i !== index));
+    setTodos((prev) => prev.filter((_, i) => i !== index));
   };
 
   const getProgressColor = useCallback((value) => {
@@ -66,9 +81,9 @@ const TodoPage = () => {
             <FaClipboardList className="todo-title-icon" />
             Add Daily Task
           </h3>
-          <p>You can add up to 10 tasks. Complete or remove tasks to add more.</p>
+          <p>You can add up to {MAX_TASKS} tasks. Keep growing!</p>
 
-          <form onSubmit={handleAddTodo}>
+          <form onSubmit={handleAddTodo} className="todo-form">
             <input
               type="text"
               placeholder="Add a task..."
@@ -84,21 +99,33 @@ const TodoPage = () => {
           </form>
 
           <ul className="todo-list">
-            {todos.map((todo, idx) => (
-              <li key={idx} className="todo-item">
-                <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
-                  {todo.text}
-                </span>
-                <div className="todo-actions">
-                  <button className="todo-complete-btn" onClick={() => handleCompleteTodo(idx)}>
-                    {todo.completed ? <FaTimes size={14} /> : <FaCheck size={14} />}
-                  </button>
-                  <button className="todo-delete-btn" onClick={() => handleDeleteTodo(idx)}>
-                    <FaTrash size={14} />
-                  </button>
-                </div>
-              </li>
-            ))}
+            {todos.length === 0 ? (
+              <p className="empty-msg">No tasks yet. Start your day now!</p>
+            ) : (
+              todos.map((todo, idx) => (
+                <li key={idx} className="todo-item">
+                  <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
+                    {todo.text}
+                  </span>
+                  <div className="todo-actions">
+                    <button
+                      className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
+                      onClick={() => handleCompleteTodo(idx)}
+                      title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
+                    >
+                      {todo.completed ? <FaTimes size={14} /> : <FaCheck size={14} />}
+                    </button>
+                    <button
+                      className="todo-delete-btn"
+                      onClick={() => handleDeleteTodo(idx)}
+                      title="Delete Task"
+                    >
+                      <FaTrash size={14} />
+                    </button>
+                  </div>
+                </li>
+              ))
+            )}
           </ul>
         </div>
       </main>
@@ -107,8 +134,8 @@ const TodoPage = () => {
         <Calender />
         <div className="progress-fixed">
           <ProgressBar value={progressValue} getColor={getProgressColor} />
-          <p className="todo-counter" style={{ marginTop: '15px', textAlign: 'center' }}>
-            {todos.filter(t => t.completed).length} / {MAX_TASKS} Completed
+          <p className="todo-counter">
+            {todos.filter((t) => t.completed).length} / {MAX_TASKS} Completed
           </p>
         </div>
       </div>

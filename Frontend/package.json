@@ -19,6 +19,7 @@
     "@lottiefiles/react-lottie-player": "^3.6.0",
     "@mui/material": "^7.3.5",
     "axios": "^1.10.0",
+    "canvas-confetti": "^1.9.4",
     "ionicons": "^8.0.13",
     "lodash.debounce": "^4.0.8",
     "lottie-react": "^2.4.1",

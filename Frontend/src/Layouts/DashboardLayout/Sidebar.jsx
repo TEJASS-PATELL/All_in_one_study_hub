@@ -19,7 +19,7 @@ const Sidebar = () => {
   const handleDelete = () => {
     if (confirm("Are you sure?")) {
       deleteAccount();
-      navigate("/login");
+      navigate("/");
     }
   };
 
