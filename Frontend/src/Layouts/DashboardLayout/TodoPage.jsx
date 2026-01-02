@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { FaTrash, FaClipboardList, FaCheck, FaTimes, FaPlus } from "react-icons/fa";
+import { LuTrash2, LuCheck, LuX, LuPlus, LuListTodo, LuInfo } from "react-icons/lu";
 import toast from "react-hot-toast";
 import "./TodoPage.css";
 import Calender from "../../Components/Calender";
@@ -75,15 +75,18 @@ const TodoPage = () => {
       <main className="dashboard-main">
         <div className="dashboard-card">
           <h3>
-            <FaClipboardList className="todo-title-icon" />
+            <LuListTodo className="todo-title-icon" /> 
             Add Daily Task
           </h3>
-          <p>You can add up to {MAX_TASKS} tasks. Keep growing!</p>
+          <p className="todo-subtitle">
+            <LuInfo size={14} style={{ marginRight: '4px' }} />
+            You can add up to {MAX_TASKS} tasks. Keep growing!
+          </p>
 
           <form onSubmit={handleAddTodo} className="todo-form">
             <input
               type="text"
-              placeholder="Add a task..."
+              placeholder="What needs to be done?"
               value={todoText}
               onChange={(e) => setTodoText(e.target.value)}
               className="todo-input"
@@ -91,42 +94,45 @@ const TodoPage = () => {
               required
             />
             <button type="submit" className="todo-add-btn" aria-label="Add todo">
-              <FaPlus />
+              <LuPlus size={20} />
             </button>
           </form>
 
           <ul className="todo-list">
-            {todos.map((todo, idx) => (
-              <li key={idx} className="todo-item">
-                <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
-                  {todo.text}
-                </span>
-                <div className="todo-actions">
-                  <button
-                    className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
-                    onClick={() => handleCompleteTodo(idx)}
-                    title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
-                  >
-                    {todo.completed ? <FaTimes size={14} /> : <FaCheck size={14} />}
-                  </button>
-                  <button
-                    className="todo-delete-btn"
-                    onClick={() => handleDeleteTodo(idx)}
-                    title="Delete Task"
-                  >
-                    <FaTrash size={14} />
-                  </button>
-                </div>
-              </li>
-            ))}
+              {todos.map((todo, idx) => (
+                <li key={idx} className="todo-item">
+                  <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
+                    {todo.text}
+                  </span>
+                  <div className="todo-actions">
+                    <button
+                      className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
+                      onClick={() => handleCompleteTodo(idx)}
+                      title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
+                    >
+                      {todo.completed ? <LuX size={18} /> : <LuCheck size={18} />}
+                    </button>
+
+                    <button
+                      className="todo-delete-btn"
+                      onClick={() => handleDeleteTodo(idx)}
+                      title="Delete Task"
+                    >
+                      <LuTrash2 size={18} />
+                    </button>
+                  </div>
+                </li>
+              ))
+            }
           </ul>
-        </div>
-        <div className="todo-footer">
-          {todos.length > 0 && (
-            <button onClick={handleClearAll} className="clear-all-btn">
-              Clear List
-            </button>
-          )}
+
+          <div className="todo-footer">
+            {todos.length > 0 && (
+              <button onClick={handleClearAll} className="clear-all-btn">
+                <LuTrash2 size={14} /> Clear List
+              </button>
+            )}
+          </div>
         </div>
       </main>
 
