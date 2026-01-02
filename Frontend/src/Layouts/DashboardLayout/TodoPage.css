@@ -194,7 +194,6 @@ form {
     max-width: 100%;   
     width: 100%;
     height: auto;
-    padding: 20px 15px;
   }
 
   .todo-add-btn {
@@ -218,7 +217,7 @@ form {
   }
 
   .progress-fixed {
-    padding: 15px;     
+    padding: 0px;     
     width: 100%;
     height: auto;
   }

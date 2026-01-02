@@ -96,33 +96,29 @@ const TodoPage = () => {
           </form>
 
           <ul className="todo-list">
-            {todos.length === 0 ? (
-              <p className="empty-msg">No tasks yet. Start your day now!</p>
-            ) : (
-              todos.map((todo, idx) => (
-                <li key={idx} className="todo-item">
-                  <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
-                    {todo.text}
-                  </span>
-                  <div className="todo-actions">
-                    <button
-                      className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
-                      onClick={() => handleCompleteTodo(idx)}
-                      title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
-                    >
-                      {todo.completed ? <FaTimes size={14} /> : <FaCheck size={14} />}
-                    </button>
-                    <button
-                      className="todo-delete-btn"
-                      onClick={() => handleDeleteTodo(idx)}
-                      title="Delete Task"
-                    >
-                      <FaTrash size={14} />
-                    </button>
-                  </div>
-                </li>
-              ))
-            )}
+            {todos.map((todo, idx) => (
+              <li key={idx} className="todo-item">
+                <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
+                  {todo.text}
+                </span>
+                <div className="todo-actions">
+                  <button
+                    className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
+                    onClick={() => handleCompleteTodo(idx)}
+                    title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
+                  >
+                    {todo.completed ? <FaTimes size={14} /> : <FaCheck size={14} />}
+                  </button>
+                  <button
+                    className="todo-delete-btn"
+                    onClick={() => handleDeleteTodo(idx)}
+                    title="Delete Task"
+                  >
+                    <FaTrash size={14} />
+                  </button>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
         <div className="todo-footer">
