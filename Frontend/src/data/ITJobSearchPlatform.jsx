@@ -82,6 +82,15 @@ export const platforms = [
     idealFor: "Final Year Students"
   },
   {
+    logo: "https://placement.acciojob.com/_next/static/media/logoWithName.c5f93bed.svg", 
+    customClass: "acciojob-img",
+    description: "A specialized tech hiring platform that connects engineering students with top-tier product companies and startups.",
+    url: "https://placement.acciojob.com",
+    type: "Tech Placement Platform",
+    features: ["Job-Focused Training", "Partner Network of 500+ Companies", "Mock Interviews", "Placement Assistance"],
+    idealFor: "Tech Aspirants & Software Developers"
+  },
+  {
     logo: "../ITjobplatform/cutshort.png",
     customClass: "cutshort-img",
     description: "AI-powered hiring platform that removes middle-men for faster direct tech recruitment.",

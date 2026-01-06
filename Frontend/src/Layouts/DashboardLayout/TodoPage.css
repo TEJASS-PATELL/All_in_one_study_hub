@@ -4,7 +4,7 @@
   max-width: 1400px;
   margin: 0 auto;
   gap: 2rem;
-  padding: 40px 2rem 2rem 0rem;
+  padding: 40px 0rem 0rem 0rem;
 }
 
 .dashboard-main {
@@ -199,6 +199,10 @@ form {
   .todo-add-btn {
     padding: 12px;
     display: block; 
+  }
+
+  .todo-main-section{
+    padding: 40px 0px 10px 0px;
   }
 }
 
