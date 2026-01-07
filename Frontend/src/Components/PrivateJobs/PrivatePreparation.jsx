@@ -29,7 +29,7 @@ const PrivatePreparation = () => {
           <div className="preparation-icon">
             <i className="fas fa-book-open"></i>
           </div>
-          <h3 className="G-preparation-title">Best Free Study Resources</h3>
+          <h3 className="G-preparation-title">Study Resources</h3>
           <p className="G-preparation-description">
             Access top-quality free learning materials to prepare for private sector jobs effectively.
           </p>
