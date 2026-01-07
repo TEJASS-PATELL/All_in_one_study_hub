@@ -44,14 +44,13 @@ export const platforms = [
     features: ["Resume Database", "Recruiter Chat", "Profile Tracking", "Market Insights"],
     idealFor: "Indian Job Seekers"
   },
-    {
-    logo: "	https://dashboard.myjobb.ai/images/logo.svg",
+  {
+    logo: "https://dashboard.myjobb.ai/images/logo.svg",
     customClass: "myjobb-img",
-    description: "India's premier AI-powered platform that matches resumes with highly relevant jobs using advanced neural filtering.",
+    description: "An AI-powered platform that matches resumes with relevant jobs using smart filtering.",
     url: "https://dashboard.myjobb.ai",
     type: "AI Career Copilot",
     features: ["Neural Job Matching", "Multi-Source Aggregation", "Instant Skill Analysis", "Automated Relevance Check"],
-    headquarters: "India",
     idealFor: "Modern Job Seekers"
   },
   {
@@ -82,9 +81,9 @@ export const platforms = [
     idealFor: "Final Year Students"
   },
   {
-    logo: "https://placement.acciojob.com/_next/static/media/logoWithName.c5f93bed.svg", 
+    logo: "https://placement.acciojob.com/_next/static/media/logoWithName.c5f93bed.svg",
     customClass: "acciojob-img",
-    description: "A specialized tech hiring platform that connects engineering students with top-tier product companies and startups.",
+    description: "A tech hiring platform connecting engineering students with product companies and startups.",
     url: "https://placement.acciojob.com",
     type: "Tech Placement Platform",
     features: ["Job-Focused Training", "Partner Network of 500+ Companies", "Mock Interviews", "Placement Assistance"],
