@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const PreparationSection = () => {
   return (
-    <div className="G-preparation-section">
+    <section className="G-preparation-section">
       <div className="G-section-title">
         <h2>Preparing for Government Exams</h2>
         <p>Smart resources and proven techniques for cracking top government jobs</p>
@@ -62,9 +62,8 @@ const PreparationSection = () => {
           </NavLink>
         </div>
       </div>
-    </div>
+    </section>
   );
-
 };
 
 export default PreparationSection;
