@@ -64,9 +64,9 @@
 
 .message.bot {
     align-self: flex-start;
-    background-color: #fff;
-    color: #111;
-    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    color: hwb(0 0% 100%);
+    border: 1px solid #cbcbcb;
     border-bottom-left-radius: 2px;
 }
 
@@ -92,7 +92,7 @@
 .input-area input {
     flex: 1;
     padding: 10px 14px;
-    border: 1px solid #dcdcdc;
+    border: 1px solid #cacaca;
     border-radius: 8px;
     outline: none;
     font-size: 0.95rem;
