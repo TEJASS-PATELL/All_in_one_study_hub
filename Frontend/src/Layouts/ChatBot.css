@@ -62,6 +62,10 @@
     word-wrap: break-word;
 }
 
+.message.bot ul {
+    list-style-type: none;
+}
+
 .message.bot {
     align-self: flex-start;
     background-color: #ffffff;
