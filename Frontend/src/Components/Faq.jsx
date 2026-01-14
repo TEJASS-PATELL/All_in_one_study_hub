@@ -21,7 +21,7 @@ function Faq() {
         },
         {
             question: "How can I contact support if I face any issues?",
-            answer: "You can reach out through our contact form, email us at support@example.com, or use the live chat available on the website."
+            answer: "You can connect with us directly through the footer using our LinkedIn profile or by sending an email. We’ll get back to you as soon as possible."
         },
         {
             question: "Can I generate a personalized study roadmap?",
@@ -42,7 +42,7 @@ function Faq() {
             <div className="faq-container">
                 <h2 className="faq-main-title">Frequently Asked Questions</h2>
                 <p className="faq-subtitle">Everything you need to know about CareerHub</p>
-                
+
                 <div className="faq-list">
                     {faqData.map((item, index) => (
                         <div className="faq-item" key={index}>
