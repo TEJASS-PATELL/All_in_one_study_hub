@@ -10,56 +10,64 @@ import {
   FaRoute,
   FaUsers,
   FaHourglassHalf,
+  FaCommentDots,
+  FaComments,
+  FaUserTie,
 } from "react-icons/fa";
 
 const BenefitsSection = () => {
-const features = [
-  {
-    title: "Unified Job Hub",
-    description: "Access diverse opportunities across IT, private, and government sectors from multiple portals in one central place.",
-    icon: <FaLaptopCode />,
-  },
-  {
-    title: "Premium Study Vault",
-    description: "Unlock high-quality preparation guides and curated study materials tailored for competitive and government exams.",
-    icon: <FaBookOpen />,
-  },
-  {
-    title: "Adaptive Practice Suite",
-    description: "Sharpen your skills with interactive mock tests, quizzes, and specialized tools from over 20+ leading platforms.",
-    icon: <FaPencilAlt />,
-  },
-  {
-    title: "Strategic Exam Insights",
-    description: "Stay ahead with structured data and reliable updates on government, private, and IT exam trends and patterns.",
-    icon: <FaLayerGroup />,
-  },
-  {
-    title: "Smart Daily Planner",
-    description: "Optimize your routine with a personalized dashboard to set goals, manage tasks, and monitor preparation progress.",
-    icon: <FaClipboardList />,
-  },
-  {
-    title: "Integrated AI Toolkit",
-    description: "Boost your productivity and learning speed with a curated suite of powerful AI utilities on a single page.",
-    icon: <FaRobot />,
-  },
-  {
-    title: "Professional Roadmap",
-    description: "Design a step-by-step career path to achieve your professional milestones with clarity and confidence.",
-    icon: <FaRoute />,
-  },
-  {
-    title: "Community Spotlights",
-    description: "Share your career milestones and exam strategies to inspire and empower fellow aspirants in the community.",
-    icon: <FaUsers />,
-  },
-  {
-    title: "Next-Gen Innovations",
-    description: "Stay tuned for upcoming AI-powered interview simulators and real-time global collaboration tools.",
-    icon: <FaHourglassHalf />,
-  },
-];
+  const features = [
+    {
+      title: "Unified Job Hub",
+      description: "Access diverse opportunities across IT, private, and government sectors from multiple portals in one central place.",
+      icon: <FaLaptopCode />,
+    },
+    {
+      title: "Premium Study Vault",
+      description: "Unlock high-quality preparation guides and curated study materials tailored for competitive and government exams.",
+      icon: <FaBookOpen />,
+    },
+    {
+      title: "Adaptive Practice Suite",
+      description: "Sharpen your skills with interactive mock tests, quizzes, and specialized tools from over 20+ leading platforms.",
+      icon: <FaPencilAlt />,
+    },
+    {
+      title: "Strategic Exam Insights",
+      description: "Stay ahead with structured data and reliable updates on government, private, and IT exam trends and patterns.",
+      icon: <FaLayerGroup />,
+    },
+    {
+      title: "Smart Daily Planner",
+      description: "Optimize your routine with a personalized dashboard to set goals, manage tasks, and monitor preparation progress.",
+      icon: <FaClipboardList />,
+    },
+    {
+      title: "Integrated AI Toolkit",
+      description: "Boost your productivity and learning speed with a curated suite of powerful AI utilities on a single page.",
+      icon: <FaRobot />,
+    },
+    {
+      title: "Professional Roadmap",
+      description: "Design a step-by-step career path to achieve your professional milestones with clarity and confidence.",
+      icon: <FaRoute />,
+    },
+    {
+      title: "Community Spotlights",
+      description: "Share your career milestones and exam strategies to inspire and empower fellow aspirants in the community.",
+      icon: <FaUsers />,
+    },
+    {
+      title: "Real-Time Fun Chat",
+      description: "Engage in a real-time chat space for casual conversations, peer interaction, and stress-free breaks across different sections.",
+      icon: <FaComments />,
+    },
+    {
+      title: "Interview Prep",
+      description: "Practice AI-driven mock interviews with role-based questions and instant feedback to build confidence.",
+      icon: <FaUserTie />,
+    },
+  ];
 
   return (
     <section className="skills-section" id='features'>

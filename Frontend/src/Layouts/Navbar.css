@@ -83,10 +83,6 @@
   transition: transform 0.2s ease;
 }
 
-.Lprofile-wrapper:hover {
-  transform: scale(1.05);
-}
-
 .nav-profile-icon {
   color: #000000;
 }
