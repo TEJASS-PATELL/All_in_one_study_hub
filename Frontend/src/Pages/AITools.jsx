@@ -140,10 +140,10 @@ const AITools = () => {
       <h1 className="it-section-title">Top AI Tools by Category</h1>
 
       <p className="ai-detail">
-        Discover powerful <span>AI tools</span> for every task — from smart
-        <span> AI assistants</span> to generating <span>images, code, and research</span>.
-        Perfect for students, developers, and creators to boost
-        <span> productivity and creativity</span>.
+          Unlock your potential with our curated list of <span>Free AI resources</span>. 
+          Whether you're a student, developer, or entrepreneur, these tools are 
+          designed to accelerate your <span>career growth</span> and 
+          simplify your workflow in every field.
       </p>
 
       <div className="ai-cards-grid">
@@ -154,15 +154,16 @@ const AITools = () => {
               <h2 className="category-title">{category.category}</h2>
             </div>
 
-            <ul className="tool-list">
+            <ul className="ai-list">
               {category.tools.map((tool, idx) => (
-                <li key={idx} className="tool-item">
-                  <a href={tool.link} target="_blank" rel="noopener noreferrer" className="tool-link">
+                <li key={idx} className='ai-item'>
+                  <a
+                    href={tool.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {tool.name}
-                  </a>
-
-                  <a href={tool.link} target="_blank" rel="noopener noreferrer" className="external-link" aria-label={`Open ${tool.name}`}>
-                    <FiExternalLink className='link-icon'/>
+                    <FiExternalLink className="external-icon" />
                   </a>
                 </li>
               ))}

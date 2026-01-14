@@ -34,92 +34,74 @@
 }
 
 .ai-category-card {
-  margin-top: 10px;
-  height: 480px;
-  overflow-y: auto;
-  border: 1px solid rgb(207, 207, 207);
-  border-radius: 12px;
-  padding: 0 1rem;
   background: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #eeeeee; 
+  border-radius: 20px; 
+  padding: 30px 30px 10px 30px;
+  position: relative;
+  overflow: hidden;
 }
 
 .ai-category-header {
-  position: sticky;
-  top: 0;
   display: flex;
-  gap: 20px;
-  padding: 20px 0 10px 10px;
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
-  z-index: 1;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 15px;
 }
 
 .ai-category-icon {
   font-size: 1.85rem;
   color: #0008ff;
+  font-weight: 800;
   flex-shrink: 0;
 }
 
 .category-title {
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #000000;
 }
 
-.tool-list {
+.ai-list {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.tool-item {
+.ai-item {
+  margin-bottom: 12px;
+}
+
+.ai-item a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 12px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid rgb(226, 226, 226);
-  border-right: 1px solid rgb(226, 226, 226);
-  border-radius: 8px;
-  transition: background-color 0.25s ease;
-}
-
-.tool-item:hover,
-.tool-item:focus-within {
-  background-color: #000000;
-}
-
-.tool-link {
+  text-decoration: none;
   color: #000000;
   font-weight: 500;
-  text-decoration: none;
+  padding: 4px 0;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
-.tool-item:hover .tool-link,
-.tool-item:focus-within .tool-link {
-  color: #ffffff;
+.ai-item a:hover {
+  color: #1500ff;
+  padding-left: 10px; 
 }
 
-.external-link {
-  display: flex;
-  align-items: center;
+.external-icon {
+  font-size: 0.9rem;
+  color: hsl(237, 100%, 50%);
+  opacity: 0.5;
 }
 
-.link-icon {
-  color: blue;
-  font-size: 1rem;
-}
-
-.tool-item:hover .link-icon {
-  color: #ffffff;
-}
-
-@media (max-width: 600px) {
-  .section-title {
+@media (max-width: 768px) {
+  .it-section-title {
     font-size: 2rem;
   }
-
-  .category-title {
-    font-size: 1.2rem;
+  
+  .ai-category-card {
+    padding: 20px;
   }
 }
