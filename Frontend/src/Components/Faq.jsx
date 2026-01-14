@@ -9,7 +9,7 @@ function Faq() {
         },
         {
             question: "Is there a mobile app available?",
-            answer: "We are currently working on a dedicated mobile app. Meanwhile, our website is fully responsive and works smoothly on mobile devices."
+            answer: "No, we don’t have a mobile app at the moment. However, our website is fully responsive and works smoothly on all mobile devices."
         },
         {
             question: "Can I get IT job preparation materials?",
