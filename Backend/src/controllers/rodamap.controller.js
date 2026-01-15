@@ -18,9 +18,7 @@ export const getRoadmap = async (req, res) => {
       return res.json({ success: true, roadmap: JSON.parse(cached) });
     }
 
-    const roadmap = await prisma.roadmap.findUnique({
-      where: { userId },
-    });
+    const roadmap = await prisma.roadmap.findUnique({where: { userId }});
 
     if (!roadmap) {
       await cacheClient.set(cacheKey, "NULL", "EX", 300);
@@ -73,18 +71,11 @@ export const removeroadmap = async (req, res) => {
     const cacheKey = `roadmap:${userId}`;
 
     try {
-        const result = await prisma.roadmap.deleteMany({
+        await prisma.roadmap.deleteMany({
             where: { userId: req.user.userid },
         });
 
         await cacheClient.del(cacheKey);
-
-        if (result.count === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No roadmap found for this user",
-            });
-        }
 
         res.json({
             success: true,

@@ -3,7 +3,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export async function generateRoadmap(profileData) {
   try {
-    const model = genAI.getGenerativeModel({  model: "gemini-2.5-flash" });
+    const model = genAI.getGenerativeModel({  model: "gemini-1.5-flash" });
     const prompt = ` You are an expert career coach and industry mentor. Based on the user's profile below, create a **highly detailed, practical, and actionable preparation roadmap**.
     User Preferences for Roadmap:
       - Target Job Type: ${profileData.jobType}
@@ -70,8 +70,6 @@ Example output format:
     try {
       return JSON.parse(text);
     } catch (parseError) {
-      console.error("JSON parse error:", parseError.message);
-      console.error("Response text was:", text);
       throw new Error("Failed to parse JSON from AI response");
     }
   } catch (err) {
