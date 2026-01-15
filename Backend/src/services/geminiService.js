@@ -3,7 +3,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export async function generateRoadmap(profileData) {
   try {
-    const model = genAI.getGenerativeModel({  model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({  model: "gemini-2.5-flash-lite" });
     const prompt = ` You are an expert career coach and industry mentor. Based on the user's profile below, create a **highly detailed, practical, and actionable preparation roadmap**.
     User Preferences for Roadmap:
       - Target Job Type: ${profileData.jobType}
