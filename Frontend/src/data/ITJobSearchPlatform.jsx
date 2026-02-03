@@ -11,7 +11,7 @@ export const platforms = [
   {
     logo: "../ITjobplatform/careerjet.png",
     customClass: "careerjet-img",
-    description: "Job search engine that aggregates job listings from thousands of sites into one searchable database, helping job seekers discover opportunities across industries and locations.",
+    description: "Job search engine aggregating listings from multiple sites across industries worldwide.",
     url: "https://www.careerjet.co.in/",
     type: "Job Search Platform",
     features: [
@@ -61,7 +61,7 @@ export const platforms = [
   {
     logo: "https://www.simplyhired.co.in/next-assets/simplyhired-logo.svg",
     customClass: "simplyhired-img",
-    description: "Job search engine that aggregates millions of job listings from around the web, helping users find roles across industries and locations.",
+    description: "Job search engine that aggregates listings from multiple sources across industries and locations.",
     url: "https://www.simplyhired.co.in/",
     type: "Job Search Platform",
     features: [
@@ -84,7 +84,7 @@ export const platforms = [
   {
     logo: "../ITjobplatform/Dice.jpg",
     customClass: "dice-img",
-    description: "Technology-focused job board and career platform connecting tech professionals with specialized IT and engineering roles across companies worldwide.",
+    description: "Technology-focused job board for IT and engineering career roles worldwide.",
     url: "https://www.dice.com/",
     type: "Tech Job Search Platform",
     features: [
@@ -96,19 +96,19 @@ export const platforms = [
     idealFor: "Tech Professionals & IT Job Seekers"
   },
   {
-  logo: "	https://cdn.welcometothejungle.com/wttj-front/production/assets/wttj-2-eP7x9gkY.svg",
-  customClass: "wttj-img",
-  description: "Global job search and employer branding platform that connects candidates with companies through curated job listings and rich company insights.",
-  url: "https://www.welcometothejungle.com/",
-  type: "Job Search & Employer Branding Platform",
-  features: [
-    "Curated Job Listings",
-    "Company Profiles & Culture Insights",
-    "Personalized Job Matching",
-    "Career Resources & Alerts"
-  ],
-  idealFor: "Job Seekers and Company Talent Match"
-},
+    logo: "	https://cdn.welcometothejungle.com/wttj-front/production/assets/wttj-2-eP7x9gkY.svg",
+    customClass: "wttj-img",
+    description: "Global job platform connecting candidates with companies through curated listings.",
+    url: "https://www.welcometothejungle.com/",
+    type: "Job Search & Employer Branding Platform",
+    features: [
+      "Curated Job Listings",
+      "Company Profiles & Culture Insights",
+      "Personalized Job Matching",
+      "Career Resources & Alerts"
+    ],
+    idealFor: "Job Seekers and Company Talent Match"
+  },
   {
     logo: "../ITjobplatform/YCombinator.png",
     customClass: "ycombinator-img",
@@ -139,7 +139,7 @@ export const platforms = [
   {
     logo: "https://placement.acciojob.com/_next/static/media/logoWithName.c5f93bed.svg",
     customClass: "acciojob-img",
-    description: "A tech hiring platform connecting engineering students with product companies and startups.",
+    description: "A tech hiring platform connecting engineering students with companies and startups.",
     url: "https://placement.acciojob.com",
     type: "Tech Placement Platform",
     features: ["Job-Focused Training", "Partner Network of 500+ Companies", "Mock Interviews", "Placement Assistance"],
