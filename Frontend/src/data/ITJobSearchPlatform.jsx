@@ -82,7 +82,7 @@ export const platforms = [
     idealFor: "Modern Job Seekers"
   },
   {
-    logo: "../ITjobplatform/Dice.png",
+    logo: "../ITjobplatform/Dice.jpg",
     customClass: "dice-img",
     description: "Technology-focused job board and career platform connecting tech professionals with specialized IT and engineering roles across companies worldwide.",
     url: "https://www.dice.com/",
