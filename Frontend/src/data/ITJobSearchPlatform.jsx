@@ -9,6 +9,20 @@ export const platforms = [
     idealFor: "All Professionals"
   },
   {
+    logo: "../ITjobplatform/careerjet.png",
+    customClass: "careerjet-img",
+    description: "Job search engine that aggregates job listings from thousands of sites into one searchable database, helping job seekers discover opportunities across industries and locations.",
+    url: "https://www.careerjet.co.in/",
+    type: "Job Search Platform",
+    features: [
+      "Aggregated Job Listings",
+      "Advanced Search Filters",
+      "Resume Upload & Alerts",
+      "Redirects to Original Job Posts"
+    ],
+    idealFor: "Job Seekers Across Experience Levels"
+  },
+  {
     logo: "../ITjobplatform/unstop.jpg",
     customClass: "unstop-img",
     description: "A premier platform for students to find hackathons, hiring challenges, and internships.",
@@ -45,6 +59,20 @@ export const platforms = [
     idealFor: "Indian Job Seekers"
   },
   {
+    logo: "https://www.simplyhired.co.in/next-assets/simplyhired-logo.svg",
+    customClass: "simplyhired-img",
+    description: "Job search engine that aggregates millions of job listings from around the web, helping users find roles across industries and locations.",
+    url: "https://www.simplyhired.co.in/",
+    type: "Job Search Platform",
+    features: [
+      "Aggregated Job Listings",
+      "Multiple Filters (location, job type, salary)",
+      "Resume Upload & Alerts",
+      "Global Search Support"
+    ],
+    idealFor: "Job Seekers Across Experience Levels"
+  },
+  {
     logo: "https://dashboard.myjobb.ai/images/logo.svg",
     customClass: "myjobb-img",
     description: "An AI-powered platform that matches resumes with relevant jobs using smart filtering.",
@@ -52,6 +80,20 @@ export const platforms = [
     type: "AI Career Copilot",
     features: ["Neural Job Matching", "Multi-Source Aggregation", "Instant Skill Analysis", "Automated Relevance Check"],
     idealFor: "Modern Job Seekers"
+  },
+  {
+    logo: "../ITjobplatform/Dice.png",
+    customClass: "dice-img",
+    description: "Technology-focused job board and career platform connecting tech professionals with specialized IT and engineering roles across companies worldwide.",
+    url: "https://www.dice.com/",
+    type: "Tech Job Search Platform",
+    features: [
+      "Tech-Industry Job Listings",
+      "Advanced Filters & Alerts",
+      "Career Resources & Advice",
+      "Targeted Job Matching"
+    ],
+    idealFor: "Tech Professionals & IT Job Seekers"
   },
   {
     logo: "../ITjobplatform/YCombinator.png",
@@ -89,6 +131,7 @@ export const platforms = [
     features: ["Job-Focused Training", "Partner Network of 500+ Companies", "Mock Interviews", "Placement Assistance"],
     idealFor: "Tech Aspirants & Software Developers"
   },
+
   {
     logo: "../ITjobplatform/cutshort.png",
     customClass: "cutshort-img",
