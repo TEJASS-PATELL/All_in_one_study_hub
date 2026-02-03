@@ -96,6 +96,20 @@ export const platforms = [
     idealFor: "Tech Professionals & IT Job Seekers"
   },
   {
+  logo: "	https://cdn.welcometothejungle.com/wttj-front/production/assets/wttj-2-eP7x9gkY.svg",
+  customClass: "wttj-img",
+  description: "Global job search and employer branding platform that connects candidates with companies through curated job listings and rich company insights.",
+  url: "https://www.welcometothejungle.com/",
+  type: "Job Search & Employer Branding Platform",
+  features: [
+    "Curated Job Listings",
+    "Company Profiles & Culture Insights",
+    "Personalized Job Matching",
+    "Career Resources & Alerts"
+  ],
+  idealFor: "Job Seekers and Company Talent Match"
+},
+  {
     logo: "../ITjobplatform/YCombinator.png",
     customClass: "ycombinator-img",
     description: "Direct access to high-growth startup roles funded by the world's top startup accelerator.",
