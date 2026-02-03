@@ -110,6 +110,15 @@ export const platforms = [
     idealFor: "Job Seekers and Company Talent Match"
   },
   {
+    logo: "../ITjobplatform/Foundit.png",
+    customClass: "foundit-img",
+    description: "Transformed from Monster to Foundit, offering personalized career growth and AI tools.",
+    url: "https://www.foundit.in",
+    type: "Indian Platform",
+    features: ["AI Career Tool", "Skill Badges", "Global Reach", "Smart Alerts"],
+    idealFor: "Experienced Pros"
+  },
+  {
     logo: "../ITjobplatform/YCombinator.png",
     customClass: "ycombinator-img",
     description: "Direct access to high-growth startup roles funded by the world's top startup accelerator.",
@@ -308,15 +317,6 @@ export const platforms = [
     features: ["Pre-Screened Roles", "ML/AI Jobs", "Indian Market", "MNC Hiring"],
     headquarters: "Bengaluru, India",
     idealFor: "Specialized Techies"
-  },
-  {
-    logo: "../ITjobplatform/Foundit.png",
-    customClass: "foundit-img",
-    description: "Transformed from Monster to Foundit, offering personalized career growth and AI tools.",
-    url: "https://www.foundit.in",
-    type: "Indian Platform",
-    features: ["AI Career Tool", "Skill Badges", "Global Reach", "Smart Alerts"],
-    idealFor: "Experienced Pros"
   },
   {
     logo: "../ITjobplatform/remotive.svg",
