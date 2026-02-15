@@ -88,10 +88,6 @@
 
 ---
 
-[!NOTE]- Mobile Compatibility: This platform is currently optimized for Desktop View. Mobile responsiveness is being implemented in the upcoming version.
-
----
-
 <div align="center">
 
 </div>
