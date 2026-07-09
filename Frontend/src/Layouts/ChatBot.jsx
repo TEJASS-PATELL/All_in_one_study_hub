@@ -24,7 +24,7 @@ export default function ChatBot() {
     try {
       const reply = await AIreply(input, [...messages, userMsg]);
       setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
-    } catch (err) {
+    } catch {
       setMessages((prev) => [...prev, { sender: "bot", text: "Something went wrong. Try again later." }]);
     }
   };

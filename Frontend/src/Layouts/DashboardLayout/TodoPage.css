@@ -33,16 +33,16 @@ form {
 
 .todo-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 12px 18px;
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 1rem;
 }
 
 .todo-add-btn {
   width: 45px;
   height: 45px;
-  border-radius: 15%;
+  border-radius: 50%;
   border: none;
   background: #000000;
   color: white;
