@@ -123,6 +123,16 @@
   transform: translateY(0);
 }
 
+.signup-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+}
+
 .submit-btn.disabled {
   background-color: #7aa7df;
   cursor: not-allowed;

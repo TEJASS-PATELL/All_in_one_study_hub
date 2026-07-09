@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaLock, FaLockOpen } from "react-icons/fa";
+import { FaLock, FaLockOpen, FaUserPlus } from "react-icons/fa";
 import { Loader2 } from "lucide-react";
 import { useAuthStore } from "../Store/useAuthStore";
 import toast from "react-hot-toast";
@@ -72,6 +72,10 @@ const SignUpPage = () => {
       <div className="signup-container">
         <main>
           <form className="signup-form" onSubmit={handleSubmit}>
+            <div className="signup-icon">
+              <FaUserPlus size={46} />
+            </div>
+
             <h2>Create an Account</h2>
             <p className="subtitle">It only takes a minute to get started</p>
 
