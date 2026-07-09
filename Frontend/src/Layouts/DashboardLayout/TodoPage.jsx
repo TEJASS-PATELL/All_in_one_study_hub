@@ -94,7 +94,7 @@ const TodoPage = () => {
               required
             />
             <button type="submit" className="todo-add-btn" aria-label="Add todo">
-              <LuPlus size={20} />
+              <LuPlus size={24} />
             </button>
           </form>
 
