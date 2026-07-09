@@ -42,7 +42,7 @@ form {
 .todo-add-btn {
   width: 45px;
   height: 45px;
-  border-radius: 50%;
+  border-radius: 20%;
   border: none;
   background: #000000;
   color: white;
