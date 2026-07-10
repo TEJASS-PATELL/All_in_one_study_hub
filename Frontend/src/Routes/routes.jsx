@@ -22,6 +22,7 @@ import ComingSoon from "../Pages/Coming";
 import EnterEmail from "../Components/EnterEmail";
 import ResetPassword from "../Components/ResetPassword";
 import VerifyAccount from "../Components/VerifyEmail";
+import Interview from "../Layouts/DashboardLayout/Interview";
 const ChatRoom = lazy(() => import('../Layouts/DashboardLayout/ChatRoom'));
 const Roadmap = lazy(() => import("../Layouts/DashboardLayout/Roadmap"));
 const TodoPage = lazy(() => import("../Layouts/DashboardLayout/TodoPage"));
@@ -45,7 +46,7 @@ export const routers = [
           { index: true, element: <TodoPage /> },
           { path: "discussion", element: <Discussion /> },
           { path: "chatroom", element: <ChatRoom /> },
-          { path: "ai-interview", element: <ComingSoon /> },
+          { path: "ai-interview", element: <Interview /> },
         ],
       },
     ],
