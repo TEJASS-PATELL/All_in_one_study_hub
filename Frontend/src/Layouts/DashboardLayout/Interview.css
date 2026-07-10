@@ -146,7 +146,6 @@
 }
 
 .iv-type-code {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   font-weight: 600;
   background: rgba(0, 0, 0, 0.06);
@@ -171,7 +170,6 @@
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  font-family: 'Space Grotesk', sans-serif;
   transition: transform 0.15s ease, opacity 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -192,7 +190,7 @@
   max-width: 680px;
   border-radius: 20px;
   display: flex;
-  padding: 22px 28px;
+  padding: 28px 28px;
   flex-direction: column;
   border: 1px solid rgb(218, 218, 218);
   height: 85vh;
@@ -259,7 +257,6 @@
   font-size: 12px;
   color: #666666;
   margin: 8px 0 18px;
-  font-family: 'IBM Plex Mono', monospace;
 }
 
 .iv-chat {
@@ -287,7 +284,6 @@
 }
 
 .iv-card-tag {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.06em;
   color: #555555;
@@ -310,7 +306,6 @@
 
 .iv-user-tag {
   display: block;
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.06em;
   color: #888888;
@@ -390,7 +385,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 26px;
   font-weight: 600;
   color: #000000;
@@ -407,7 +401,6 @@
 }
 
 .iv-receipt-title {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -420,7 +413,6 @@
 .iv-receipt-row {
   display: flex;
   justify-content: space-between;
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 13px;
   padding: 6px 0;
 }
