@@ -32,7 +32,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 650px;
+  max-width: 660px;
 }
 
 .iv-setup-card, .iv-result-card {
@@ -186,10 +186,10 @@
 .iv-start-btn:disabled, .iv-send-btn:disabled { opacity: 0.3; cursor: not-allowed; }
 
 .iv-interview-wrap {
-  max-width: 650px;
+  max-width: 660px;
   border-radius: 20px;
   display: flex;
-      padding: 38px;
+  padding: 38px;
   flex-direction: column;
   border: 1px solid rgb(218, 218, 218);
   height: 85vh;
