@@ -218,7 +218,7 @@ export default function Interview() {
                 <div className="iv-interview-wrap">
                     <div className="iv-interview-header">
                         <div>
-                            <h2 className="iv-heading">{role}</h2>
+                            <h2 className="iv-heading">ROLE  ·  {role}</h2>
                             <span className="iv-header-tag">
                                 {activeType.code} ROUND · {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} · {experience}
                             </span>
@@ -319,7 +319,7 @@ export default function Interview() {
                                         strokeDashoffset: circumference - (circumference * scores.overall) / 100
                                     }}
                                 ></circle>
-                            </svg>f
+                            </svg>
                             <div className="iv-score-number">{scores.overall}%</div>
                         </div>
 
