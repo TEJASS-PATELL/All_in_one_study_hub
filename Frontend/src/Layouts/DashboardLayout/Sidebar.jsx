@@ -1,12 +1,12 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import { FaSignOutAlt, FaHome, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck, FaUserCircle, FaBars, FaTimes } from "react-icons/fa";
+import { FaSignOutAlt, FaHome, FaComments, FaMapSigns, FaTrash, FaRobot, FaPaperPlane, FaClipboardCheck, FaUserCircle, FaBars, FaTimes, FaBriefcase } from "react-icons/fa";
 import { useAuthStore } from "../../Store/useAuthStore";
-import { useState } from "react"; 
+import { useState } from "react";
 import "./Sidebar.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false); 
+  const [isOpen, setIsOpen] = useState(false);
   const { authUser: user, logout, deleteAccount } = useAuthStore();
 
   const handleLogout = () => {
@@ -47,10 +47,11 @@ const Sidebar = () => {
         <nav className="dashboard-nav">
           <NavLink to="/" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaHome /> Home</NavLink>
           <NavLink to="/dashboard" className="dashboard-nav-item" onClick={() => setIsOpen(false)}>
-          <FaClipboardCheck />Daily-Task</NavLink>
+            <FaClipboardCheck />Daily-Task</NavLink>
           <NavLink to="/dashboard/roadmap" className="dashboard-nav-item" onClick={() => setIsOpen(false)}>
-          <FaMapSigns /> Roadmap</NavLink>
-          <NavLink to="/dashboard/discussion" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaComments /> Discussion</NavLink>
+            <FaMapSigns /> Roadmap</NavLink>
+          <NavLink to="/dashboard/experience" className="dashboard-nav-item" onClick={() => setIsOpen(false)}>
+            <FaBriefcase /> Experience</NavLink>
           <NavLink to="/dashboard/chatroom" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaPaperPlane /> ChatRoom</NavLink>
           <NavLink to="/dashboard/ai-interview" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaRobot /> AI-Interview</NavLink>
           <button className="dashboard-nav-item logout-btn" onClick={handleLogout}>
