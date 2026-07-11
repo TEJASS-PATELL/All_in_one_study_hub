@@ -13,7 +13,7 @@ export const useAiChatBot = create((set) => ({
             set({isLoading: true});
             const res = await axios.post("/api/chat/chatbot", {message, history});
             return res.data.reply || "No reply from AI";
-        }catch(err){
+        }catch{
             toast.error("Server error. Please try again later.");
             return false;
         }finally{

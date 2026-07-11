@@ -44,7 +44,7 @@ export const routers = [
         children: [
           { path: "roadmap", element: <Roadmap /> },
           { index: true, element: <TodoPage /> },
-          { path: "discussion", element: <Discussion /> },
+          { path: "experience", element: <Discussion /> },
           { path: "chatroom", element: <ChatRoom /> },
           { path: "ai-interview", element: <Interview /> },
         ],
