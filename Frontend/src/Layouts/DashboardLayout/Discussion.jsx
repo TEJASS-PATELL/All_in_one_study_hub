@@ -80,7 +80,7 @@ const Discussion = () => {
 
       {!userHasPosted ? (
         <button onClick={() => setOpen(true)} className="discussion-button">
-          + Share Experience
+           Share Experience
         </button>
       ) : (
         <p className="discussion-status">
