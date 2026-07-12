@@ -5,8 +5,10 @@
 
 .calendar {
   background: #000;
+  
+  border: 1px solid black;
   color: #fff;
-  border-radius: 0px;
+  border-radius: 20px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -47,8 +49,10 @@
 }
 
 .calendar2 {
-  background: #333333;
+  background: #ffffff;
   padding: 15px;
+  color: black;
+  border: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
