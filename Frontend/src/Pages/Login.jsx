@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { FaLock, FaLockOpen } from "react-icons/fa";
+import { ArrowRight } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthStore } from "../Store/useAuthStore";
 import "./LoginPage.css";
@@ -8,6 +8,7 @@ import React from "react";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(true);
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const { login, isLoading } = useAuthStore();
@@ -15,8 +16,8 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-      await login({ email: formData.email, password: formData.password });
-      navigate("/");
+    await login({ email: formData.email, password: formData.password });
+    navigate("/");
   };
 
   const handleGoogleLogin = () => {
@@ -24,89 +25,172 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="wrapper">
-      <div className="login-container">
-        <main className="login-form-container">
-          <div className="glassmorphism-form">
-            <div className="text-center">
-              <img className="images" src="welcome-back.png" alt="Chat Icon" />
-              <h1>Welcome Back!</h1>
-              <p>Sign in to your account</p>
-            </div>
-
-            <form onSubmit={handleSubmit} className="login-form">
-              <label className="labell">Email</label>
-              <div className="inputt-container">
-                <input
-                  className="input-login"
-                  type="email"
-                  placeholder="you@example.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                />
-              </div>
-
-              <label className="labell">Password</label>
-              <div className="inputt-container">
-                <input
-                  className="input-login"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="••••••••"
-                  value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
-                  required
-                />
-                <button
-                  type="button"
-                  className="password-toggle"
-                  onClick={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <FaLockOpen /> : <FaLock />}
-                </button>
-              </div>
-
-              <button type="submit" className="submit-btnn" disabled={isLoading}>
-                {isLoading ? (
-                  <div className="loader-container">
-                    <div className="spinner"></div>
-                    <span>Logging in...</span>
-                  </div>
-                ) : (
-                  "Login"
-                )}
-              </button>
-
-              <Link to="/forgot-password" className='forgot-password'>Forgot password?</Link>
-            </form>
-
-            <div className="or-divider">
-              <span>OR</span>
-            </div>
-            <button
-              onClick={handleGoogleLogin}
-              className="google-login-btn">
-              <FcGoogle size={20} style={{ marginRight: "8px" }} />
-              Continue with Google
-            </button>
-
-            <div className="text-center">
-              <p>
-                Don't have an account?{" "}
-                <Link to="/signup" className="signup-link">
-                  Sign Up
-                </Link>
-              </p>
-            </div>
+    <div className="lumina-page">
+      <div className="auth-shell">
+        <div className="auth-form-panel">
+          <div className="brand">
+            <span className="brand-dot" />
+            <span className="brand-name">StudyHub</span>
           </div>
-        </main>
 
-        <footer className="login-footer">
-          <p>&copy; 2025. All rights reserved.</p>
-        </footer>
+          <h1>Welcome back!</h1>
+          <p className="subtitle">Pick up where you left off, and keep things moving.</p>
+
+          <form onSubmit={handleSubmit} className="auth-form">
+            <input
+              type="email"
+              placeholder="john.doe@gmail.com"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+            />
+
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="••••••••"
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
+                required
+              />
+              <button
+                type="button"
+                className="show-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+
+            <div className="form-row">
+              <label className="remember-me">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                />
+                Remember me
+              </label>
+              <Link to="/forgot-password" className="forgot-password">
+                Forgot password?
+              </Link>
+            </div>
+
+            <button type="submit" className="login-btn" disabled={isLoading}>
+              {isLoading ? "Logging in..." : (
+                <>
+                  Log in <ArrowRight size={16} />
+                </>
+              )}
+            </button>
+          </form>
+
+          <div className="or-divider">
+            <span>or</span>
+          </div>
+
+          <button onClick={handleGoogleLogin} className="google-btn">
+            <FcGoogle size={18} />
+            Continue with Google
+          </button>
+
+          <p className="signup-redirect">
+            Don't have an account? <Link to="/signup">Sign up</Link>
+          </p>
+        </div>
+
+        <div className="auth-illustration-panel">
+  <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#EAF4FF" />
+        <stop offset="55%" stopColor="#F2F9E4" />
+        <stop offset="100%" stopColor="#E9F5D6" />
+      </linearGradient>
+      <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#6DC9F1" />
+        <stop offset="100%" stopColor="#3B82C4" />
+      </linearGradient>
+    </defs>
+
+    {/* Background */}
+    <rect width="500" height="700" fill="url(#bgGrad)" />
+
+    {/* Soft decorative circles */}
+    <circle cx="60" cy="80" r="70" fill="#DCEEFF" opacity="0.6" />
+    <circle cx="440" cy="130" r="55" fill="#E6F5D8" opacity="0.6" />
+
+    {/* Sparkles */}
+    <path d="M300 150 L306 162 L300 174 L294 162 Z" fill="#FFD873" />
+    <path d="M120 190 L125 200 L120 210 L115 200 Z" fill="#FFD873" opacity="0.9" />
+    <path d="M400 250 L404 258 L400 266 L396 258 Z" fill="#FFD873" opacity="0.8" />
+
+    {/* Spotlight */}
+    <ellipse cx="250" cy="460" rx="210" ry="190" fill="#FFFFFF" opacity="0.3" />
+
+    {/* Floor */}
+    <rect x="0" y="644" width="500" height="56" fill="#E3EFD0" />
+    <ellipse cx="250" cy="648" rx="210" ry="16" fill="#000000" opacity="0.07" />
+
+    {/* Desk */}
+    <rect x="50" y="480" width="400" height="20" rx="6" fill="#D9A066" />
+    <rect x="50" y="500" width="400" height="144" rx="14" fill="#B97C48" />
+    <line x1="70" y1="560" x2="430" y2="560" stroke="#8B5A2B" strokeWidth="2" />
+    <rect x="230" y="552" width="40" height="8" rx="4" fill="#8B5A2B" />
+
+    {/* Plant */}
+    <polygon points="90,445 130,445 122,480 98,480" fill="#B9682E" />
+    <ellipse cx="110" cy="445" rx="20" ry="5" fill="#9C5A28" />
+    <ellipse cx="90" cy="410" rx="10" ry="28" fill="#7CB342" transform="rotate(-20 90 410)" />
+    <ellipse cx="110" cy="395" rx="11" ry="32" fill="#9ED66B" />
+    <ellipse cx="130" cy="412" rx="10" ry="28" fill="#5B9A2E" transform="rotate(20 130 412)" />
+
+    {/* Laptop */}
+    <rect x="150" y="362" width="160" height="100" rx="10" fill="#1F2A3D" />
+    <rect x="158" y="370" width="144" height="84" rx="6" fill="url(#screenGrad)" />
+    <rect x="170" y="384" width="70" height="8" rx="4" fill="#ffffff" opacity="0.9" />
+    <rect x="170" y="400" width="100" height="8" rx="4" fill="#ffffff" opacity="0.6" />
+    <rect x="170" y="416" width="60" height="8" rx="4" fill="#ffffff" opacity="0.6" />
+    <rect x="170" y="432" width="90" height="8" rx="4" fill="#ffffff" opacity="0.5" />
+    <rect x="140" y="462" width="180" height="18" rx="4" fill="#DDE3EA" />
+    <rect x="140" y="462" width="180" height="4" fill="#C7CDD3" />
+
+    {/* Books + graduation cap */}
+    <rect x="330" y="460" width="110" height="20" rx="4" fill="#E4574C" transform="rotate(-3 385 470)" />
+    <rect x="338" y="442" width="92" height="18" rx="4" fill="#F2B33D" transform="rotate(2 384 451)" />
+    <rect x="344" y="426" width="80" height="16" rx="4" fill="#4C8EE0" transform="rotate(-1 384 434)" />
+    <rect x="359" y="366" width="50" height="50" fill="#2B3A55" transform="rotate(45 384 391)" />
+    <ellipse cx="384" cy="422" rx="16" ry="9" fill="#374357" />
+    <circle cx="384" cy="391" r="4" fill="#F2B33D" />
+    <line x1="384" y1="391" x2="406" y2="415" stroke="#F2B33D" strokeWidth="2" />
+    <circle cx="406" cy="419" r="5" fill="#F2B33D" />
+
+    {/* Coffee mug */}
+    <rect x="230" y="450" width="36" height="30" rx="6" fill="#ffffff" />
+    <ellipse cx="248" cy="450" rx="18" ry="5" fill="#6B4226" />
+    <path d="M266,456 q14,4 14,14 q0,10 -14,10" stroke="#ffffff" strokeWidth="5" fill="none" />
+    <path d="M240,440 q4,-10 0,-20 q-4,-10 0,-20" stroke="#ffffff" strokeWidth="3" fill="none" opacity="0.6" />
+    <path d="M256,440 q4,-10 0,-20 q-4,-10 0,-20" stroke="#ffffff" strokeWidth="3" fill="none" opacity="0.5" />
+
+    {/* Pencil */}
+    <g transform="rotate(15 300 478)">
+      <rect x="270" y="474" width="56" height="7" rx="3.5" fill="#F2B33D" />
+      <polygon points="326,474 336,477.5 326,481" fill="#EFCB86" />
+      <rect x="266" y="474" width="6" height="7" fill="#4C4C4C" />
+    </g>
+
+    {/* Idea bulb */}
+    <line x1="220" y1="286" x2="220" y2="276" stroke="#F2B33D" strokeWidth="2" />
+    <line x1="192" y1="320" x2="182" y2="320" stroke="#F2B33D" strokeWidth="2" />
+    <line x1="248" y1="320" x2="258" y2="320" stroke="#F2B33D" strokeWidth="2" />
+    <line x1="236" y1="304" x2="244" y2="296" stroke="#F2B33D" strokeWidth="2" />
+    <line x1="204" y1="304" x2="196" y2="296" stroke="#F2B33D" strokeWidth="2" />
+    <circle cx="220" cy="320" r="22" fill="#FFF5D6" stroke="#F2B33D" strokeWidth="2" />
+    <path d="M212,320 q8,-14 16,0" stroke="#F2B33D" strokeWidth="2" fill="none" />
+    <rect x="210" y="340" width="20" height="12" rx="3" fill="#9AA0A6" />
+    <path d="M250 290 L253 296 L250 302 L247 296 Z" fill="#FFD873" />
+  </svg>
+</div>
       </div>
     </div>
   );
