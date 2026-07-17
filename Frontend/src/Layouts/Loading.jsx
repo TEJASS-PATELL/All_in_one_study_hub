@@ -3,8 +3,14 @@ import './Loading.css';
 
 export default function Loading() {
   return (
-    <div className="spinner-container" aria-label="Content is loading">
-      <div className="loading-spinner"></div>
-    </div>
+    <div className="loader-wrapper">
+  <div className="loader-bars">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
   );
 }
