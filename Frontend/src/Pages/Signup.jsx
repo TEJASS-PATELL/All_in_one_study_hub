@@ -66,82 +66,6 @@ const SignUpPage = () => {
   return (
     <div className="lumina-page">
       <div className="auth-shell">
-        <div className="auth-form-panel">
-          <div className="brand">
-            <span className="brand-dot" />
-            <span className="brand-name">StudyHub</span>
-          </div>
-
-          <h1>Create your account</h1>
-          <p className="subtitle">Join Study Hub and start learning smarter.</p>
-
-          <form className="auth-form" onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              placeholder="john.doe@gmail.com"
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
-
-            <div className="password-field">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="••••••••"
-                value={form.password}
-                onChange={handleChange}
-                required
-              />
-              <button
-                type="button"
-                className="show-toggle"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? "Hide" : "Show"}
-              </button>
-            </div>
-
-            <div className="password-field">
-              <input
-                type={showPassword ? "text" : "password"}
-                name="confirmPassword"
-                placeholder="Confirm Password"
-                value={form.confirmPassword}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <button type="submit" className="login-btn" disabled={isLoading}>
-              {isLoading ? (
-                <>
-                  <Loader2 className="spin" size={16} />
-                  Creating account...
-                </>
-              ) : (
-                <>
-                  Sign up <ArrowRight size={16} />
-                </>
-              )}
-            </button>
-          </form>
-
-          <p className="signup-redirect">
-            Already have an account? <Link to="/login">Log in</Link>
-          </p>
-        </div>
-
         <div className="auth-illustration-panel">
           <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <rect width="500" height="700" fill="#EAF0FF" />
@@ -232,6 +156,81 @@ const SignUpPage = () => {
             <rect x="212" y="354" width="16" height="5" fill="#000000" opacity="0.7" />
             <line x1="212" y1="351" x2="228" y2="351" stroke="#FFFFFF" strokeWidth="0.6" opacity="0.5" />
           </svg>
+        </div>
+        <div className="auth-form-panel">
+          <div className="brand">
+            <span className="brand-dot" />
+            <span className="brand-name">StudyHub</span>
+          </div>
+
+          <h1>Create your account</h1>
+          <p className="subtitle">Join Study Hub and start learning smarter.</p>
+
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="john.doe@gmail.com"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={handleChange}
+                required
+              />
+              <button
+                type="button"
+                className="show-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? "Hide" : "Show"}
+              </button>
+            </div>
+
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={form.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button type="submit" className="login-btn" disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="spin" size={16} />
+                  Creating account...
+                </>
+              ) : (
+                <>
+                  Sign up <ArrowRight size={16} />
+                </>
+              )}
+            </button>
+          </form>
+
+          <p className="signup-redirect">
+            Already have an account? <Link to="/login">Log in</Link>
+          </p>
         </div>
       </div>
     </div>
