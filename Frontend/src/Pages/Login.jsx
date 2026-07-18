@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BookOpen, Lock, Unlock } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthStore } from "../Store/useAuthStore";
 import "./LoginPage.css";
@@ -29,8 +29,12 @@ const LoginPage = () => {
       <div className="auth-shell">
         <div className="auth-form-panel">
           <div className="brand">
-            <span className="brand-dot" />
-            <span className="brand-name">StudyHub</span>
+            <span className="brand-mark">
+              <BookOpen size={16} strokeWidth={2.5} />
+            </span>
+            <span className="brand-name">
+              Study<span className="brand-accent">Hub</span>
+            </span>
           </div>
 
           <h1>Welcome back!</h1>
@@ -58,7 +62,7 @@ const LoginPage = () => {
                 className="show-toggle"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
               </button>
             </div>
 
@@ -114,21 +118,18 @@ const LoginPage = () => {
             <rect x="0" y="644" width="500" height="56" fill="#0048FF" opacity="0.06" />
             <ellipse cx="250" cy="660" rx="175" ry="22" fill="#0048FF" opacity="0.1" />
 
-            {/* Desk */}
             <rect x="40" y="478" width="420" height="22" rx="8" fill="#0048FF" />
             <rect x="40" y="498" width="420" height="146" rx="16" fill="#000000" />
             <line x1="60" y1="540" x2="440" y2="540" stroke="#FFFFFF" strokeWidth="1" opacity="0.08" />
             <line x1="60" y1="565" x2="440" y2="565" stroke="#FFFFFF" strokeWidth="1" opacity="0.06" />
             <rect x="212" y="548" width="72" height="9" rx="4.5" fill="#FFFFFF" opacity="0.9" />
 
-            {/* Grounding shadows */}
             <ellipse cx="110" cy="480" rx="42" ry="8" fill="#000000" opacity="0.08" />
             <ellipse cx="230" cy="480" rx="95" ry="9" fill="#000000" opacity="0.08" />
             <ellipse cx="384" cy="480" rx="62" ry="8" fill="#000000" opacity="0.08" />
             <ellipse cx="248" cy="480" rx="26" ry="6" fill="#000000" opacity="0.1" />
             <ellipse cx="175" cy="480" rx="28" ry="6" fill="#000000" opacity="0.08" />
 
-            {/* Plant */}
             <polygon points="88,445 132,445 124,482 96,482" fill="#000000" />
             <ellipse cx="110" cy="445" rx="22" ry="6" fill="#0048FF" />
             <path d="M110,445 C95,410 85,385 92,355 C110,385 112,415 110,445 Z" fill="#0048FF" />
@@ -136,7 +137,6 @@ const LoginPage = () => {
             <path d="M110,445 C100,415 82,400 66,398 C82,420 96,438 110,445 Z" fill="#0048FF" opacity="0.4" />
             <path d="M104,415 C104,402 106,382 109,365" stroke="#FFFFFF" strokeWidth="1" fill="none" opacity="0.5" />
 
-            {/* Notepad + pen */}
             <rect x="150" y="470" width="50" height="10" rx="2" fill="#FFFFFF" stroke="#000000" strokeWidth="1" transform="rotate(-3 175 475)" />
             <line x1="156" y1="474" x2="192" y2="473" stroke="#000000" strokeWidth="1" opacity="0.5" transform="rotate(-3 175 475)" />
             <line x1="156" y1="478" x2="192" y2="477" stroke="#000000" strokeWidth="1" opacity="0.5" transform="rotate(-3 175 475)" />
@@ -146,7 +146,6 @@ const LoginPage = () => {
               <rect x="146" y="465" width="6" height="6" fill="#000000" />
             </g>
 
-            {/* Laptop */}
             <rect x="140" y="462" width="180" height="18" rx="5" fill="#000000" />
             <rect x="205" y="466" width="50" height="9" rx="3" fill="#FFFFFF" opacity="0.2" />
             <rect x="150" y="362" width="160" height="100" rx="10" fill="#000000" />
@@ -158,7 +157,6 @@ const LoginPage = () => {
             <rect x="170" y="432" width="90" height="8" rx="4" fill="#ffffff" opacity="0.4" />
             <polygon points="158,370 190,370 165,454 158,454" fill="#ffffff" opacity="0.08" />
 
-            {/* Books + graduation cap */}
             <rect x="325" y="458" width="118" height="22" rx="4" fill="#0048FF" transform="rotate(-3 384 469)" />
             <rect x="325" y="458" width="10" height="22" rx="3" fill="#FFFFFF" opacity="0.3" transform="rotate(-3 384 469)" />
             <rect x="335" y="439" width="98" height="20" rx="4" fill="#000000" transform="rotate(2 384 449)" />
@@ -175,7 +173,6 @@ const LoginPage = () => {
             <line x1="406" y1="417" x2="406" y2="430" stroke="#0048FF" strokeWidth="1.5" />
             <line x1="406" y1="417" x2="412" y2="428" stroke="#0048FF" strokeWidth="1.5" />
 
-            {/* Coffee mug */}
             <ellipse cx="248" cy="481" rx="26" ry="6" fill="#000000" opacity="0.08" />
             <rect x="230" y="450" width="36" height="30" rx="7" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
             <ellipse cx="248" cy="450" rx="18" ry="5" fill="#FFFFFF" stroke="#000000" strokeWidth="1" />
@@ -185,7 +182,6 @@ const LoginPage = () => {
             <path d="M250,438 C254,428 248,420 252,410" stroke="#0048FF" strokeWidth="3" fill="none" opacity="0.45" strokeLinecap="round" />
             <path d="M258,442 C262,432 256,424 260,414" stroke="#0048FF" strokeWidth="2.5" fill="none" opacity="0.35" strokeLinecap="round" />
 
-            {/* Idea bulb */}
             <line x1="220" y1="278" x2="220" y2="270" stroke="#0048FF" strokeWidth="2" />
             <line x1="188" y1="322" x2="180" y2="322" stroke="#0048FF" strokeWidth="2" />
             <line x1="252" y1="322" x2="260" y2="322" stroke="#0048FF" strokeWidth="2" />
