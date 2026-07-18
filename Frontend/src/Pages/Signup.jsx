@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, Loader2, ArrowRight } from "lucide-react";
+import { Eye, EyeOff, Loader2, ArrowRight, Unlock, Lock, BookOpen } from "lucide-react";
 import { useAuthStore } from "../Store/useAuthStore";
 import toast from "react-hot-toast";
 import "./SignUpPage.css";
@@ -159,11 +159,14 @@ const SignUpPage = () => {
         </div>
         <div className="auth-form-panel">
           <div className="brand">
-            <span className="brand-dot" />
-            <span className="brand-name">StudyHub</span>
+            <span className="brand-mark">
+              <BookOpen size={16} strokeWidth={2.5} />
+            </span>
+            <span className="brand-name">
+              Study<span className="brand-accent">Hub</span>
+            </span>
           </div>
-
-          <h1>Create your account</h1>
+          <h1>Begin learning today</h1>
           <p className="subtitle">Join Study Hub and start learning smarter.</p>
 
           <form className="auth-form" onSubmit={handleSubmit}>
@@ -199,7 +202,7 @@ const SignUpPage = () => {
                 className="show-toggle"
                 onClick={() => setShowPassword(!showPassword)}
               >
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
               </button>
             </div>
 
