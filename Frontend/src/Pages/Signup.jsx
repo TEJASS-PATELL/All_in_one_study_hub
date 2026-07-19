@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Loader2, ArrowRight, Unlock, Lock, BookOpen } from "lucide-react";
 import { useAuthStore } from "../Store/useAuthStore";
 import toast from "react-hot-toast";
-import "./SignUpPage.css";
+import "./SignUpLogin.css";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
