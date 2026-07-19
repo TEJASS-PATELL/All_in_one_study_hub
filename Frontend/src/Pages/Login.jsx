@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { ArrowRight, BookOpen, Lock, Unlock } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthStore } from "../Store/useAuthStore";
-import "./LoginPage.css";
+import "./SignUpLogin.css";
 import React from "react";
 
 const LoginPage = () => {
