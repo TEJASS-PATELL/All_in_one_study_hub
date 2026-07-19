@@ -1,81 +1,90 @@
 .footer {
-  background-color: #ffffff;
-  padding: 35px 0;
-  border-top: 1px solid #eeeeee;
-}
-
-.footer-container {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-bottom {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
-
-.social-links {
-  display: flex;
-  gap: 30px;
-}
-
-.social-link {
-  color: #000000;
-  font-size: 32px;
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1200px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(232, 231, 231);
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  z-index: 999;
   transition: all 0.3s ease;
 }
 
-.social-link:hover {
-  color: rgb(0, 72, 255);
-  transform: translateY(-5px);
+.footer-container {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .copyright {
-  font-size: 1.25rem;
-  color: #666666;
-  text-align: center;
+  color: #3b3b3b;
+  font-size: 1rem;
+  font-weight: 600;
   margin: 0;
 }
 
 .copyright span {
-  font-weight: 700;
-  color: rgb(0, 72, 255);
+  color: #0048ff;
+  font-weight: 800;
 }
 
-@media (min-width: 768px) {
-  .footer{
-    padding: 30px 0;
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+  color: #0048ff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 950px) {
+  .footer {
+    width: 90%;
+    height: 60px;
+    bottom: 10px;
+    border-radius: 15px;
   }
   
-  .footer-bottom {
-    flex-direction: row;
-    justify-content: space-between;
+  .footer-container {
+    padding: 0 1.2rem;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
   }
 
   .social-links {
-    gap: 20px;
-    font-size: 28px;
+    gap: 1rem;
+  }
+  
+  .social-link {
+    font-size: 1.15rem;
   }
 }
 
 @media (max-width: 480px) {
-  .footer{
-    padding: 30px 0;
-  }
-
-  .social-links {
-    gap: 20px;
-    font-size: 28px;
-  }
-
   .copyright {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.7rem;
   }
 }
