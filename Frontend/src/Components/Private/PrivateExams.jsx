@@ -53,7 +53,9 @@ const PrivateExams = () => {
   return (
     <div className="G-category-section">
       <div className="section-titlee">
+        <span className="G-cat-eyebrow">Category Filter</span>
         <h2>Explore Private Job Categories</h2>
+         <div className="title-line"></div>
         <p>Find the best private job roles based on your interest</p>
       </div>
 
