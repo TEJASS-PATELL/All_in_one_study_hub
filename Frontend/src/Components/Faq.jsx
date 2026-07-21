@@ -1,5 +1,6 @@
 import React from 'react';
 import './Faq.css';
+import { FaChevronDown } from 'react-icons/fa';
 
 function Faq() {
     const faqData = [
@@ -39,9 +40,14 @@ function Faq() {
 
     return (
         <section className="faq-wrapper" id='faq'>
+
             <div className="faq-container">
-                <h2 className="faq-main-title">Frequently Asked Questions</h2>
-                <p className="faq-subtitle">Everything you need to know about CareerHub</p>
+                <div className="faq-header">
+                    <span className="faq-eyebrow">Query Register</span>
+                    <h2 className="faq-main-title">Frequently Asked Questions</h2>
+                    <div className="title-line"></div>
+                    <p className="faq-subtitle">Everything you need to know about CareerHub</p>
+                </div>
 
                 <div className="faq-list">
                     {faqData.map((item, index) => (
@@ -49,7 +55,7 @@ function Faq() {
                             <input type="checkbox" id={`faq-${index}`} className="faq-toggle" />
                             <label htmlFor={`faq-${index}`} className="faq-question">
                                 {item.question}
-                                <span className="faq-icon"></span>
+                                <FaChevronDown className="faq-icon-svg" />
                             </label>
                             <div className="faq-answer">
                                 <p>{item.answer}</p>
