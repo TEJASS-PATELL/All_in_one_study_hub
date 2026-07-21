@@ -19,22 +19,17 @@ const BenefitsSection = () => {
   const features = [
     {
       title: "Unified Job Hub",
-      description: "Access diverse opportunities across IT, private, and government sectors from multiple portals in one central place.",
+      description: "Access diverse opportunities across IT, private, and government sectors from multiple portals in one central place to save your valuable time.",
       icon: <FaLaptopCode />,
     },
     {
-      title: "Premium Study Vault",
-      description: "Unlock high-quality preparation guides and curated study materials tailored for competitive and government exams.",
+      title: "Prep & Practice",
+      description: "Unlock high-quality prep guides and sharpen your skills with interactive mock tests, quizzes, and specialized tools from 20+ platforms.",
       icon: <FaBookOpen />,
     },
     {
-      title: "Adaptive Practice Suite",
-      description: "Sharpen your skills with interactive mock tests, quizzes, and specialized tools from over 20+ leading platforms.",
-      icon: <FaPencilAlt />,
-    },
-    {
       title: "Strategic Exam Insights",
-      description: "Stay ahead with structured data and reliable updates on government, private, and IT exam trends and patterns.",
+      description: "Stay ahead with structured data and reliable updates on government, private, and IT exam trends and patterns to maximize your success.",
       icon: <FaLayerGroup />,
     },
     {
@@ -44,35 +39,32 @@ const BenefitsSection = () => {
     },
     {
       title: "Integrated AI Toolkit",
-      description: "Boost your productivity and learning speed with a curated suite of powerful AI utilities on a single page.",
+      description: "Boost your productivity and learning speed with a curated suite of powerful AI utilities all on a single page to maximize your daily efficiency.",
       icon: <FaRobot />,
     },
     {
       title: "Professional Roadmap",
-      description: "Design a step-by-step career path to achieve your professional milestones with clarity and confidence.",
+      description: "Design a step-by-step career path to achieve your professional milestones with clarity and confidence to secure your dream job and future growth.",
       icon: <FaRoute />,
     },
     {
-      title: "Community Spotlights",
-      description: "Share your career milestones and exam strategies to inspire and empower fellow aspirants in the community.",
+      title: "Social Connect",
+      description: "Share career milestones to inspire fellow aspirants, and engage in a real-time chat space for peer interaction and stress-free breaks.",
       icon: <FaUsers />,
     },
     {
-      title: "Real-Time Fun Chat",
-      description: "Engage in a real-time chat space for casual conversations, peer interaction, and stress-free breaks across different sections.",
-      icon: <FaComments />,
-    },
-    {
-      title: "Interview Prep",
-      description: "Practice AI-driven mock interviews with role-based questions and instant feedback to build confidence.",
+      title: "AI Interview Prep",
+      description: "Practice AI-driven mock interviews with role-based questions and receive instant feedback to build confidence and ace real interviews with ease.",
       icon: <FaUserTie />,
-    },
+    }
   ];
 
   return (
     <section className="skills-section" id='features'>
       <div className="skills-container">
+        <span className="skills-eyebrow">Schedule of Benefits</span>
         <h2 className="skills-title">Explore Skill Categories</h2>
+        <div className="title-line"></div>
         <p className="skills-subtitle">
           Discover thousands of skills across diverse categories, taught by passionate community members from around the world.
         </p>
