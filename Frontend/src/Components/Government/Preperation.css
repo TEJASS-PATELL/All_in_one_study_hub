@@ -1,0 +1,241 @@
+.G-preparation-section {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: #0048ff;
+  --blue-tint: #eef3ff;
+
+  position: relative;
+  background: var(--paper);
+  overflow: hidden;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.G-section-title {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
+}
+
+.G-eyebrow {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.G-section-title h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.8vw, 2.7rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.G-title-line {
+  width: 64px;
+  height: 3px;
+  background: var(--blue);
+  margin: 22px auto;
+  position: relative;
+}
+
+.G-title-line::after {
+  content: "";
+  position: absolute;
+  left: 76px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  background: var(--ink);
+}
+
+.G-section-title p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.G-preparation-list {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 1px solid var(--ink-faint);
+}
+
+.G-prep-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0px 1fr auto;
+  align-items: center;
+  column-gap: 28px;
+  padding: 34px 0px;
+  border-bottom: 1px solid var(--ink-faint);
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background 0.35s ease;
+}
+
+.G-prep-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0%;
+  background: var(--blue);
+  transition: height 0.4s ease;
+}
+
+.G-prep-row:hover,
+.G-prep-row:focus-visible {
+  background: var(--blue-tint);
+}
+
+.G-prep-row:hover::before,
+.G-prep-row:focus-visible::before {
+  height: 100%;
+}
+
+.G-prep-row:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+.G-prep-icon-bg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-6deg);
+  font-size: 110px;
+  line-height: 1;
+  color: var(--blue);
+  opacity: 0.05;
+  z-index: -1;
+  transition: opacity 0.35s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.G-prep-row:hover .G-prep-icon-bg {
+  opacity: 0.09;
+  transform: translateY(-50%) rotate(-2deg) scale(1.05);
+}
+
+.G-prep-num {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.2px var(--ink);
+  transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease;
+}
+
+.G-prep-row:hover .G-prep-num,
+.G-prep-row:focus-visible .G-prep-num {
+  color: var(--blue);
+  -webkit-text-stroke-color: var(--blue);
+}
+
+.G-prep-body {
+  min-width: 0;
+}
+
+.G-preparation-title {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.G-preparation-description {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 46ch;
+}
+
+.G-prep-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.G-prep-cta i {
+  font-size: 10.5px;
+  transition: transform 0.3s ease;
+}
+
+.G-prep-row:hover .G-prep-cta,
+.G-prep-row:focus-visible .G-prep-cta {
+  color: var(--blue);
+}
+
+.G-prep-row:hover .G-prep-cta i,
+.G-prep-row:focus-visible .G-prep-cta i {
+  transform: translateX(4px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .G-prep-row {
+    grid-template-columns: 46px 1fr;
+    row-gap: 12px;
+    padding: 28px 4px;
+  }
+
+  .G-prep-num {
+    font-size: 28px;
+  }
+
+  .G-prep-icon-bg {
+    display: none;
+  }
+
+  .G-prep-cta {
+    grid-column: 1 / -1;
+    padding-left: 58px;
+  }
+}
+
+@media (max-width: 460px) {
+  .G-preparation-section {
+    padding: 80px 18px;
+  }
+
+  .G-preparation-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .G-prep-row,
+  .G-prep-row::before,
+  .G-prep-num,
+  .G-prep-icon-bg,
+  .G-prep-cta,
+  .G-prep-cta i {
+    transition: none;
+  }
+}

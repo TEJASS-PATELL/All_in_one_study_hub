@@ -1,0 +1,277 @@
+.exam-category-card {
+  max-width: 1240px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+
+.exam-card-header {
+  padding-bottom: 14px;
+}
+
+.exam-card-title {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding: 32px 0;
+}
+
+.no-exams-found {
+  text-align: center;
+  color: #000000;
+  font-size: 14px;
+  padding: 16px 0;
+}
+
+.exam-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.exam-card-item {
+  border: 1px solid #cacaca;
+  border-radius: 12px;
+  padding: 18px 18px 16px;
+  margin-bottom: 20px;
+  background: #ffffff;
+}
+
+.exam-info {
+  margin-bottom: 12px;
+}
+
+.exam-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #000000;
+    font-family: "Fraunces", serif;
+  margin-bottom: 6px;
+}
+
+.exam-desc {
+  font-size: 16px;
+  color: #000000;
+  line-height: 1.65;
+}
+
+.exam-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0044ff;
+  text-decoration: underline;
+}
+
+.toggle-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  background: #000000;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.accordion-wrapper {
+  margin-top: 10px;
+  display: none;
+}
+
+.accordion-wrapper.open {
+  display: block;
+}
+
+
+.G-category-section {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: #0048ff;
+ 
+  position: relative;
+  background: var(--paper);
+  padding: 100px 24px;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+ 
+.section-titlee {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 48px;
+}
+ 
+.G-cat-eyebrow {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.title-line {
+    width: 84px;
+    height: 4px;
+    border-radius: 50px;
+    background: rgb(0, 72, 255);
+    margin: 20px auto;
+    position: relative;
+}
+
+.title-line::after {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  background: black;
+}
+
+.title-line::before {
+  content: "";
+  position: absolute;
+  right: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  background: black;
+}
+ 
+.section-titlee h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 3.8vw, 2.6rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+ 
+.section-titlee p {
+  font-size: 16.5px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+ 
+/* ---------- Filter chips ---------- */
+ 
+.G-category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 45px;
+}
+ 
+.G-filter-button {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--ink-faint);
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease;
+}
+ 
+.G-filter-button:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+ 
+.G-filter-button.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--paper);
+}
+ 
+.G-filter-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+ 
+.exam-category-card {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+ 
+.exam-card-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.45rem;
+  color: var(--ink);
+  margin: 0 0 30px;
+}
+ 
+.exam-count-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px dashed var(--blue);
+  border-radius: 999px;
+  padding: 5px 14px;
+}
+ 
+.no-exams-wrap {
+  text-align: center;
+  padding: 56px 0;
+}
+ 
+.no-exams-tag {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  border: 1px dashed var(--blue);
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin-bottom: 16px;
+}
+ 
+.no-exams-found {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+ 
+.exam-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+ 
