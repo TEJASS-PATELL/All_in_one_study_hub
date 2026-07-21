@@ -39,24 +39,6 @@
   margin: 0;
 }
 
-.G-title-line {
-  width: 64px;
-  height: 3px;
-  background: var(--blue);
-  margin: 22px auto;
-  position: relative;
-}
-
-.G-title-line::after {
-  content: "";
-  position: absolute;
-  left: 76px;
-  top: -3px;
-  width: 9px;
-  height: 9px;
-  background: var(--ink);
-}
-
 .G-section-title p {
   font-size: 16.5px;
   line-height: 1.7;

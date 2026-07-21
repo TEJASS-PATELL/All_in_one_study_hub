@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import '../GovernmentJobs/Preperation.css';
+import '../Government/Preperation.css';
 import { FaCodeBranch } from 'react-icons/fa';
 
 const PrivatePreparation = () => {

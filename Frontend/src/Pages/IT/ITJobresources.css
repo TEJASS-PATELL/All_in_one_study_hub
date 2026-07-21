@@ -1,4 +1,9 @@
 .jobresou-container {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: #0048ff;
   max-width: 1300px;
   margin: 0 auto;
   padding: 100px 20px 40px;
@@ -7,19 +12,29 @@
 }
 
 .jobresources-heading {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 10px;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.7rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .jobresources-subheading {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  font-size: 1.15rem;
-  color: #666;
-  max-width: 900px;
-  margin: 0 auto 50px;
-  line-height: 1.6;
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto 20px;
+  padding: 0 24px;
 }
 
 .resources-section {
@@ -33,6 +48,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+    font-family: "Fraunces", serif;
   color: #000;
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 10px;
@@ -58,6 +74,7 @@
 
 .jobresourcescard h3 {
   font-size: 1.35rem;
+    font-family: "Fraunces", serif;
   margin-bottom: 12px;
   font-weight: 700;
 }
@@ -114,6 +131,45 @@
 .resume-note {
   background: #eff6ff;
   border-left: 5px solid #3b82f6;
+}
+
+.title-line {
+  width: 84px;
+  height: 4px;
+  border-radius: 50px;
+  background: rgb(0, 72, 255);
+  margin: 20px auto;
+  position: relative;
+}
+
+.title-line::after {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  background: black;
+}
+
+.jobresources-eyebrow {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.title-line::before {
+  content: "";
+  position: absolute;
+  right: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  background: black;
 }
 
 .coding-note {

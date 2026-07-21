@@ -91,7 +91,8 @@
 }
 
 .step-title {
-  font-size: 1.25rem;
+  font-size: 1.25rem;    
+  font-family: "Fraunces", serif;
   margin: 12px 0 6px 0;
 }
 
@@ -129,6 +130,7 @@
 
 .roadmap-header h1 {
   font-size: 2rem;
+  font-family: "Fraunces", serif;
 }
 
 .edit-icon,

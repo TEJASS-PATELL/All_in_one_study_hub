@@ -1,124 +1,225 @@
-.Gstudy-plan-wrapper {
-  background: #ffffff;
-  padding: 100px 20px 60px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.Gstudy-plan-wrapper,
+.Gdivide {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.696);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: rgb(0, 72, 255);
+
+  position: relative;
+  background: var(--paper);
+  font-family: "IBM Plex Sans", sans-serif;
+  overflow: hidden;
 }
 
 .Gwhy-time-matters {
-  max-width: 1200px;
+  position: relative;
+  z-index: 1;
   text-align: center;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #e0e0e0;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 120px 24px 70px;
+}
+
+.Geyebrow {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 20px;
 }
 
 .Gwhy-time-matters h1 {
-  font-size: 3rem;
-  margin-bottom: 12px;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
 }
 
 .Gwhy-time-matters p {
-  font-size: 1.25rem;
-  line-height: 1.5;
-  color: #000000;
-}
-
-.Gdivide {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  background: #ffffff;
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto;
 }
 
 .Gsection-toggle-container {
-  width: 100%;
-  max-width: 1000px;
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
 }
 
 .Gsection-item {
-  margin-bottom: 20px;
-  border: 1px solid #dedede;
-  border-radius: 10px;
-  background: #ffffff;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-bottom: 1px solid var(--ink-faint);
 }
 
-.Gsection-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-}
-
-.Gsection-item h2 {
-  font-size: 1.25rem;
-  padding: 15px 18px;
-  cursor: pointer;
+.Gsection-toggle {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: #ffffff;
+  gap: 14px;
+  padding: 26px 4px;
+  margin: 0;
+  cursor: pointer;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.Gsection-toggle:hover {
+  color: var(--blue);
+}
+
+.Gsection-toggle svg {
+  flex-shrink: 0;
+}
+
+.Garrow {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--blue);
+  font-weight: 600;
+  font-family: "IBM Plex Mono", monospace;
 }
 
 .Gsection-content {
-  padding: 20px 22px;
-  border-top: 1px solid #e5e5e5;
-  animation: fadeIn 0.25s ease-in;
+  margin-left: 10px;
+  padding: 0px 0px 30px 0px;
 }
 
-.Gsection-content p {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.Gsection-content ul {
-  margin-left: 18px;
-  padding-left: 10px;
-  font-size: 1.15rem;
-  line-height: 1.45;
-}
-
-.Gsection-content li {
-  margin-bottom: 8px;
-}
-
-.Gsection-content strong {
-  color: #0137fb;
-  font-weight: 600;
-}
-
-@keyframes fadeIn {
+@keyframes Gaccordion-in {
   from {
     opacity: 0;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-@media (max-width: 768px) {
-  .Gwhy-time-matters h1 {
-    font-size: 2rem;
-  }
+.Gsection-content > p {
+  margin: 0 0 20px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
 
-  .Gwhy-time-matters p {
-    font-size: 1rem;
-  }
+.Gsection-content > p strong {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-right: 8px;
+}
 
-  .Gsection-item h2 {
-    font-size: 1rem;
+.Gsection-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.Gsection-content > ul {
+  margin-bottom: 4px;
+}
+
+.title-line {
+    width: 84px;
+    height: 4px;
+    border-radius: 50px;
+    background: rgb(0, 72, 255);
+    margin: 20px auto;
+    position: relative;
+}
+
+.title-line::after {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50px;
+  background: black;
+}
+
+.title-line::before {
+  content: "";
+  position: absolute;
+  right: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50px;
+  background: black;
+}
+
+.Gsection-content li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+.Gsection-content li strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* nested sub-lists (e.g. Minimize Distractions, Key Questions) */
+.Gsection-content li ul {
+  margin-top: 10px;
+  gap: 9px;
+}
+
+.Gsection-content li ul li {
+  padding-left: 16px;
+  font-size: 13.25px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .Gwhy-time-matters {
+    padding: 96px 18px 56px;
   }
 
   .Gsection-toggle-container {
-    width: 100%;
-    max-width: 550px;
+    padding: 0 18px 80px;
   }
 
-  .Gsection-content p,
-  .Gsection-content ul {
-    font-size: 0.95rem;
+  .Gsection-toggle {
+    font-size: 14.5px;
+    gap: 10px;
+  }
+
+  .Gsection-content {
+    margin-left: 20px;
+    padding-left: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Gsection-toggle,
+  .Gsection-content {
+    transition: none;
+    animation: none;
   }
 }

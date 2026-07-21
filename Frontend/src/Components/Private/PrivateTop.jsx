@@ -1,4 +1,4 @@
-import '../GovernmentJobs/Top.css';
+import '../Government/Top.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Motivation from '../Motivation';
 import GoogleSearch from '../GoogleSearch';

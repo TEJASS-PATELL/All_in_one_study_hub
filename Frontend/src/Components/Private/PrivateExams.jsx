@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './PrivateJobs.css';
-import '../GovernmentJobs/Exam.css';
+import '../Government/Exam.css';
 import Loading from '../../Layouts/Loading';
 
 const PrivateExams = () => {

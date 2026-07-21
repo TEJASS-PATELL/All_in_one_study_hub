@@ -10,7 +10,9 @@ import { resumePlatforms, codingPracticePlatforms, aptitudePlatforms, mockInterv
 const ITJobresources = () => {
     return (
         <div className="jobresou-container">
+            <span className="jobresources-eyebrow">IT Career Toolkit</span>
             <h1 className="jobresources-heading">Best Tools & Resources to Get an IT Job</h1>
+            <div className="title-line"></div>
             <p className="jobresources-subheading">
                 Explore the most effective platforms for resume building, interview prep, upskilling, and job search — all in one place.
             </p>
@@ -99,7 +101,7 @@ const ITJobresources = () => {
                 </div>
 
                 <p className="note mock-note">
-                    <strong>Note:</strong> Mock interviews help reduce fear and improve communication. Don’t wait to feel “ready” — start practicing early to build real confidence.
+                    <strong>Note:</strong> Mock interviews help reduce fear and improve communication. Don't wait to feel "ready" — start practicing early to build real confidence.
                 </p>
             </section>
 
@@ -155,7 +157,7 @@ const ITJobresources = () => {
                     <li><RxDotFilled className="icon-small" /> Make 2-3 strong <strong>Projects</strong></li>
                     <li><RxDotFilled className="icon-small" /> Customize <strong>Resume for each job</strong></li>
                     <li><RxDotFilled className="icon-small" /> Master <strong>Data Structures & Algorithms</strong></li>
-                    <li><RxDotFilled className="icon-small" /> Be <>strong in your core field</> like Web Dev, ML, etc.</li>
+                    <li><RxDotFilled className="icon-small" /> Be <strong>strong in your core field</strong> like Web Dev, ML, etc.</li>
                     <li><RxDotFilled className="icon-small" /> Learn basic <strong>System Design</strong> concepts</li>
                     <li><RxDotFilled className="icon-small" /> Understand <strong>Databases</strong> & SQL queries</li>
                     <li><RxDotFilled className="icon-small" /> Learn about <strong>Networking basics</strong></li>
