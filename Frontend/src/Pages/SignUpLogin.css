@@ -54,7 +54,7 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgb(0, 72, 255);
+  background: #0048ff;
   animation: pulse-glow 2s infinite ease-in-out;
 }
 
@@ -68,7 +68,7 @@
   font-family: 'Baloo 2', sans-serif;
   font-weight: 700;
   font-size: 24px;
-  color: rgb(0, 72, 255);
+  color: #0048ff;
   letter-spacing: -0.3px;
 }
 
@@ -114,7 +114,7 @@
 }
 
 .auth-form input:focus {
-  box-shadow: 0 0 0 2px rgb(0, 72, 255);
+  box-shadow: 0 0 0 2px #0048ff;
 }
 
 .password-field {
@@ -160,7 +160,7 @@
 }
 
 .remember-me input {
-  accent-color: rgb(0, 72, 255);
+  accent-color: #0048ff;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -168,7 +168,7 @@
 
 .forgot-password {
   font-size: 13.5px;
-  color: rgb(0, 72, 255);
+  color: #0048ff;
   text-decoration: none;
   font-weight: 500;
 }
@@ -264,7 +264,7 @@
 }
 
 .signup-redirect a {
-  color: rgb(0, 72, 255);
+  color: #0048ff;
   font-weight: 600;
   text-decoration: none;
 }

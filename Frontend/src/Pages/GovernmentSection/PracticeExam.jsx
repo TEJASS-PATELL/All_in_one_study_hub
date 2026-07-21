@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import './PracticeTests.css';
-import {platforms} from "../../data/GovernmentResources";
+import { platforms } from "../../data/GovernmentResources";
 import { FaFileAlt, FaGlobe, FaUsers } from 'react-icons/fa';
 
 const PracticeExam = () => {
@@ -15,10 +15,14 @@ const PracticeExam = () => {
 
     return (
         <div className="practice-container">
+            <div className="practice-ledger" aria-hidden="true"></div>
+
             <section className="practice-hero">
+                <span className="hero-eyebrow">Mock Test Directory</span>
                 <h1 className="hero-title">Top Platforms for Government Exam Mocks</h1>
+                <div className="title-line"></div>
                 <p className="hero-subtitle">
-                    Practice on India’s most trusted mock test platforms — Handpicked for UPSC, SSC, Banking, Railways, and State PSC aspirants.
+                    Practice on India's most trusted mock test platforms — Handpicked for UPSC, SSC, Banking, Railways, and State PSC aspirants.
                 </p>
             </section>
 
