@@ -91,6 +91,25 @@ export default function ITchannels() {
             Visit Docs →
           </a>
         </div>
+        <div className="ITs-resource-card">
+          <div className="ITs-resource-title">MDN Web Docs</div>
+          <div className="ITs-resource-description">
+            The definitive resource for web standards, offering in-depth documentation and guides on HTML, CSS, and JS.
+          </div>
+          <a href="https://developer.mozilla.org/" className="ITs-resource-link" target="_blank" rel="noopener noreferrer">
+            Visit Docs →
+          </a>
+        </div>
+
+        <div className="ITs-resource-card">
+          <div className="ITs-resource-title">roadmap.sh</div>
+          <div className="ITs-resource-description">
+            Community-driven developer roadmaps, guides, and educational content to map out your entire tech career.
+          </div>
+          <a href="https://roadmap.sh/" className="ITs-resource-link" target="_blank" rel="noopener noreferrer">
+            Visit Docs →
+          </a>
+        </div>
       </div>
     </div>
   );
