@@ -138,7 +138,7 @@
   }
   
   .exam-item i {
-    color: #4776E6;
+    color: #0048ff;
     margin-right: 10px;
   }
   
@@ -149,7 +149,7 @@
   }
   
   .exam-item a {
-    color: #4776E6;
+    color: #0048ff;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
@@ -201,7 +201,7 @@
     border-radius: 10px;
     padding: 20px;
     background-color: #f8f9ff;
-    border-left: 4px solid #4776E6;
+    border-left: 4px solid #0048ff;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
   
@@ -223,20 +223,21 @@
   }
 
   .p-exam-title {
-  font-size: 23px;
+  font-size: 25px;
   font-weight: 600;
+  font-family: "Fraunces", serif;
   color: rgb(0, 0, 0);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .p-exam-desc {
-  font-size: 17px;
+  font-size: 16px;
   color: #000000;
   line-height: 1.65;
 }
   
   .resource-link {
-    color: #4776E6;
+    color: #0048ff;
     text-decoration: none;
     font-weight: 500;
     display: inline-flex;
@@ -273,7 +274,7 @@
   .stat-number {
     font-size: 28px;
     font-weight: 700;
-    color: #4776E6;
+    color: #0048ff;
     margin-bottom: 5px;
   }
   
@@ -312,12 +313,12 @@
     height: 20px;
     border-radius: 50%;
     background: white;
-    border: 3px solid #4776E6;
+    border: 3px solid #0048ff;
   }
   
   .timeline-date {
     font-weight: 600;
-    color: #4776E6;
+    color: #0048ff;
     margin-bottom: 5px;
   }
   
@@ -329,9 +330,9 @@
   }
 
   .exam-detail { 
-  padding: 10px 0px;
+  padding: 5px 0px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
   color: #2a2a2a;
   margin-top: 10px;
   line-height: 1.5;
@@ -339,7 +340,7 @@
 
 .exam-detail strong {
   color: #0d00ff;
-  font-weight: 900;
+  font-weight: 600;
 }
 
   @media (max-width: 768px) {

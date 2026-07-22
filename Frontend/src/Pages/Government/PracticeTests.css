@@ -25,13 +25,13 @@
 }
 
 .hero-eyebrow {
-  display: inline-block;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 12px;
-  letter-spacing: 0.22em;
+    display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--blue);
-  margin-bottom: 18px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .hero-title {

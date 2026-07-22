@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './PrivateJobs.css';
 import '../Government/Exam.css';
-import Loading from '../../layouts/Loading';
+import Loading from '../../layouts/Home/Loading';
 
 const PrivateExams = () => {
   const [activeCategory, setActiveCategory] = useState(null);

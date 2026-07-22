@@ -67,7 +67,7 @@
   margin-top: 8px;
   font-size: 16px;
   font-weight: 600;
-  color: #0044ff;
+  color: #0048ff;
   text-decoration: underline;
 }
 
@@ -91,7 +91,6 @@
 .accordion-wrapper.open {
   display: block;
 }
-
 
 .G-category-section {
   --ink: #000000;
@@ -165,9 +164,7 @@
   color: var(--ink-soft);
   margin: 0;
 }
- 
-/* ---------- Filter chips ---------- */
- 
+
 .G-category-filter {
   display: flex;
   flex-wrap: wrap;
