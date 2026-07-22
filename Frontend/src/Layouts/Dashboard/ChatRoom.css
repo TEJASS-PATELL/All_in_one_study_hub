@@ -13,6 +13,7 @@
 .chatroom-header h1 {
     font-size: 2.8rem;
     color: #000000;
+    font-family: "Fraunces", serif;
     margin: 5px 0;
     display: flex;
     align-items: center;
@@ -22,14 +23,24 @@
 }
 
 .main-icon {
-    color: #2563eb;
+    color: rgb(0, 72, 255);
 }
 
 .chatroom-header p {
-    color: #6b7280;
-    font-size: 1.25rem;
+    color: rgba(10, 10, 10, 0.723);
+    font-size: 16.5PX;
     max-width: 600px;
     margin: 0 auto;
+}
+
+.chatroom-eyebrow {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #0044ff;
+  margin-bottom: 10px;
 }
 
 .rooms-grid {
@@ -43,12 +54,11 @@
     background: rgb(255, 255, 255);
     border: 1px solid #c8c8c8;
     border-radius: 24px;
-    padding: 40px 30px;
+    padding: 30px;
     position: relative;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
-
 }
 
 .room-card:hover {
@@ -67,8 +77,9 @@
 }
 
 .room-card h2 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     color: #000000;
+    font-family: "Fraunces", serif;
     margin-bottom: 12px;
     font-weight: 700;
 }
@@ -76,15 +87,46 @@
 .room-card p {
     color: #4b5563;
     line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 14px;
+    margin-bottom: 20px;
     flex-grow: 1;
+}
+
+.title-line {
+    width: 84px;
+    height: 4px;
+    border-radius: 50px;
+    background: rgb(0, 72, 255);
+    margin: 20px auto;
+    position: relative;
+}
+
+.title-line::after {
+    content: "";
+    position: absolute;
+    left: 95px;
+    top: -3px;
+    width: 9px;
+    border-radius: 50%;
+    height: 9px;
+    background: black;
+}
+
+.title-line::before {
+    content: "";
+    position: absolute;
+    right: 95px;
+    border-radius: 50%;
+    top: -3px;
+    width: 9px;
+    height: 9px;
+    background: black;
 }
 
 .room-footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: auto;
 }
 
 .room-status {
@@ -92,7 +134,7 @@
     align-items: center;
     gap: 8px;
     font-size: 0.95rem;
-    color: #005eff;
+    color: #0044ff;
     font-weight: 600;
 }
 
@@ -144,7 +186,7 @@
 
 .privacy-note {
     margin-top: 50px;
-    padding: 30px;
+    padding: 20px 30px;
     background: #fafafa;
     border-radius: 20px;
     border: 1px dashed #ccc;
@@ -156,6 +198,7 @@
 
 .privacy-note h3 {
     font-size: 1.4rem;
+    font-family: "Fraunces", serif;
     margin-bottom: 15px;
     color: #000;
     text-align: center;
@@ -205,7 +248,7 @@
         font-size: 1.75rem;
     }
 
-    .chat-header p{
+    .chat-header p {
         font-size: 1rem;
     }
 

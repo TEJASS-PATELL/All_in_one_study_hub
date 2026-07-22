@@ -2,13 +2,13 @@ import React, { useState, useEffect, useMemo } from "react";
 import { IoClose, IoTrashBin } from "react-icons/io5";
 import { useAuthStore } from "../../Store/useAuthStore";
 import { useDiscussionStore } from "../../Store/useDiscussion";
-import "./Discussion.css";
-import Loading from "../Loading";
+import "./Experience.css";
+import Loading from "../Home/Loading";
 import toast from "react-hot-toast";
 
 const categories = ["Government Job", "Private Job", "IT Job"];
 
-const Discussion = () => {
+const Experience = () => {
   const [open, setOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [formData, setFormData] = useState({
@@ -65,7 +65,9 @@ const Discussion = () => {
 
   return (
     <div className="discussion-container">
+        <span className="G-cat-eyebrow">Category Filter</span>
       <h1 className="discussion-title">Share Your Job/Exam Experience</h1>
+      <div className="title-line"></div>
       <p className="discussion-description">
         Help others by sharing your real-life job interviews or exam experiences.
         Your story could guide someone on the same path!
@@ -99,8 +101,8 @@ const Discussion = () => {
             </div>
 
             <div className="form-grid">
-              {["name","location","qualification","examGiven","examCracked","jobRole","company","department",
-              "salaryPackage","advice"].map((field) => (
+              {["Name","Location","Qualification","ExamGiven", "ExamCracked","JobRole","Company","Department",
+              "SalaryPackage","Advice"].map((field) => (
                 <input
                   key={field}
                   name={field}
@@ -191,4 +193,4 @@ const Discussion = () => {
   );
 };
 
-export default Discussion;
+export default Experience;

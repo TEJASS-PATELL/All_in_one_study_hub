@@ -2,7 +2,7 @@ import React from "react";
 import { lazy } from "react";
 import LoginPage from "../pages/Home/Login";
 import SignUpPage from "../pages/Home/Signup";
-const Discussion = lazy(() => import("../layouts/Dashboard/Discussion"));
+const Discussion = lazy(() => import("../layouts/Dashboard/Experience"));
 const GovJobSearch = lazy(() => import("../pages/Government/GovJobSearch"));
 const PrivateJobSearch = lazy(() => import("../pages/Private/PrivateJobSearch"));
 const ITJobsearch = lazy(() => import("../pages/IT/ITJobsearch"));
@@ -23,6 +23,7 @@ import EnterEmail from "../components/EnterEmail";
 import ResetPassword from "../components/ResetPassword";
 import VerifyAccount from "../components/VerifyEmail";
 import Interview from "../layouts/Dashboard/Interview";
+import Experience from "../layouts/Dashboard/Experience";
 const ChatRoom = lazy(() => import('../layouts/Dashboard/ChatRoom'));
 const Roadmap = lazy(() => import("../layouts/Dashboard/Roadmap"));
 const TodoPage = lazy(() => import("../layouts/Dashboard/TodoPage"));
@@ -44,7 +45,7 @@ export const routers = [
         children: [
           { path: "roadmap", element: <Roadmap /> },
           { index: true, element: <TodoPage /> },
-          { path: "experience", element: <Discussion /> },
+          { path: "experience", element: <Experience /> },
           { path: "chatroom", element: <ChatRoom /> },
           { path: "ai-interview", element: <Interview /> },
         ],

@@ -40,7 +40,9 @@ const ChatRoom = () => {
   return (
     <div className="chatroom-wrapper">
       <div className="chatroom-header">
+        <span className="chatroom-eyebrow">Peer Network</span>
         <h1>Community Chat Rooms</h1>
+        <div className="title-line"></div>
         <p>Connect with like-minded individuals across different domains.</p>
       </div>
 
