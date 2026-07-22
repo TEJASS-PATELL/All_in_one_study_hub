@@ -26,14 +26,16 @@ const ITJobList = () => {
           Explore real-world IT job roles, salaries & career paths — your tech journey starts now.
         </p>
 
-        <Motivation />
+        <div className="top-motivation">
+            <Motivation />
+        </div>
 
         <div className="top-form">
           <GoogleSearch />
         </div>
 
         <p className="top-popular-searches">
-          Popular Searches:
+          <span className="top-popular-label">Popular Searches</span>
           <strong>Frontend</strong>
           <strong>Backend</strong>
           <strong>Cloud</strong>

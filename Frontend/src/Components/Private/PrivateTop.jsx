@@ -15,12 +15,14 @@ const PrivateTop = () => {
           Explore comprehensive guides for India’s top private sector jobs across diverse industries. 
           Build your future with the right career direction.
         </p>
-        <Motivation />
+        <div className="top-motivation">
+            <Motivation />
+        </div>
         <div className="top-form">
           <GoogleSearch />
         </div>
         <p className="top-popular-searches">
-          Popular Searches:
+          <span className="top-popular-label">Popular Searches</span>
           <strong>Banking</strong>
           <strong>Consulting</strong>
           <strong>Finance</strong>

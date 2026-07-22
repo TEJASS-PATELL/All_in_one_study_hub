@@ -7,7 +7,9 @@ export default function ITchannels() {
   return (
     <div className="ITs-category-section">
       <div className="ITs-section-title">
+        <span className="ITs-eyebrow">Learning Channel Registry</span>
         <h1>Top IT Job Preparation Resources</h1>
+        <div className="title-line"></div>
         <p>Choose a category to explore the best learning channels</p>
       </div>
 
@@ -41,7 +43,9 @@ export default function ITchannels() {
       </div>
 
       <div className="ITdocs-header">
-        <h1 className="ITdocs-heading">Best Platforms to Learn Through Docs</h1>
+        <span className="ITs-eyebrow">Self-Study Desk</span>
+        <h1 className="ITdocs-heading">Best Platforms to Learn Through Document's</h1>
+        <div className="title-line"></div>
         <p className="ITdocs-description">
           The best way to grow in tech is by learning on your own — these platforms make self-learning simple, accessible, and effective.
         </p>
