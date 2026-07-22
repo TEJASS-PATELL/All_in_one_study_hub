@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { LuPuzzle, LuRoute, LuBriefcase, LuCode } from "react-icons/lu"; 
-import '../GovernmentJobs/Preperation.css';
+import '../Government/Preperation.css';
 
 export default function Itjobpeperation() {
   return (

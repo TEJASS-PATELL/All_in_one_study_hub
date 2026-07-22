@@ -1,7 +1,7 @@
 import React from 'react';
 import './ITJobs.css';
 import Motivation from '../Motivation';
-import '../GovernmentJobs/Top.css';
+import '../Government/Top.css';
 import GoogleSearch from '../GoogleSearch';
 
 const ITJobList = () => {
