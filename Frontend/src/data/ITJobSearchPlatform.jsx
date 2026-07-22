@@ -73,15 +73,6 @@ export const platforms = [
     idealFor: "Job Seekers Across Experience Levels"
   },
   {
-    logo: "https://dashboard.myjobb.ai/images/logo.svg",
-    customClass: "myjobb-img",
-    description: "An AI-powered platform that matches resumes with relevant jobs using smart filtering.",
-    url: "https://dashboard.myjobb.ai",
-    type: "AI Career Copilot",
-    features: ["Neural Job Matching", "Multi-Source Aggregation", "Instant Skill Analysis", "Automated Relevance Check"],
-    idealFor: "Modern Job Seekers"
-  },
-  {
     logo: "../ITjobplatform/Dice.jpg",
     customClass: "dice-img",
     description: "Technology-focused job board for IT and engineering career roles worldwide.",

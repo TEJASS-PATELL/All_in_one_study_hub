@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+/* ---------- Section Layout ---------- */
+.ai-section {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 110px 20px 50px;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #0a0a0a;
+  text-align: center;
+}
+
+.ai-eyebrow {
+ display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #0048ff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.it-section-title {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  letter-spacing: -0.01em;
+  color: #0a0a0a;
+  margin: 0 0 16px 0;
+}
+
+.ai-title-line {
+  width: 64px;
+  height: 3px;
+  background-color: #0048ff;
+  margin: 0 auto 24px auto;
+}
+
+.ai-detail {
+  max-width: 650px;
+  margin: 0 auto 48px auto;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: rgba(10, 10, 10, 0.62);
+}
+
+.ai-detail span {
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+/* ---------- Grid Layout ---------- */
+.ai-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  text-align: left;
+}
+
+/* ---------- Category Cards ---------- */
+.ai-category-card {
+  background: #ffffff;
+  border: 1px solid rgba(10, 10, 10, 0.14);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.ai-category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.14);
+}
+
+.ai-category-icon {
+  font-size: 1.2rem;
+  color: #0048ff;
+  flex-shrink: 0;
+}
+
+.category-title {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: #000000;
+  margin: 0;
+}
+
+.ai-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.811);
+  text-decoration: none;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.ai-item a:hover {
+  color: #0048ff;
+  background-color: rgba(29, 78, 216, 0.08);
+}
+
+.external-icon {
+  font-size: 11px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.ai-item a:hover .external-icon {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+  .ai-section {
+    padding: 40px 16px;
+  }
+
+  .ai-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}

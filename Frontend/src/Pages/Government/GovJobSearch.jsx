@@ -1,6 +1,6 @@
-import Exams from '../../Components/Government/Exams'
-import PreparationSection from '../../Components/Government/Preperation'
-import Top from '../../Components/Government/Top'
+import Exams from '../../components/Government/Exams'
+import PreparationSection from '../../components/Government/Preperation'
+import Top from '../../components/Government/Top'
 import React from "react";
 
 function GovJobSearch() {

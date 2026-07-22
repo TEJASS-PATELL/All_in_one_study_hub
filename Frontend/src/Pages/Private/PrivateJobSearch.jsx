@@ -1,6 +1,6 @@
-import PrivateExams from '../../Components/Private/PrivateExams'
-import PrivatePreparation from '../../Components/Private/PrivatePreparation'
-import PrivateTop from '../../Components/Private/PrivateTop'
+import PrivateExams from '../../components/Private/PrivateExams'
+import PrivatePreparation from '../../components/Private/PrivatePreparation'
+import PrivateTop from '../../components/Private/PrivateTop'
 import React from "react";
 
 export default function PrivateJobSearch() {

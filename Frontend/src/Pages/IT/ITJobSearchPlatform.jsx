@@ -5,7 +5,9 @@ import React from "react";
 function JobPlatformsPage() {
   return (
     <div className="itplatform-job-page">
+      <span className="job-sec-eyebrow">Career & Job Registry</span>
       <h1>Top Job Searching Platforms</h1>
+      <div className="title-line"></div>
       <p className='itplatform-p'>
        Explore 30+ top job platforms trusted by freshers and professionals alike. From job listings and internships to hiring contests, remote roles, and skill-based hiring — sites like LinkedIn, Naukri, and Unstop connect you directly with top employers and industry leaders for better career growth.
      </p>

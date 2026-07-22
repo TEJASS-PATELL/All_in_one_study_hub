@@ -137,13 +137,16 @@ const aiCategories = [
 const AITools = () => {
   return (
     <section className="ai-section" aria-label="Top AI Tools by Category">
+      
+      <span className="ai-eyebrow">AI Tool Registry</span>
       <h1 className="it-section-title">Top AI Tools by Category</h1>
+      <div className="title-line"></div>
 
       <p className="ai-detail">
-          Unlock your potential with our curated list of <span>Free AI resources</span>. 
-          Whether you're a student, developer, or entrepreneur, these tools are 
-          designed to accelerate your <span>career growth</span> and 
-          simplify your workflow in every field.
+        Unlock your potential with our curated list of <span>Free AI resources</span>.
+        Whether you're a student, developer, or entrepreneur, these tools are
+        designed to accelerate your <span>career growth</span> and
+        simplify your workflow in every field.
       </p>
 
       <div className="ai-cards-grid">

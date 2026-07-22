@@ -1,9 +1,9 @@
 import './JobSearch.css';
 import React from "react";
-import BenefitsSection from '../Components/BenefitsSection';
-import JobSections from '../Components/JobSections';
-import Faq from '../Components/Faq';
-import HomeTop from '../Components/HomeTop';
+import BenefitsSection from '../../components/Home/BenefitsSection';
+import JobSections from '../../Components/Home/JobSections';
+import Faq from '../../Components/Home/Faq';
+import HomeTop from '../../Components/Home/HomeTop';
 
 function JobSearch() {
   return (

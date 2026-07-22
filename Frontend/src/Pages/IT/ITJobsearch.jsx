@@ -1,6 +1,6 @@
-import ITJobsList from '../../Components/ITJobs/ITJobs'
-import Itjobpeperation from '../../Components/ITJobs/Itjobpeperation'
-import ITchannels from '../../Components/ITJobs/ITchannels'
+import ITJobsList from '../../components/ITJobs/ITJobs'
+import Itjobpeperation from '../../components/ITJobs/Itjobpeperation'
+import ITchannels from '../../components/ITJobs/ITchannels'
 import React from "react";
 
 export default function ITJobsearch() {

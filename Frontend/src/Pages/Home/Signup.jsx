@@ -1,108 +1,71 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Lock, Unlock } from "lucide-react";
-import { FcGoogle } from "react-icons/fc";
-import { useAuthStore } from "../Store/useAuthStore";
-import "./SignUpLogin.css";
 import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff, Loader2, ArrowRight, Unlock, Lock, BookOpen } from "lucide-react";
+import { useAuthStore } from "../../store/useAuthStore";
+import toast from "react-hot-toast";
+import "./SignUpLogin.css";
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(true);
-  const [formData, setFormData] = useState({ email: "", password: "" });
-
-  const { login, isLoading } = useAuthStore();
   const navigate = useNavigate();
+
+  const { signup, isLoading } = useAuthStore();
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    const { name, email, password, confirmPassword } = form;
+    if (!name.trim()) return toast.error("Full Name is required");
+    if (!email.trim()) return toast.error("Email is required");
+    if (!/\S+@\S+\.\S+/.test(email)) return toast.error("Invalid email format");
+    if (!password) return toast.error("Password is required");
+    if (password.length < 6) return toast.error("Password must be at least 6 characters");
+    if (password !== confirmPassword) return toast.error("Passwords do not match");
+    return true;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login({ email: formData.email, password: formData.password });
-    navigate("/");
-  };
+    if (!validateForm()) return;
 
-  const handleGoogleLogin = () => {
-    window.location.href = "https://all-in-one-study-hub.onrender.com/api/auth/google";
+    try {
+      const result = await signup({
+        name: form.name,
+        email: form.email,
+        password: form.password,
+      });
+
+      console.log("Signup Response:", result);
+
+      if (result?.success && result?.redirectToVerify) {
+        localStorage.setItem("verifyEmail", form.email);
+        toast.success(result.message);
+        navigate("/verify-account");
+      } else if (result?.success) {
+        toast.success(result.message);
+        navigate("/login");
+      } else {
+        toast.error(result.message || "Signup failed");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong!");
+    }
   };
 
   return (
     <div className="lumina-page">
       <div className="auth-shell">
-        <div className="auth-form-panel">
-          <div className="brand">
-            <span className="brand-mark">
-              <BookOpen size={16} strokeWidth={2.5} />
-            </span>
-            <span className="brand-name">
-              Study<span className="brand-accent">Hub</span>
-            </span>
-          </div>
-
-          <h1>Welcome back!</h1>
-          <p className="subtitle">Pick up where you left off, and keep things moving.</p>
-
-          <form onSubmit={handleSubmit} className="auth-form">
-            <input
-              type="email"
-              placeholder="john.doe@gmail.com"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              required
-            />
-
-            <div className="password-field">
-              <input
-                type={showPassword ? "text" : "password"}
-                placeholder="••••••••"
-                value={formData.password}
-                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                required
-              />
-              <button
-                type="button"
-                className="show-toggle"
-                onClick={() => setShowPassword(!showPassword)}
-              >
-                {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
-              </button>
-            </div>
-
-            <div className="form-row">
-              <label className="remember-me">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                />
-                Remember me
-              </label>
-              <Link to="/forgot-password" className="forgot-password">
-                Forgot password?
-              </Link>
-            </div>
-
-            <button type="submit" className="login-btn" disabled={isLoading}>
-              {isLoading ? "Logging in..." : (
-                <>
-                  Log in <ArrowRight size={16} />
-                </>
-              )}
-            </button>
-          </form>
-
-          <div className="or-divider">
-            <span>or</span>
-          </div>
-
-          <button onClick={handleGoogleLogin} className="google-btn">
-            <FcGoogle size={18} />
-            Continue with Google
-          </button>
-
-          <p className="signup-redirect">
-            Don't have an account? <Link to="/signup">Sign up</Link>
-          </p>
-        </div>
-
         <div className="auth-illustration-panel">
           <svg viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
             <rect width="500" height="700" fill="#EAF0FF" />
@@ -194,9 +157,87 @@ const LoginPage = () => {
             <line x1="212" y1="351" x2="228" y2="351" stroke="#FFFFFF" strokeWidth="0.6" opacity="0.5" />
           </svg>
         </div>
+        <div className="auth-form-panel">
+          <div className="brand">
+            <span className="brand-mark">
+              <BookOpen size={16} strokeWidth={2.5} />
+            </span>
+            <span className="brand-name">
+              Study<span className="brand-accent">Hub</span>
+            </span>
+          </div>
+          <h1>Begin learning today</h1>
+          <p className="subtitle">Join Study Hub and start learning smarter.</p>
+
+          <form className="auth-form" onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="john.doe@gmail.com"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={form.name}
+              onChange={handleChange}
+              required
+            />
+
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="••••••••"
+                value={form.password}
+                onChange={handleChange}
+                required
+              />
+              <button
+                type="button"
+                className="show-toggle"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? <Unlock size={18} /> : <Lock size={18} />}
+              </button>
+            </div>
+
+            <div className="password-field">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                value={form.confirmPassword}
+                onChange={handleChange}
+                required
+              />
+            </div>
+
+            <button type="submit" className="login-btn" disabled={isLoading}>
+              {isLoading ? (
+                <>
+                  <Loader2 className="spin" size={16} />
+                  Creating account...
+                </>
+              ) : (
+                <>
+                  Sign up <ArrowRight size={16} />
+                </>
+              )}
+            </button>
+          </form>
+
+          <p className="signup-redirect">
+            Already have an account? <Link to="/login">Log in</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
