@@ -3,7 +3,7 @@
   min-height: 100vh;
   width: 100%;
   background-color: #ffffff;
-  color: #111111;
+  color: #000000;
   font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   display: flex;
   align-items: center;
@@ -25,7 +25,7 @@
 .iv-glow-1 { width: 440px; height: 440px; top: -160px; left: -140px; }
 .iv-glow-2 { width: 400px; height: 400px; bottom: -140px; right: -120px; opacity: 0.02; }
 
-.iv-heading { font-family: 'Space Grotesk', 'Segoe UI', sans-serif; }
+.iv-heading { font-family: "Fraunces", serif; }
 .iv-mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace; }
 
 .iv-setup-wrap, .iv-interview-wrap, .iv-result-wrap {
@@ -63,7 +63,7 @@
 .iv-setup-card > p {
   margin: 0 0 30px;
   font-size: 14px;
-  color: #666666; /* Darkened for better contrast */
+  color: #666666; 
   line-height: 1.5;
 }
 
@@ -81,7 +81,7 @@
 
 .iv-field input {
   width: 100%;
-  background: rgba(0, 0, 0, 0.03); /* Fixed for white bg */
+  background: rgba(0, 0, 0, 0.03);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 13px 15px;
@@ -111,12 +111,10 @@
   transition: all 0.15s ease;
 }
 
-.iv-pill:hover { border-color: rgba(0, 0, 0, 0.3); }
-
 .iv-pill-active {
   background: #000000;
   border-color: #000000;
-  color: #ffffff; /* Inverted for active state */
+  color: #ffffff; 
   font-weight: 700;
 }
 
@@ -135,8 +133,6 @@
   cursor: pointer;
   transition: all 0.15s ease;
 }
-
-.iv-type-tab:hover { border-color: rgba(0, 0, 0, 0.3); }
 
 .iv-type-tab-active {
   border-color: #000000;
@@ -176,11 +172,6 @@
   width: auto;
   padding: 0 22px;
   font-size: 14px;
-}
-
-.iv-start-btn:hover:not(:disabled), .iv-send-btn:hover:not(:disabled), .iv-restart-btn:hover { 
-  transform: translateY(-2px); 
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
 }
 
 .iv-start-btn:disabled, .iv-send-btn:disabled { opacity: 0.3; cursor: not-allowed; }

@@ -1,9 +1,9 @@
 .discussion-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 40px 20px;
   font-family: "IBM Plex Sans", sans-serif;
-  color: #0a0a0a;
+  color: #000000;
 }
 
 .discussion-title {
@@ -12,7 +12,7 @@
   font-weight: 700;
   text-align: center;
   margin-bottom: 12px;
-  color: #0a0a0a;
+  color: #000000;
 }
 
 .discussion-description {
@@ -266,13 +266,14 @@
 }
 
 .G-cat-eyebrow {
-  display: block;
+  display: block;              
+  text-align: center;         
   font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgb(0, 72, 255);
-  margin-bottom: 10px;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #0046ff;
+  margin-bottom: 15px;
 }
 
 .discussion-card-text {
