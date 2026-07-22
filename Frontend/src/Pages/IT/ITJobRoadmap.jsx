@@ -1,7 +1,6 @@
 import './roadmap.css';
 import React from "react";
 
-
 const roadmapData = [
   {
     phase: 'Phase 1: Foundation & Exploration',

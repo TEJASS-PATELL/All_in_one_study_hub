@@ -1,6 +1,6 @@
-import ITJobsList from '../../components/ITJobs/ITJobs'
-import Itjobpeperation from '../../components/ITJobs/Itjobpeperation'
-import ITchannels from '../../components/ITJobs/ITchannels'
+import ITJobsList from '../../components/IT/ITJobs'
+import Itjobpeperation from '../../components/IT/Itjobpeperation'
+import ITchannels from '../../components/IT/ITchannels'
 import React from "react";
 
 export default function ITJobsearch() {
@@ -9,9 +9,6 @@ export default function ITJobsearch() {
     <ITJobsList />
     <ITchannels />
     <Itjobpeperation />
-    <h1 style={{ textAlign: "center", marginBottom: "25px", fontSize: "2rem", color: "black"}}>
-        Stay connected! Exciting updates are coming soon....
-    </h1>
     </>
   )
 }
