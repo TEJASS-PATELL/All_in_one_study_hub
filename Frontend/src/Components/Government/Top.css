@@ -76,15 +76,13 @@
   padding: 20px 0;
 }
 
-/* ---------- Popular searches ---------- */
-
 .top-popular-searches {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  max-width: 640px;
+  max-width: 860px;
   margin: 0 auto;
 }
 

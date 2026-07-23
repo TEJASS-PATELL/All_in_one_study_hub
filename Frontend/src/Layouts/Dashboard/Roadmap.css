@@ -106,12 +106,13 @@
 .roadmap-header-icon {
   display: flex;
   align-items: center;
+  gap: 20px;
   font-size: 1.2rem;
 }
 
 .timeline {
   position: relative;
-  max-width: 1400px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 20px 0;
 }
@@ -136,12 +137,12 @@
 
 .timeline-step.left {
   left: 0;
-  padding-right: 40px;
+  padding-right: 30px;
 }
 
 .timeline-step.right {
   left: 50%;
-  padding-left: 40px;
+  padding-left: 30px;
 }
 
 .timeline-content {
@@ -173,7 +174,7 @@
 }
 
 .step-title {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
     font-family: "Fraunces", serif;
   font-weight: 700;
   margin: 0 0 10px 0;
@@ -181,7 +182,7 @@
 }
 
 .step-description {
-  font-size: 0.95rem;
+  font-size: 1rem;
   color: rgba(10, 10, 10, 0.7);
   line-height: 1.6;
   margin: 0 0 16px 0;
@@ -197,13 +198,13 @@
 
 .step-extra p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: rgba(10, 10, 10, 0.8);
   line-height: 1.5;
 }
 
 .step-extra strong {
-  color: #0a0a0a;
+  color: #000000;
   font-weight: 600;
 }
 

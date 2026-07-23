@@ -22,7 +22,6 @@ const PrivateTop = () => {
           <GoogleSearch />
         </div>
         <p className="top-popular-searches">
-          <span className="top-popular-label">Popular Searches</span>
           <strong>Banking</strong>
           <strong>Consulting</strong>
           <strong>Finance</strong>

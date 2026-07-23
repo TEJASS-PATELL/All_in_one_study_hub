@@ -1,17 +1,17 @@
 export const platforms = [
   {
     logo: "../ITjobplatform/Linkedin.png",
-    customClass: "linkedin-img",
-    description: "The world's largest professional networking site for job seekers and recruiters worldwide.",
+customClass: "linkedin-img",
+    description: "The largest professional networking site for global job seekers worldwide.",
     url: "https://www.linkedin.com",
     type: "Global Platform",
     features: ["Global Networking", "Daily Job Alerts", "Company Insights", "Skill Validation"],
     idealFor: "All Professionals"
   },
-  {
+{
     logo: "../ITjobplatform/careerjet.png",
     customClass: "careerjet-img",
-    description: "Job search engine aggregating listings from multiple sites across industries worldwide.",
+    description: "Global job search engine aggregating multi-industry listings.",
     url: "https://www.careerjet.co.in/",
     type: "Job Search Platform",
     features: [
@@ -20,12 +20,12 @@ export const platforms = [
       "Resume Upload & Alerts",
       "Redirects to Original Job Posts"
     ],
-    idealFor: "Job Seekers Across Experience Levels"
+    idealFor: "Seekers Across Experience Levels"
   },
   {
     logo: "../ITjobplatform/unstop.jpg",
     customClass: "unstop-img",
-    description: "A premier platform for students to find hackathons, hiring challenges, and internships.",
+    description: "Premier platform for student hackathons, challenges, and internships.",
     url: "https://unstop.com/",
     type: "Opportunity Hub",
     features: ["Hiring Challenges", "Coding Contests", "Paid Internships", "Skill Assessments"],
@@ -34,16 +34,16 @@ export const platforms = [
   {
     logo: "../ITjobplatform/indeed.png",
     customClass: "indeed-img",
-    description: "Leading global job board aggregating millions of listings and detailed company reviews.",
+    description: "Leading global online job board featuring millions of active listings.",
     url: "https://www.indeed.com",
     type: "Global Platform",
     features: ["Quick Job Search", "Company Reviews", "Salary Estimates", "Easy Apply Mode"],
     idealFor: "All Job Seekers"
   },
-  {
+{
     logo: "https://staticlogo.hirist.com/webp/hirist-tech-logo.webp",
     customClass: "hirist-img",
-    description: "Niche job portal specializing in high-growth IT and technology roles across India.",
+    description: "Niche digital portal designed specifically for top tech & engineering roles.",
     url: "https://www.hirist.tech/",
     type: "Tech Job Platform",
     features: ["Tech-Only Roles", "Direct Hiring", "One-Click Apply", "Application Status"],
@@ -51,8 +51,8 @@ export const platforms = [
   },
   {
     logo: "../ITjobplatform/Naukri.png",
-    customClass: "naukri-img",
-    description: "India's pioneer job portal with the largest database of recruiters and active job seekers.",
+customClass: "naukri-img",
+    description: "Pioneer Indian job portal with very large active recruiter databases.",
     url: "https://www.naukri.com",
     type: "Indian Platform",
     features: ["Resume Database", "Recruiter Chat", "Profile Tracking", "Market Insights"],
@@ -60,8 +60,8 @@ export const platforms = [
   },
   {
     logo: "https://www.simplyhired.co.in/next-assets/simplyhired-logo.svg",
-    customClass: "simplyhired-img",
-    description: "Job search engine that aggregates listings from multiple sources across industries and locations.",
+customClass: "simplyhired-img",
+    description: "Comprehensive job search engine for various industry listings globally.",
     url: "https://www.simplyhired.co.in/",
     type: "Job Search Platform",
     features: [
@@ -70,7 +70,7 @@ export const platforms = [
       "Resume Upload & Alerts",
       "Global Search Support"
     ],
-    idealFor: "Job Seekers Across Experience Levels"
+    idealFor: "Seekers Across Experience Levels"
   },
   {
     logo: "../ITjobplatform/Dice.jpg",
@@ -84,21 +84,21 @@ export const platforms = [
       "Career Resources & Advice",
       "Targeted Job Matching"
     ],
-    idealFor: "Tech Professionals & IT Job Seekers"
+    idealFor: "Tech Professionals & IT Seekers"
   },
-  {
-    logo: "	https://cdn.welcometothejungle.com/wttj-front/production/assets/wttj-2-eP7x9gkY.svg",
+{
+    logo: "https://cdn.welcometothejungle.com/wttj-front/production/assets/wttj-2-eP7x9gkY.svg",
     customClass: "wttj-img",
     description: "Global job platform connecting candidates with companies through curated listings.",
     url: "https://www.welcometothejungle.com/",
-    type: "Job Search & Employer Branding Platform",
+    type: "Employer Branding Hub",
     features: [
       "Curated Job Listings",
       "Company Profiles & Culture Insights",
       "Personalized Job Matching",
       "Career Resources & Alerts"
     ],
-    idealFor: "Job Seekers and Company Talent Match"
+    idealFor: "Job Seekers & Talent Match"
   },
   {
     logo: "../ITjobplatform/Foundit.png",
@@ -107,7 +107,7 @@ export const platforms = [
     url: "https://www.foundit.in",
     type: "Indian Platform",
     features: ["AI Career Tool", "Skill Badges", "Global Reach", "Smart Alerts"],
-    idealFor: "Experienced Pros"
+    idealFor: "Experienced Professionals"
   },
   {
     logo: "../ITjobplatform/YCombinator.png",
@@ -143,9 +143,8 @@ export const platforms = [
     url: "https://placement.acciojob.com",
     type: "Tech Placement Platform",
     features: ["Job-Focused Training", "Partner Network of 500+ Companies", "Mock Interviews", "Placement Assistance"],
-    idealFor: "Tech Aspirants & Software Developers"
+    idealFor: "Tech Aspirants & Developers"
   },
-
   {
     logo: "../ITjobplatform/cutshort.png",
     customClass: "cutshort-img",
@@ -306,7 +305,6 @@ export const platforms = [
     url: "https://hirexl.in/",
     type: "Tech Marketplace",
     features: ["Pre-Screened Roles", "ML/AI Jobs", "Indian Market", "MNC Hiring"],
-    headquarters: "Bengaluru, India",
     idealFor: "Specialized Techies"
   },
   {
@@ -353,5 +351,32 @@ export const platforms = [
     type: "Fresher Portal",
     features: ["Govt Job Alerts", "Interview Prep", "Aptitude Tests", "Campus Drives"],
     idealFor: "New Graduates"
+  },
+  {
+    logo: "../ITjobplatform/toptal.png",
+    customClass: "toptal-img",
+    description: "Exclusive network connecting the top 3 percent of freelance software talent with companies.",
+    url: "https://assets.toptal.io",
+    type: "Freelance Network",
+    features: ["Rigorous Screening", "Top 3% Talent", "Enterprise Clients", "High Hourly Rates"],
+    idealFor: "Elite Freelance Developers"
+  },
+  {
+    logo: "../ITjobplatform/dribbble.png",
+    customClass: "dribbble-img",
+    description: "Premier destination for designers to showcase creative work and find specialized roles.",
+    url: "https://dribbble.com/",
+    type: "Design Job Board",
+    features: ["Portfolio Showcase", "Design Jobs", "Creative Community", "Client Hiring"],
+    idealFor: "UI/UX & Creative Designers"
+  },
+  {
+    logo: "../ITjobplatform/fiverr.png",
+    customClass: "fiverr-img",
+    description: "Online marketplace for freelance services, offering digital tasks across multiple tech domains.",
+    url: "https://www.fiverr.com/",
+    type: "Freelance Marketplace",
+    features: ["Gig Creation", "Direct Ordering", "Fast Turnaround", "Global Reach"],
+    idealFor: "Independent Creators"
   }
 ];

@@ -24,7 +24,7 @@
 .Geyebrow {
   display: inline-block;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--blue);
@@ -137,37 +137,6 @@
 
 .Gsection-content > ul {
   margin-bottom: 4px;
-}
-
-.title-line {
-    width: 84px;
-    height: 4px;
-    border-radius: 50px;
-    background: rgb(0, 72, 255);
-    margin: 20px auto;
-    position: relative;
-}
-
-.title-line::after {
-  content: "";
-  position: absolute;
-  left: 95px;
-  top: -3px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50px;
-  background: black;
-}
-
-.title-line::before {
-  content: "";
-  position: absolute;
-  right: 95px;
-  top: -3px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50px;
-  background: black;
 }
 
 .Gsection-content li {

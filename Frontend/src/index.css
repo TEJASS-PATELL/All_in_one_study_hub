@@ -33,3 +33,34 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(0,0,0,0.35);
 }
+
+.title-line {
+    width: 84px;
+    height: 4px;
+    border-radius: 50px;
+    background: rgb(0, 72, 255);
+    margin: 20px auto;
+    position: relative;
+}
+
+.title-line::after {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: -3px;
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  background: black;
+}
+
+.title-line::before {
+  content: "";
+  position: absolute;
+  right: 95px;
+  top: -3px;
+  border-radius: 50%;
+  width: 9px;
+  height: 9px;
+  background: black;
+}

@@ -28,7 +28,6 @@ const Top = () => {
           </div>
 
           <p className="top-popular-searches">
-            <span className="top-popular-label">Popular Searches</span>
             <strong>GATE</strong>
             <strong>UPSC</strong>
             <strong>SSC</strong>

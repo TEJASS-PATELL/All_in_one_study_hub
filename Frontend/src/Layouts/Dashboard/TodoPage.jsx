@@ -1,9 +1,8 @@
-import { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { LuTrash2, LuCheck, LuX, LuPlus, LuListTodo, LuInfo } from "react-icons/lu";
 import toast from "react-hot-toast";
 import "./TodoPage.css";
-import Calender from "../../Components/Calender";
-import ProgressBar from "../../Components/ProgressBar";
+
 const MAX_TASKS = 10;
 
 const TodoPage = () => {
@@ -22,17 +21,15 @@ const TodoPage = () => {
     localStorage.setItem("userTodos", JSON.stringify(todos));
   }, [todos]);
 
-  const progressValue = useMemo(() => {
-    if (todos.length === 0) return 0;
-    const completedCount = todos.filter((t) => t.completed).length;
-    return Math.round((completedCount / MAX_TASKS) * 100);
+  const completedCount = useMemo(() => {
+    return todos.filter((t) => t.completed).length;
   }, [todos]);
 
   useEffect(() => {
-    if (progressValue === 100 && todos.length > 0) {
-      toast.success("Awesome! You’ve completed all your daily tasks. Great job!")
+    if (completedCount === MAX_TASKS && todos.length === MAX_TASKS) {
+      toast.success("Awesome! You’ve completed all your daily tasks. Great job!");
     }
-  }, [progressValue, todos.length]);
+  }, [completedCount, todos.length]);
 
   const handleAddTodo = (e) => {
     e.preventDefault();
@@ -63,13 +60,6 @@ const TodoPage = () => {
     setTodos((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const getProgressColor = useCallback((value) => {
-    if (value === 100) return "#000000";
-    if (value >= 70) return "#0088ff";
-    if (value >= 40) return "#2fff00";
-    return "red";
-  }, []);
-
   return (
     <section className="todo-main-section">
       <main className="dashboard-main">
@@ -99,52 +89,43 @@ const TodoPage = () => {
           </form>
 
           <ul className="todo-list">
-              {todos.map((todo, idx) => (
-                <li key={idx} className="todo-item">
-                  <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
-                    {todo.text}
-                  </span>
-                  <div className="todo-actions">
-                    <button
-                      className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
-                      onClick={() => handleCompleteTodo(idx)}
-                      title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
-                    >
-                      {todo.completed ? <LuX size={18} /> : <LuCheck size={18} />}
-                    </button>
+            {todos.map((todo, idx) => (
+              <li key={idx} className="todo-item">
+                <span className={`todo-text ${todo.completed ? "completed" : ""}`}>
+                  {todo.text}
+                </span>
+                <div className="todo-actions">
+                  <button
+                    className={`todo-complete-btn ${todo.completed ? "btn-completed" : ""}`}
+                    onClick={() => handleCompleteTodo(idx)}
+                    title={todo.completed ? "Mark as Incomplete" : "Mark as Done"}
+                  >
+                    {todo.completed ? <LuX size={18} /> : <LuCheck size={18} />}
+                  </button>
 
-                    <button
-                      className="todo-delete-btn"
-                      onClick={() => handleDeleteTodo(idx)}
-                      title="Delete Task"
-                    >
-                      <LuTrash2 size={18} />
-                    </button>
-                  </div>
-                </li>
-              ))
-            }
+                  <button
+                    className="todo-delete-btn"
+                    onClick={() => handleDeleteTodo(idx)}
+                    title="Delete Task"
+                  >
+                    <LuTrash2 size={18} />
+                  </button>
+                </div>
+              </li>
+            ))}
           </ul>
 
           <div className="todo-footer">
             {todos.length > 0 && (
-              <button onClick={handleClearAll} className="clear-all-btn">
-                <LuTrash2 size={14} /> Clear List
+              <button onClick={handleClearAll} className="clear-all-btn" title="Clear All Tasks">
+                <LuTrash2 size={18} /> 
               </button>
             )}
           </div>
         </div>
       </main>
 
-      <div className="progress-container">
-        <Calender />
-        <div className="progress-fixed">
-          <ProgressBar value={progressValue} getColor={getProgressColor} />
-          <p className="todo-counter">
-            {todos.filter((t) => t.completed).length} / {MAX_TASKS} Completed
-          </p>
-        </div>
-      </div>
+      
     </section>
   );
 };

@@ -1,4 +1,4 @@
-import './roadmap.css';
+import './Itroadmap.css';
 import React from "react";
 
 const roadmapData = [
@@ -168,7 +168,7 @@ const ItRoadmapPage = () => {
   return (
     <div className="it-roadmap-container">
       <h1>Embark on Your IT Journey: A Step-by-Step Roadmap</h1>
-      <p style={{ textAlign: 'center', maxWidth: '1000px', margin: '0 auto 40px auto', fontSize: '1.35rem' }}>
+      <p style={{ textAlign: 'center', maxWidth: '1000px', margin: '0 auto 40px auto', fontSize: '16.5px' }}>
         Navigating an IT career can feel overwhelming. This clear, minimalist roadmap helps you build a strong foundation and confidently move toward your first role in tech.
       </p>
       {roadmapData.map((phase, index) => (

@@ -35,7 +35,6 @@ const ITJobList = () => {
         </div>
 
         <p className="top-popular-searches">
-          <span className="top-popular-label">Popular Searches</span>
           <strong>Frontend</strong>
           <strong>Backend</strong>
           <strong>Cloud</strong>

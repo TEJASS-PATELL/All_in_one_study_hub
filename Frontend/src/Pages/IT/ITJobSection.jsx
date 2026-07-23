@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ITJobSection.css';
+import { LuChevronRight } from "react-icons/lu";
 import itJobData from '../../data/ITJobData';
 
 function ITJobSection() {
@@ -23,7 +24,9 @@ function ITJobSection() {
   return (
     <div className="IT-container">
       <div className="IT-header-section">
+        <span className="IT-eyebrow">Skill Registry</span>
         <h1 className="IT-main-title">In-Demand IT Skills for Today & Tomorrow</h1>
+        <div className="title-line"></div>
         <p className="IT-subtitle">
           Explore high-paying, future-proof technologies in the IT industry. Start your journey today with the most in-demand skills!
         </p>
@@ -47,12 +50,7 @@ function ITJobSection() {
               <div className="IT-skill-card" key={j}>
                 <div className="IT-card-content">
                   <div className="IT-card-header">
-                    <svg className={skill.iconClass} xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                      viewBox="0 0 24 24">
-                      <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
-                      <path d="M16 2v4M8 2v4M2 10h20" />
-                    </svg>
+                    <LuChevronRight size={18} style={{ marginLeft: '0  px' }} />
                     <h3 className="IT-skill-title">{skill.title}</h3>
                   </div>
 

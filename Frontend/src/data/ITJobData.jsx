@@ -84,6 +84,83 @@ const ITJobData = [
 
     },
     {
+        category: "Mobile App Development",
+        className: "IT-mobile-border",
+        skills: [
+            {
+                title: "Android Developer",
+                iconClass: "IT-green-icon",
+                salary: "₹4.0 - ₹8.0 LPA",
+                demand: "Very High",
+                future: "Future-Proof",
+                why: "Build native apps for the 95%+ Android-dominated Indian smartphone market.",
+                tech: [
+                    "Kotlin",
+                    "Java",
+                    "Jetpack Compose",
+                    "Android SDK",
+                    "MVVM Architecture",
+                    "Room Database",
+                    "Retrofit",
+                    "Coroutines & Flow",
+                    "Firebase",
+                    "Material Design"
+                ]
+            },
+            {
+                title: "iOS Developer",
+                iconClass: "IT-gray-icon",
+                salary: "₹5.0 - ₹10.0 LPA",
+                demand: "High",
+                future: "Steady & Premium",
+                why: "Build apps for Apple's ecosystem, known for strong pay and a loyal, high-spending user base.",
+                tech: [
+                    "Swift",
+                    "SwiftUI",
+                    "UIKit",
+                    "Xcode",
+                    "Core Data",
+                    "Combine",
+                    "REST APIs",
+                    "App Store Guidelines"
+                ]
+            },
+            {
+                title: "Flutter Developer",
+                iconClass: "IT-sky-icon",
+                salary: "₹5.0 - ₹9.0 LPA",
+                demand: "High",
+                future: "Fast-Growing",
+                why: "Ship one codebase to both Android and iOS, cutting development time and cost.",
+                tech: [
+                    "Dart",
+                    "Flutter SDK",
+                    "Provider / Riverpod",
+                    "Bloc Pattern",
+                    "Firebase",
+                    "REST & GraphQL APIs",
+                    "Platform Channels"
+                ]
+            },
+            {
+                title: "React Native Developer",
+                iconClass: "IT-indigo-icon",
+                salary: "₹5.0 - ₹9.0 LPA",
+                demand: "High",
+                future: "Cross-Platform Favorite",
+                why: "Use existing JavaScript/React skills to build cross-platform mobile apps quickly.",
+                tech: [
+                    "JavaScript / TypeScript",
+                    "React Native",
+                    "Redux / Zustand",
+                    "Native Modules",
+                    "Expo",
+                    "REST & GraphQL APIs"
+                ]
+            }
+        ]
+    },
+    {
         category: "Core Programming & System Development",
         className: "IT-core-prog-border",
         skills: [
@@ -332,6 +409,22 @@ const ITJobData = [
                 tech: ["CI/CD (Jenkins, GitLab CI, GitHub Actions)", "Docker", "Cloud Platforms", "Kubernetes", "Terraform", "CloudFormation", "Scripting (Bash, Python)"]
             },
             {
+                title: "Site Reliability Engineer (SRE)",
+                iconClass: "IT-teal-icon",
+                salary: "₹12.0 - ₹22.0 LPA",
+                demand: "High",
+                future: "Future‑Proof",
+                why: "Keep large-scale systems reliable, observable, and self-healing under real production load.",
+                tech: [
+                    "SLOs / SLIs / Error Budgets",
+                    "Prometheus & Grafana",
+                    "Kubernetes",
+                    "Incident Response & On-call",
+                    "Automation Scripting (Python, Bash)",
+                    "Distributed Systems Basics"
+                ]
+            },
+            {
                 title: "Cloud Architect",
                 iconClass: "IT-purple-icon",
                 salary: "₹20.0 - ₹35.0 LPA",
@@ -348,6 +441,57 @@ const ITJobData = [
                 future: "Steady",
                 why: "Ensure cloud apps run well—monitor, fix issues, support users.",
                 tech: ["Linux", "Networking", "Scripting", "Cloud CLI/Console", "Incident Management"]
+            }
+        ]
+    },
+    {
+        category: "Quality Assurance & Testing",
+        className: "IT-qa-border",
+        skills: [
+            {
+                title: "Manual QA Tester",
+                iconClass: "IT-amber-icon",
+                salary: "₹3.0 - ₹5.5 LPA",
+                demand: "Medium",
+                future: "Foundational",
+                why: "Verify software works as intended before it reaches real users — the entry point into QA careers.",
+                tech: [
+                    "Test Case Design",
+                    "Bug Tracking (Jira)",
+                    "Regression Testing",
+                    "SDLC / STLC",
+                    "Agile Testing Practices"
+                ]
+            },
+            {
+                title: "Automation Test Engineer (SDET)",
+                iconClass: "IT-cyan-icon",
+                salary: "₹6.0 - ₹12.0 LPA",
+                demand: "High",
+                future: "In-Demand",
+                why: "Write code that tests code — combining development skills with a QA mindset to scale testing.",
+                tech: [
+                    "Selenium / Playwright / Cypress",
+                    "TestNG / JUnit",
+                    "API Testing (Postman, RestAssured)",
+                    "Java / Python",
+                    "CI/CD Integration"
+                ]
+            },
+            {
+                title: "Performance Test Engineer",
+                iconClass: "IT-brown-icon",
+                salary: "₹7.0 - ₹13.0 LPA",
+                demand: "Medium",
+                future: "Niche but Steady",
+                why: "Make sure systems stay fast and stable under real-world load before they break in production.",
+                tech: [
+                    "JMeter",
+                    "Gatling",
+                    "LoadRunner",
+                    "Performance Tuning",
+                    "Monitoring Tools (Grafana, New Relic)"
+                ]
             }
         ]
     },
@@ -402,7 +546,7 @@ const ITJobData = [
                 tech: ["SQL", "NoSQL (MongoDB, Cassandra)", "ETL", "Apache Spark", "Kafka", "Airflow", "BigQuery/Redshift", "Data Warehouses", "Cloud Storage & Processing"]
             },
             {
-                title: "AI Data Scientist", // This often overlaps with ML Engineer/Data Scientist but can focus more on AI models
+                title: "AI Data Scientist",
                 iconClass: "IT-pink-icon",
                 salary: "₹12.0 - ₹25.0 LPA",
                 demand: "High & Growing",
@@ -577,6 +721,37 @@ const ITJobData = [
                     "WebXR",
                     "Three.js",
                     "ARKit / ARCore"
+                ]
+            },
+            {
+                title: "IoT Developer",
+                iconClass: "IT-lime-icon",
+                salary: "₹6.0 - ₹12.0 LPA",
+                demand: "Moderate",
+                future: "Steady Growth",
+                why: "Connect physical devices to the internet — from smart homes to industrial sensors.",
+                tech: [
+                    "Embedded C",
+                    "MQTT",
+                    "Raspberry Pi / Arduino",
+                    "Sensors & Actuators",
+                    "Edge Computing",
+                    "Cloud IoT Platforms (AWS IoT, Azure IoT Hub)"
+                ]
+            },
+            {
+                title: "Quantum Computing Developer",
+                iconClass: "IT-violet-icon",
+                salary: "₹12.0 - ₹25.0 LPA",
+                demand: "Low but Niche",
+                future: "Long-Term Bet",
+                why: "Work at the cutting edge of computing, years ahead of mainstream adoption but high research value.",
+                tech: [
+                    "Qiskit",
+                    "Quantum Algorithms",
+                    "Linear Algebra",
+                    "Python",
+                    "Quantum Gates & Circuits"
                 ]
             }
         ]

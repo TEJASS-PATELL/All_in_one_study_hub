@@ -5,8 +5,9 @@
   --paper: #ffffff;
   --blue: #0048ff;
   max-width: 1300px;
+  
   margin: 0 auto;
-  padding: 100px 20px 40px;
+  padding: 120px 20px 40px;
   background-color: #ffffff;
   color: #000000;
 }
@@ -38,6 +39,7 @@
 }
 
 .resources-section {
+  margin-top: 60px;
   margin-bottom: 60px;
 }
 
@@ -133,29 +135,11 @@
   border-left: 5px solid #3b82f6;
 }
 
-.title-line {
-  width: 84px;
-  height: 4px;
-  border-radius: 50px;
-  background: rgb(0, 72, 255);
-  margin: 20px auto;
-  position: relative;
-}
-
-.title-line::after {
-  content: "";
-  position: absolute;
-  left: 95px;
-  top: -3px;
-  width: 9px;
-  height: 9px;
-  background: black;
-}
-
 .jobresources-eyebrow {
   display: block;
   font-size: 13px;
   letter-spacing: 2px;
+  margin: 0 auto 10px auto;
   text-transform: uppercase;
   color: var(--blue);
   margin-bottom: 10px;
