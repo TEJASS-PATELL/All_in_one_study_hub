@@ -1,4 +1,4 @@
-import ITJobsList from '../../components/IT/ITJobs'
+import ITJobsList from '../../components/IT/ITTop'
 import Itjobpeperation from '../../components/IT/Itjobpeperation'
 import ITchannels from '../../components/IT/ITchannels'
 import React from "react";
