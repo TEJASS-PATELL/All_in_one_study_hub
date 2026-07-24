@@ -4,6 +4,12 @@ import Motivation from '../Motivation';
 import GoogleSearch from '../GoogleSearch';
 
 const PrivateTop = () => {
+  const noticeItems = [
+    "Top consulting firms opening 2026 hiring drives",
+    "Banking sector recruitment calendar updated",
+    "Finance job openings up this quarter",
+    "Hospitality & telecom roles trending in metros",
+  ];
   return (
     <main className="top-main">
       <section className="top-hero">
@@ -12,14 +18,24 @@ const PrivateTop = () => {
           Find Your Perfect <span className="top-highlight">Career Path</span>
         </h1>
         <p className="top-subtext">
-          Explore comprehensive guides for India’s top private sector jobs across diverse industries. 
+          Explore comprehensive guides for India’s top private sector jobs across diverse industries.
           Build your future with the right career direction.
         </p>
         <div className="top-motivation">
-            <Motivation />
+          <Motivation />
         </div>
-        <div className="top-form">
-          <GoogleSearch />
+        <div className="top-ticker">
+          <span className="top-ticker-label">
+            <span className="top-ticker-dot" aria-hidden="true"></span>
+            Live Updates
+          </span>
+          <div className="top-ticker-track">
+            <div className="top-ticker-content">
+              {[...noticeItems, ...noticeItems].map((item, i) => (
+                <span key={i}>{item}</span>
+              ))}
+            </div>
+          </div>
         </div>
         <p className="top-popular-searches">
           <strong>Banking</strong>

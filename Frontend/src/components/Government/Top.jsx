@@ -1,7 +1,13 @@
 import React from 'react';
 import './Top.css';
 import Motivation from '../Motivation';
-import GoogleSearch from '../GoogleSearch';
+
+const noticeItems = [
+  "GATE 2026 registration window now open",
+  "UPSC Prelims 2026 results declared",
+  "SSC CGL 2026 notification expected soon",
+  "Banking exam calendar updated for 2026",
+];
 
 const Top = () => {
   return (
@@ -23,8 +29,18 @@ const Top = () => {
             <Motivation />
           </div>
 
-          <div className="top-form">
-            <GoogleSearch />
+          <div className="top-ticker">
+            <span className="top-ticker-label">
+              <span className="top-ticker-dot" aria-hidden="true"></span>
+              Live Updates
+            </span>
+            <div className="top-ticker-track">
+              <div className="top-ticker-content">
+                {[...noticeItems, ...noticeItems].map((item, i) => (
+                  <span key={i}>{item}</span>
+                ))}
+              </div>
+            </div>
           </div>
 
           <p className="top-popular-searches">

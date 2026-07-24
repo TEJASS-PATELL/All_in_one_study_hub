@@ -5,6 +5,14 @@ import '../Government/Top.css';
 import GoogleSearch from '../GoogleSearch';
 
 const ITJobList = () => {
+
+  const noticeItems = [
+    "Cloud certifications trending across 2026 hiring",
+    "AI/ML roles surging this quarter",
+    "DevOps hiring up sharply year-over-year",
+    "Cybersecurity demand at an all-time high",
+  ];
+
   const companies = [
     'paypal.png', 'microsoft.png', 'google.png', 'amazon.png',
     'ibm.png', 'uber.png', 'meta.png', 'netflix (1).png',
@@ -27,11 +35,21 @@ const ITJobList = () => {
         </p>
 
         <div className="top-motivation">
-            <Motivation />
+          <Motivation />
         </div>
 
-        <div className="top-form">
-          <GoogleSearch />
+        <div className="top-ticker">
+          <span className="top-ticker-label">
+            <span className="top-ticker-dot" aria-hidden="true"></span>
+            Live Updates
+          </span>
+          <div className="top-ticker-track">
+            <div className="top-ticker-content">
+              {[...noticeItems, ...noticeItems].map((item, i) => (
+                <span key={i}>{item}</span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <p className="top-popular-searches">
