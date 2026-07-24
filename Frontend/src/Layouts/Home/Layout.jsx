@@ -3,7 +3,7 @@ import { Outlet, useNavigation } from "react-router-dom";
 import NavBar from "../Home/NavBar";
 import ChatBot from "./ChatBot";
 import Footer from "./Footer";
-import Loading from "./Loading";
+import Loading from "./loading";
 
 const Layout = () => {
   const navigation = useNavigation();

@@ -1,5 +1,5 @@
 import { Outlet, useNavigation } from "react-router-dom";
-import Loading from "../Home/Loading";
+import Loading from "../Home/loading";
 import Sidebar from "./Sidebar";
 import "./Sidebar.css"
 

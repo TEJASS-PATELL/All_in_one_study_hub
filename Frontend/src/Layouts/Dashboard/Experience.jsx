@@ -3,7 +3,7 @@ import { IoClose, IoTrashBin } from "react-icons/io5";
 import { useAuthStore } from "../../Store/useAuthStore";
 import { useDiscussionStore } from "../../Store/useDiscussion";
 import "./Experience.css";
-import Loading from "../Home/Loading";
+import Loading from "../Home/loading";
 import toast from "react-hot-toast";
 
 const categories = ["Government Job", "Private Job", "IT Job"];

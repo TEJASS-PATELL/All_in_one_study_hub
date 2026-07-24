@@ -3,7 +3,7 @@ import { useEffect, useState, useCallback } from 'react';
 import './Exam.css';
 import axios from 'axios';
 import ExamMetadataAccordion from './ExamMetadataAccordion';
-import Loading from '../../layouts/Home/Loading';
+import Loading from '../../layouts/Home/loading';
 
 const categories = [
   'Engineering',

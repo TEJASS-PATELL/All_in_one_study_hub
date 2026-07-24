@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import Loading from "./layouts/Home/Loading";
+import Loading from "./layouts/Home/loading";
 import { Toaster } from "react-hot-toast";
 
 const root = document.getElementById("root");
