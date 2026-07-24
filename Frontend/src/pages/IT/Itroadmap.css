@@ -1,0 +1,119 @@
+.it-roadmap-container {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 40px;
+}
+
+.roadmap-heading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-title,
+.it-roadmap-container h1 {
+  font-size: 2.6rem;
+  font-weight: bold;
+  text-align: center;
+    font-family: "Fraunces", serif;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.it-roadmap-container h1{
+    margin-top: 25px;
+}
+
+.it-phase {
+  background-color: #ffffff;
+  border-left: 4px solid #000000;
+  padding: 25px;
+  margin-bottom: 50px;
+  box-shadow: 0 0 0 1px #000000 inset;
+  border-radius: 10px;
+}
+
+.it-phase-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+      font-family: "Fraunces", serif;
+
+}
+
+.it-phase-description {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #111111b4;
+  margin-bottom: 20px;
+}
+
+.it-divider {
+  height: 1px;
+  background-color: #000;
+  border: none;
+  margin: 20px 0;
+}
+
+.it-step {
+  background-color: #f8f8f8;
+  border: 1px dashed #000000;
+  border-radius: 8px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.it-step-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+        font-family: "Fraunces", serif;
+  margin-bottom: 8px;
+}
+
+.it-step-description {
+  font-size: 1.15rem;
+  color: #111111b4;
+  margin-bottom: 10px;
+}
+
+.it-step-action {
+  font-style: italic;
+  color: #0046ff;
+  margin-bottom: 10px;
+}
+
+.it-step-actions strong {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.it-action-list {
+  list-style-type: square;
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.it-action-item {
+  margin-bottom: 6px;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  .roadmap-container {
+    padding: 10px;
+  }
+
+  .page-title,
+  .roadmap-container h1 {
+    font-size: 2rem;
+  }
+
+  .it-phase-title {
+    font-size: 1.5rem;
+  }
+
+  .it-step-title {
+    font-size: 1.2rem;
+  }
+}
