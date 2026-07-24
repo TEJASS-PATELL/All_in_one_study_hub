@@ -2,10 +2,8 @@ import React from 'react';
 import './ITJobs.css';
 import Motivation from '../Motivation';
 import '../Government/Top.css';
-import GoogleSearch from '../GoogleSearch';
 
 const ITJobList = () => {
-
   const noticeItems = [
     "Cloud certifications trending across 2026 hiring",
     "AI/ML roles surging this quarter",

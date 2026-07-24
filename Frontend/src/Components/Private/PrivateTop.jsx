@@ -1,7 +1,6 @@
 import '../Government/Top.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Motivation from '../Motivation';
-import GoogleSearch from '../GoogleSearch';
 
 const PrivateTop = () => {
   const noticeItems = [
@@ -10,6 +9,7 @@ const PrivateTop = () => {
     "Finance job openings up this quarter",
     "Hospitality & telecom roles trending in metros",
   ];
+
   return (
     <main className="top-main">
       <section className="top-hero">
