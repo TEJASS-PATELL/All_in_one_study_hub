@@ -1,0 +1,116 @@
+.coming-soon-container {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: #0048ff;
+
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  padding: 24px;
+  overflow: hidden;
+  text-align: center;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.coming-soon-content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.cs-eyebrow {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 22px;
+}
+
+.coming-soon-content h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 20px;
+}
+
+.cs-highlight {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--blue);
+}
+
+.coming-soon-content p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 420px;
+  margin: 0 auto 44px;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cs-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 20px;
+  padding: 12px 30px;
+  border: 1.5px solid var(--ink);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.cs-btn-dark {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.cs-btn-dark:hover,
+.cs-btn-dark:focus-visible {
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.cs-btn-light {
+  background: transparent;
+  color: var(--ink);
+}
+
+.cs-btn-light:hover,
+.cs-btn-light:focus-visible {
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.cs-btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (max-width: 460px) {
+  .cs-btn {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-btn {
+    transition: none;
+  }
+}

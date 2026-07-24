@@ -1,0 +1,214 @@
+.ITs-category-section {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.65);
+  --paper: #ffffff;
+  --blue: rgb(0, 72, 255);
+  --border-light: #e5e7eb;
+
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  font-family: "IBM Plex Sans", "Inter", sans-serif;
+  position: relative;
+}
+
+.ITs-section-title, 
+.ITdocs-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.ITdocs-header {
+  margin-top: 80px;
+}
+
+.ITs-eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+
+.ITs-section-title h1, 
+.ITdocs-heading {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  color: var(--ink);
+
+  font-weight: 700;
+  font-family: "Fraunces", serif;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.title-line {
+    width: 84px;
+    height: 4px;
+    border-radius: 50px;
+    background: rgb(0, 72, 255);
+    margin: 20px auto;
+    position: relative;
+}
+
+.title-line::after {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50px;
+  background: black;
+}
+
+.title-line::before {
+  content: "";
+  position: absolute;
+  right: 95px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50px;
+  background: black;
+}
+
+.ITs-section-title p, 
+.ITdocs-description {
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.ITs-category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.ITs-filter-button {
+  background-color: var(--paper);
+  border: 1px solid var(--border-light);
+  color: var(--ink-soft);
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ITs-filter-button:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.ITs-filter-button.active {
+  background-color: var(--blue);
+  color: #ffffff;
+  border-color: var(--blue);
+  box-shadow: 0 4px 10px rgba(29, 78, 216, 0.2);
+}
+
+.ITs-filter-button.dsa.active {
+  background-color: #0a0a0a;
+  border-color: #0a0a0a;
+  box-shadow: 0 4px 10px rgba(10, 10, 10, 0.2);
+}
+
+.ITs-resources-wrapper {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ITs-resources-grid, 
+.ITs-fixed-resources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.ITs-resource-card {
+  background: var(--paper);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.ITs-resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+  border-color: #d1d5db;
+}
+
+.ITs-resource-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+    font-family: "Fraunces", serif;
+  margin-bottom: 12px;
+}
+
+.ITs-resource-description {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex-grow: 1; 
+  margin-bottom: 14px;
+}
+
+.ITs-resource-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.ITs-resource-link:hover {
+  color: #113294;
+  transform: translateX(4px); /* Slight move right on hover */
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+@media (max-width: 768px) {
+  .ITs-category-section {
+    padding: 60px 16px;
+  }
+
+  .ITs-category-filter {
+    gap: 8px;
+  }
+
+  .ITs-filter-button {
+    padding: 8px 18px;
+    font-size: 0.85rem;
+  }
+
+  .ITs-resources-grid, 
+  .ITs-fixed-resources-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  .ITdocs-header {
+    margin-top: 60px;
+  }
+}

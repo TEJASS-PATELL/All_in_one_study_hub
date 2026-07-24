@@ -1,0 +1,274 @@
+* {
+  box-sizing: border-box;
+}
+
+.a-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.a-study-section {
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 100px 20px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.a-hero-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.a-hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000000;
+}
+
+.a-hero-description {
+  font-size: 1.35rem;
+  color: #000000;
+  line-height: 1.6;
+}
+
+.a-category-description {
+  font-size: 1.25rem;
+  margin-top: 5px;
+  color: #000000;
+  line-height: 1.5;
+}
+
+.card-section {
+  flex: 1;
+  width: 100%;
+  max-width: 850px;
+  background: #ffffff;
+  border: 2px solid #e0e0e0;
+  padding: 2.5rem;
+  border-radius: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #080808;
+  line-height: 1.2;
+}
+
+.card-description {
+  font-size: 1.25rem;
+  color: #050505;
+  margin-bottom: 1.75rem;
+  line-height: 1.6;
+}
+
+.toggle-section {
+  margin-bottom: 10px;
+}
+
+.toggle-button {
+  background: transparent;
+  color: #000000;
+  padding: 10px 16px;
+  border: 1px solid #000000;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  max-width: 750px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.toggle-button:hover, 
+.toggle-button:focus {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.toggle-button::after {
+  content: '▼';
+  font-size: 0.9em;
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.toggle-button.open::after {
+  transform: rotate(180deg);
+}
+
+.button-left {
+  display: flex;
+  align-items: center;
+}
+
+.collapsible-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  padding: 0 0.5rem;
+  margin-top: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.collapsible-content.open {
+  max-height: 3000px;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  max-width: 750px;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+
+.youtube-channels-list,
+.tips-list,
+.syllabus-list {
+  font-size: 1.15rem;
+  padding-left: 1.75rem;
+  list-style-type: disc;
+  color: #0c0c0c;
+  line-height: 1.7;
+}
+
+.youtube-channels-list li,
+.tips-list li,
+.syllabus-list li {
+  font-size: 1.2rem;
+  margin-bottom: 0.45rem;
+}
+
+.youtube-channels-list li a {
+  color: rgb(0, 72, 255);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding-bottom: 2px;
+}
+
+.youtube-channels-list li a:hover {
+  text-decoration-color: rgb(0, 72, 255);
+}
+
+.opportunityList {
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.LopportunityItem {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 1.15rem;
+  list-style-type: none;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.LopportunityItem:last-child {
+  border-bottom: none;
+}
+
+.LopportunityItem strong {
+  color: rgb(0, 72, 255);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.subOpportunityList {
+  padding-left: 1.5rem;
+  margin-top: 0.25rem;
+}
+
+.LsubItem {
+  list-style-type: disc;
+  margin-bottom: 4px;
+}
+
+.image-cardd-container {
+  margin-bottom: 60px;
+}
+
+.LcoachingCard,
+.LcourseCard {
+  margin-bottom: 15px;
+  background-color: #ffffff;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border: 1px solid #bbbbbb;
+  transition: all 0.2s ease;
+}
+
+.LcoachingTitle,
+.LcourseTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.LcoachingTagline,
+.LcoachingLocation,
+.LcoachingFees,
+.LcoachingCourses,
+.LcourseTagline,
+.LcourseLocation,
+.LcourseFees {
+  font-size: 1.15rem;
+  color: #0c0c0c;
+  line-height: 1.4;
+}
+
+.LcoachingLabel,
+.Llabel {
+  color: #000000;
+  font-weight: 600;
+}
+
+.LcourseWebsite,
+.LcoachingWebsite {
+  margin-top: 0.5rem;
+  text-decoration: none;
+  font-size: 1.05rem;
+  color: rgb(0, 72, 255);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .a-hero-title { font-size: 2.2rem; }
+  .a-hero-description { font-size: 1.1rem; }
+  .a-study-section { padding: 80px 15px 30px 15px; }
+  .card-section { padding: 1.5rem; border-radius: 1rem; }
+  .card-title { font-size: 1.8rem; }
+  .LopportunityItem strong { font-size: 1.25rem; }
+  .LcoachingTitle, .LcourseTitle { font-size: 1.3rem; }
+  .youtube-channels-list li, .tips-list li, .syllabus-list li { font-size: 1.05rem; }
+  .toggle-button { font-size: 1rem; padding: 12px; }
+    .image-cardd-container { margin-bottom: 40px; padding: 20px; }
+}
+
+@media (max-width: 480px) {
+  .a-hero-title { font-size: 1.8rem; }
+  .card-title { font-size: 1.5rem; }
+  .LcoachingCard, .LcourseCard { padding: 1rem; }
+  .image-cardd-container { margin-bottom: 20px; padding: 20px; }
+  .toggle-button::after { font-size: 0.7em; }
+}

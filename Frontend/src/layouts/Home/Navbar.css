@@ -1,0 +1,115 @@
+.Lnavbar {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  max-width: 1200px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgb(232, 231, 231);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.Lnavbar-container {
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Lnav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  font-family: "Fraunces", serif;
+  letter-spacing: -0.5px;
+  cursor: pointer;
+  color: #1a1a1a;
+  transition: opacity 0.2s ease;
+}
+
+.Lnav-logo:hover {
+  opacity: 0.8;
+}
+
+.Lnav-logo span {
+  color: #0048ff;
+}
+
+.Lnavbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #4a4a4a;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #0048ff;
+}
+
+.ai-tools {
+  color: #0048ff;
+}
+
+.Llogin-btn {
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 28px;
+  border-radius: 18px; 
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.Lprofile-wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.nav-profile-icon {
+  font-size: 32px;
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+@media (max-width: 950px) {
+  .Lnavbar-links {
+    display: none; 
+  }
+  
+  .Lnavbar {
+    width: 90%;
+    height: 60px;
+    top: 10px;
+    border-radius: 15px;
+  }
+  
+  .Lnav-logo {
+    font-size: 1.25rem;
+  }
+}

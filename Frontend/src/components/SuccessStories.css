@@ -1,0 +1,97 @@
+/* === Section Layout === */
+.Gsuccess-section-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 80px 0;
+  position: relative;
+}
+
+.Gsuccess-section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.Gsuccess-icon-wrapper {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Gsuccess-floating-icon {
+  width: 100%;
+}
+
+.Gsuccess-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.Gsuccess-subtitle {
+  font-size: 1.6rem;
+  color: #000000;
+  opacity: 1;
+}
+
+.Gsuccess-story-card {
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  margin: 80px auto;
+  padding: 2rem;
+  min-height: 200px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.5s ease-in-out;
+  text-align: center;
+}
+
+.Gsuccess-story-quote {
+  font-size: 1.25rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.Gsuccess-author-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.Gsuccess-author-title {
+  font-size: 1rem;
+  color: #2b2b2b;
+}
+
+.Gsuccess-story-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.animated.fade-in {
+  opacity: 1;
+}
+
+.animated.fade-out {
+  opacity: 0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .Gsuccess-stories-grid {
+    animation: none;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .Gsuccess-story-card {
+    width: 100%;
+    flex: 1 0 auto;
+  }
+}

@@ -1,0 +1,255 @@
+.job-sec-wrapper {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: #0048ff;
+  --blue-deep: #12276e;
+  --blue-tint: #eef3ff;
+
+  position: relative;
+  background: var(--paper);
+  padding: 10px 24px;
+  overflow: hidden;
+  font-family: "IBM Plex Sans", sans-serif;
+}
+
+.job-sec-container {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.job-sec-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+.job-sec-eyebrow {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.job-sec-title {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.title-line {
+  width: 64px;
+  height: 3px;
+  background: var(--blue);
+  margin: 22px auto;
+  position: relative;
+}
+
+.title-line::after {
+  content: "";
+  position: absolute;
+  left: 76px;
+  top: -3px;
+  width: 9px;
+  height: 9px;
+  background: var(--ink);
+}
+
+.job-sec-subtitle {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.job-index-list {
+  border-top: 1px solid var(--ink-faint);
+}
+
+.job-index-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0px 1fr auto;
+  align-items: center;
+  column-gap: 32px;
+  padding: 38px 6px;
+  border-bottom: 1px solid var(--ink-faint);
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background 0.35s ease;
+}
+
+/* accent bar that grows in on hover, like a stamp being pressed down the margin */
+.job-index-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 0%;
+  background: var(--blue);
+  transition: height 0.4s ease;
+}
+
+.job-index-row:hover,
+.job-index-row:focus-visible {
+  background: var(--blue-tint);
+}
+
+.job-index-row:hover::before,
+.job-index-row:focus-visible::before {
+  height: 100%;
+}
+
+.job-index-row:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: -2px;
+}
+
+/* large ghost icon watermark, sits behind the text */
+.job-index-icon-bg {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-6deg);
+  font-size: 128px;
+  line-height: 1;
+  color: var(--blue);
+  opacity: 0.05;
+  z-index: -1;
+  transition: opacity 0.35s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.job-index-row:hover .job-index-icon-bg {
+  opacity: 0.09;
+  transform: translateY(-50%) rotate(-2deg) scale(1.05);
+}
+
+/* hollow numeral that "inks in" solid blue on hover, like a rubber stamp */
+.job-index-num {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.3px var(--ink);
+  transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease;
+}
+
+.job-index-row:hover .job-index-num,
+.job-index-row:focus-visible .job-index-num {
+  color: var(--blue);
+  -webkit-text-stroke-color: var(--blue);
+}
+
+.job-index-body {
+  min-width: 0;
+}
+
+.job-index-code {
+  display: block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.job-index-title {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.job-index-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: 46ch;
+}
+
+.job-index-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.job-index-cta i {
+  font-size: 10.5px;
+  transition: transform 0.3s ease;
+}
+
+.job-index-row:hover .job-index-cta,
+.job-index-row:focus-visible .job-index-cta {
+  color: var(--blue);
+}
+
+.job-index-row:hover .job-index-cta i,
+.job-index-row:focus-visible .job-index-cta i {
+  transform: translateX(4px);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 760px) {
+  .job-index-row {
+    grid-template-columns: 52px 1fr;
+    row-gap: 12px;
+    padding: 30px 4px;
+  }
+
+  .job-index-num {
+    font-size: 32px;
+  }
+
+  .job-index-icon-bg {
+    display: none;
+  }
+
+  .job-index-cta {
+    grid-column: 1 / -1;
+    padding-left: 68px;
+  }
+}
+
+@media (max-width: 460px) {
+  .job-sec-wrapper {
+    padding: 64px 16px;
+  }
+
+  .job-index-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .job-index-row,
+  .job-index-row::before,
+  .job-index-num,
+  .job-index-icon-bg,
+  .job-index-cta,
+  .job-index-cta i {
+    transition: none;
+  }
+}

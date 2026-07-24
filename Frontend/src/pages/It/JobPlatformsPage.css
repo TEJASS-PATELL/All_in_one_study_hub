@@ -1,0 +1,228 @@
+/* ---------- Job Platforms Section ---------- */
+
+.itplatform-job-page {
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: #0048ff;
+  --blue-tint: rgba(29, 78, 216, 0.07);
+
+  position: relative;
+  padding: 120px 0 60px;
+  min-height: 100vh;
+  background-color: var(--paper);
+  font-family: "IBM Plex Sans", sans-serif;
+  overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.job-sec-eyebrow {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.itplatform-job-page h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+  text-align: center;
+}
+
+.itplatform-p {
+  font-size: 16.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 auto 72px auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+.itplatform-cards-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  position: relative;
+  z-index: 1;
+}
+
+.itplatform-job-card {
+  position: relative;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--ink-faint);
+  border-right: 1px solid var(--ink-faint);
+  border-top: 1px solid var(--ink-faint);
+  border-bottom: 1px solid var(--ink-faint);
+  background: transparent;
+  border-radius: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.itplatform-job-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--blue-tint), transparent);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.itplatform-job-card:hover::before {
+  opacity: 1;
+}
+
+.platform-img.wellfound-img{
+    max-width: 150px;
+    max-height: 180px;
+}
+
+.platform-logo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+.platform-img {
+  max-width: 160px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.itplatform-job-card:hover .platform-img {
+  transform: scale(1.03);
+}
+
+.itplatform-job-card h2 {
+  position: relative;
+  z-index: 2;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.itplatform-job-card:hover h2 {
+  color: var(--blue);
+}
+
+.itplatform-job-card p {
+  position: relative;
+  z-index: 2;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+}
+
+.itplatform-job-card p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.itplatform-job-card ul {
+  position: relative;
+  z-index: 2;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 24px 0;
+}
+
+.itplatform-job-card li {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.itplatform-job-card li::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.itplatform-job-card a {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.itplatform-job-card a:hover {
+  background: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* ---------- Media Queries ---------- */
+
+@media (min-width: 768px) {
+  .itplatform-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .itplatform-cards-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .itplatform-job-page {
+    padding: 96px 16px 48px;
+  }
+
+  .itplatform-p {
+    margin-bottom: 48px;
+  }
+
+  .itplatform-job-card {
+    padding: 32px 20px;
+    border-right: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .itplatform-job-card::before,
+  .platform-img,
+  .itplatform-job-card h2,
+  .itplatform-job-card a {
+    transition: none;
+  }
+}

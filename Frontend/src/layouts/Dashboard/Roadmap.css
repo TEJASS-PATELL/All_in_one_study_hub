@@ -1,0 +1,236 @@
+.profile-page-main {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #000000;
+}
+
+.profile-page-content {
+  position: relative;
+}
+
+.profile-page-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.profile-page-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-form-group label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #111827;
+}
+
+.profile-form-group input,
+.profile-form-group select,
+.profile-form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-form-group input:focus,
+.profile-form-group select:focus,
+.profile-form-group textarea:focus {
+  border-color: rgb(0, 72, 255);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.1);
+}
+
+.profile-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.profile-submit-button {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.profile-submit-button:hover {
+  background-color: rgb(0, 72, 255);
+  transform: translateY(-2px);
+}
+
+.roadmap-view {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.roadmap-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.roadmap-header h1 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+    font-family: "Fraunces", serif;
+  margin: 0;
+  color: #0a0a0a;
+}
+
+.roadmap-header-icon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: #e5e7eb;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.timeline-step {
+  position: relative;
+  background: inherit;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.timeline-step.left {
+  left: 0;
+  padding-right: 30px;
+}
+
+.timeline-step.right {
+  left: 50%;
+  padding-left: 30px;
+}
+
+.timeline-content {
+  padding: 24px;
+  background: #ffffff;
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgb(0, 72, 255);
+  background: rgba(29, 78, 216, 0.08);
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+}
+
+.step-title {
+  font-size: 1.35rem;
+    font-family: "Fraunces", serif;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  color: #0a0a0a;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: rgba(10, 10, 10, 0.7);
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.step-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 12px;
+}
+
+.step-extra p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: rgba(10, 10, 10, 0.8);
+  line-height: 1.5;
+}
+
+.step-extra strong {
+  color: #000000;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-step {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline-step.left,
+  .timeline-step.right {
+    left: 0;
+  }
+
+  .profile-page-card {
+    padding: 20px;
+  }
+
+  .roadmap-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
