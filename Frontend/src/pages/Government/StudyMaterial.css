@@ -1,117 +1,110 @@
-* {
-  box-sizing: border-box;
-}
-
 .a-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  align-items: center;
-  background-color: #ffffff;
+  --ink: #000000;
+  --ink-soft: rgba(10, 10, 10, 0.62);
+  --ink-faint: rgba(10, 10, 10, 0.14);
+  --paper: #ffffff;
+  --blue: rgb(0, 72, 255);
+  --blue-tint: rgba(29, 78, 216, 0.06);
+
+  position: relative;
+  background: var(--paper);
+  font-family: "IBM Plex Sans", sans-serif;
 }
 
 .a-study-section {
-  width: 100%;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 100px 20px 50px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  padding: 110px 24px 60px;
+  text-align: center;
+  overflow: hidden;
 }
 
 .a-hero-content {
-  max-width: 900px;
-  text-align: center;
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 .a-hero-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  color: #000000;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 18px;
 }
 
 .a-hero-description {
-  font-size: 1.35rem;
-  color: #000000;
-  line-height: 1.6;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 0 8px;
 }
 
 .a-category-description {
-  font-size: 1.25rem;
-  margin-top: 5px;
-  color: #000000;
-  line-height: 1.5;
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* ---------- Exam block ---------- */
+
+.image-cardd-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .card-section {
-  flex: 1;
-  width: 100%;
-  max-width: 850px;
-  background: #ffffff;
-  border: 2px solid #e0e0e0;
-  padding: 2.5rem;
-  border-radius: 1.5rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 48px 0;
+  border-top: 1px solid var(--ink-faint);
 }
 
 .card-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #080808;
-  line-height: 1.2;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.55rem;
+  color: var(--ink);
+  margin: 0 0 12px;
 }
 
 .card-description {
-  font-size: 1.25rem;
-  color: #050505;
-  margin-bottom: 1.75rem;
-  line-height: 1.6;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+  max-width: 90ch;
 }
 
 .toggle-section {
-  margin-bottom: 10px;
+  border-top: 1px solid var(--ink-faint);
+}
+
+.toggle-section:last-child {
+  border-bottom: 1px solid var(--ink-faint);
 }
 
 .toggle-button {
-  background: transparent;
-  color: #000000;
-  padding: 10px 16px;
-  border: 1px solid #000000;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  font-size: 1.15rem;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: none;
+  border: none;
   cursor: pointer;
-  width: 100%;
-  max-width: 750px;
+  padding: 20px 4px;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: var(--ink);
   text-align: left;
-  transition: all 0.3s ease;
+  transition: color 0.25s ease;
 }
 
-.toggle-button:hover, 
-.toggle-button:focus {
-  background-color: #000000;
-  color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-  outline: none;
-}
-
-.toggle-button::after {
-  content: '▼';
-  font-size: 0.9em;
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.toggle-button.open::after {
-  transform: rotate(180deg);
+.toggle-button:hover {
+  color: var(--blue);
 }
 
 .button-left {
@@ -119,156 +112,273 @@
   align-items: center;
 }
 
+.button-left svg {
+  color: var(--blue);
+  font-size: 15px;
+}
+
+.toggle-button::after {
+  content: "\25BC";
+  font-size: 10px;
+  color: var(--blue);
+  flex-shrink: 0;
+  margin-left: 12px;
+  transition: transform 0.3s ease;
+}
+
+.toggle-button.open::after {
+  transform: rotate(180deg);
+}
+
+.toggle-button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
 .collapsible-content {
   max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: all 0.4s ease-in-out;
-  padding: 0 0.5rem;
-  margin-top: 0.75rem;
-  border-radius: 0.5rem;
+  transition: max-height 0.45s ease, opacity 0.3s ease;
 }
 
 .collapsible-content.open {
   max-height: 3000px;
-  padding: 1rem 0.5rem;
-  width: 100%;
-  max-width: 750px;
-  background-color: #ffffff;
-  border-radius: 20px;
+  opacity: 1;
+  padding-bottom: 28px;
 }
 
-.youtube-channels-list,
-.tips-list,
-.syllabus-list {
-  font-size: 1.15rem;
-  padding-left: 1.75rem;
-  list-style-type: disc;
-  color: #0c0c0c;
-  line-height: 1.7;
+.youtube-channels-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 27px;
 }
 
-.youtube-channels-list li,
-.tips-list li,
-.syllabus-list li {
-  font-size: 1.2rem;
-  margin-bottom: 0.45rem;
+.youtube-channels-list li {
+  border-bottom: 1px solid var(--ink-faint);
 }
 
-.youtube-channels-list li a {
-  color: rgb(0, 72, 255);
-  text-decoration: underline;
-  text-decoration-color: transparent;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding-bottom: 2px;
+.youtube-channels-list li:last-child {
+  border-bottom: none;
 }
 
-.youtube-channels-list li a:hover {
-  text-decoration-color: rgb(0, 72, 255);
+.youtube-channels-list a {
+  display: block;
+  padding: 11px 0;
+  font-size: 15px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.25s ease, padding-left 0.25s ease;
 }
+
+.youtube-channels-list a:hover,
+.youtube-channels-list a:focus-visible {
+  color: var(--blue);
+  padding-left: 4px;
+}
+
+/* ---------- Opportunity / strategy lists ---------- */
 
 .opportunityList {
-  padding-left: 1rem;
-  margin-top: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 27px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
 
 .LopportunityItem {
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e2e8f0;
-  font-size: 1.15rem;
-  list-style-type: none;
-  line-height: 1.6;
-  color: #000000;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--ink-faint);
 }
 
 .LopportunityItem:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
-.LopportunityItem strong {
-  color: rgb(0, 72, 255);
+.LopportunityItem > strong {
+  display: block;
+  font-family: "Fraunces", serif;
   font-weight: 600;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.LphaseGoal {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  font-style: normal;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  margin: 0 0 10px;
+}
+
+.LphaseGoal em {
+  font-style: normal;
 }
 
 .subOpportunityList {
-  padding-left: 1.5rem;
-  margin-top: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .LsubItem {
-  list-style-type: disc;
-  margin-bottom: 4px;
+  position: relative;
+  padding-left: 18px;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
 }
 
-.image-cardd-container {
-  margin-bottom: 60px;
+.LsubItem::before {
+  content: "\2014";
+  position: absolute;
+  left: 0;
+  color: var(--blue);
+  font-weight: 600;
 }
+
+/* ---------- Coaching / course sub-cards ---------- */
 
 .LcoachingCard,
 .LcourseCard {
-  margin-bottom: 15px;
-  background-color: #ffffff;
-  border-radius: 1.25rem;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  border: 1px solid #bbbbbb;
-  transition: all 0.2s ease;
+  padding: 20px 0 20px 27px;
+  border-bottom: 1px solid var(--ink-faint);
+}
+
+.LcoachingCard:last-child,
+.LcourseCard:last-child {
+  border-bottom: none;
 }
 
 .LcoachingTitle,
 .LcourseTitle {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--ink);
+  margin-bottom: 8px;
 }
 
-.LcoachingTagline,
+.LcoachingTitle svg,
+.LcourseTitle svg {
+  color: var(--blue);
+  font-size: 14px;
+}
+
+.LcoachingTagline {
+  font-family: "Fraunces", serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
 .LcoachingLocation,
 .LcoachingFees,
-.LcoachingCourses,
 .LcourseTagline,
-.LcourseLocation,
 .LcourseFees {
-  font-size: 1.15rem;
-  color: #0c0c0c;
-  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
 }
 
-.LcoachingLabel,
+.LcoachingLocation svg,
+.LcourseTagline svg,
+.LcourseFees svg {
+  color: var(--blue);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
 .Llabel {
-  color: #000000;
-  font-weight: 600;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
-.LcourseWebsite,
-.LcoachingWebsite {
-  margin-top: 0.5rem;
+.LcoachingWebsite,
+.LcourseWebsite {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
   text-decoration: none;
-  font-size: 1.05rem;
-  color: rgb(0, 72, 255);
-  font-weight: 600;
+  transition: gap 0.25s ease;
 }
 
-@media (max-width: 768px) {
-  .a-hero-title { font-size: 2.2rem; }
-  .a-hero-description { font-size: 1.1rem; }
-  .a-study-section { padding: 80px 15px 30px 15px; }
-  .card-section { padding: 1.5rem; border-radius: 1rem; }
-  .card-title { font-size: 1.8rem; }
-  .LopportunityItem strong { font-size: 1.25rem; }
-  .LcoachingTitle, .LcourseTitle { font-size: 1.3rem; }
-  .youtube-channels-list li, .tips-list li, .syllabus-list li { font-size: 1.05rem; }
-  .toggle-button { font-size: 1rem; padding: 12px; }
-    .image-cardd-container { margin-bottom: 40px; padding: 20px; }
+.LcoachingWebsite:hover,
+.LcourseWebsite:hover,
+.LcoachingWebsite:focus-visible,
+.LcourseWebsite:focus-visible {
+  gap: 11px;
 }
 
-@media (max-width: 480px) {
-  .a-hero-title { font-size: 1.8rem; }
-  .card-title { font-size: 1.5rem; }
-  .LcoachingCard, .LcourseCard { padding: 1rem; }
-  .image-cardd-container { margin-bottom: 20px; padding: 20px; }
-  .toggle-button::after { font-size: 0.7em; }
+.LcoachingWebsite svg,
+.LcourseWebsite svg {
+  font-size: 10px;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  .a-study-section {
+    padding: 90px 18px 48px;
+  }
+
+  .image-cardd-container {
+    padding: 0 18px;
+  }
+
+  .card-section {
+    padding: 36px 0;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+
+  .youtube-channels-list,
+  .opportunityList {
+    padding-left: 18px;
+  }
+
+  .LcoachingCard,
+  .LcourseCard {
+    padding-left: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle-button,
+  .toggle-button::after,
+  .collapsible-content,
+  .youtube-channels-list a,
+  .LcoachingWebsite,
+  .LcourseWebsite {
+    transition: none;
+  }
 }

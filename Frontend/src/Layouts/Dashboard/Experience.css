@@ -57,11 +57,6 @@
   transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.discussion-button:hover {
-  background-color: rgb(0, 72, 255);
-  transform: translateY(-2px);
-}
-
 .discussion-status {
   text-align: center;
   font-weight: 600;
@@ -153,7 +148,7 @@
 .discussion-input:focus,
 .discussion-select:focus,
 .discussion-textarea:focus {
-  border-color: rgb(0, 72, 255);
+  border-color: rgb(0, 0, 0);
 }
 
 .discussion-textarea {
@@ -170,12 +165,6 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.discussion-submit:hover {
-  background-color: rgb(0, 72, 255);
-  transform: translateY(-2px);
 }
 
 .discussion-list {
@@ -213,7 +202,7 @@
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0;
-  color: #0a0a0a;
+  color: #000000;
 }
 
 .discussion-card-header span {
@@ -231,38 +220,7 @@
 }
 
 .discussion-details-grid strong {
-  color: #0a0a0a;
-}
-
-.title-line {
-    width: 84px;
-    height: 4px;
-    border-radius: 50px;
-    background: rgb(0, 72, 255);
-    margin: 20px auto;
-    position: relative;
-}
-
-.title-line::after {
-  content: "";
-  position: absolute;
-  left: 95px;
-  top: -3px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50px;
-  background: black;
-}
-
-.title-line::before {
-  content: "";
-  position: absolute;
-  right: 95px;
-  top: -3px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50px;
-  background: black;
+  color: #000000;
 }
 
 .G-cat-eyebrow {

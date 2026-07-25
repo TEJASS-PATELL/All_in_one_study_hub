@@ -29,7 +29,7 @@ const Experience = () => {
   const { authUser: user } = useAuthStore();
   const userId = user?.id;
 
-  const {experiences,isFetching,fetchDiscussions,submitExperience,userHasPosted,deleteDiscussion } = useDiscussionStore();
+  const { experiences, isFetching, fetchDiscussions, submitExperience, userHasPosted, deleteDiscussion } = useDiscussionStore();
 
   useEffect(() => {
     if (userId) fetchDiscussions(userId);
@@ -41,8 +41,10 @@ const Experience = () => {
   };
 
   const resetForm = () => {
-    setFormData({name: "",location: "",qualification: "",examGiven: "",examCracked: "",jobRole: "",company: "",
-      department: "",salaryPackage: "",advice: "",description: "",category: ""});
+    setFormData({
+      name: "", location: "", qualification: "", examGiven: "", examCracked: "", jobRole: "", company: "",
+      department: "", salaryPackage: "", advice: "", description: "", category: ""
+    });
   };
 
   const handleSubmit = () => {
@@ -65,7 +67,7 @@ const Experience = () => {
 
   return (
     <div className="discussion-container">
-        <span className="G-cat-eyebrow">Category Filter</span>
+      <span className="G-cat-eyebrow">Category Filter</span>
       <h1 className="discussion-title">Share Your Job/Exam Experience</h1>
       <div className="title-line"></div>
       <p className="discussion-description">
@@ -82,7 +84,7 @@ const Experience = () => {
 
       {!userHasPosted ? (
         <button onClick={() => setOpen(true)} className="discussion-button">
-           Share Experience
+          Share Experience
         </button>
       ) : (
         <p className="discussion-status">
@@ -101,12 +103,25 @@ const Experience = () => {
             </div>
 
             <div className="form-grid">
-              {["Name","Location","Qualification","ExamGiven", "ExamCracked","JobRole","Company","Department",
-              "SalaryPackage","Advice"].map((field) => (
+              {[
+                "name",
+                "location",
+                "qualification",
+                "examGiven",
+                "examCracked",
+                "jobRole",
+                "company",
+                "department",
+                "salaryPackage",
+                "advice",
+              ].map((field) => (
                 <input
                   key={field}
                   name={field}
-                  placeholder={field.replace(/([A-Z])/g, " $1").trim()}
+                  placeholder={field
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase())
+                    .trim()}
                   value={formData[field]}
                   onChange={handleChange}
                   required
@@ -134,7 +149,7 @@ const Experience = () => {
               required
               value={formData.description}
               onChange={handleChange}
-              className="discussion-textarea"/>
+              className="discussion-textarea" />
 
             <button onClick={handleSubmit} className="discussion-submit">
               Submit

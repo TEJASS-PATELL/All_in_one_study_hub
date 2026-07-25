@@ -5,21 +5,12 @@ export const cardsData = [
         youtubeChannels: [
             { name: "Unacademy GATE", link: "https://www.youtube.com/@Gatecsit-dsai" },
             { name: "Made Easy", link: "https://www.youtube.com/@MADEEASYEducation" },
-            { name: "Engineers Wallah", link: "https://www.youtube.com/@EngineersWallah" },
             { name: "GATE Academy", link: "https://www.youtube.com/@gate_academy" },
             { name: "NPTEL HRD", link: "https://www.youtube.com/@iit" },
-            { name: "ISRO Official", link: "https://www.youtube.com/@isroofficial5866" },
             { name: "GeeksforGeeks GATE", link: "https://www.youtube.com/@GfG_GATE" },
-            { name: "GOLDEN ASO", link: "https://www.youtube.com/@goldenaso" },
-            { name: "SSC JE & RRB JE", link: "https://www.youtube.com/@UnacademySSCJE_RRBJE" },
-            { name: "RANKERS GURUKUL", link: "https://www.youtube.com/@rankersgurukullive" },
-            { name: "Engineers Adda247 - JE, AE Exams", link: "https://www.youtube.com/@EngineerAdda247" },
-            { name: "RBE Revolution By Education", link: "https://www.youtube.com/@RBERevolutionByEducation" },
-            { name: "Engineering Stream", link: "https://www.youtube.com/@EngineeringStream" },
-            { name: "Ekeeda", link: "https://www.youtube.com/@Ekeeda" },
             { name: "GATE Wallah", link: "https://www.youtube.com/@GATEWallah_ME_CE_XE_CH" },
-            { name: "SUCCESS DILIP", link: "https://www.youtube.com/@SUCCESSDILIP" },
-            { name: "GATE Adda247", link: "https://www.youtube.com/@gateadda247" },
+            { name: "Engineers Adda247 - JE, AE Exams", link: "https://www.youtube.com/@EngineerAdda247" },
+            { name: "Ekeeda", link: "https://www.youtube.com/@Ekeeda" },
         ],
         preparationStrategy: [
             {
@@ -120,15 +111,13 @@ export const cardsData = [
                 name: 'MADE EASY',
                 tagline: 'Best for GATE & ESE',
                 location: 'Delhi, Hyderabad, Bhopal, Bhubaneswar, Pune, Lucknow',
-                courses: ['GATE', 'ESE', 'PSUs'],
-                fees: '₹90,500 – ₹1,11,500 (1-Year Foundation)',
+                fees: '₹90,000 – ₹1,20,000 (1-Year Foundation)',
                 website: 'https://www.madeeasy.in',
             },
             {
                 name: 'Engineers Institute of India (EII)',
                 tagline: 'Focused and result-driven',
                 location: 'Hauz Khas, New Delhi',
-                courses: ['GATE', 'PSUs', 'SSC JE', 'AE'],
                 fees: '₹52,500 – ₹75,500 (1-Year Offline)',
                 website: 'https://engineersinstitute.com',
             },
@@ -136,7 +125,6 @@ export const cardsData = [
                 name: 'Dronacharya Academy',
                 tagline: 'Affordable structured coaching',
                 location: 'Indore (M.P.)',
-                courses: ['ESE', 'GATE', 'SSC JE'],
                 fees: '₹29,500 – ₹88,500',
                 website: 'https://www.dronacharyaacademy.org',
             },
@@ -144,7 +132,6 @@ export const cardsData = [
                 name: 'Concept Education',
                 tagline: 'Budget-focused GATE & JE',
                 location: 'Lucknow (U.P.)',
-                courses: ['GATE', 'ESE', 'SSC JE', 'DRDO', 'BARC', 'UPPCL'],
                 fees: '₹15,000 – ₹50,000',
                 website: 'https://concepteducation.in',
             },
@@ -152,7 +139,6 @@ export const cardsData = [
                 name: 'Engineers Academy',
                 tagline: 'Wide coverage coaching',
                 location: 'Jaipur, Delhi, Patna, Lucknow, Kanpur',
-                courses: ['ESE', 'GATE', 'PSUs', 'SSC JE', 'State AE/JE'],
                 fees: '₹35,000 – ₹1,20,000',
                 website: 'https://www.engineersacademy.org',
             },
@@ -160,111 +146,63 @@ export const cardsData = [
                 name: 'IES Master',
                 tagline: 'Premium engineering prep',
                 location: 'Hyderabad, Bengaluru, Chennai, Delhi, Pune',
-                courses: ['GATE', 'ESE', 'PSUs', 'SSC JE'],
                 fees: '₹70,000 – ₹1,20,000',
                 website: 'https://www.iesmaster.org',
-            },
-            {
-                name: 'Made Simple',
-                tagline: 'Simplified learning',
-                location: 'Delhi, Bangalore, Hyderabad, Pune, Chennai',
-                courses: ['GATE', 'ESE', 'SSC JE', 'PSUs'],
-                fees: '₹50,000 – ₹1,00,000',
-                website: 'https://madesimple.in',
             },
             {
                 name: 'ACE Engineering Academy',
                 tagline: 'Top ESE/GATE prep',
                 location: 'Hyderabad, Delhi, Bangalore, Chennai',
-                courses: ['GATE', 'ESE', 'PSUs'],
                 fees: '₹65,000 – ₹1,10,000',
                 website: 'https://www.aceenggacademy.com',
-            },
-            {
-                name: 'FAST Engineering Classes',
-                tagline: 'Compact & quality coaching',
-                location: 'Delhi, Jaipur, Kota, Lucknow',
-                courses: ['GATE', 'ESE', 'PSUs', 'SSC JE'],
-                fees: '₹45,000 – ₹90,000',
-                website: 'https://fastengg.in',
-            },
-            {
-                name: 'Unique Academy',
-                tagline: 'Smart prep for GATE/JE',
-                location: 'Delhi, Lucknow, Patna',
-                courses: ['GATE', 'ESE', 'PSUs', 'SSC JE'],
-                fees: '₹40,000 – ₹85,000',
-                website: 'https://uniqueacademy.co.in',
             },
         ],
         coursesData: [
             {
                 name: 'Testbook SuperCoaching',
                 exams: 'AE/JE (Civil, Mechanical, Electrical), SSC JE, RRB JE, State PSCs',
-                features: 'Live classes, test series, study materials, quizzes, and doubt-clearing sessions',
                 feeRange: '₹1,000 – ₹5,000 for 6–18 months access',
                 website: 'https://testbook.com/ae-je-civil-coaching'
             },
             {
                 name: 'Physics Wallah (PW)',
                 exams: 'AE & JE Civil Engineering Exams (SSC JE, RRB JE, and others)',
-                features: 'Structured online courses with exam-oriented study material, live classes, and mock tests',
                 feeRange: '₹2,000 – ₹10,000 depending on course duration and content',
                 website: 'https://www.pw.live/ae-je/civil/batches'
             },
             {
                 name: 'MADE EASY Prime',
                 exams: 'Assistant Engineer (AE) & Junior Engineer (JE) exams',
-                features: 'Live/Online foundation courses designed to help crack state-level and central-level engineering exams',
-                feeRange: 'With Books: ₹22,400 – ₹24,000 + GST | Without Books: ₹20,000 – ₹22,000 + GST | Non-Tech Only: ₹9,600 + GST',
+                feeRange: 'With Books: ₹22,400 – ₹24,000 + GST | Without Books: ₹20,000 – ₹22,000 + GST',
                 website: 'https://www.madeeasyprime.com/live-online-coaching-classes-ae-je'
             },
             {
                 name: 'ACE Engineering Academy',
                 exams: 'GATE, ESE, PSUs',
-                features: 'Renowned for consistently securing top ranks in GATE and ESE exams',
                 feeRange: 'GATE + ESE + PSUs: ₹72,000 – ₹84,000 + GST | SSC JE: ₹9,000 for a 60-day program',
                 website: 'https://www.aceenggacademy.com/esegatepsus-2025-exclusive-online-live-classes-english/'
             },
             {
-                name: 'Zone Tech',
-                exams: 'Assistant & Junior Engineer Exams across various engineering streams',
-                features: 'Comprehensive online/offline coaching with complete syllabus coverage',
-                feeRange: 'RPSC AE: ₹65,000 – ₹68,000 | SSC JE (Diploma): ₹24,000 – ₹25,000 | SSC JE (B.Tech): ₹30,000 – ₹37,000',
-                website: 'https://zonetech.in/fee-structure'
-            },
-            {
                 name: 'Unacademy',
                 exams: 'SSC JE, AE/JE (All branches)',
-                features: 'Live Classes, Practice Series, combo offers, discounts during sales',
                 feeRange: '₹12,000 – ₹20,000 for 6–24 months',
                 website: 'https://unacademy.com'
             },
             {
                 name: 'Engineers Academy',
                 exams: 'SSC JE, RRB JE, AE/JE (Civil, Mechanical, Electrical)',
-                features: 'Includes test series with Detailed Solutions + notes, Real Exam Environment',
                 feeRange: '₹15,000 – ₹30,000 for full course (classroom or online)',
                 website: 'https://engineersacademy.org'
             },
             {
                 name: 'Adda247',
                 exams: 'SSC JE, RRB JE, AE/JE, GATE (Tech + Non-tech)',
-                features: 'Live Batches, Test Series, Frequent 75% off deals, code discounts',
                 feeRange: '₹2,000 – ₹8,000 for live batches and test series',
                 website: 'https://adda247.com'
             },
             {
-                name: 'Catalyst Group',
-                exams: 'SSC JE, GATE, IES, PSUs',
-                features: 'Subject-wise plans available, Doubt Clearing Sessions, Test Series',
-                feeRange: '₹10,000 – ₹25,000 for full technical courses',
-                website: 'https://thecatalystgroup.info'
-            },
-            {
                 name: 'Oliveboard',
                 exams: 'SSC JE, RRB, Banking, etc.',
-                features: 'Free trial classes, bundles with mock tests, Mobile Accessibility',
                 feeRange: '₹1,500 – ₹7,000 depending on course',
                 website: 'https://oliveboard.in'
             }
@@ -280,12 +218,8 @@ export const cardsData = [
             { name: "MedCram", link: "https://www.youtube.com/user/MEDCRAMvideos" },
             { name: "PrepLadder Official", link: "https://www.youtube.com/c/PrepLadder" },
             { name: "Armando Hasudungan", link: "https://www.youtube.com/user/armandohasudungan" },
-            { name: "Clinical Snippets by Dr. Sourya", link: "https://www.youtube.com/channel/UCPl3AiP17PnHq1UlcdbK5MA" },
-            { name: "White Army", link: "https://www.youtube.com/c/WhiteArmy" },
-            { name: "Dr Ghanshyam Vaidya", link: "https://www.youtube.com/c/DrGhanshyamVaidya" },
-            { name: "AETCM", link: "https://www.youtube.com/@AETCM" },
-            { name: "CFBR", link: "https://www.youtube.com/c/CFBRClinical" },
             { name: "Lecturio Medical", link: "https://www.youtube.com/c/LecturioMedical" },
+            { name: "White Army", link: "https://www.youtube.com/c/WhiteArmy" },
         ],
         preparationStrategy: [
             {
@@ -377,7 +311,6 @@ export const cardsData = [
                 name: "Mantram Nursing Academy",
                 tagline: "Leading NORCET & Staff Nurse classroom coaching",
                 location: "Lucknow (Hazaratganj) & Chandigarh (near PGIMER)",
-                courses: ["AIIMS NORCET", "State PSC Nursing", "NHM Staff Nurse"],
                 fees: "₹25,000 – ₹55,000 (Foundation + Crash)",
                 website: "https://www.staffnursecoaching.com",
             },
@@ -385,7 +318,6 @@ export const cardsData = [
                 name: "Nursing Experts",
                 tagline: "Premier classroom coaching for NORCET, RRB, ESIC",
                 location: "Patel Nagar, Rohini & Saket, Delhi",
-                courses: ["AIIMS NORCET", "RRB Staff Nurse", "ESIC/NHM Staff Nurse"],
                 fees: "₹25,000 – ₹50,000",
                 website: "https://nursingexperts.in",
             },
@@ -393,7 +325,6 @@ export const cardsData = [
                 name: "Cerebellum Academy",
                 tagline: "Premium NEET-PG/Nursing/Paramedical coaching",
                 location: "Defence Colony, New Delhi",
-                courses: ["NEET-PG", "FMGE", "AIIMS Nursing", "Paramedical"],
                 fees: "₹40,000 – ₹80,000",
                 website: "https://cerebellumacademy.com",
             },
@@ -401,7 +332,6 @@ export const cardsData = [
                 name: "GKM Nursing Career Point",
                 tagline: "Central India's top result-driven nursing coaching",
                 location: "Indore & Jabalpur, Madhya Pradesh",
-                courses: ["AIIMS NORCET", "Staff Nurse Govt Exams"],
                 fees: "₹15,000 – ₹30,000",
                 website: "https://gkmncp.com",
             }
@@ -410,28 +340,24 @@ export const cardsData = [
             {
                 name: "Physics Wallah MedEd / Nursing",
                 exams: "NEET PG, FMGE, AIIMS Nursing, RRB Staff Nurse, CHO",
-                features: "Live classes, 3D-model learning, 20k+ QBank, doubt engine",
                 feeRange: "₹8,000 – ₹35,000 per batch",
                 website: "https://meded.pw.live"
             },
             {
                 name: "Marrow by Neuroglia",
                 exams: "NEET PG, INI-CET, FMGE, NEXT",
-                features: "Structured video lectures, clinical QBank, Marrow Notes, daily tests",
                 feeRange: "₹6,000 – ₹25,000",
                 website: "https://www.marrow.com"
             },
             {
                 name: "PrepLadder",
                 exams: "NEET PG, FMGE, INI-CET, Super Specialty",
-                features: "Rapid revision videos, Elite plans, image-based QBank",
                 feeRange: "₹3,999 – ₹16,500",
                 website: "https://www.prepladder.com"
             },
             {
                 name: "Unacademy Medical",
                 exams: "NEET PG, FMGE, INI-CET, NExT",
-                features: "Interactive live classes, mentor support, structured mock test series",
                 feeRange: "₹20,000 – ₹50,000/year",
                 website: "https://unacademy.com"
             }
@@ -443,15 +369,12 @@ export const cardsData = [
         youtubeChannels: [
             { name: "Defence Wallah", link: "https://www.youtube.com/@DefenceWallahPW" },
             { name: "Rojgar with Ankit Defence", link: "https://www.youtube.com/@RojgarwithAnkitDefence" },
-            { name: "Defence Exams Vidyakul", link: "https://www.youtube.com/@DefenceExamsVidyakul" },
-            { name: "Centurion Defence Academy", link: "https://www.youtube.com/@CenturionDefenceAcademy" },
-            { name: "NDA Adda247", link: "https://www.youtube.com/@NDAAdda247" },
-            { name: "SSB Crack Exams", link: "https://www.youtube.com/@SSBCrackExams" },
             { name: "StudyIQ", link: "https://www.youtube.com/@StudyIQEducationLtd" },
-            { name: "Insight SSB", link: "https://www.youtube.com/@insightssb" },
+            { name: "SSB Crack Exams", link: "https://www.youtube.com/@SSBCrackExams" },
+            { name: "NDA Adda247", link: "https://www.youtube.com/@NDAAdda247" },
+            { name: "Centurion Defence Academy", link: "https://www.youtube.com/@CenturionDefenceAcademy" },
             { name: "Trishul Defence Academy", link: "https://www.youtube.com/@TrishulDefenceAcademy" },
-            { name: "Exampur Defence", link: "https://www.youtube.com/@ExampurDefenceWarrior" },
-            { name: "Defence Guru", link: "https://www.youtube.com/@defencegurug5171" },
+            { name: "Insight SSB", link: "https://www.youtube.com/@insightssb" },
         ],
         preparationStrategy: [
             {
@@ -534,7 +457,6 @@ export const cardsData = [
                 name: "Centurion Defence Academy",
                 tagline: "Best for NDA/CDS/AFCAT + SSB",
                 location: "Lucknow, Dehradun & Online",
-                courses: ["NDA", "CDS", "AFCAT", "SSB"],
                 fees: "₹20,000 – ₹50,000 (online+SSB coaching)",
                 website: "https://www.centuriondefenceacademy.com"
             },
@@ -542,16 +464,13 @@ export const cardsData = [
                 name: "Unacademy Defence Centres",
                 tagline: "Offline + Online Hybrid",
                 location: "Chandigarh, Kota, Jaipur, Delhi",
-                courses: ["NDA", "CDS", "AFCAT", "CAPF"],
                 fees: "Varies by city & course",
-                website: "https://unacademy.com/goal/cdsafcatcapf",
-                cite: "turn0search8"
+                website: "https://unacademy.com/goal/cdsafcatcapf"
             },
             {
                 name: "Trishul Defence Academy",
                 tagline: "NDA online expert faculty",
                 location: "Pan-India",
-                courses: ["NDA", "SSB"],
                 fees: "Contact for plans",
                 website: "https://www.trishuldefenceacademy.in/nda-online"
             },
@@ -559,7 +478,6 @@ export const cardsData = [
                 name: "Parmanu Defence Academy",
                 tagline: "Top-Rated Defence Coaching Institute in India",
                 location: "Dehradun, Uttarakhand",
-                courses: ["NDA", "Navy SSR & AA", "ACC", "Air Force X&Y", "SSB"],
                 fees: "Contact for plans",
                 website: "https://www.parmanudefence.com/"
             },
@@ -567,7 +485,6 @@ export const cardsData = [
                 name: "Target Defence Academy",
                 tagline: "No.1 Defence Coaching Institute in India with highest selection rate",
                 location: "Lucknow",
-                courses: ["NDA", "Airforce", "NDA Foundation Course"],
                 fees: "₹20,000 – ₹2,35,000",
                 website: "https://www.thetargetclasses.com/"
             },
@@ -575,7 +492,6 @@ export const cardsData = [
                 name: "Doon Defence Academy",
                 tagline: "Coaching for CDS, NDA, Indian Air Force Recruitment and SSB",
                 location: "Dehradun",
-                courses: ["CDS", "NDA", "Air Force", "SSB"],
                 fees: "₹15,000 – ₹2,37,500",
                 website: "https://www.doondefenceacademy.com/"
             },
@@ -583,7 +499,6 @@ export const cardsData = [
                 name: "Tara Institute",
                 tagline: "Leading NDA Coaching institute in India",
                 location: "Pan-India (Delhi, Mumbai, Gaya, Jabalpur, Dehradun)",
-                courses: ["NDA", "CDS", "AFCAT", "IBPS Clerk", "IBPS RRB"],
                 fees: "₹35,000 – ₹1,50,000",
                 website: "https://www.tarainstitute.com/"
             },
@@ -591,7 +506,6 @@ export const cardsData = [
                 name: "Baalnoi Academy",
                 tagline: "Renowned NDA Coaching in India",
                 location: "Pan-India (Delhi, Jaipur, Dehradun)",
-                courses: ["NDA", "CDS", "Air Force", "AFCAT", "Indian Naval Academy Recruitment"],
                 fees: "₹14,000 – ₹50,000",
                 website: "https://www.baalnoi.com/"
             },
@@ -599,7 +513,6 @@ export const cardsData = [
                 name: "Minerva Academy",
                 tagline: "Leading coaching institute in India",
                 location: "Mohali, Punjab",
-                courses: ["NDA", "SSB"],
                 fees: "₹20,000 – ₹1,50,000",
                 website: "https://www.minervaacademy.com/"
             },
@@ -607,27 +520,93 @@ export const cardsData = [
                 name: "Cavalier India",
                 tagline: "Topmost coaching institute in India",
                 location: "Pan-India (Lucknow, Delhi, Pune)",
-                courses: ["NDA", "Integrated NDA", "SSB", "Physical training"],
                 fees: "NDA- ₹37,700, SSB- ₹11,800",
                 website: "https://www.cavalierindia.com/"
             }
         ],
         coursesData: [
-            { name: "Centurion NDA Online Course", exams: "NDA, CDS, AFCAT, SSB", features: "Live + recorded classes, mocks, SSB prep, app access", feeRange: "₹20,000 – ₹50,000", website: "https://www.centuriondefenceacademy.com/online-courses/" },
-            { name: "Defence Wallah Defence Coaching", exams: "NDA, CDS, AFCAT, Agniveer", features: "Live lectures, QBank, mocks, hinglish support", feeRange: "₹5,000 – ₹15,000", website: "https://www.pw.live/defence/batches" },
-            { name: "MKC CDS Online", exams: "CDS", features: "Expert CDS materials, live classes, tests", feeRange: "Contact for pricing", website: "https://www.majorkalshiclasses.com/online-course/online-cds-classes" },
-            { name: "Trishul NDA Online", exams: "NDA", features: "Live classes + doubt sessions, SSB guidance", feeRange: "Contact for pricing", website: "https://www.trishuldefenceacademy.in/nda-online" },
-            { name: "Dehradun Military Academy Online", exams: "NDA, CDS, AFCAT, SSB", features: "Live + recorded lectures, 50–70 mocks, SSB bootcamp, doubt sessions, till-selection promise", feeRange: "₹10,000 – ₹40,000", website: "https://dehradunmilitaryacademy.com" },
-            { name: "Vishwabharati Defence Academy", exams: "NDA, CDS, AFCAT", features: "Short online crash courses, mock papers, e‑materials", feeRange: "₹500+", website: "https://vishwabharatigurukul.com" },
-            { name: "CareerWill Defence Online", exams: "NDA, CDS, AFCAT, Navy/Airforce", features: "Video lectures, interactive classes, test series", feeRange: "₹5,000 – ₹20,000", website: "https://careerwill.com/defence-online-coaching" },
-            { name: "Major Kalshi Classes (MKC) NDA Foundation", exams: "NDA", features: "1‑year foundation online course, expert faculty, structured curriculum", feeRange: "₹30,000 – ₹60,000", website: "https://www.majorkalshiclasses.com/online-course/online-nda-foundation-classes" },
-            { name: "Adda247 Defence Officer Mahapack", exams: "NDA, CDS, AFCAT, CAPF", features: "900 hrs live classes, 2600+ tests, 1123 videos, ebooks, mocks", feeRange: "₹1,899 (18–27 month access)", website: "https://www.adda247.com/defence/live-classes-study-kit" },
-            { name: "Unacademy Defence Courses", exams: "NDA, CDS, AFCAT, CAPF", features: "Live + recorded classes, adaptive tests, expert mentors", feeRange: "Varies by subscription/batch", website: "https://unacademy.com" }
+            { name: "Centurion NDA Online Course", exams: "NDA, CDS, AFCAT, SSB", feeRange: "₹20,000 – ₹50,000", website: "https://www.centuriondefenceacademy.com/online-courses/" },
+            { name: "Defence Wallah Defence Coaching", exams: "NDA, CDS, AFCAT, Agniveer", feeRange: "₹5,000 – ₹15,000", website: "https://www.pw.live/defence/batches" },
+            { name: "MKC CDS Online", exams: "CDS", feeRange: "Contact for pricing", website: "https://www.majorkalshiclasses.com/online-course/online-cds-classes" },
+            { name: "Trishul NDA Online", exams: "NDA", feeRange: "Contact for pricing", website: "https://www.trishuldefenceacademy.in/nda-online" },
+            { name: "Dehradun Military Academy Online", exams: "NDA, CDS, AFCAT, SSB", feeRange: "₹10,000 – ₹40,000", website: "https://dehradunmilitaryacademy.com" },
+            { name: "Vishwabharati Defence Academy", exams: "NDA, CDS, AFCAT", feeRange: "₹500+", website: "https://vishwabharatigurukul.com" },
+            { name: "CareerWill Defence Online", exams: "NDA, CDS, AFCAT, Navy/Airforce", feeRange: "₹5,000 – ₹20,000", website: "https://careerwill.com/defence-online-coaching" },
+            { name: "Adda247 Defence Officer Mahapack", exams: "NDA, CDS, AFCAT, CAPF", feeRange: "₹1,899 (18–27 month access)", website: "https://www.adda247.com/defence/live-classes-study-kit" }
         ],
     },
     {
         title: "UPSC Civil Services",
         description: "Crack Civil Services with top-tier content on polity, economy, ethics, and current affairs.",
+        youtubeChannels: [
+            { name: "StudyIQ IAS", link: "https://www.youtube.com/@StudyIQIAS" },
+            { name: "Drishti IAS", link: "https://www.youtube.com/@drishtiias" },
+            { name: "Vision IAS", link: "https://www.youtube.com/@VisionIASdelhi" },
+            { name: "Mrunal Patel", link: "https://www.youtube.com/@mrunalorg" },
+            { name: "Sansad TV", link: "https://www.youtube.com/@SansadTV" },
+            { name: "Unacademy UPSC", link: "https://www.youtube.com/@UnacademyUPSC" },
+            { name: "PW OnlyIAS", link: "https://www.youtube.com/@onlyiasnothingelse" },
+            { name: "Insight IAS", link: "https://www.youtube.com/@InsightsIASOfficial" },
+        ],
+        preparationStrategy: [
+            {
+                phase: "Phase 1: Foundation & NCERTs (3-6 Months)",
+                goal: "Build a strong conceptual base and understand the vast syllabus.",
+                actionPoints: [
+                    "Finish basic NCERTs (History, Geography, Polity, Economy) to build a foundation.",
+                    "Start reading a national daily newspaper (The Hindu/Indian Express) to track current affairs.",
+                    "Understand the syllabus thoroughly and analyze Previous Year Questions (PYQs)."
+                ]
+            },
+            {
+                phase: "Phase 2: Core Subjects & Optional (6-9 Months)",
+                goal: "Deep dive into GS papers and complete the Optional subject.",
+                actionPoints: [
+                    "Cover standard reference books like Laxmikanth (Polity) and Spectrum (History).",
+                    "Finalize and complete your Optional subject, as it carries 500 marks in Mains.",
+                    "Start Answer Writing practice for Mains to improve speed and structure."
+                ]
+            },
+            {
+                phase: "Phase 3: Prelims & Mains Revision (Final Stretch)",
+                goal: "Intensive testing, revision, and refinement of presentation.",
+                actionPoints: [
+                    "Solve 50+ Prelims Mock Tests to improve accuracy and elimination skills.",
+                    "Focus on Ethics (GS-4) and Essay writing to boost your overall Mains score.",
+                    "Refine Current Affairs notes for the last 1.5 years and revise static facts repeatedly."
+                ]
+            }
+        ],
+        coachingData: [
+            {
+                name: "Vajiram & Ravi",
+                tagline: "India's Legacy Institute for UPSC CSE",
+                location: "Delhi (Old Rajinder Nagar) & Chennai",
+                fees: "₹1,50,000 – ₹2,10,000",
+                website: "https://www.vajiramandravi.com"
+            },
+            {
+                name: "Vision IAS",
+                tagline: "The Leader in UPSC Test Series & Study Material",
+                location: "Pan-India (Delhi, Jaipur, Hyderabad, Pune)",
+                fees: "₹80,000 – ₹1,60,000",
+                website: "https://www.visionias.in"
+            },
+            {
+                name: "Drishti IAS",
+                tagline: "Top Choice for Hindi & English Medium Aspirants",
+                location: "Delhi (Mukherjee Nagar), Prayagraj, Jaipur",
+                fees: "₹60,000 – ₹1,30,000",
+                website: "https://www.drishtiias.com"
+            },
+            {
+                name: "Next IAS",
+                tagline: "Expert Faculty for Comprehensive UPSC Prep",
+                location: "Delhi (Old Rajinder Nagar)",
+                fees: "₹1,00,000 – ₹1,80,000",
+                website: "https://www.nextias.com"
+            }
+        ],
         ExamOpportunities: [
             {
                 exam: "Indian Administrative Service (IAS)",
@@ -675,87 +654,13 @@ export const cardsData = [
                 ]
             }
         ],
-        youtubeChannels: [
-            { name: "StudyIQ IAS", link: "https://www.youtube.com/@StudyIQIAS" },
-            { name: "Drishti IAS", link: "https://www.youtube.com/@drishtiias" },
-            { name: "Vision IAS", link: "https://www.youtube.com/@VisionIASdelhi" },
-            { name: "Mrunal Patel", link: "https://www.youtube.com/@mrunalorg" },
-            { name: "Sansad TV", link: "https://www.youtube.com/@SansadTV" },
-            { name: "Unacademy UPSC", link: "https://www.youtube.com/@UnacademyUPSC" },
-            { name: "PW OnlyIAS", link: "https://www.youtube.com/@onlyiasnothingelse" },
-            { name: "Insight IAS", link: "https://www.youtube.com/@InsightsIASOfficial" },
-        ],
-        preparationStrategy: [
-            {
-                phase: "Phase 1: Foundation & NCERTs (3-6 Months)",
-                goal: "Build a strong conceptual base and understand the vast syllabus.",
-                actionPoints: [
-                    "Finish basic NCERTs (History, Geography, Polity, Economy) to build a foundation.",
-                    "Start reading a national daily newspaper (The Hindu/Indian Express) to track current affairs.",
-                    "Understand the syllabus thoroughly and analyze Previous Year Questions (PYQs)."
-                ]
-            },
-            {
-                phase: "Phase 2: Core Subjects & Optional (6-9 Months)",
-                goal: "Deep dive into GS papers and complete the Optional subject.",
-                actionPoints: [
-                    "Cover standard reference books like Laxmikanth (Polity) and Spectrum (History).",
-                    "Finalize and complete your Optional subject, as it carries 500 marks in Mains.",
-                    "Start Answer Writing practice for Mains to improve speed and structure."
-                ]
-            },
-            {
-                phase: "Phase 3: Prelims & Mains Revision (Final Stretch)",
-                goal: "Intensive testing, revision, and refinement of presentation.",
-                actionPoints: [
-                    "Solve 50+ Prelims Mock Tests to improve accuracy and elimination skills.",
-                    "Focus on Ethics (GS-4) and Essay writing to boost your overall Mains score.",
-                    "Refine Current Affairs notes for the last 1.5 years and revise static facts repeatedly."
-                ]
-            }
-        ],
-        coachingData: [
-            {
-                name: "Vajiram & Ravi",
-                tagline: "India's Legacy Institute for UPSC CSE",
-                location: "Delhi (Old Rajinder Nagar) & Chennai",
-                courses: ["GS Foundation", "Optional Subjects", "CSAT"],
-                fees: "₹1,50,000 – ₹2,10,000",
-                website: "https://www.vajiramandravi.com"
-            },
-            {
-                name: "Vision IAS",
-                tagline: "The Leader in UPSC Test Series & Study Material",
-                location: "Pan-India (Delhi, Jaipur, Hyderabad, Pune)",
-                courses: ["GS Foundation", "Mains Test Series", "Interview Guidance"],
-                fees: "₹80,000 – ₹1,60,000",
-                website: "https://www.visionias.in"
-            },
-            {
-                name: "Drishti IAS",
-                tagline: "Top Choice for Hindi & English Medium Aspirants",
-                location: "Delhi (Mukherjee Nagar), Prayagraj, Jaipur",
-                courses: ["GS Foundation", "Distance Learning", "Mock Interviews"],
-                fees: "₹60,000 – ₹1,30,000",
-                website: "https://www.drishtiias.com"
-            },
-            {
-                name: "Next IAS",
-                tagline: "Expert Faculty for Comprehensive UPSC Prep",
-                location: "Delhi (Old Rajinder Nagar)",
-                courses: ["GS Foundation", "Optional Subjects", "CSAT"],
-                fees: "₹1,00,000 – ₹1,80,000",
-                website: "https://www.nextias.com"
-            }
-        ],
         coursesData: [
-            { name: "Drishti Learning App Courses", exams: "UPSC CSE, State PCS", features: "Live/Recorded classes, mentorship, daily quiz", feeRange: "₹50,000 – ₹1,00,000", website: "https://www.drishtilearningapp.com" },
-            { name: "PW (Physics Wallah) UPSC", exams: "UPSC CSE", features: "Most affordable, expert faculty, daily current affairs", feeRange: "₹10,000 – ₹35,000", website: "https://www.pw.live/upsc" },
-            { name: "StudyIQ Live Foundation", exams: "UPSC CSE", features: "1-on-1 Mentorship, Answer writing focus, Hindi/English", feeRange: "₹20,000 – ₹35,000", website: "https://www.studyiq.com" },
-            { name: "Unacademy UPSC Plus", exams: "UPSC CSE", features: "Subscription based, multiple educators, flexible learning", feeRange: "₹45,000 – ₹80,000 (Annual)", website: "https://unacademy.com/goal/upsc-civil-services-examination-ias-prelims-mains-gs" },
-            { name: "Sleepy Classes", exams: "UPSC CSE", features: "Subject specific modular courses, affordable price", feeRange: "₹5,000 – ₹25,000", website: "https://sleepyclasses.com" },
+            { name: "Drishti Learning App Courses", exams: "UPSC CSE, State PCS", feeRange: "₹50,000 – ₹1,00,000", website: "https://www.drishtilearningapp.com" },
+            { name: "PW (Physics Wallah) UPSC", exams: "UPSC CSE", feeRange: "₹10,000 – ₹35,000", website: "https://www.pw.live/upsc" },
+            { name: "StudyIQ Live Foundation", exams: "UPSC CSE", feeRange: "₹20,000 – ₹35,000", website: "https://www.studyiq.com" },
+            { name: "Unacademy UPSC Plus", exams: "UPSC CSE", feeRange: "₹45,000 – ₹80,000 (Annual)", website: "https://unacademy.com/goal/upsc-civil-services-examination-ias-prelims-mains-gs" },
+            { name: "Sleepy Classes", exams: "UPSC CSE", feeRange: "₹5,000 – ₹25,000", website: "https://sleepyclasses.com" },
         ],
-    
     },
     {
         title: "Law & Judiciary Preparation Guide",
@@ -795,16 +700,7 @@ export const cardsData = [
                     "Focus on the local language paper (Hindi/Regional) which is often a tie-breaker.",
                     "Take state-specific mock tests to adapt to varying exam patterns."
                 ]
-            },
-            {
-                phase: "Step 1: Bare Act Decoding (Foundation)",
-                goal: "Understand the structure and language of statutes.",
-                actionPoints: [
-                    "Read every section carefully, focusing on 'shall' vs 'may' and essential ingredients.",
-                    "Create flowcharts for procedural laws (CrPC and CPC) to visualize the trial process.",
-                    "Memorize the index of major Bare Acts for quick referencing during exams."
-                ]
-            },
+            }
         ],
         ExamOpportunities: [
             {
@@ -857,7 +753,6 @@ export const cardsData = [
                 name: "Rahul's IAS",
                 tagline: "India's most prestigious academy for Judiciary",
                 location: "Delhi (Mukherjee Nagar & Wazirpur)",
-                courses: ["Judiciary Foundation (English/Hindi)", "UPSC Law Optional"],
                 fees: "₹1,50,000 – ₹2,95,000 (Varies by duration/mode)",
                 website: "https://rahulsias.com"
             },
@@ -865,7 +760,6 @@ export const cardsData = [
                 name: "Judiciary Gold (Toprankers)",
                 tagline: "Leading the Digital Revolution in Law Prep",
                 location: "Bhopal, Indore, Jaipur & Online",
-                courses: ["Comprehensive Foundation", "State-Specific Crash Courses"],
                 fees: "₹60,000 – ₹1,20,000",
                 website: "https://www.toprankers.com"
             },
@@ -873,7 +767,6 @@ export const cardsData = [
                 name: "Ambition Law Institute",
                 tagline: "Structured Coaching for Judicial Services",
                 location: "Delhi (Pitam Pura & Mukherjee Nagar)",
-                courses: ["Regular Classroom Program", "Hybrid & Online Batches"],
                 fees: "₹1,40,000 – ₹2,40,000",
                 website: "https://ambitionlawinstitute.com"
             },
@@ -881,28 +774,140 @@ export const cardsData = [
                 name: "Pahuja Law Academy",
                 tagline: "Specialized Training for Judiciary & APO",
                 location: "Delhi (Mukherjee Nagar)",
-                courses: ["English/Hindi Judiciary", "APO/APP Specialist"],
                 fees: "₹35,000 – ₹1,50,000",
                 website: "https://www.pahujalawacademy.com"
             }
         ],
         coursesData: [
-            { name: "PW Judiciary (Physics Wallah)", exams: "PCS-J, APO, DJS", features: "Most affordable, Hinglish, expert faculty from NLUs", feeRange: "₹10,000 – ₹25,000", website: "https://www.pw.live/judiciary" },
-            { name: "StudyIQ Judiciary Smart Course", exams: "State Judiciary", features: "Recorded & Live lectures, 1-on-1 mentorship", feeRange: "₹20,000 – ₹45,000", website: "https://www.studyiq.com" },
-            { name: "Unacademy Judiciary", exams: "PCS-J", features: "Subscription model, multiple educator access", feeRange: "₹40,000 – ₹70,000", website: "https://unacademy.com" }
+            { name: "PW Judiciary (Physics Wallah)", exams: "PCS-J, APO, DJS", feeRange: "₹10,000 – ₹25,000", website: "https://www.pw.live/judiciary" },
+            { name: "StudyIQ Judiciary Smart Course", exams: "State Judiciary", feeRange: "₹20,000 – ₹45,000", website: "https://www.studyiq.com" },
+            { name: "Unacademy Judiciary", exams: "PCS-J", feeRange: "₹40,000 – ₹70,000", website: "https://unacademy.com" }
         ]
     },
     {
-        image: "bankinggg.svg",
         title: "Banking & Insurance Prep Kit",
-        description: "Practice quantitative, reasoning, and GK sections for IBPS, SBI, LIC, and more with smart tips.",
-        buttonLabel: "Stay Updated",
-        customClass: "style-five",
-        materials: [
-            "Quantitative Aptitude by R.S. Aggarwal",
-            "Reasoning by Arihant",
-            "Banking Awareness by Disha Experts",
-            "Monthly Current Affairs PDFs",
+        description: "Practice quantitative, reasoning, and GK sections for IBPS, SBI, RBI, and LIC exams with structured strategy.",
+        youtubeChannels: [
+            { name: "Wifistudy", link: "https://www.youtube.com/@wifistudy" },
+            { name: "Adda247", link: "https://www.youtube.com/@Adda247" },
+            { name: "StudyIQ Banking", link: "https://www.youtube.com/@StudyIQEducationLtd" },
+            { name: "Oliveboard", link: "https://www.youtube.com/@Oliveboard" },
+            { name: "Testbook", link: "https://www.youtube.com/@testbookdotcom" },
+            { name: "Bank Wallah (PW)", link: "https://www.youtube.com/@PWBanking" },
+            { name: "Career Power", link: "https://www.youtube.com/@CareerPower" },
+        ],
+        preparationStrategy: [
+            {
+                phase: "Phase 1: Foundation & Basics (30 Days)",
+                goal: "Build core speed in Quant, Reasoning, and English fundamentals.",
+                actionPoints: [
+                    "Master calculation shortcuts (tables, squares, cubes) to cut down Quant solving time.",
+                    "Practice Reasoning puzzles and seating arrangements daily, since they carry the highest weightage.",
+                    "Build a daily Banking & Financial Awareness habit using a current affairs digest."
+                ]
+            },
+            {
+                phase: "Phase 2: Sectional Speed & Accuracy (15-30 Days)",
+                goal: "Improve accuracy under strict sectional time limits.",
+                actionPoints: [
+                    "Solve timed sectional tests for Quant and Reasoning to simulate exam pressure.",
+                    "Revise static GK (Banking terms, RBI functions, financial institutions) on a weekly cycle.",
+                    "Work on English grammar and reading comprehension speed for Mains-level papers."
+                ]
+            },
+            {
+                phase: "Phase 3: Mock Marathon & Interview Prep (Final Stretch)",
+                goal: "Peak exam readiness across Prelims, Mains, and Interview stages.",
+                actionPoints: [
+                    "Attempt full-length Prelims and Mains mocks, analyzing accuracy and time per section.",
+                    "Prepare a personal 'Banking Awareness' and current affairs revision sheet for interviews.",
+                    "Practice mock interviews focused on banking scenarios, ethics, and general awareness."
+                ]
+            }
+        ],
+        ExamOpportunities: [
+            {
+                exam: "IBPS PO / Clerk",
+                opportunities: [
+                    "Probationary Officer or Clerk roles across public sector banks nationwide.",
+                    "Structured career growth into Assistant Manager and Branch Manager positions.",
+                    "Job security with pension benefits and periodic pay commission revisions.",
+                    "Exposure to credit, operations, and customer-facing banking functions."
+                ]
+            },
+            {
+                exam: "SBI PO / Clerk",
+                opportunities: [
+                    "Entry into India's largest public sector bank with strong brand value and growth path.",
+                    "Fast-tracked promotions for POs into Scale II/III managerial roles.",
+                    "Opportunities in specialized SBI verticals like Treasury, Credit, and Risk Management.",
+                    "Access to SBI's internal exams for further career acceleration."
+                ]
+            },
+            {
+                exam: "RBI Grade B / RBI Assistant",
+                opportunities: [
+                    "Officer roles at India's central bank, shaping monetary and regulatory policy.",
+                    "Grade B officers work directly on banking supervision, currency management, and research.",
+                    "Among the most prestigious and highest-paying banking sector government roles.",
+                    "Long-term career path toward senior RBI leadership and policy-making positions."
+                ]
+            },
+            {
+                exam: "NABARD Grade A / Grade B",
+                opportunities: [
+                    "Officer roles focused on rural development, agricultural credit, and cooperative banking.",
+                    "Specialist positions in Agriculture, IT, and Rural Development streams.",
+                    "Strong work-life balance with meaningful rural and developmental impact.",
+                    "Career progression into senior policy and regional management roles."
+                ]
+            },
+            {
+                exam: "LIC AAO / LIC ADO",
+                opportunities: [
+                    "Assistant Administrative Officer roles in India's largest life insurance corporation.",
+                    "Development Officer roles focused on agency growth and business development.",
+                    "Stable government-backed career with structured promotions and pension benefits.",
+                    "Opportunities to move into underwriting, actuarial, or administrative leadership tracks."
+                ]
+            }
+        ],
+        coachingData: [
+            {
+                name: "Career Power",
+                tagline: "Established banking & SSC coaching network",
+                location: "Delhi-NCR, Agra, Ahmedabad, Bhopal, Kolkata, Lucknow, Jaipur",
+                fees: "₹20,000 – ₹30,000 (Classroom); Premium batches up to ₹50,000",
+                website: "https://www.careerpower.in/bank-coaching.html"
+            },
+            {
+                name: "Adda247",
+                tagline: "Most trusted online platform for SBI, RBI & IBPS prep",
+                location: "Online (Pan-India)",
+                fees: "₹2,000 – ₹15,000 depending on combo package",
+                website: "https://www.adda247.com"
+            },
+            {
+                name: "Vidya Guru",
+                tagline: "Affordable Delhi-based classroom coaching",
+                location: "Delhi",
+                fees: "₹12,000 – ₹20,000",
+                website: "https://www.vidyaguru.co.in"
+            },
+            {
+                name: "Plutus Academy",
+                tagline: "Budget-friendly online bank exam coaching",
+                location: "Online / Noida",
+                fees: "Approx. ₹9,000",
+                website: "https://plutusacademy.com"
+            }
+        ],
+        coursesData: [
+            { name: "Oliveboard", exams: "IBPS PO/Clerk, SBI PO/Clerk, RBI, NABARD", feeRange: "₹1,500 – ₹10,000 depending on plan", website: "https://www.oliveboard.in" },
+            { name: "Adda247 Bank Maha Pack", exams: "IBPS, SBI, RBI, NABARD, LIC", feeRange: "₹1,999 – ₹6,000 (annual access)", website: "https://www.adda247.com/bank-exam-live-classes-study-kit" },
+            { name: "Physics Wallah Banking", exams: "IBPS, SBI, RBI Assistant", feeRange: "₹2,000 – ₹8,000", website: "https://www.pw.live/banking" },
+            { name: "Testbook Pass Pro", exams: "IBPS, SBI, RBI, NABARD, Insurance exams", feeRange: "₹399 – ₹4,999 depending on duration", website: "https://testbook.com/pass" },
+            { name: "Guidely Banking", exams: "IBPS, SBI, RBI Grade B", feeRange: "₹3,000 – ₹12,000", website: "https://guidely.in" }
         ],
     },
 ];

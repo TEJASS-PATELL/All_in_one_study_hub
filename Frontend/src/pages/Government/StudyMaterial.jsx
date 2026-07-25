@@ -34,16 +34,14 @@ const StudyMaterial = () => {
         <div className="a-hero-content">
           <div className="a-hero-text">
             <h2 className="a-hero-title">Study Material for Various Exams</h2>
-            <p className="a-hero-description">
-              Curated resources and recommended books for each exam preparation path.
-            </p>
+            <div className="title-line"></div>
             <p className="a-category-description">
               Browse through our comprehensive collection of study materials categorized by different government examinations.
             </p>
           </div>
         </div>
       </div>
-      
+
       {cardsData.map((card, index) => (
         <div key={index} className="image-cardd-container">
           <div className="card-section">
@@ -77,7 +75,7 @@ const StudyMaterial = () => {
 
             {card.preparationStrategy && card.preparationStrategy.length > 0 && (
               <div className="toggle-section">
-                <button 
+                <button
                   className={`toggle-button ${openSections[index] === 'strategy' ? 'open' : ''}`}
                   onClick={() => toggleSection(index, "strategy")}
                 >
@@ -91,7 +89,7 @@ const StudyMaterial = () => {
                     {card.preparationStrategy.map((phase, i) => (
                       <li key={i} className="LopportunityItem">
                         <strong>{phase.phase}</strong>
-                        <p style={{ fontSize: '1.05rem', color: '#555', margin: '5px 0 10px 0px' }}>
+                        <p className="LphaseGoal">
                           <em>Goal: {phase.goal}</em>
                         </p>
                         <ul className="subOpportunityList">
@@ -108,7 +106,7 @@ const StudyMaterial = () => {
 
             {card.ExamOpportunities && card.ExamOpportunities.length > 0 && (
               <div className="toggle-section">
-                <button 
+                <button
                   className={`toggle-button ${openSections[index] === 'opportunities' ? 'open' : ''}`}
                   onClick={() => toggleSection(index, "opportunities")}
                 >
@@ -136,7 +134,7 @@ const StudyMaterial = () => {
 
             {card.coachingData && card.coachingData.length > 0 && (
               <div className="toggle-section">
-                <button 
+                <button
                   className={`toggle-button ${openSections[index] === 'coaching' ? 'open' : ''}`}
                   onClick={() => toggleSection(index, "coaching")}
                 >
@@ -153,7 +151,7 @@ const StudyMaterial = () => {
                       <div className="LcoachingLocation"><FaMapMarkerAlt /> {coaching.location}</div>
                       <div className="LcoachingFees">Fees: {coaching.fees}</div>
                       <a href={coaching.website} className="LcoachingWebsite" target="_blank" rel="noopener noreferrer">
-                        <FaExternalLinkAlt /> Visit Website 
+                        <FaExternalLinkAlt /> Visit Website
                       </a>
                     </div>
                   ))}
@@ -163,7 +161,7 @@ const StudyMaterial = () => {
 
             {card.coursesData && card.coursesData.length > 0 && (
               <div className="toggle-section">
-                <button 
+                <button
                   className={`toggle-button ${openSections[index] === 'courses' ? 'open' : ''}`}
                   onClick={() => toggleSection(index, "courses")}
                 >
