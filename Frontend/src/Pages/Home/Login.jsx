@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { ArrowRight, BookOpen, Lock, Unlock } from "lucide-react";
+import { ArrowRight, BookOpen, Lock, Sparkles, Unlock } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { useAuthStore } from "../../store/useAuthStore";
 import "./SignUpLogin.css";
@@ -30,10 +30,10 @@ const LoginPage = () => {
         <div className="auth-form-panel">
           <div className="brand">
             <span className="brand-mark">
-              <BookOpen size={16} strokeWidth={2.5} />
+              <Sparkles size={16} strokeWidth={2.5} />
             </span>
             <span className="brand-name">
-              Study<span className="brand-accent">Hub</span>
+              Study <span className="brand-accent">Hub</span>
             </span>
           </div>
 
