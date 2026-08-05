@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, Loader2, ArrowRight, Unlock, Lock, BookOpen } from "lucide-react";
+import { Eye, EyeOff, Loader2, ArrowRight, Unlock, Lock, BookOpen, Layers, Sparkles } from "lucide-react";
 import { useAuthStore } from "../../store/useAuthStore";
 import toast from "react-hot-toast";
 import "./SignUpLogin.css";
@@ -160,10 +160,10 @@ const SignUpPage = () => {
         <div className="auth-form-panel">
           <div className="brand">
             <span className="brand-mark">
-              <BookOpen size={16} strokeWidth={2.5} />
+              <Sparkles size={16} strokeWidth={2.5} />
             </span>
             <span className="brand-name">
-              Study<span className="brand-accent">Hub</span>
+              Study <span className="brand-accent">Hub</span>
             </span>
           </div>
           <h1>Begin learning today</h1>
