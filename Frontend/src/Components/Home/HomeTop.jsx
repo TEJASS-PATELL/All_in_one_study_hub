@@ -21,7 +21,7 @@ export default function HomeTop() {
                             Start Exploring <FaArrowRight className="btn-icon" />
                         </Link>
                         <a href="#features" className="lbtn lbtn-light">
-                            <FaLightbulb className="btn-icon-left" /> Why Choose Us?
+                             Why Choose Us?
                         </a>
                     </div>
 
