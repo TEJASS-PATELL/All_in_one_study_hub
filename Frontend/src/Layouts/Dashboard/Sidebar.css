@@ -1,212 +1,58 @@
-.dashboard-content {
-  height: 100vh;
-  overflow-y: auto;  
-  width: 100%;
-  background: #ffffff;
-  scrollbar-width: none; 
-  -ms-overflow-style: none; 
+:root {
+  --dashboard-ink: #000000;
+  --dashboard-blue: #0048ff;
+  --dashboard-muted: #687386;
+  --dashboard-canvas: #ffffff;
 }
 
-.dashboard-content::-webkit-scrollbar {
-  display: none;
-}
+.dashboard-container { display: flex; min-height: 100vh; background: var(--dashboard-canvas); }
+.dashboard-content { flex: 1; min-width: 0; height: 100vh; overflow-y: auto; background: var(--dashboard-canvas); scrollbar-color: rgba(0, 72, 255, 0.25) transparent; scrollbar-width: thin; }
+.dashboard-content::-webkit-scrollbar { display: none; }
+.dashboard-content { -ms-overflow-style: none; scrollbar-width: none; }
 
-.dashboard-container {
-  display: flex;
-  background-color: #ffffff;
-}
+.dashboard-sidebar { position: sticky; top: 0; z-index: 20; display: flex; flex: 0 0 262px; flex-direction: column; width: 262px; min-height: 100vh; padding: 24px 14px 20px; overflow: hidden; background: var(--dashboard-ink); color: #ffffff; transition: flex-basis 0.28s ease, width 0.28s ease; }
+.dashboard-sidebar:not(.open) { flex-basis: 82px; width: 82px; }
+.dashboard-brand { display: flex; align-items: center; gap: 10px; min-height: 38px; padding: 0 10px 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); white-space: nowrap; }
+.dashboard-brand-mark { display: grid; flex: 0 0 34px; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--dashboard-blue); color: #ffffff; font-family: "Fraunces", serif; font-size: 1.25rem; font-weight: 800; }
+.dashboard-brand-name { color: #ffffff; font-family: "Fraunces", serif; font-size: 1.3rem; font-weight: 700; }
+.dashboard-brand-name span { color: #6e96ff; }
+.dashboard-user-info { position: relative; margin: 24px 8px 18px; text-align: center; white-space: nowrap; }
+.avatar-upload { display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+.avatar-wrapper { display: grid; place-items: center; width: 68px; height: 68px; border: 1px solid rgba(255, 255, 255, 0.28); border-radius: 50%; background: #1b1e25; }
+.avatar-img { width: 68px; height: 68px; color: #dce5ff; font-size: 4.1rem; }
+.username { overflow: hidden; color: #ffffff; font-size: 1.25rem; font-weight: 700; text-overflow: ellipsis; }
+.user-email, .user-joined { margin: 4px 0 0; overflow: hidden; color: #89909e; font-size: 0.9rem; text-overflow: ellipsis; }
+.user-joined strong { color: #ffffff; }
+.dashboard-nav { display: flex; flex-direction: column; gap: 6px; }
+.dashboard-nav-item { display: flex; align-items: center; gap: 13px; width: 100%; min-height: 44px; padding: 0 13px; border: 0; border-radius: 4px; background: transparent; color: #bfc5d0; cursor: pointer; font-family: inherit; font-size: 0.84rem; text-align: left; text-decoration: none; transition: background 0.2s ease, color 0.2s ease; white-space: nowrap; }
+.dashboard-nav-item svg { flex: 0 0 18px; font-size: 1rem; }
+.dashboard-nav-item:hover, .dashboard-nav-item.active { background: #1d2028; color: #ffffff; }
+.dashboard-nav-item.active { box-shadow: inset 3px 0 0 var(--dashboard-blue); }
+.logout-btn { margin-top: auto; color: #ff0000; }
+.logout-btn:hover, .delete-btn:hover { background: rgba(255, 74, 74, 0.14); color: #ff0000; }
+.delete-btn { color: #ff0000; }
+.dashboard-sidebar:not(.open) .dashboard-brand-name, .dashboard-sidebar:not(.open) .dashboard-user-info p, .dashboard-sidebar:not(.open) .dashboard-nav-item span { display: none; }
+.dashboard-sidebar:not(.open) .dashboard-brand, .dashboard-sidebar:not(.open) .dashboard-nav-item { justify-content: center; }
+.dashboard-sidebar:not(.open) .dashboard-user-info { margin-inline: 0; margin-bottom: 24px; }
+.dashboard-sidebar:not(.open) .avatar-upload { margin-bottom: 0; }
+.dashboard-sidebar:not(.open) .dashboard-nav-item { padding-inline: 0; }
 
-.dashboard-sidebar {
-  width: 280px;
-  background-color: #000000;
-  color: #ffffff;
-  padding: 2rem 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
+.mobile-menu-icon { position: fixed; top: 22px; left: 18px; z-index: 50; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 4px; background: var(--dashboard-ink); color: #ffffff; cursor: pointer; }
+.sidebar-overlay { display: none; }
 
-.dashboard-logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-align: center;
-  letter-spacing: 1px;
-  color: #ffffff;
-}
-
-.dashboard-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.dashboard-nav-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: #ffffff;
-  transition: background-color 0.3s;
-}
-
-.dashboard-nav-item:hover,
-.dashboard-nav-item.active {
-  background-color: #333333;
-}
-
-.logout-btn {
-  border: none;
-  color: rgb(255, 0, 0);
-  background-color: rgb(255, 255, 255);
-}
-
-.logout-btn:hover{
-  background-color: white;
-}
-
-.delete-btn {
-  border: none;
-  background-color: red;
-}
-
-.delete-btn:hover{
-  background-color: #ff0000;
-}
-
-.dashboard-user-info {
-  background: transparent;
-  position: relative;
-  text-align: center;
-  margin: 20px;
-}
-
-.avatar-upload {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.avatar-wrapper {
-  position: relative;
-  width: 130px;
-  height: 130px;
-}
-
-.avatar-img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #e5e7eb;
-}
-
-.username {
-  color: white;
-  font-weight: bold;
-  font-size: 1.5rem;
-}
-
-.user-email {
-  font-size: 1.2rem;
-  color: #ccc;
-  margin: 2px 0;
-}
-
-.user-joined {
-  font-size: 1rem;
-  color: #ccc;
-}
-
-.user-joined strong {
-  color: rgb(255, 255, 255);
-}
-
-.close-modal {
-  margin-top: 15px;
-  background: #000000;
-  color: #eeeeee;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.mobile-menu-icon {
-  display: none;
-  position: fixed;
-  top: 10px;
-  left: 5px;
-  z-index: 1100;
-  background: rgb(0, 0, 0);
-  color: #ffffff;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+@media (min-width: 769px) {
+  .mobile-menu-icon { top: 20px; width: 28px; height: 28px; border: 0; background: transparent; color: #89909e; }
+  .mobile-menu-icon.expanded { left: 223px; }
+  .mobile-menu-icon.collapsed { left: 50px; }
 }
 
 @media (max-width: 768px) {
-  .mobile-menu-icon {
-    display: block; 
-  }
-
-  .sidebar-overlay {
-    display: block; 
-  }
-
-  .dashboard-sidebar {
-    position: fixed;
-    left: -280px; 
-    top: 0;
-    height: 100vh;
-    z-index: 1000;
-    transition: left 0.3s ease-in-out;
-  }
-
-  .dashboard-sidebar.open {
-    left: 0; 
-  }
-
-  .dashboard-container {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  .dashboard-sidebar {
-    width: 250px;
-  }
-  .avatar-upload{
-    display: none;
-  }
-  .username { font-size: 1.2rem; }
-  .user-email { font-size: 0.85rem; }
+  .dashboard-sidebar, .dashboard-sidebar:not(.open) { position: fixed; top: 0; bottom: 0; left: 0; flex-basis: 262px; width: 262px; min-height: 100dvh; transform: translateX(-100%); transition: transform 0.28s ease; }
+  .dashboard-sidebar.open { transform: translateX(0); }
+  .dashboard-sidebar:not(.open) .dashboard-brand-name, .dashboard-sidebar:not(.open) .dashboard-user-info p, .dashboard-sidebar:not(.open) .dashboard-nav-item span { display: block; }
+  .dashboard-sidebar:not(.open) .dashboard-brand, .dashboard-sidebar:not(.open) .dashboard-nav-item { justify-content: flex-start; }
+  .dashboard-sidebar:not(.open) .dashboard-user-info { margin: 24px 8px 18px; }
+  .dashboard-sidebar:not(.open) .avatar-upload { margin-bottom: 14px; }
+  .dashboard-sidebar:not(.open) .dashboard-nav-item { padding-inline: 13px; }
+  .sidebar-overlay { position: fixed; inset: 0; z-index: 19; display: block; background: rgba(8, 9, 11, 0.58); backdrop-filter: blur(3px); }
 }

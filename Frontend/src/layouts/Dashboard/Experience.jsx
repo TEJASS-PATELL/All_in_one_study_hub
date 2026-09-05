@@ -67,30 +67,36 @@ const Experience = () => {
 
   return (
     <div className="discussion-container">
-      <span className="G-cat-eyebrow">Category Filter</span>
-      <h1 className="discussion-title">Share Your Job/Exam Experience</h1>
-      <div className="title-line"></div>
-      <p className="discussion-description">
-        Help others by sharing your real-life job interviews or exam experiences.
-        Your story could guide someone on the same path!
-      </p>
+      <header className="discussion-hero">
+        <div>
+          <span className="discussion-kicker">Community stories</span>
+          <h1 className="discussion-title">Real paths. <span>Useful lessons.</span></h1>
+          <p className="discussion-description">
+            Explore job and exam experiences from people preparing for the same next step.
+          </p>
+        </div>
+        <div className="discussion-hero-note">
+          <span>02 Share what you learned</span>
+          <strong>One experience can shorten someone else's journey.</strong>
+        </div>
+      </header>
 
-      <input
-        type="text"
-        placeholder="Search by name, company, exam, etc."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="discussion-search-input" />
+      <div className="discussion-toolbar">
+        <input
+          type="text"
+          placeholder="Search name, company, exam..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="discussion-search-input" />
 
-      {!userHasPosted ? (
-        <button onClick={() => setOpen(true)} className="discussion-button">
-          Share Experience
-        </button>
-      ) : (
-        <p className="discussion-status">
-          You have already posted your experience.
-        </p>
-      )}
+        {!userHasPosted ? (
+          <button onClick={() => setOpen(true)} className="discussion-button">
+            Share Experience
+          </button>
+        ) : (
+          <p className="discussion-status">Your experience is already published.</p>
+        )}
+      </div>
 
       {open && (
         <div className="discussion-popup">
@@ -158,7 +164,13 @@ const Experience = () => {
         </div>
       )}
 
-      <div className="discussion-list">
+      <div className="discussion-list" aria-live="polite">
+        {filteredExperiences.length === 0 && (
+          <div className="discussion-empty">
+            <strong>No experiences found</strong>
+            <span>Try a different search or be the first to share yours.</span>
+          </div>
+        )}
         {filteredExperiences.map((exp) => (
           <div key={exp.id} className="discussion-card">
             <div className="discussion-card-header">

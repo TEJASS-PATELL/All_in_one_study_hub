@@ -230,3 +230,19 @@ form {
     margin-top: 0px;
   }
 }
+
+/* Dashboard theme */
+.todo-main-section { max-width: 1240px; padding: 42px clamp(1rem, 4vw, 3.5rem) 72px; }
+.dashboard-card { padding: clamp(24px, 4vw, 40px); border: 1px solid #dfe5ee; border-radius: 4px; background: #ffffff; box-shadow: 8px 8px 0 rgba(0, 72, 255, 0.06); }
+.dashboard-card h3 { color: #08090b; font-family: "Fraunces", serif; }
+.todo-subtitle, .todo-count-text { color: #687386; }
+.todo-form { display: flex; gap: 10px; margin: 1.5rem 0; }
+.todo-input { border-color: #dfe5ee; border-radius: 3px; background: #fbfcfe; }
+.todo-input:focus { border-color: #0048ff; outline: 2px solid rgba(0, 72, 255, 0.1); }
+.todo-add-btn { border-radius: 2px; background: #08090b; transition: background 0.2s ease, transform 0.2s ease; }
+.todo-add-btn:hover { background: #0048ff; transform: translateY(-2px); }
+.todo-item { border: 1px solid #e7ebf2; border-radius: 3px; background: #fbfcfe; }
+.todo-text { color: #08090b; }
+.todo-complete-btn { color: #0048ff; }
+.todo-delete-btn { color: #ef4444; }
+.clear-all-btn { border-radius: 2px; background: #0048ff; }

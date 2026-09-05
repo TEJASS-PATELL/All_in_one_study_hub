@@ -234,3 +234,34 @@
     gap: 15px;
   }
 }
+
+/* Dashboard theme */
+.profile-page-main {
+  max-width: 1240px;
+  padding: 42px clamp(1rem, 4vw, 3.5rem) 72px;
+  color: #08090b;
+}
+
+.profile-page-card,
+.timeline-content {
+  border: 1px solid #dfe5ee;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 8px 8px 0 rgba(0, 72, 255, 0.06);
+}
+
+.profile-page-card { padding: clamp(24px, 4vw, 40px); }
+.profile-form-group label { color: #08090b; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.profile-form-group input, .profile-form-group select, .profile-form-group textarea { border-color: #dfe5ee; border-radius: 3px; background: #fbfcfe; }
+.profile-form-group input:focus, .profile-form-group select:focus, .profile-form-group textarea:focus { border-color: #0048ff; box-shadow: 0 0 0 3px rgba(0, 72, 255, 0.1); }
+.profile-submit-button { border-radius: 2px; background: #08090b; }
+.roadmap-view { gap: 30px; }
+.roadmap-header h1, .step-title { font-family: "Fraunces", serif; }
+.roadmap-header-icon { color: #0048ff; }
+.timeline::after { width: 2px; background: #dfe5ee; }
+.timeline-content { padding: 24px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.timeline-content:hover { box-shadow: 12px 14px 0 rgba(0, 72, 255, 0.1); }
+.step-number { border-radius: 2px; background: rgba(0, 72, 255, 0.08); color: #0048ff; }
+.step-description, .step-extra p { color: #687386; }
+.step-extra { border-color: #dfe5ee; }
+.step-extra strong { color: #08090b; }

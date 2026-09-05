@@ -8,7 +8,6 @@ import "./SignUpLogin.css";
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [rememberMe, setRememberMe] = useState(true);
   const [formData, setFormData] = useState({ email: "", password: "" });
 
   const { login, isLoading } = useAuthStore();

@@ -6,7 +6,7 @@ import "./Sidebar.css";
 
 const Sidebar = () => {
   const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const { authUser: user, logout, deleteAccount } = useAuthStore();
 
   const handleLogout = () => {
@@ -25,18 +25,19 @@ const Sidebar = () => {
 
   return (
     <>
-      <button className="mobile-menu-icon" onClick={toggleSidebar}>
+      <button className={`mobile-menu-icon ${isOpen ? "expanded" : "collapsed"}`} onClick={toggleSidebar} aria-label={isOpen ? "Collapse sidebar" : "Open sidebar"}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
 
       <aside className={`dashboard-sidebar ${isOpen ? "open" : ""}`}>
+        
         <div className="dashboard-user-info">
           <div className="avatar-upload">
             <div className="avatar-wrapper">
               <FaUserCircle className="avatar-img" />
             </div>
           </div>
-          <p className="username">{user?.name}</p>
+          <p className="username">{user?.name || "Learner"}</p>
           <p className="user-email">{user?.email}</p>
           <p className="user-joined">
             <strong>Joined: </strong>
@@ -45,20 +46,20 @@ const Sidebar = () => {
         </div>
 
         <nav className="dashboard-nav">
-          <NavLink to="/" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaHome /> Home</NavLink>
+          <NavLink to="/" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaHome /><span>Home</span></NavLink>
           <NavLink to="/dashboard" className="dashboard-nav-item" onClick={() => setIsOpen(false)}>
-            <FaClipboardCheck />Daily-Task</NavLink>
+            <FaClipboardCheck /><span>Daily Task</span></NavLink>
           <NavLink to="/dashboard/roadmap" className="dashboard-nav-item" onClick={() => setIsOpen(false)}>
-            <FaMapSigns /> Roadmap</NavLink>
+            <FaMapSigns /><span>Roadmap</span></NavLink>
           <NavLink to="/dashboard/experience" className="dashboard-nav-item" onClick={() => setIsOpen(false)}>
-            <FaBriefcase /> Experience</NavLink>
-          <NavLink to="/dashboard/chatroom" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaPaperPlane /> ChatRoom</NavLink>
-          <NavLink to="/dashboard/ai-interview" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaRobot /> AI-Interview</NavLink>
+            <FaBriefcase /><span>Experience</span></NavLink>
+          <NavLink to="/dashboard/chatroom" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaPaperPlane /><span>ChatRoom</span></NavLink>
+          <NavLink to="/dashboard/ai-interview" className="dashboard-nav-item" onClick={() => setIsOpen(false)}><FaRobot /><span>AI Interview</span></NavLink>
           <button className="dashboard-nav-item logout-btn" onClick={handleLogout}>
-            <FaSignOutAlt /> Logout
+            <FaSignOutAlt /><span>Logout</span>
           </button>
           <button className="dashboard-nav-item delete-btn" onClick={handleDelete}>
-            <FaTrash /> Delete Account
+            <FaTrash /><span>Delete Account</span>
           </button>
         </nav>
       </aside>
