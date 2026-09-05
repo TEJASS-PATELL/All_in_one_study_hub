@@ -1,21 +1,27 @@
 import express from "express";
+import { createServer } from "http";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 import passport from "./config/passport.js";
-import { warmUpGovernmentSection } from './controllers/exam.controller.js';
-import { warmUpDiscussionsSection } from './controllers/discussion.controller.js';
-import { warmUpPrivateSection } from './controllers/privatejob.controller.js';
+import { warmUpGovernmentSection } from "./controllers/exam.controller.js";
+import { warmUpDiscussionsSection } from "./controllers/discussion.controller.js";
+import { warmUpPrivateSection } from "./controllers/privatejob.controller.js";
 import authRoutes from "./routes/auth.route.js";
-import compression from 'compression';
+import compression from "compression";
 import discussionRoutes from "./routes/discussion.route.js";
 import examRoutes from "./routes/exam.route.js";
 import roadmapRoutes from "./routes/roadmap.route.js";
 import chatbotRoutes from "./routes/chatbot.route.js";
+import { initSocket } from "./socket.js";
 
 dotenv.config();
 
 const app = express();
+
+const httpServer = createServer(app);
+
+initSocket(httpServer);
 
 app.use(
   cors({
@@ -25,25 +31,36 @@ app.use(
 );
 
 app.use(express.json());
+
 app.use(cookieParser());
+
 app.use(compression());
+
 app.use(passport.initialize());
 
 app.use("/api/auth", authRoutes);
+
 app.use("/api/discussion", discussionRoutes);
+
 app.use("/api/exam", examRoutes);
+
 app.use("/api/chat", chatbotRoutes);
+
 app.use("/api/roadmap", roadmapRoutes);
 
 app.use((req, res) => {
-  res.status(404).json({ success: false, message: "Route not found" });
+  res.status(404).json({
+    success: false,
+    message: "Route not found",
+  });
 });
 
 const PORT = process.env.PORT || 4001;
-app.listen(PORT, () => {
+
+httpServer.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
+
   warmUpGovernmentSection();
   warmUpPrivateSection();
   warmUpDiscussionsSection();
 });
-
