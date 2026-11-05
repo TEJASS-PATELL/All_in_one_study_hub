@@ -22,7 +22,7 @@ const LoginPage = () => {
 
   const handleDemoLogin = async () => {
     if (await demoLogin()) {
-      navigate("/");
+      navigate("/dashboard", { replace: true });
     }
   };
 
