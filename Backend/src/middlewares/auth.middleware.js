@@ -12,13 +12,29 @@ const authentication = async (req, res, next) => {
     return res.status(401).json({ success: false, message: "Authentication token missing." });
   }
 
-  const memoryUser = tokenCache.get(token);
-  if (memoryUser) {
-    req.user = memoryUser;
-    return next();
-  }
-
   try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    if (decoded?.demo === true && decoded.userid === -1) {
+      req.user = {
+        userid: 0,
+        name: decoded.name,
+        email: decoded.email,
+        isDemo: true,
+      };
+      return next();
+    }
+
+    if (!decoded?.userid) {
+      return res.status(401).json({ success: false, message: "Invalid token payload." });
+    }
+
+    const memoryUser = tokenCache.get(token);
+    if (memoryUser) {
+      req.user = memoryUser;
+      return next();
+    }
+
     const redisUser = await cacheClient.get(`auth:${token}`);
     if (redisUser) {
       const parsed = JSON.parse(redisUser);
@@ -27,13 +43,7 @@ const authentication = async (req, res, next) => {
       return next();
     }
 
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-    if (!decoded?.userid) {
-      return res.status(401).json({ success: false, message: "Invalid token payload." });
-    }
-
-    const userPayload = { userid: decoded.userid, isDemo: decoded.demo === true };
+    const userPayload = { userid: decoded.userid, isDemo: false };
 
     tokenCache.set(token, userPayload);
     await cacheClient.set( `auth:${token}`, JSON.stringify(userPayload), "EX", REDIS_TTL);

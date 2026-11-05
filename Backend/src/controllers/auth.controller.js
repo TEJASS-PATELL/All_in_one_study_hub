@@ -7,10 +7,20 @@ import cacheClient from "../services/cacheClient.js";
 import { prisma } from "../lib/prisma.js";
 
 const JWT_SECRET = process.env.JWT_SECRET;
-const DEMO_EMAIL = "demo.user@studyhub.demo";
+const DEMO_USER = {
+  id: -1,
+  name: "Study Hub Demo",
+  email: "demo.user@studyhub.demo",
+  isAccountVerified: true,
+  isDemo: true,
+};
 
 const generateToken = (userid) => jwt.sign({ userid }, JWT_SECRET, { expiresIn: "7d" });
-const generateDemoToken = (userid) => jwt.sign({ userid, demo: true }, JWT_SECRET, { expiresIn: "7d" });
+const generateDemoToken = () => jwt.sign(
+  { userid: DEMO_USER.id, demo: true, name: DEMO_USER.name, email: DEMO_USER.email },
+  JWT_SECRET,
+  { expiresIn: "7d" }
+);
 
 const cookieOptions = {
   httpOnly: true,
@@ -54,28 +64,10 @@ export const demoLogin = async (_req, res) => {
   }
 
   try {
-    const user = await prisma.user.upsert({
-      where: { email: DEMO_EMAIL },
-      update: { name: "Study Hub Demo", isAccountVerified: true },
-      create: {
-        name: "Study Hub Demo",
-        email: DEMO_EMAIL,
-        password: await bcrypt.hash(crypto.randomBytes(32).toString("hex"), 10),
-        isAccountVerified: true,
-      },
-    });
-
-    await cacheClient.del(`user:${user.id}`);
-    const token = generateDemoToken(user.id);
+    const token = generateDemoToken();
     res.cookie("token", token, cookieOptions).json({
       success: true,
-      user: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-        isAccountVerified: true,
-        isDemo: true,
-      },
+      user: DEMO_USER,
     });
   } catch (err) {
     console.error("Demo login failed:", err);
@@ -91,7 +83,7 @@ export const signup = async (req, res) => {
       return res.status(400).json({ success: false, message: "All fields required" });
 
     const cleanEmail = email.trim().toLowerCase();
-    if (cleanEmail === DEMO_EMAIL) {
+    if (cleanEmail === DEMO_USER.email) {
       return res.status(400).json({ success: false, message: "This email address is reserved." });
     }
 
@@ -144,6 +136,10 @@ export const signup = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
+    if (req.user.isDemo) {
+      return res.clearCookie("token", { ...cookieOptions, maxAge: 0 }).json({ msg: "Logged out successfully" });
+    }
+
     const userId = req.user.userid;
     const userCacheKey = `user:${userId}`;
 
@@ -157,6 +153,14 @@ export const logout = async (req, res) => {
 };
 
 export const getuser = async (req, res) => {
+  if (req.user.isDemo) {
+    return res.status(200).json({
+      ...DEMO_USER,
+      name: req.user.name || DEMO_USER.name,
+      email: req.user.email || DEMO_USER.email,
+    });
+  }
+
   const userId = req.user.userid;
   const cacheKey = `user:${userId}`;
   const isDemo = req.user.isDemo === true;
@@ -188,12 +192,13 @@ export const getuser = async (req, res) => {
 
 export const deleteAccount = async (req, res) => {
   try {
+    if (req.user?.isDemo) {
+      return res.status(403).json({ msg: "Demo accounts cannot be deleted." });
+    }
+
     const userId = req.user?.userid;
     if (!userId) {
       return res.status(401).json({ msg: "Unauthorized" });
-    }
-    if (req.user.isDemo) {
-      return res.status(403).json({ msg: "Demo accounts cannot be deleted." });
     }
 
     await prisma.user.delete({ where: { id: userId } });
