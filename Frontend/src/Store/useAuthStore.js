@@ -4,34 +4,56 @@ import toast from "react-hot-toast";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 axios.defaults.withCredentials = true;
+axios.defaults.timeout = 60_000;
+
+let authCheckVersion = 0;
+
+const getRequestErrorMessage = (error, fallback) => {
+  if (error?.code === "ECONNABORTED") {
+    return "The request timed out. Please try again.";
+  }
+  return error?.response?.data?.message || error?.response?.data?.msg || fallback;
+};
 
 export const useAuthStore = create((set) => ({
   authUser: null,
-  isLoading: true,
+  isLoading: false,
+  isAuthChecking: true,
   isAuthenticated: false,
   isEmailVerify: false,
   isDemo: false,
   isPasswordReset: false,
 
   fetchUser: async () => {
+    const requestVersion = ++authCheckVersion;
+    set({ isAuthChecking: true });
+
     try {
       const res = await axios.get("/api/auth/getuser");
       const user = res.data;
-      set({
-        authUser: user,
-        isAuthenticated: true,
-        isLoading: false,
-        isEmailVerify: user.isAccountVerified,
-        isDemo: user.isDemo === true,
-      });
+      if (requestVersion === authCheckVersion) {
+        set({
+          authUser: user,
+          isAuthenticated: true,
+          isEmailVerify: user.isAccountVerified,
+          isDemo: user.isDemo === true,
+        });
+      }
     } catch {
-      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });
+      if (requestVersion === authCheckVersion) {
+        set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false });
+      }
+    } finally {
+      if (requestVersion === authCheckVersion) {
+        set({ isAuthChecking: false });
+      }
     }
   },
 
   login: async ({ email, password }) => {
+    ++authCheckVersion;
     try {
-      set({ isLoading: true });
+      set({ isLoading: true, isAuthChecking: false });
 
       const res = await axios.post("/api/auth/login", { email, password });
       const user = res.data?.user || res.data;
@@ -40,7 +62,6 @@ export const useAuthStore = create((set) => ({
         set({
           authUser: user,
           isAuthenticated: true,
-          isLoading: false,
           isEmailVerify: user.isAccountVerified,
           isDemo: false,
         });
@@ -50,15 +71,17 @@ export const useAuthStore = create((set) => ({
         throw new Error("Invalid login response");
       }
     } catch (err) {
-      toast.error(err?.response?.data?.msg || "Login failed");
-      set({ isLoading: false });
+      toast.error(getRequestErrorMessage(err, "Login failed"));
       return false;
+    } finally {
+      set({ isLoading: false });
     }
   },
 
   demoLogin: async () => {
+    ++authCheckVersion;
     try {
-      set({ isLoading: true });
+      set({ isLoading: true, isAuthChecking: false });
       const res = await axios.post("/api/auth/demo");
       const user = res.data?.user;
 
@@ -69,14 +92,14 @@ export const useAuthStore = create((set) => ({
         isAuthenticated: true,
         isEmailVerify: true,
         isDemo: true,
-        isLoading: false,
       });
       toast.success("Demo session started");
       return true;
     } catch (err) {
-      toast.error(err?.response?.data?.message || "Unable to start demo session");
-      set({ isLoading: false });
+      toast.error(getRequestErrorMessage(err, "Unable to start demo session"));
       return false;
+    } finally {
+      set({ isLoading: false });
     }
   },
 
@@ -94,12 +117,10 @@ export const useAuthStore = create((set) => ({
         };
       }
 
-      toast.error(res.data.message);
-      return { success: false };
+      return { success: false, message: res.data.message || "Signup failed" };
 
     } catch (err) {
-      toast.error(err?.response?.data?.message || "Signup failed");
-      return { success: false };
+      return { success: false, message: getRequestErrorMessage(err, "Signup failed") };
     } finally {
       set({ isLoading: false });
     }
@@ -122,8 +143,9 @@ export const useAuthStore = create((set) => ({
   },
 
   verifyOtp: async (otp, email) => {
+    ++authCheckVersion;
     try {
-      set({ isLoading: true });
+      set({ isLoading: true, isAuthChecking: false });
 
       const res = await axios.post("/api/auth/verify-account", { otp, email });
 
@@ -133,7 +155,6 @@ export const useAuthStore = create((set) => ({
           isAuthenticated: true,
           isEmailVerify: res.data.user.isAccountVerified,
           isDemo: false,
-          isLoading: false,
         });
         toast.success("Email verified successfully!");
         return true;
@@ -152,8 +173,9 @@ export const useAuthStore = create((set) => ({
   },
 
   logout: async () => {
+    ++authCheckVersion;
     try {
-      set({ isLoading: true });
+      set({ isLoading: true, isAuthChecking: false });
       await axios.get("/api/auth/logout");
       set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });
       toast.success("Logged out successfully");
@@ -164,6 +186,7 @@ export const useAuthStore = create((set) => ({
   },
 
   deleteAccount: async () => {
+    ++authCheckVersion;
     try {
       await axios.delete("/api/auth/delete-account");
       set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });

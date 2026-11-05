@@ -45,10 +45,8 @@ const SignUpPage = () => {
         password: form.password,
       });
 
-      console.log("Signup Response:", result);
-
       if (result?.success && result?.redirectToVerify) {
-        localStorage.setItem("verifyEmail", form.email);
+        localStorage.setItem("verifyEmail", form.email.trim());
         toast.success(result.message);
         navigate("/verify-account");
       } else if (result?.success) {
@@ -58,8 +56,7 @@ const SignUpPage = () => {
         toast.error(result.message || "Signup failed");
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong!");
+      toast.error(error?.message || "Something went wrong. Please try again.");
     }
   };
 
