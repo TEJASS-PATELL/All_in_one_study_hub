@@ -52,7 +52,7 @@ export const useDiscussionStore = create((set, get) => ({
       await axios.delete(`/api/discussion/${id}/delete`);
       toast.success("Deleted successfully.");
       get().fetchDiscussions(userId);
-    } catch (err) {
+    } catch {
       toast.error("Delete failed.");
     }
   },

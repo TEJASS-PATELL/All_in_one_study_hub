@@ -1,8 +1,8 @@
+import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import * as dotenv from "dotenv";
 import passport from "./config/passport.js";
 import { warmUpGovernmentSection } from "./controllers/exam.controller.js";
 import { warmUpDiscussionsSection } from "./controllers/discussion.controller.js";
@@ -14,8 +14,6 @@ import examRoutes from "./routes/exam.route.js";
 import roadmapRoutes from "./routes/roadmap.route.js";
 import chatbotRoutes from "./routes/chatbot.route.js";
 import { initSocket } from "./socket.js";
-
-dotenv.config();
 
 const app = express();
 
