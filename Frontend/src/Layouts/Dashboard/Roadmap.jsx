@@ -19,7 +19,7 @@ export default function Roadmap() {
 
   useEffect(() => {
     fetchRoadmap();
-  }, []);
+  }, [fetchRoadmap]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

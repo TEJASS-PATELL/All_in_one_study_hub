@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './Motivation.css';
 
 const quotes = [
@@ -14,7 +14,7 @@ const Motivation = () => {
   const [quote, setQuote] = useState(quotes[0]);
   const [fade, setFade] = useState(false);
 
-  const getNewQuote = () => {
+  const getNewQuote = useCallback(() => {
     let newQuote;
     do {
       const random = Math.floor(Math.random() * quotes.length);
@@ -25,12 +25,12 @@ const Motivation = () => {
       setQuote(newQuote);
       setFade(true); 
     }, 50); 
-  };
+  }, [quote]);
 
   useEffect(() => {
     const interval = setInterval(getNewQuote, 10000);
     return () => clearInterval(interval);
-  }, [quote]);
+  }, [getNewQuote]);
 
   return (
     <div className="inspiration-body">

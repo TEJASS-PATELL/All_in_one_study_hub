@@ -19,7 +19,7 @@ export default function VerifyAccount() {
       toast.error("No email found. Please signup again.");
       navigate("/signup");
     }
-  }, []);
+  }, [email, navigate]);
 
   const handleVerify = async () => {
     if (otp.length !== 6) return toast.error("Enter valid 6-digit OTP");

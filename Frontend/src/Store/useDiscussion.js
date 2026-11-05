@@ -41,7 +41,7 @@ export const useDiscussionStore = create((set, get) => ({
         toast.error("Something went wrong.");
       }
     } catch (err) {
-      toast.error(err.response?.data?.message || "Failed to submit.");
+      toast.error(err?.response?.data?.message || "Failed to submit.");
     }
   },
 

@@ -2,7 +2,6 @@ import React from "react";
 import { lazy } from "react";
 import LoginPage from "../pages/Home/Login";
 import SignUpPage from "../pages/Home/Signup";
-const Discussion = lazy(() => import("../layouts/Dashboard/Experience"));
 const GovJobSearch = lazy(() => import("../pages/Government/GovJobSearch"));
 const PrivateJobSearch = lazy(() => import("../pages/Private/PrivateJobSearch"));
 const ITJobsearch = lazy(() => import("../pages/IT/ITJobsearch"));
