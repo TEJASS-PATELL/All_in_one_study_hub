@@ -68,6 +68,7 @@ export const initSocket = (httpServer) => {
 
       const message = {
         id: `${Date.now()}-${socket.id}`,
+        senderId: socket.id,
         sender: socket.data.anonymousName,
         text: cleanText,
         createdAt: Date.now(),

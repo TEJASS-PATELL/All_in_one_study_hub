@@ -10,13 +10,20 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
 
-  const { login, isLoading } = useAuthStore();
+  const { login, demoLogin, isLoading } = useAuthStore();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await login({ email: formData.email, password: formData.password });
-    navigate("/");
+    if (await login({ email: formData.email, password: formData.password })) {
+      navigate("/");
+    }
+  };
+
+  const handleDemoLogin = async () => {
+    if (await demoLogin()) {
+      navigate("/");
+    }
   };
 
   const handleGoogleLogin = () => {
@@ -84,6 +91,16 @@ const LoginPage = () => {
         <div className="hub-divider">
           <span>or</span>
         </div>
+
+        <button
+          type="button"
+          onClick={handleDemoLogin}
+          className="hub-demo"
+          disabled={isLoading}
+        >
+          <Sparkles size={17} />
+          {isLoading ? "Starting demo..." : "Explore with demo account"}
+        </button>
 
         <button onClick={handleGoogleLogin} className="hub-google">
           <FcGoogle size={18} />

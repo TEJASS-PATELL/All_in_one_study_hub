@@ -128,6 +128,22 @@
 .live-chat-form button:disabled { cursor: not-allowed; opacity: 0.4; }
 .chat-disclaimer { display: block; margin-top: 11px; color: #9aa3b1; font-size: 0.68rem; }
 
+.chatroom-page { max-width: 980px; margin: 0 auto; padding: 34px clamp(1rem, 4vw, 3.5rem) 72px; }
+.chat-page-topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.chat-back-button { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: #687386; cursor: pointer; font: inherit; font-size: 0.8rem; }
+.chat-back-button:hover { color: #0048ff; }
+.chat-page-status { display: inline-flex; align-items: center; gap: 7px; color: #687386; font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; text-transform: uppercase; }
+.chat-page-status i { width: 7px; height: 7px; border-radius: 50%; background: #0048ff; }
+.chat-page-status i.connecting { background: #c49a1a; }
+.chat-page-status i.offline { background: #d64545; }
+.chat-page-panel { max-width: none; margin: 0; }
+.live-chat-header h1 { margin: 7px 0 6px; color: #08090b; font-family: "Fraunces", serif; font-size: clamp(1.8rem, 4vw, 2.7rem); }
+.chat-page-messages { min-height: min(58vh, 500px); max-height: min(58vh, 500px); }
+.message-mine { align-self: flex-end; margin-left: auto; border-right: 3px solid #0048ff; border-left: 0; background: #08090b; }
+.message-mine .live-message-meta, .message-mine .live-message-meta span, .message-mine p { color: #ffffff; }
+.message-mine .live-message-meta span { color: #9fa9ba; }
+.message-theirs { align-self: flex-start; margin-right: auto; }
+
 @media (max-width: 900px) {
   .rooms-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .room-card:nth-child(2) { margin-top: 0; }
@@ -144,4 +160,5 @@
   .leave-button { align-self: flex-start; }
   .live-message { max-width: 92%; }
   .live-chat-form button { padding-inline: 14px; }
+  .chatroom-page { padding-top: 24px; }
 }

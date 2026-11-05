@@ -10,15 +10,22 @@ export const useAuthStore = create((set) => ({
   isLoading: true,
   isAuthenticated: false,
   isEmailVerify: false,
+  isDemo: false,
   isPasswordReset: false,
 
   fetchUser: async () => {
     try {
       const res = await axios.get("/api/auth/getuser");
       const user = res.data;
-      set({ authUser: user, isAuthenticated: true, isLoading: false, isEmailVerify: user.isAccountVerified });
-    } catch (err) {
-      set({ authUser: null, isAuthenticated: false, isLoading: false });
+      set({
+        authUser: user,
+        isAuthenticated: true,
+        isLoading: false,
+        isEmailVerify: user.isAccountVerified,
+        isDemo: user.isDemo === true,
+      });
+    } catch {
+      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });
     }
   },
 
@@ -30,14 +37,46 @@ export const useAuthStore = create((set) => ({
       const user = res.data?.user || res.data;
 
       if (user) {
-        set({ authUser: user, isAuthenticated: true, isLoading: false, isEmailVerify: user.isAccountVerified});
+        set({
+          authUser: user,
+          isAuthenticated: true,
+          isLoading: false,
+          isEmailVerify: user.isAccountVerified,
+          isDemo: false,
+        });
         toast.success("Login successful");
+        return true;
       } else {
         throw new Error("Invalid login response");
       }
     } catch (err) {
       toast.error(err?.response?.data?.msg || "Login failed");
       set({ isLoading: false });
+      return false;
+    }
+  },
+
+  demoLogin: async () => {
+    try {
+      set({ isLoading: true });
+      const res = await axios.post("/api/auth/demo");
+      const user = res.data?.user;
+
+      if (!user) throw new Error("Invalid demo login response");
+
+      set({
+        authUser: user,
+        isAuthenticated: true,
+        isEmailVerify: true,
+        isDemo: true,
+        isLoading: false,
+      });
+      toast.success("Demo session started");
+      return true;
+    } catch (err) {
+      toast.error(err?.response?.data?.message || "Unable to start demo session");
+      set({ isLoading: false });
+      return false;
     }
   },
 
@@ -89,7 +128,13 @@ export const useAuthStore = create((set) => ({
       const res = await axios.post("/api/auth/verify-account", { otp, email });
 
       if (res.data.success) {
-        set({ authUser: res.data.user ,isAuthenticated: true, isEmailVerify: res.data.user.isAccountVerified, isLoading: false});
+        set({
+          authUser: res.data.user,
+          isAuthenticated: true,
+          isEmailVerify: res.data.user.isAccountVerified,
+          isDemo: false,
+          isLoading: false,
+        });
         toast.success("Email verified successfully!");
         return true;
       }
@@ -110,9 +155,9 @@ export const useAuthStore = create((set) => ({
     try {
       set({ isLoading: true });
       await axios.get("/api/auth/logout");
-      set({ authUser: null, isAuthenticated: false, isLoading: false });
+      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });
       toast.success("Logged out successfully");
-    } catch (err) {
+    } catch {
       toast.error("Logout failed");
       set({ isLoading: false });
     }
@@ -121,9 +166,9 @@ export const useAuthStore = create((set) => ({
   deleteAccount: async () => {
     try {
       await axios.delete("/api/auth/delete-account");
-      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isLoading: false });
+      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });
       toast.success("Account deleted");
-    } catch (err) {
+    } catch {
       toast.error("Error deleting account");
     }
   },
@@ -159,7 +204,7 @@ export const useAuthStore = create((set) => ({
       toast.error(res.data.message || "Invalid or expired reset link");
       return false;
 
-    } catch (err) {
+    } catch {
       toast.error("Error resetting password");
       return false;
 

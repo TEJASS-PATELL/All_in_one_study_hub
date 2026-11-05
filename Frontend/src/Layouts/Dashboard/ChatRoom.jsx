@@ -1,15 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { io } from 'socket.io-client';
+import { useNavigate } from 'react-router-dom';
 import './ChatRoom.css';
 
 const ChatRoom = () => {
-  const socketRef = useRef(null);
-  const [activeRoom, setActiveRoom] = useState(null);
-  const [messages, setMessages] = useState([]);
-  const [messageText, setMessageText] = useState('');
-  const [memberCount, setMemberCount] = useState(0);
-  const [connectionState, setConnectionState] = useState('connecting');
+  const navigate = useNavigate();
 
   const rooms = [
     {
@@ -34,47 +29,6 @@ const ChatRoom = () => {
       members: "0 Online"
     }
   ];
-
-  useEffect(() => {
-    const socket = io(import.meta.env.VITE_API_URL || window.location.origin, {
-      transports: ['websocket', 'polling'],
-    });
-    socketRef.current = socket;
-    socket.on('connect', () => setConnectionState('connected'));
-    socket.on('disconnect', () => setConnectionState('offline'));
-    socket.on('connect_error', () => setConnectionState('offline'));
-    socket.on('room-history', setMessages);
-    socket.on('new-message', (message) => setMessages((current) => [...current, message].slice(-5)));
-    socket.on('room-state', ({ members }) => setMemberCount(members));
-
-    return () => {
-      socket.emit('leave-room');
-      socket.disconnect();
-    };
-  }, []);
-
-  const handleJoin = (room) => {
-    setActiveRoom(room);
-    setMessages([]);
-    setMessageText('');
-    socketRef.current?.emit('join-room', { room: room.slug });
-  };
-
-  const handleLeave = () => {
-    socketRef.current?.emit('leave-room');
-    setActiveRoom(null);
-    setMessages([]);
-    setMessageText('');
-    setMemberCount(0);
-  };
-
-  const handleSend = (event) => {
-    event.preventDefault();
-    const text = messageText.trim();
-    if (!text || !activeRoom || connectionState !== 'connected') return;
-    socketRef.current?.emit('send-message', { text });
-    setMessageText('');
-  };
 
   return (
     <div className="chatroom-wrapper">
@@ -108,42 +62,13 @@ const ChatRoom = () => {
               </div>
               <button
                 className="join-button"
-                onClick={() => handleJoin(room)}>
-                {activeRoom?.slug === room.slug ? 'Joined' : 'Join Now'} <FaArrowRight />
+                onClick={() => navigate(`/dashboard/chatroom/${room.slug}`)}>
+                Join Now <FaArrowRight />
               </button>
             </div>
           </div>
         ))}
       </div>
-
-      {activeRoom && (
-        <section className="live-chat-panel" aria-label={`${activeRoom.title} live chat`}>
-          <div className="live-chat-header">
-            <div>
-              <span className="room-kicker">Live room</span>
-              <h2>{activeRoom.title}</h2>
-              <p><span className={`connection-dot ${connectionState}`} /> {memberCount} anonymous {memberCount === 1 ? 'person' : 'people'} here</p>
-            </div>
-            <button className="leave-button" onClick={handleLeave}>Leave room</button>
-          </div>
-
-          <div className="live-chat-messages" aria-live="polite">
-            {messages.length === 0 && <p className="chat-empty">You are in. Start the conversation.</p>}
-            {messages.map((message) => (
-              <article className="live-message" key={message.id}>
-                <div className="live-message-meta"><strong>{message.sender}</strong><span>anonymous</span></div>
-                <p>{message.text}</p>
-              </article>
-            ))}
-          </div>
-
-          <form className="live-chat-form" onSubmit={handleSend}>
-            <input value={messageText} onChange={(event) => setMessageText(event.target.value)} maxLength={500} placeholder={connectionState === 'connected' ? 'Write a message...' : 'Connecting to room...'} disabled={connectionState !== 'connected'} />
-            <button type="submit" disabled={!messageText.trim() || connectionState !== 'connected'}>Send</button>
-          </form>
-          <small className="chat-disclaimer">Anonymous session. Only the latest 5 messages are kept temporarily.</small>
-        </section>
-      )}
 
       <div className="privacy-note">
         <h3>Room Policy & Privacy</h3>

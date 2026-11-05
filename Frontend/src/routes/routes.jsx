@@ -25,6 +25,7 @@ import VerifyAccount from "../components/VerifyEmail";
 import Interview from "../layouts/Dashboard/Interview";
 import Experience from "../layouts/Dashboard/Experience";
 const ChatRoom = lazy(() => import('../layouts/Dashboard/ChatRoom'));
+const ChatRoomPage = lazy(() => import('../layouts/Dashboard/ChatRoomPage'));
 const Roadmap = lazy(() => import("../layouts/Dashboard/Roadmap"));
 const TodoPage = lazy(() => import("../layouts/Dashboard/TodoPage"));
 const Layout = lazy(() => import("../layouts/Home/Layout"));
@@ -47,6 +48,7 @@ export const routers = [
           { index: true, element: <TodoPage /> },
           { path: "experience", element: <Experience /> },
           { path: "chatroom", element: <ChatRoom /> },
+          { path: "chatroom/:room", element: <ChatRoomPage /> },
           { path: "ai-interview", element: <Interview /> },
         ],
       },

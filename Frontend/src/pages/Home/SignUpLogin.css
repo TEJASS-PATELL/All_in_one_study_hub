@@ -257,6 +257,34 @@
   transition: background 0.15s ease;
 }
 
+.hub-demo {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.15s ease;
+}
+
+.hub-demo:hover:not(:disabled) {
+  background: #dce6ff;
+}
+
+.hub-demo:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .hub-google:hover {
   background: var(--accent-soft);
 }
@@ -286,6 +314,7 @@
 .hub-forgot:focus-visible,
 .hub-switch a:focus-visible,
 .hub-submit:focus-visible,
+.hub-demo:focus-visible,
 .hub-google:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;

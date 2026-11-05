@@ -33,7 +33,7 @@ const authentication = async (req, res, next) => {
       return res.status(401).json({ success: false, message: "Invalid token payload." });
     }
 
-    const userPayload = { userid: decoded.userid };
+    const userPayload = { userid: decoded.userid, isDemo: decoded.demo === true };
 
     tokenCache.set(token, userPayload);
     await cacheClient.set( `auth:${token}`, JSON.stringify(userPayload), "EX", REDIS_TTL);
