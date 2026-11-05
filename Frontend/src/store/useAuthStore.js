@@ -96,7 +96,10 @@ export const useAuthStore = create((set) => ({
       toast.success("Demo session started");
       return true;
     } catch (err) {
-      toast.error(getRequestErrorMessage(err, "Unable to start demo session"));
+      const message = err?.response?.status === 404
+        ? "Demo login is not available on the server yet. The backend needs to be redeployed."
+        : getRequestErrorMessage(err, "Unable to start demo session");
+      toast.error(message);
       return false;
     } finally {
       set({ isLoading: false });
