@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
+import axios from "axios";
+import toast from "react-hot-toast";
 import "./Interview.css";
+
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
+axios.defaults.withCredentials = true;
 
 const TYPE_META = [
     { key: 'technical', label: 'Technical', code: 'TCH' },
@@ -32,8 +37,10 @@ export default function Interview() {
     const [messages, setMessages] = useState([]);
     const [answer, setAnswer] = useState('');
     const [isThinking, setIsThinking] = useState(false);
+    const [isStarting, setIsStarting] = useState(false);
     const [seconds, setSeconds] = useState(0);
     const [scores, setScores] = useState(null);
+    const [feedback, setFeedback] = useState("");
 
     const chatEndRef = useRef(null);
 
@@ -50,32 +57,71 @@ export default function Interview() {
     const activeType = TYPE_META.find((t) => t.key === type);
     const answeredCount = messages.filter((m) => m.role === 'user').length;
 
-    function handleStart() {
-        // TODO: Replace this with your API call or dynamic question generator
-        // e.g., const qs = await fetchQuestions(type, difficulty, questionCount);
+    async function handleStart() {
+        setIsStarting(true);
+        try {
+            const { data } = await axios.post("/api/interview/questions", {
+                role: role.trim(),
+                company: company.trim(),
+                experience,
+                type,
+                difficulty,
+                questionCount,
+            });
 
-        const dummyQuestions = Array.from(
-            { length: questionCount },
-            (_, i) => `This is a dynamic placeholder question #${i + 1} for the ${type} round.`
-        );
+            if (!data.success || !Array.isArray(data.questions) || data.questions.length !== questionCount) {
+                throw new Error("The interview service returned an invalid question set.");
+            }
 
-        setQuestions(dummyQuestions);
-        setMessages([{ role: 'ai', text: dummyQuestions[0] }]);
-        setSeconds(0);
-        setScores(null);
-        setStage('interview');
+            setQuestions(data.questions);
+            setMessages([{ role: 'ai', text: data.questions[0] }]);
+            setSeconds(0);
+            setScores(null);
+            setFeedback("");
+            setStage('interview');
+        } catch (error) {
+            toast.error(error.response?.data?.message || error.message || "Could not start the interview.");
+        } finally {
+            setIsStarting(false);
+        }
     }
 
-    function computeScores() {
-        const communication = 65 + Math.floor(Math.random() * 30);
-        const technicalDepth = 60 + Math.floor(Math.random() * 35);
-        const confidence = 60 + Math.floor(Math.random() * 35);
-        const clarity = 65 + Math.floor(Math.random() * 30);
-        const overall = Math.round((communication + technicalDepth + confidence + clarity) / 4);
-        return { communication, technicalDepth, confidence, clarity, overall };
+    async function finishInterview(answers) {
+        if (answers.length === 0) {
+            toast.error("Answer at least one question before ending the interview.");
+            return;
+        }
+
+        setIsThinking(true);
+        try {
+            const { data } = await axios.post("/api/interview/evaluate", {
+                role: role.trim(),
+                company: company.trim(),
+                experience,
+                type,
+                questions,
+                answers,
+            });
+
+            if (!data.success || !data.scores || typeof data.feedback !== "string") {
+                throw new Error("The interview service returned invalid feedback.");
+            }
+
+            setScores(data.scores);
+            setFeedback(data.feedback);
+            setStage('result');
+        } catch (error) {
+            toast.error(error.response?.data?.message || error.message || "Could not evaluate your answers.");
+        } finally {
+            setIsThinking(false);
+        }
     }
 
-    function handleSend() {
+    async function handleSend() {
+        if (answeredCount >= questions.length) {
+            await finishInterview(messages.filter((message) => message.role === 'user').map((message) => message.text));
+            return;
+        }
         if (!answer.trim() || isThinking) return;
 
         const nextMessages = [...messages, { role: 'user', text: answer.trim() }];
@@ -85,24 +131,14 @@ export default function Interview() {
         const answeredSoFar = nextMessages.filter((m) => m.role === 'user').length;
 
         if (answeredSoFar < questions.length) {
-            setIsThinking(true);
-            setTimeout(() => {
-                setIsThinking(false);
-                setMessages((m) => [...m, { role: 'ai', text: questions[answeredSoFar] }]);
-            }, 1100);
+            setMessages([...nextMessages, { role: 'ai', text: questions[answeredSoFar] }]);
         } else {
-            setIsThinking(true);
-            setTimeout(() => {
-                setIsThinking(false);
-                setScores(computeScores());
-                setStage('result');
-            }, 1400);
+            await finishInterview(nextMessages.filter((message) => message.role === 'user').map((message) => message.text));
         }
     }
 
-    function handleEndEarly() {
-        setScores(computeScores());
-        setStage('result');
+    async function handleEndEarly() {
+        await finishInterview(messages.filter((message) => message.role === 'user').map((message) => message.text));
     }
 
     function handleRestart() {
@@ -113,6 +149,7 @@ export default function Interview() {
         setIsThinking(false);
         setSeconds(0);
         setScores(null);
+        setFeedback("");
     }
 
     const circumference = 2 * Math.PI * 52;
@@ -207,8 +244,8 @@ export default function Interview() {
                             </div>
                         </div>
 
-                        <button className="iv-start-btn" disabled={!role.trim()} onClick={handleStart}>
-                            Start the interview
+                        <button className="iv-start-btn" disabled={!role.trim() || isStarting} onClick={handleStart}>
+                            {isStarting ? "Preparing interview..." : "Start the interview"}
                         </button>
                     </div>
                 </div>
@@ -228,7 +265,7 @@ export default function Interview() {
                                 <span className="iv-rec-dot"></span>
                                 <span className="iv-mono">{formatTime(seconds)}</span>
                             </div>
-                            <button className="iv-end-btn" onClick={handleEndEarly}>End Early</button>
+                            <button className="iv-end-btn" disabled={isThinking} onClick={handleEndEarly}>End Early</button>
                         </div>
                     </div>
 
@@ -281,9 +318,9 @@ export default function Interview() {
 
                     <div className="iv-input-row">
                         <textarea
-                            placeholder="Type your answer here..."
+                            placeholder={answeredCount >= questions.length ? "Your answers are being evaluated..." : "Type your answer here..."}
                             value={answer}
-                            disabled={isThinking}
+                            disabled={isThinking || answeredCount >= questions.length}
                             onChange={(e) => setAnswer(e.target.value)}
                             onKeyDown={(e) => {
                                 if (e.key === 'Enter' && !e.shiftKey) {
@@ -292,8 +329,12 @@ export default function Interview() {
                                 }
                             }}
                         ></textarea>
-                        <button className="iv-send-btn" disabled={isThinking || !answer.trim()} onClick={handleSend}>
-                            Send answer
+                        <button
+                            className="iv-send-btn"
+                            disabled={isThinking || (answeredCount < questions.length && !answer.trim())}
+                            onClick={handleSend}
+                        >
+                            {isThinking ? "Evaluating..." : answeredCount >= questions.length ? "Retry evaluation" : "Send answer"}
                         </button>
                     </div>
                 </div>
@@ -305,6 +346,7 @@ export default function Interview() {
                         <div className="iv-eyebrow">Session Complete</div>
                         <h2 className="iv-heading">Here's your scorecard</h2>
                         <p className="iv-result-sub">{activeType.label} round · {role}</p>
+                        <p className="iv-result-sub">{feedback}</p>
 
                         <div className="iv-score-wrap">
                             <svg viewBox="0 0 120 120" className="iv-score-svg">

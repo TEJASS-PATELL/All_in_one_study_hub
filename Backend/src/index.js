@@ -13,6 +13,7 @@ import discussionRoutes from "./routes/discussion.route.js";
 import examRoutes from "./routes/exam.route.js";
 import roadmapRoutes from "./routes/roadmap.route.js";
 import chatbotRoutes from "./routes/chatbot.route.js";
+import interviewRoutes from "./routes/interview.route.js";
 import { initSocket } from "./socket.js";
 
 const app = express();
@@ -43,6 +44,8 @@ app.use("/api/discussion", discussionRoutes);
 app.use("/api/exam", examRoutes);
 
 app.use("/api/chat", chatbotRoutes);
+
+app.use("/api/interview", interviewRoutes);
 
 app.use("/api/roadmap", roadmapRoutes);
 

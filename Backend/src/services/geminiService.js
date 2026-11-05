@@ -1,10 +1,14 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export async function generateRoadmap(profileData) {
-  try {
-    const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
-    const prompt = ` You are an expert career coach and industry mentor. Based on the user's profile below, create a **highly detailed, practical, and actionable preparation roadmap**.
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error("Roadmap generation is not configured.");
+  }
+
+  const genAI = new GoogleGenerativeAI(apiKey);
+  const model = genAI.getGenerativeModel({ model: "gemini-3.5-flash" });
+  const prompt = ` You are an expert career coach and industry mentor. Based on the user's profile below, create a **highly detailed, practical, and actionable preparation roadmap**.
     User Preferences for Roadmap:
       - Target Job Type: ${profileData.jobType}
       - Interested Roles: ${profileData.jobRoles}
@@ -59,26 +63,17 @@ Example output format:
 }
     `;
 
-    const result = await model.generateContent(prompt);
-    let text = result.response.text();
+  const result = await model.generateContent(prompt);
+  let text = result.response.text();
 
-    text = text.trim();
-    if (text.startsWith("```")) {
-      text = text.replace(/^```json?\n?/, "").replace(/```$/, "").trim();
-    }
+  text = text.trim();
+  if (text.startsWith("```")) {
+    text = text.replace(/^```json?\n?/, "").replace(/```$/, "").trim();
+  }
 
-    try {
-      return JSON.parse(text);
-    } catch (parseError) {
-      throw new Error("Failed to parse JSON from AI response");
-    }
-  } catch (err) {
-    console.error("Gemini Roadmap Generation Error:", err.message);
-    return {
-      title: "Error",
-      description: "Could not generate roadmap due to an error.",
-      steps: []
-    };
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error("Failed to parse JSON from AI response");
   }
 }
-
