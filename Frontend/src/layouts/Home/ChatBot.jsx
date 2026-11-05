@@ -7,7 +7,7 @@ import { useAuthStore } from "../../store/useAuthStore";
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated, isLocalDemo } = useAuthStore();
+  const { isAuthenticated, isDemo } = useAuthStore();
   const { AIreply, isLoading } = useAiChatBot();
   const [messages, setMessages] = useState([
     { sender: "bot", text: "Hello! I'm your Career Assistant — here to guide you through Government, Private, and IT job opportunities. What would you like to explore today?" }
@@ -22,7 +22,7 @@ export default function ChatBot() {
     setInput("");
 
     try {
-      if (isLocalDemo) {
+      if (isDemo) {
         setMessages((prev) => [
           ...prev,
           {

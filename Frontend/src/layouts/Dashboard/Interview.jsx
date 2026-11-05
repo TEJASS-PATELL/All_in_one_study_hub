@@ -25,7 +25,7 @@ function formatTime(totalSeconds) {
 }
 
 export default function Interview() {
-    const isLocalDemo = useAuthStore((state) => state.isLocalDemo);
+    const isDemo = useAuthStore((state) => state.isDemo);
     const [stage, setStage] = useState('setup');
 
     const [role, setRole] = useState('');
@@ -62,7 +62,7 @@ export default function Interview() {
     async function handleStart() {
         setIsStarting(true);
         try {
-            if (isLocalDemo) {
+            if (isDemo) {
                 const questionSets = {
                     technical: [`What core skills are most important for a ${role.trim()}?`, "Describe a challenging problem you solved and how you approached it.", "How do you test your work and handle mistakes?"],
                     hr: ["Tell me about yourself and the experience most relevant to this role.", "What interests you about this role?", "Describe a time you worked through a difficult situation."],
@@ -112,7 +112,7 @@ export default function Interview() {
             return;
         }
 
-        if (isLocalDemo) {
+        if (isDemo) {
             const averageWords = answers.reduce((total, item) => total + item.trim().split(/\s+/).length, 0) / answers.length;
             const completion = Math.round((answers.length / questions.length) * 100);
             const answerDetail = Math.min(95, Math.round(45 + averageWords * 1.5));

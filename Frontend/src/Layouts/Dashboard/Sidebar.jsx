@@ -7,7 +7,7 @@ import "./Sidebar.css";
 const Sidebar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(() => window.innerWidth > 768);
-  const { authUser: user, logout, deleteAccount } = useAuthStore();
+  const { authUser: user, isDemo, logout, deleteAccount } = useAuthStore();
 
   const handleLogout = () => {
     logout();
@@ -64,9 +64,11 @@ const Sidebar = () => {
           <button className="dashboard-nav-item logout-btn" onClick={handleLogout}>
             <FaSignOutAlt /><span>Logout</span>
           </button>
-          <button className="dashboard-nav-item delete-btn" onClick={handleDelete}>
-            <FaTrash /><span>Delete Account</span>
-          </button>
+          {!isDemo && (
+            <button className="dashboard-nav-item delete-btn" onClick={handleDelete}>
+              <FaTrash /><span>Delete Account</span>
+            </button>
+          )}
         </nav>
       </aside>
 

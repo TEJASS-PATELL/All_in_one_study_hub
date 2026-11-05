@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { LuTrash2, LuCheck, LuX, LuPlus, LuListTodo, LuInfo } from "react-icons/lu";
 import toast from "react-hot-toast";
+import { useAuthStore } from "../../store/useAuthStore";
 import "./TodoPage.css";
 
 const MAX_TASKS = 10;
+const DEMO_TODOS_KEY = "studyHubDemoTodos";
 
 const TodoPage = () => {
+  const { isDemo } = useAuthStore();
+  const storageKey = isDemo ? DEMO_TODOS_KEY : "userTodos";
   const [todoText, setTodoText] = useState("");
   const [todos, setTodos] = useState(() => {
-    const stored = localStorage.getItem("userTodos");
+    const stored = localStorage.getItem(storageKey);
     if (!stored) return [];
     try {
       return JSON.parse(stored);
@@ -18,8 +22,8 @@ const TodoPage = () => {
   });
 
   useEffect(() => {
-    localStorage.setItem("userTodos", JSON.stringify(todos));
-  }, [todos]);
+    localStorage.setItem(storageKey, JSON.stringify(todos));
+  }, [todos, storageKey]);
 
   const completedCount = useMemo(() => {
     return todos.filter((t) => t.completed).length;

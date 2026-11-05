@@ -104,37 +104,20 @@ export const useAuthStore = create((set, get) => ({
 
   demoLogin: async () => {
     ++authCheckVersion;
+    set({ isLoading: true, isAuthChecking: false });
     try {
-      set({ isLoading: true, isAuthChecking: false });
-      const res = await axios.post("/api/auth/demo");
-      const user = res.data?.user;
-
-      if (!user) throw new Error("Invalid demo login response");
-
+      localStorage.setItem(LOCAL_DEMO_KEY, "true");
       set({
-        authUser: user,
+        authUser: LOCAL_DEMO_USER,
         isAuthenticated: true,
         isEmailVerify: true,
         isDemo: true,
-        isLocalDemo: false,
+        isLocalDemo: true,
       });
-      toast.success("Demo session started");
+      toast.success("Offline demo started. Your demo data stays on this device.");
       return true;
-    } catch (err) {
-      if (err?.response?.status === 404) {
-        localStorage.setItem(LOCAL_DEMO_KEY, "true");
-        set({
-          authUser: LOCAL_DEMO_USER,
-          isAuthenticated: true,
-          isEmailVerify: true,
-          isDemo: true,
-          isLocalDemo: true,
-        });
-        toast.success("Offline demo started. Your demo data stays on this device.");
-        return true;
-      }
-
-      toast.error(getRequestErrorMessage(err, "Unable to start demo session"));
+    } catch {
+      toast.error("Unable to start the demo in this browser.");
       return false;
     } finally {
       set({ isLoading: false });

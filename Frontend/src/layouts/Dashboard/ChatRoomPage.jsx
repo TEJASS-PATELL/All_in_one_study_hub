@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { FaArrowLeft, FaPaperPlane } from "react-icons/fa";
 import { io } from "socket.io-client";
 import { useNavigate, useParams } from "react-router-dom";
+import { useAuthStore } from "../../store/useAuthStore";
 import "./ChatRoom.css";
 
 const rooms = {
@@ -19,11 +20,26 @@ export default function ChatRoomPage() {
   const [memberCount, setMemberCount] = useState(0);
   const [connectionState, setConnectionState] = useState("connecting");
   const [socketId, setSocketId] = useState("");
+  const isDemo = useAuthStore((state) => state.isDemo);
   const activeRoom = useMemo(() => rooms[roomSlug], [roomSlug]);
 
   useEffect(() => {
     if (!activeRoom) {
       navigate("/dashboard/chatroom", { replace: true });
+      return undefined;
+    }
+
+    if (isDemo) {
+      setSocketId("offline-demo");
+      setConnectionState("connected");
+      setMemberCount(1);
+      setMessages([{
+        id: `demo-welcome-${activeRoom.slug}`,
+        senderId: "community",
+        sender: "Study Hub",
+        text: `Welcome to the ${activeRoom.title} offline demo room. Messages stay in this browser session.`,
+        createdAt: Date.now(),
+      }]);
       return undefined;
     }
 
@@ -44,12 +60,24 @@ export default function ChatRoomPage() {
       socket.emit("leave-room");
       socket.disconnect();
     };
-  }, [activeRoom, navigate]);
+  }, [activeRoom, isDemo, navigate]);
 
   const handleSend = (event) => {
     event.preventDefault();
     const text = messageText.trim();
     if (!text || connectionState !== "connected") return;
+    if (isDemo) {
+      setMessages((current) => [...current, {
+        id: `demo-${Date.now()}`,
+        senderId: "offline-demo",
+        sender: "You",
+        text,
+        createdAt: Date.now(),
+      }].slice(-20));
+      setMessageText("");
+      return;
+    }
+
     socketRef.current?.emit("send-message", { text });
     setMessageText("");
   };
