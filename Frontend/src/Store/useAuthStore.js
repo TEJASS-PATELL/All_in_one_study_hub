@@ -7,6 +7,14 @@ axios.defaults.withCredentials = true;
 axios.defaults.timeout = 60_000;
 
 let authCheckVersion = 0;
+const LOCAL_DEMO_KEY = "studyHubLocalDemo";
+const LOCAL_DEMO_USER = {
+  id: -1,
+  name: "Study Hub Demo",
+  email: "demo.user@studyhub.demo",
+  isAccountVerified: true,
+  isDemo: true,
+};
 
 const getRequestErrorMessage = (error, fallback) => {
   if (error?.code === "ECONNABORTED") {
@@ -15,18 +23,31 @@ const getRequestErrorMessage = (error, fallback) => {
   return error?.response?.data?.message || error?.response?.data?.msg || fallback;
 };
 
-export const useAuthStore = create((set) => ({
+export const useAuthStore = create((set, get) => ({
   authUser: null,
   isLoading: false,
   isAuthChecking: true,
   isAuthenticated: false,
   isEmailVerify: false,
   isDemo: false,
+  isLocalDemo: false,
   isPasswordReset: false,
 
   fetchUser: async () => {
     const requestVersion = ++authCheckVersion;
     set({ isAuthChecking: true });
+
+    if (localStorage.getItem(LOCAL_DEMO_KEY) === "true") {
+      set({
+        authUser: LOCAL_DEMO_USER,
+        isAuthenticated: true,
+        isEmailVerify: true,
+        isDemo: true,
+        isLocalDemo: true,
+        isAuthChecking: false,
+      });
+      return;
+    }
 
     try {
       const res = await axios.get("/api/auth/getuser");
@@ -37,11 +58,12 @@ export const useAuthStore = create((set) => ({
           isAuthenticated: true,
           isEmailVerify: user.isAccountVerified,
           isDemo: user.isDemo === true,
+          isLocalDemo: false,
         });
       }
     } catch {
       if (requestVersion === authCheckVersion) {
-        set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false });
+        set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLocalDemo: false });
       }
     } finally {
       if (requestVersion === authCheckVersion) {
@@ -59,11 +81,13 @@ export const useAuthStore = create((set) => ({
       const user = res.data?.user || res.data;
 
       if (user) {
+        localStorage.removeItem(LOCAL_DEMO_KEY);
         set({
           authUser: user,
           isAuthenticated: true,
           isEmailVerify: user.isAccountVerified,
           isDemo: false,
+          isLocalDemo: false,
         });
         toast.success("Login successful");
         return true;
@@ -92,14 +116,25 @@ export const useAuthStore = create((set) => ({
         isAuthenticated: true,
         isEmailVerify: true,
         isDemo: true,
+        isLocalDemo: false,
       });
       toast.success("Demo session started");
       return true;
     } catch (err) {
-      const message = err?.response?.status === 404
-        ? "Demo login is not available on the server yet. The backend needs to be redeployed."
-        : getRequestErrorMessage(err, "Unable to start demo session");
-      toast.error(message);
+      if (err?.response?.status === 404) {
+        localStorage.setItem(LOCAL_DEMO_KEY, "true");
+        set({
+          authUser: LOCAL_DEMO_USER,
+          isAuthenticated: true,
+          isEmailVerify: true,
+          isDemo: true,
+          isLocalDemo: true,
+        });
+        toast.success("Offline demo started. Your demo data stays on this device.");
+        return true;
+      }
+
+      toast.error(getRequestErrorMessage(err, "Unable to start demo session"));
       return false;
     } finally {
       set({ isLoading: false });
@@ -158,6 +193,7 @@ export const useAuthStore = create((set) => ({
           isAuthenticated: true,
           isEmailVerify: res.data.user.isAccountVerified,
           isDemo: false,
+          isLocalDemo: false,
         });
         toast.success("Email verified successfully!");
         return true;
@@ -177,10 +213,17 @@ export const useAuthStore = create((set) => ({
 
   logout: async () => {
     ++authCheckVersion;
+    if (get().isLocalDemo) {
+      localStorage.removeItem(LOCAL_DEMO_KEY);
+      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLocalDemo: false, isLoading: false });
+      toast.success("Logged out successfully");
+      return;
+    }
+
     try {
       set({ isLoading: true, isAuthChecking: false });
       await axios.get("/api/auth/logout");
-      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLoading: false });
+      set({ authUser: null, isAuthenticated: false, isEmailVerify: false, isDemo: false, isLocalDemo: false, isLoading: false });
       toast.success("Logged out successfully");
     } catch {
       toast.error("Logout failed");
@@ -189,6 +232,11 @@ export const useAuthStore = create((set) => ({
   },
 
   deleteAccount: async () => {
+    if (get().isDemo) {
+      toast.error("Demo accounts cannot be deleted.");
+      return;
+    }
+
     ++authCheckVersion;
     try {
       await axios.delete("/api/auth/delete-account");

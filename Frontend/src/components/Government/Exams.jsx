@@ -4,6 +4,8 @@ import './Exam.css';
 import axios from 'axios';
 import ExamMetadataAccordion from './ExamMetadataAccordion';
 import Loading from '../../layouts/Home/Loading';
+import { useAuthStore } from "../../store/useAuthStore";
+import { demoGovernmentExams } from "../../data/demoCatalog";
 
 const categories = [
   'Engineering',
@@ -54,6 +56,7 @@ const ExamCard = React.memo(({ exam }) => {
 });
 
 const Exams = () => {
+  const isDemo = useAuthStore((state) => state.isDemo);
   const [activeCategory, setActiveCategory] = useState(null);
   const [exams, setExams] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -61,6 +64,12 @@ const Exams = () => {
   useEffect(() => {
     if (!activeCategory) {
       setExams([]);
+      return;
+    }
+
+    if (isDemo) {
+      setExams(demoGovernmentExams.filter((exam) => exam.category === activeCategory));
+      setLoading(false);
       return;
     }
 
@@ -81,7 +90,7 @@ const Exams = () => {
       .finally(() => setLoading(false));
 
     return () => controller.abort();
-  }, [activeCategory]);
+  }, [activeCategory, isDemo]);
 
   const handleCategoryClick = useCallback((cat) => {
     setActiveCategory((prev) => (prev === cat ? null : cat));

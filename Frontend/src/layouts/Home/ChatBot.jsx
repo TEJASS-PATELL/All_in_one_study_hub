@@ -7,7 +7,7 @@ import { useAuthStore } from "../../store/useAuthStore";
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated } = useAuthStore();
+  const { isAuthenticated, isLocalDemo } = useAuthStore();
   const { AIreply, isLoading } = useAiChatBot();
   const [messages, setMessages] = useState([
     { sender: "bot", text: "Hello! I'm your Career Assistant — here to guide you through Government, Private, and IT job opportunities. What would you like to explore today?" }
@@ -22,8 +22,19 @@ export default function ChatBot() {
     setInput("");
 
     try {
+      if (isLocalDemo) {
+        setMessages((prev) => [
+          ...prev,
+          {
+            sender: "bot",
+            text: "You're using offline demo mode. Explore the government and private job sections, create a local roadmap, or add a daily task. AI answers are unavailable while the server is offline.",
+          },
+        ]);
+        return;
+      }
+
       const reply = await AIreply(input, [...messages, userMsg]);
-      setMessages((prev) => [...prev, { sender: "bot", text: reply }]);
+      setMessages((prev) => [...prev, { sender: "bot", text: reply || "I couldn't get a reply. Please try again." }]);
     } catch {
       setMessages((prev) => [...prev, { sender: "bot", text: "Something went wrong. Try again later." }]);
     }

@@ -3,8 +3,11 @@ import axios from 'axios';
 import './PrivateJobs.css';
 import '../Government/Exam.css';
 import Loading from '../../layouts/Home/Loading';
+import { useAuthStore } from "../../store/useAuthStore";
+import { demoPrivateJobs } from "../../data/demoCatalog";
 
 const PrivateExams = () => {
+  const isDemo = useAuthStore((state) => state.isDemo);
   const [activeCategory, setActiveCategory] = useState(null);
   const [exams, setExams] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -21,6 +24,12 @@ const PrivateExams = () => {
   useEffect(() => {
     if (!activeCategory) {
       setExams([]);
+      return;
+    }
+
+    if (isDemo) {
+      setExams(demoPrivateJobs.filter((job) => job.category === activeCategory));
+      setLoading(false);
       return;
     }
 
@@ -44,7 +53,7 @@ const PrivateExams = () => {
     return () => {
       isMounted = false;
     };
-  }, [activeCategory]);
+  }, [activeCategory, isDemo]);
 
   const filterCards = (category) => {
     setActiveCategory((prev) => (prev === category ? null : category));

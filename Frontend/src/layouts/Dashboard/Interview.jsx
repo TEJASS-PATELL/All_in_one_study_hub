@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useAuthStore } from "../../store/useAuthStore";
 import "./Interview.css";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
@@ -24,6 +25,7 @@ function formatTime(totalSeconds) {
 }
 
 export default function Interview() {
+    const isLocalDemo = useAuthStore((state) => state.isLocalDemo);
     const [stage, setStage] = useState('setup');
 
     const [role, setRole] = useState('');
@@ -60,6 +62,24 @@ export default function Interview() {
     async function handleStart() {
         setIsStarting(true);
         try {
+            if (isLocalDemo) {
+                const questionSets = {
+                    technical: [`What core skills are most important for a ${role.trim()}?`, "Describe a challenging problem you solved and how you approached it.", "How do you test your work and handle mistakes?"],
+                    hr: ["Tell me about yourself and the experience most relevant to this role.", "What interests you about this role?", "Describe a time you worked through a difficult situation."],
+                    behavioral: ["Tell me about a time you had to adapt to a change.", "Describe a goal you achieved through consistent effort.", "How do you respond to constructive feedback?"],
+                    systemDesign: [`How would you clarify requirements before designing a system for ${role.trim()}?`, "How would you handle reliability and scaling?", "How would you evaluate trade-offs in your design?"],
+                };
+                const templates = questionSets[type];
+                const demoQuestions = Array.from({ length: questionCount }, (_, index) => templates[index % templates.length]);
+                setQuestions(demoQuestions);
+                setMessages([{ role: 'ai', text: demoQuestions[0] }]);
+                setSeconds(0);
+                setScores(null);
+                setFeedback("Offline demo questions are for practice and are not an AI evaluation.");
+                setStage('interview');
+                return;
+            }
+
             const { data } = await axios.post("/api/interview/questions", {
                 role: role.trim(),
                 company: company.trim(),
@@ -89,6 +109,26 @@ export default function Interview() {
     async function finishInterview(answers) {
         if (answers.length === 0) {
             toast.error("Answer at least one question before ending the interview.");
+            return;
+        }
+
+        if (isLocalDemo) {
+            const averageWords = answers.reduce((total, item) => total + item.trim().split(/\s+/).length, 0) / answers.length;
+            const completion = Math.round((answers.length / questions.length) * 100);
+            const answerDetail = Math.min(95, Math.round(45 + averageWords * 1.5));
+            const clarity = Math.min(95, Math.round(50 + averageWords));
+            const demoScores = {
+                communication: Math.min(95, Math.round(55 + averageWords)),
+                technicalDepth: answerDetail,
+                confidence: Math.min(95, Math.round(50 + completion * 0.4)),
+                clarity,
+            };
+            demoScores.overall = Math.round(
+                (demoScores.communication + demoScores.technicalDepth + demoScores.confidence + demoScores.clarity) / 4
+            );
+            setScores(demoScores);
+            setFeedback("Offline demo estimate based on answer length only; it is not an AI assessment.");
+            setStage('result');
             return;
         }
 
