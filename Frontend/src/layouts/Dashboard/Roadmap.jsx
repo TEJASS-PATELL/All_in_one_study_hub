@@ -43,8 +43,14 @@ export default function Roadmap() {
     <main className="profile-page-main">
       <section className="profile-page-content">
         {showForm ? (
-          <div className="profile-page-card">
-            <form className="profile-page-form" onSubmit={handleSubmit}>
+          <>
+            <header className="profile-page-intro">
+              <span>Your next steps</span>
+              <h1>Build a roadmap that fits your goals.</h1>
+              <p>Tell us where you want to go and what you already know. Your plan stays clear, practical, and personal.</p>
+            </header>
+            <div className="profile-page-card">
+              <form className="profile-page-form" onSubmit={handleSubmit}>
               <div className="profile-form-group">
                 <label>Job Type You're Preparing For:</label>
                 <select
@@ -127,8 +133,9 @@ export default function Roadmap() {
               <button type="submit" className="profile-submit-button">
                 Save Profile
               </button>
-            </form>
-          </div>
+              </form>
+            </div>
+          </>
         ) : (
           <div className="roadmap-view">
             <div className="roadmap-header">

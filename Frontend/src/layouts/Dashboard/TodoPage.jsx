@@ -67,6 +67,11 @@ const TodoPage = () => {
   return (
     <section className="todo-main-section">
       <main className="dashboard-main">
+        <header className="dashboard-page-heading">
+          <span className="dashboard-page-kicker">Your focus</span>
+          <h1>Make progress, one task at a time.</h1>
+          <p>Keep today simple: add a few priorities, then check them off as you go.</p>
+        </header>
         <div className="dashboard-card">
           <h3>
             <LuListTodo className="todo-title-icon" /> 
